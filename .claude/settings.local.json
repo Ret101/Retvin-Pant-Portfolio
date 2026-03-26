@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "WebSearch",
+      "WebFetch(domain:sparxeng.com)",
+      "WebFetch(domain:www.guadaloop.com)",
+      "WebFetch(domain:longhornbaja.wixsite.com)",
+      "WebFetch(domain:longhornbajaracing.com)",
+      "WebFetch(domain:www.txguadaloop.org)",
+      "WebFetch(domain:hornraiser.utexas.edu)",
+      "Bash(npm run:*)"
+    ]
+  }
+}
