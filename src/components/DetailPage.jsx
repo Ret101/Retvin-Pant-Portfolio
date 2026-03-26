@@ -1,15 +1,13 @@
 import { Link } from 'react-router-dom'
 import { PillGroup } from './PillBadge'
 import InProgressBadge from './InProgressBadge'
-import img from '../img'
-
 export default function DetailPage({ backTo, backLabel, tag, title, heroImage, software, roles, inProgress, children }) {
   return (
     <div className="project-detail">
 
       {heroImage ? (
         <div className="cinematic-header">
-          <div className="cinematic-header-bg" style={{ backgroundImage: `url('${img(heroImage)}')` }} />
+          <div className="cinematic-header-bg" style={{ backgroundImage: `url('${heroImage}')` }} />
           <div className="cinematic-header-overlay" />
           <div className="container cinematic-header-content">
             <Link to={backTo} className="project-detail-back">← {backLabel}</Link>
