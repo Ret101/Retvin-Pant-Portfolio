@@ -6,6 +6,7 @@ const routes = [
   '/',
   '/industry',
   '/industry/swarm-heated-bed',
+  '/industry/swarm-extruder',
   '/industry/spring-steel-wheel',
   '/industry/candy-sorter',
   '/team',
@@ -17,19 +18,24 @@ const routes = [
   '/team/guadaloop',
   '/team/robotics-roadcase',
   '/team/frc-robots',
+  '/team/frc-robots/rooty',
+  '/team/frc-robots/ringo',
+  '/team/frc-robots/brownout',
+  '/team/frc-robots/additional',
   '/personal',
   '/personal/electric-skateboard',
   '/personal/beetleweight',
+  '/skills',
 ]
 
 export default defineConfig({
   plugins: [
     react(),
     sitemap({
-      hostname: 'https://ret101.github.io',
+      hostname: 'https://ret101.github.io/Retvin-Pant-Portfolio',
       dynamicRoutes: routes,
       outDir: 'dist',
     }),
   ],
-  base: '/',
+  base: '/Retvin-Pant-Portfolio/',
 })
