@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://ret101.github.io/sitemap.xml
+Sitemap: https://ret101.github.io/Retvin-Pant-Portfolio/sitemap.xml
