@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import img from '../img'
 
 const slides = [
   { src: '/images/spring steel wheel.jpg', label: 'NASA Spring Steel Wheel Prototype', sub: 'NASA JSC Internship · Summer 2024' },
@@ -24,7 +25,7 @@ export default function HeroCarousel() {
         <div
           key={i}
           className={`hero-carousel-slide${i === current ? ' active' : ''}`}
-          style={{ backgroundImage: `url('${slide.src}')` }}
+          style={{ backgroundImage: `url('${img(slide.src)}')` }}
         />
       ))}
       <div className="hero-carousel-gradient" />

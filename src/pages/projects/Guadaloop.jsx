@@ -1,11 +1,12 @@
 import DetailPage from '../../components/DetailPage'
 import ScrollReveal from '../../components/ScrollReveal'
 import Gallery from '../../components/Gallery'
+import img from '../../img'
 
 const gallery = [
-  { src: '/images/guad pod.png', alt: 'Hyperloop dynamics pod' },
-  { src: '/images/Pod Breakdown.png', alt: 'Pod design overview' },
-  { src: '/images/guadaloop pod fea.png', alt: 'FEA results' },
+  { src: img('/images/guad pod.png'), alt: 'Hyperloop dynamics pod' },
+  { src: img('/images/Pod Breakdown.png'), alt: 'Pod design overview' },
+  { src: img('/images/guadaloop pod fea.png'), alt: 'FEA results' },
 ]
 
 export default function Guadaloop() {
@@ -15,7 +16,7 @@ export default function Guadaloop() {
       backLabel="Team Projects"
       tag="Texas Guadaloop · Austin, TX"
       title="Guadaloop Hyperloop Train Dynamics"
-      heroImage="/images/guad pod.png"
+      heroImage={img('/images/guad pod.png')}
       software={['SolidWorks CAD', 'SolidWorks FEA', 'Welding']}
       roles={['Vehicle Dynamics Engineer']}
     >
@@ -50,7 +51,7 @@ export default function Guadaloop() {
             dynamics of propulsion, guidance, and braking.
           </p>
           <img
-            src="/images/guad pod.png"
+            src={img('/images/guad pod.png')}
             alt="Hyperloop dynamics pod"
             className="project-image-single"
             loading="lazy"
@@ -73,7 +74,7 @@ export default function Guadaloop() {
             <li>Pneumatic braking: on power failure, yokes disengage → wheels contact track → pneumatic brakes engage → rapid stop</li>
           </ul>
           <img
-            src="/images/Pod Breakdown.png"
+            src={img('/images/Pod Breakdown.png')}
             alt="Pod design overview"
             className="project-image-single"
             loading="lazy"
@@ -90,7 +91,7 @@ export default function Guadaloop() {
             of Safety across all critical members.
           </p>
           <img
-            src="/images/guadaloop pod fea.png"
+            src={img('/images/guadaloop pod fea.png')}
             alt="FEA results"
             className="project-image-single"
             loading="lazy"

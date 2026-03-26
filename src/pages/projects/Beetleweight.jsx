@@ -2,11 +2,12 @@ import DetailPage from '../../components/DetailPage'
 import ScrollReveal from '../../components/ScrollReveal'
 import StatRow from '../../components/StatRow'
 import Gallery from '../../components/Gallery'
+import img from '../../img'
 
 const gallery = [
-  { src: '/images/battlebot.jpg', alt: 'Beetleweight battlebot physical' },
-  { src: '/images/battlebot iso topside.png', alt: 'Battlebot CAD view 1' },
-  { src: '/images/battlebot iso underside.png', alt: 'Battlebot CAD view 2' },
+  { src: img('/images/battlebot.jpg'), alt: 'Beetleweight battlebot physical' },
+  { src: img('/images/battlebot iso topside.png'), alt: 'Battlebot CAD view 1' },
+  { src: img('/images/battlebot iso underside.png'), alt: 'Battlebot CAD view 2' },
 ]
 
 export default function Beetleweight() {
@@ -16,7 +17,7 @@ export default function Beetleweight() {
       backLabel="Personal Projects"
       tag="Texas Roborumble · UT Austin"
       title="Beetleweight Battlebot"
-      heroImage="/images/battlebot.jpg"
+      heroImage={img('/images/battlebot.jpg')}
       software={['Onshape CAD', '3D Printing']}
       roles={['Mechanical Designer']}
     >
@@ -59,9 +60,9 @@ export default function Beetleweight() {
             and the spinning weapon's gyroscopic forces also assist with driving.
           </p>
           <div className="project-image-grid">
-            <img src="/images/battlebot.jpg" alt="Beetleweight battlebot physical" loading="lazy" />
-            <img src="/images/battlebot iso topside.png" alt="Battlebot CAD view 1" loading="lazy" />
-            <img src="/images/battlebot iso underside.png" alt="Battlebot CAD view 2" loading="lazy" />
+            <img src={img('/images/battlebot.jpg')} alt="Beetleweight battlebot physical" loading="lazy" />
+            <img src={img('/images/battlebot iso topside.png')} alt="Battlebot CAD view 1" loading="lazy" />
+            <img src={img('/images/battlebot iso underside.png')} alt="Battlebot CAD view 2" loading="lazy" />
           </div>
         </div>
       </ScrollReveal>

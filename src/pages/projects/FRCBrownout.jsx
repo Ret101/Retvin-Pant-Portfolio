@@ -1,23 +1,24 @@
 import DetailPage from '../../components/DetailPage'
 import ScrollReveal from '../../components/ScrollReveal'
 import Gallery from '../../components/Gallery'
+import img from '../../img'
 
 const gallery = [
-  { src: '/images/brownout robot frc.jpg', alt: 'Brownout robot' },
-  { src: '/images/brownout robot in action frc.jpg', alt: 'Brownout in action' },
-  { src: '/images/brownout iso front.png', alt: 'Brownout CAD front' },
-  { src: '/images/brownout frc robot iso back.png', alt: 'Brownout CAD back' },
-  { src: '/images/brownout base assembly.png', alt: 'Brownout base' },
-  { src: '/images/brownout intake assembly.png', alt: 'Brownout intake' },
-  { src: '/images/brownout shooter assembly.png', alt: 'Brownout shooter' },
-  { src: '/images/brownout end effector and climber assembly.png', alt: 'Climber and amp' },
+  { src: img('/images/brownout robot frc.jpg'), alt: 'Brownout robot' },
+  { src: img('/images/brownout robot in action frc.jpg'), alt: 'Brownout in action' },
+  { src: img('/images/brownout iso front.png'), alt: 'Brownout CAD front' },
+  { src: img('/images/brownout frc robot iso back.png'), alt: 'Brownout CAD back' },
+  { src: img('/images/brownout base assembly.png'), alt: 'Brownout base' },
+  { src: img('/images/brownout intake assembly.png'), alt: 'Brownout intake' },
+  { src: img('/images/brownout shooter assembly.png'), alt: 'Brownout shooter' },
+  { src: img('/images/brownout end effector and climber assembly.png'), alt: 'Climber and amp' },
 ]
 
 const subsystems = [
-  { name: 'Base', desc: 'Swerve drive with independent wheel control for both propulsion and rotation. Two swerve modules feature one motor inverted to enable the under-bumper intake design. A bellypan provides clean electronics mounting.', image: '/images/brownout base assembly.png' },
-  { name: 'Intake', desc: 'Under-bumper intake — the robot drives over a game piece, grabs it, pulls it in, and compresses it to send toward the shooter.', image: '/images/brownout intake assembly.png' },
-  { name: 'Shooter', desc: 'Fed from the under-bumper intake, shoots game pieces into the speaker. Variable angle adjustment enables shots from the opposite side of the field. Three motors: 1 for angle, 2 flywheel. Fins on top enable hub scoring while climbing.', image: '/images/brownout shooter assembly.png' },
-  { name: 'Climber and Amp', desc: 'A combined mechanism bolted to the base boxtube. The climber runs along the boxtube and pulls down the field chain to lift the robot. The amp mechanism rotates an upper arm to the amp position and bounces the piece into the amp goal.', image: '/images/brownout end effector and climber assembly.png' },
+  { name: 'Base', desc: 'Swerve drive with independent wheel control for both propulsion and rotation. Two swerve modules feature one motor inverted to enable the under-bumper intake design. A bellypan provides clean electronics mounting.', image: img('/images/brownout base assembly.png') },
+  { name: 'Intake', desc: 'Under-bumper intake — the robot drives over a game piece, grabs it, pulls it in, and compresses it to send toward the shooter.', image: img('/images/brownout intake assembly.png') },
+  { name: 'Shooter', desc: 'Fed from the under-bumper intake, shoots game pieces into the speaker. Variable angle adjustment enables shots from the opposite side of the field. Three motors: 1 for angle, 2 flywheel. Fins on top enable hub scoring while climbing.', image: img('/images/brownout shooter assembly.png') },
+  { name: 'Climber and Amp', desc: 'A combined mechanism bolted to the base boxtube. The climber runs along the boxtube and pulls down the field chain to lift the robot. The amp mechanism rotates an upper arm to the amp position and bounces the piece into the amp goal.', image: img('/images/brownout end effector and climber assembly.png') },
 ]
 
 export default function FRCBrownout() {
@@ -27,7 +28,7 @@ export default function FRCBrownout() {
       backLabel="FRC Robots"
       tag="FRC Team 5414 · 2024 Season"
       title='2024 — "Brownout"'
-      heroImage="/images/brownout robot frc.jpg"
+      heroImage={img('/images/brownout robot frc.jpg')}
       software={['Onshape CAD', 'Prototyping', '3D Printing', 'CNC Router', 'Shop Tools']}
       roles={['Technical Team Captain', 'Mechanical Designer', 'Fabrication Lead']}
     >

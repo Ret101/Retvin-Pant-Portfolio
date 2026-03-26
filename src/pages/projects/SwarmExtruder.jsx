@@ -1,11 +1,12 @@
 import DetailPage from '../../components/DetailPage'
 import ScrollReveal from '../../components/ScrollReveal'
 import Gallery from '../../components/Gallery'
+import img from '../../img'
 
 const gallery = [
-  { src: '/images/UR5E.jpg', alt: 'UR5E arm with extruder end effector' },
-  { src: '/images/robot arm end effector full assembly.png', alt: 'Extruder head design – view 1' },
-  { src: '/images/robot arm end effector without components.png', alt: 'Extruder head design – view 2' },
+  { src: img('/images/UR5E.jpg'), alt: 'UR5E arm with extruder end effector' },
+  { src: img('/images/robot arm end effector full assembly.png'), alt: 'Extruder head design – view 1' },
+  { src: img('/images/robot arm end effector without components.png'), alt: 'Extruder head design – view 2' },
 ]
 
 export default function SwarmExtruder() {
@@ -15,7 +16,7 @@ export default function SwarmExtruder() {
       backLabel="Industry Experience"
       tag="UT Austin · FIRE Program"
       title="Swarm Manufacturing Research – Extruder End Effector"
-      heroImage="/images/UR5E.jpg"
+      heroImage={img('/images/UR5E.jpg')}
       software={['Onshape CAD', 'Ansys', '3D Printing', 'CNC Mill', 'Presentation Skills']}
       roles={['Mechanical Design']}
     >
@@ -58,7 +59,7 @@ export default function SwarmExtruder() {
             built on the last DOF.
           </p>
           <img
-            src="/images/UR5E.jpg"
+            src={img('/images/UR5E.jpg')}
             alt="UR5E arm with extruder end effector"
             className="project-image-single"
             loading="lazy"
@@ -76,12 +77,12 @@ export default function SwarmExtruder() {
           </p>
           <div className="project-image-grid">
             <img
-              src="/images/robot arm end effector full assembly.png"
+              src={img('/images/robot arm end effector full assembly.png')}
               alt="Extruder head design – view 1"
               loading="lazy"
             />
             <img
-              src="/images/robot arm end effector without components.png"
+              src={img('/images/robot arm end effector without components.png')}
               alt="Extruder head design – view 2"
               loading="lazy"
             />
@@ -97,7 +98,7 @@ export default function SwarmExtruder() {
             toolhead component to ensure that the hot end and cold end components do not break under heavy load.
           </p>
           <img
-            src="/images/extruder ansys gif looped.gif"
+            src={img('/images/extruder ansys gif looped.gif')}
             alt="Ansys FEA analysis animation"
             className="project-image-single"
             loading="lazy"
@@ -112,7 +113,7 @@ export default function SwarmExtruder() {
             The design worked and was able to print, though it does need to undergo further testing.
           </p>
           <video
-            src="/images/Extruder print success 1.mp4"
+            src={img('/images/Extruder print success 1.mp4')}
             controls
             style={{ width: '100%', borderRadius: 'var(--radius-sm)', border: '1px solid var(--card-border)', marginTop: 16, display: 'block' }}
           />

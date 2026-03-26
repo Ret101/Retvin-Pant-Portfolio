@@ -1,15 +1,16 @@
 import ProjectCard from '../components/ProjectCard'
 import ScrollReveal from '../components/ScrollReveal'
+import img from '../img'
 
 const projects = [
   {
-    image: '/images/skateboard horizontal.jpg',
+    image: img('/images/skateboard horizontal.jpg'),
     title: 'Electric Skateboard',
     description: 'Custom-built electric skateboard reaching 12 mph and 15 miles per charge, built for ~$250 using ESP32 and custom CAD parts.',
     to: '/personal/electric-skateboard',
   },
   {
-    image: '/images/battlebot.jpg',
+    image: img('/images/battlebot.jpg'),
     title: 'Beetleweight Battlebot',
     description: 'Sub-3 lb combat robot for Texas Roborumble at UT Austin — vertical spinner with TPU chassis, went 3-2-0.',
     to: '/personal/beetleweight',

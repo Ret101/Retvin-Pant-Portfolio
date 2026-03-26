@@ -3,17 +3,18 @@ import CADEmbed from '../../components/CADEmbed'
 import ScrollReveal from '../../components/ScrollReveal'
 import StatRow from '../../components/StatRow'
 import Gallery from '../../components/Gallery'
+import img from '../../img'
 
 const gallery = [
-  { src: '/images/skateboard horizontal.jpg', alt: 'Electric skateboard full view 1' },
-  { src: '/images/skateboard top down horizontal.jpg', alt: 'Electric skateboard full view 2' },
-  { src: '/images/skateboard wheel and wheel hub pulley.png', alt: 'Wheel pulley 1' },
-  { src: '/images/skateboard wheel mounted pulley.png', alt: 'Wheel pulley 2' },
-  { src: '/images/skateboard motorboard pulley.png', alt: 'Wheel pulley 3' },
-  { src: '/images/skateboard motor mount  iso.png', alt: 'Motor mount 1' },
-  { src: '/images/skateboard cad underside.png', alt: 'Motor mount 2' },
-  { src: '/images/skateboard motorboard pulley.png', alt: 'Motor pulley' },
-  { src: '/images/skateboard underside.jpg', alt: 'Electronics casing' },
+  { src: img('/images/skateboard horizontal.jpg'), alt: 'Electric skateboard full view 1' },
+  { src: img('/images/skateboard top down horizontal.jpg'), alt: 'Electric skateboard full view 2' },
+  { src: img('/images/skateboard wheel and wheel hub pulley.png'), alt: 'Wheel pulley 1' },
+  { src: img('/images/skateboard wheel mounted pulley.png'), alt: 'Wheel pulley 2' },
+  { src: img('/images/skateboard motorboard pulley.png'), alt: 'Wheel pulley 3' },
+  { src: img('/images/skateboard motor mount  iso.png'), alt: 'Motor mount 1' },
+  { src: img('/images/skateboard cad underside.png'), alt: 'Motor mount 2' },
+  { src: img('/images/skateboard motorboard pulley.png'), alt: 'Motor pulley' },
+  { src: img('/images/skateboard underside.jpg'), alt: 'Electronics casing' },
 ]
 
 export default function ElectricSkateboard() {
@@ -23,7 +24,7 @@ export default function ElectricSkateboard() {
       backLabel="Personal Projects"
       tag="Personal Project · First Semester College"
       title="Electric Skateboard"
-      heroImage="/images/skateboard horizontal.jpg"
+      heroImage={img('/images/skateboard horizontal.jpg')}
       software={['SolidWorks CAD', '3D Printing', 'CNC Mill', 'Arduino', 'C++ Programming']}
       roles={['Designer', 'Fabricator', 'Programmer']}
     >
@@ -54,8 +55,8 @@ export default function ElectricSkateboard() {
             in SolidWorks and fabricated with 3D printing and a CNC mill.
           </p>
           <div className="project-image-grid">
-            <img src="/images/skateboard horizontal.jpg" alt="Electric skateboard full view 1" loading="lazy" />
-            <img src="/images/skateboard underside.jpg" alt="Electric skateboard underside" loading="lazy" />
+            <img src={img('/images/skateboard horizontal.jpg')} alt="Electric skateboard full view 1" loading="lazy" />
+            <img src={img('/images/skateboard underside.jpg')} alt="Electric skateboard underside" loading="lazy" />
           </div>
         </div>
       </ScrollReveal>
@@ -78,8 +79,8 @@ export default function ElectricSkateboard() {
             pulley. Ensures positive rotation transfer from the belt drive system to the wheel.
           </p>
           <div className="project-image-grid">
-            <img src="/images/skateboard wheel and wheel hub pulley.png" alt="Wheel pulley 1" loading="lazy" />
-            <img src="/images/skateboard wheel mounted pulley.png" alt="Wheel pulley 2" loading="lazy" />
+            <img src={img('/images/skateboard wheel and wheel hub pulley.png')} alt="Wheel pulley 1" loading="lazy" />
+            <img src={img('/images/skateboard wheel mounted pulley.png')} alt="Wheel pulley 2" loading="lazy" />
           </div>
         </div>
       </ScrollReveal>
@@ -93,8 +94,8 @@ export default function ElectricSkateboard() {
             iteration made possible by 3D printing.
           </p>
           <div className="project-image-grid">
-            <img src="/images/skateboard motor mount  iso.png" alt="Motor mount 1" loading="lazy" />
-            <img src="/images/skateboard cad underside.png" alt="Motor mount 2" loading="lazy" />
+            <img src={img('/images/skateboard motor mount  iso.png')} alt="Motor mount 1" loading="lazy" />
+            <img src={img('/images/skateboard cad underside.png')} alt="Motor mount 2" loading="lazy" />
           </div>
         </div>
       </ScrollReveal>
@@ -106,7 +107,7 @@ export default function ElectricSkateboard() {
             A 30-tooth HTD pulley meshes around the motor spindle to transfer torque from the motor to
             the wheel pulley via a toothed belt.
           </p>
-          <img src="/images/skateboard motorboard pulley.png" alt="Motor pulley" className="project-image-single" loading="lazy" />
+          <img src={img('/images/skateboard motorboard pulley.png')} alt="Motor pulley" className="project-image-single" loading="lazy" />
         </div>
       </ScrollReveal>
 
@@ -118,7 +119,7 @@ export default function ElectricSkateboard() {
             coated in epoxy — hiding layer lines from 3D printing, providing waterproofing, and
             significantly increasing structural strength.
           </p>
-          <img src="/images/skateboard underside.jpg" alt="Electronics casing" className="project-image-single" loading="lazy" />
+          <img src={img('/images/skateboard underside.jpg')} alt="Electronics casing" className="project-image-single" loading="lazy" />
         </div>
       </ScrollReveal>
 

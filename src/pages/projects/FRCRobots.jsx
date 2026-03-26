@@ -2,47 +2,48 @@ import { Link } from 'react-router-dom'
 import DetailPage from '../../components/DetailPage'
 import ScrollReveal from '../../components/ScrollReveal'
 import Gallery from '../../components/Gallery'
+import img from '../../img'
 
 const robots = [
   {
     title: 'Rooty',
     year: '2023',
-    image: '/images/rooty frc robot.jpg',
+    image: img('/images/rooty frc robot.jpg'),
     description: '6-subsystem robot capable of scoring at all positions. Features a 1-DOF arm, cone intake, cube shooter, and carbon fiber big stick.',
     to: '/team/frc-robots/rooty',
   },
   {
     title: 'Ringo',
     year: '2024',
-    image: '/images/ringo full assembly iso.png',
+    image: img('/images/ringo full assembly iso.png'),
     description: 'Combined shooter-intake with crankshaft angle control and a fast amp-scoring arm. Designed for the 2024 Crescendo game.',
     to: '/team/frc-robots/ringo',
   },
   {
     title: 'Brownout',
     year: '2024',
-    image: '/images/brownout robot frc.jpg',
+    image: img('/images/brownout robot frc.jpg'),
     description: 'Full redesign with under-bumper intake, variable-angle shooter, climbing mechanism, and far-side field scoring capability.',
     to: '/team/frc-robots/brownout',
   },
   {
     title: 'Additional Designs',
     year: '2023–2024',
-    image: '/images/additional robot design.png',
+    image: img('/images/additional robot design.png'),
     description: 'Additional robot concepts and designs developed during the 2023–2024 seasons for specific game scenarios and offseason events.',
     to: '/team/frc-robots/additional',
   },
 ]
 
 const gallery = [
-  { src: '/images/rooty frc robot.jpg', alt: 'Rooty 2023' },
-  { src: '/images/rooty full assembly.png', alt: 'Rooty CAD' },
-  { src: '/images/ringo full assembly iso.png', alt: 'Ringo 2024' },
-  { src: '/images/ringo iso back.png', alt: 'Ringo CAD back' },
-  { src: '/images/brownout robot frc.jpg', alt: 'Brownout 2024' },
-  { src: '/images/brownout robot in action frc.jpg', alt: 'Brownout in action' },
-  { src: '/images/brownout iso front.png', alt: 'Brownout CAD front' },
-  { src: '/images/brownout frc robot iso back.png', alt: 'Brownout CAD back' },
+  { src: img('/images/rooty frc robot.jpg'), alt: 'Rooty 2023' },
+  { src: img('/images/rooty full assembly.png'), alt: 'Rooty CAD' },
+  { src: img('/images/ringo full assembly iso.png'), alt: 'Ringo 2024' },
+  { src: img('/images/ringo iso back.png'), alt: 'Ringo CAD back' },
+  { src: img('/images/brownout robot frc.jpg'), alt: 'Brownout 2024' },
+  { src: img('/images/brownout robot in action frc.jpg'), alt: 'Brownout in action' },
+  { src: img('/images/brownout iso front.png'), alt: 'Brownout CAD front' },
+  { src: img('/images/brownout frc robot iso back.png'), alt: 'Brownout CAD back' },
 ]
 
 export default function FRCRobots() {
@@ -52,7 +53,7 @@ export default function FRCRobots() {
       backLabel="Team Projects"
       tag="FRC Team 5414 · 2023–2024"
       title="FRC Robots (Team 5414)"
-      heroImage="/images/brownout robot frc.jpg"
+      heroImage={img('/images/brownout robot frc.jpg')}
       software={['Onshape CAD', 'Prototyping', '3D Printing', 'CNC Router', 'Shop Tools', 'Presentation Skills']}
       roles={['Technical Team Captain', 'Mechanical Designer', 'Fabrication Lead', 'Pit Boss']}
     >

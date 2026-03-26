@@ -1,12 +1,13 @@
 import DetailPage from '../../components/DetailPage'
 import ScrollReveal from '../../components/ScrollReveal'
 import Gallery from '../../components/Gallery'
+import img from '../../img'
 
 const gallery = [
-  { src: '/images/roadcase.png', alt: 'Road case hero' },
-  { src: '/images/roadcase front view.png', alt: 'Road case overview' },
-  { src: '/images/roadcase iso view.png', alt: 'Road case components 1' },
-  { src: '/images/roadcase at competition.png', alt: 'Road case components 2' },
+  { src: img('/images/roadcase.png'), alt: 'Road case hero' },
+  { src: img('/images/roadcase front view.png'), alt: 'Road case overview' },
+  { src: img('/images/roadcase iso view.png'), alt: 'Road case components 1' },
+  { src: img('/images/roadcase at competition.png'), alt: 'Road case components 2' },
 ]
 
 export default function RoboticsRoadcase() {
@@ -16,7 +17,7 @@ export default function RoboticsRoadcase() {
       backLabel="Team Projects"
       tag="FRC Team 5414"
       title="Robotics Road Case"
-      heroImage="/images/roadcase at competition.png"
+      heroImage={img('/images/roadcase at competition.png')}
       software={['Onshape CAD', '3D Printing', 'CNC Mill', 'Shop Tools']}
       roles={['Designer', 'Assembly Lead']}
     >
@@ -46,7 +47,7 @@ export default function RoboticsRoadcase() {
         <div className="project-section">
           <h3>Overview</h3>
           <img
-            src="/images/roadcase front view.png"
+            src={img('/images/roadcase front view.png')}
             alt="Road case overview"
             className="project-image-single"
             loading="lazy"
@@ -64,8 +65,8 @@ export default function RoboticsRoadcase() {
             lighting, power outlets, and a computer workstation.
           </p>
           <div className="project-image-grid">
-            <img src="/images/roadcase iso view.png" alt="Road case components 1" loading="lazy" />
-            <img src="/images/roadcase at competition.png" alt="Road case components 2" loading="lazy" />
+            <img src={img('/images/roadcase iso view.png')} alt="Road case components 1" loading="lazy" />
+            <img src={img('/images/roadcase at competition.png')} alt="Road case components 2" loading="lazy" />
           </div>
         </div>
       </ScrollReveal>

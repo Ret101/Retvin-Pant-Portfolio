@@ -4,6 +4,7 @@ import ScrollReveal from '../../components/ScrollReveal'
 import Gallery from '../../components/Gallery'
 import StickyTOC from '../../components/StickyTOC'
 import InProgressBadge from '../../components/InProgressBadge'
+import img from '../../img'
 
 const toc = [
   { id: 'intro',       label: 'Introduction' },
@@ -38,8 +39,8 @@ const subprojects = [
 ]
 
 const gallery = [
-  { src: '/images/car mastersketch v2.png', alt: 'Longhorn Baja vehicle' },
-  { src: '/images/Baja Mastersketch v1.png', alt: 'Master sketch V1' },
+  { src: img('/images/car mastersketch v2.png'), alt: 'Longhorn Baja vehicle' },
+  { src: img('/images/Baja Mastersketch v1.png'), alt: 'Master sketch V1' },
 ]
 
 export default function LonghornBaja() {
@@ -51,7 +52,7 @@ export default function LonghornBaja() {
         backLabel="Team Projects"
         tag="SAE Baja · Austin, TX"
         title="SAE Longhorn Baja 25'–26' Vehicle"
-        heroImage="/images/car mastersketch v2.png"
+        heroImage={img('/images/car mastersketch v2.png')}
         software={['SolidWorks CAD', 'SolidWorks FEA', 'Lotus Shark']}
         roles={['Co-Founder', 'Co-Captain', 'Vehicle Dynamics Lead']}
         inProgress

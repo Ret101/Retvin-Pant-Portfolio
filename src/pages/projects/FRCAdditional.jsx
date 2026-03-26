@@ -1,5 +1,6 @@
 import DetailPage from '../../components/DetailPage'
 import ScrollReveal from '../../components/ScrollReveal'
+import img from '../../img'
 
 export default function FRCAdditional() {
   return (
@@ -8,7 +9,7 @@ export default function FRCAdditional() {
       backLabel="FRC Robots"
       tag="FRC Team 5414 · 2023–2024"
       title="Additional Designed Robots"
-      heroImage="/images/additional robot design.png"
+      heroImage={img('/images/additional robot design.png')}
       software={['Onshape CAD', 'Prototyping', '3D Printing', 'CNC Router']}
       roles={['Mechanical Designer', 'Technical Team Captain']}
     >

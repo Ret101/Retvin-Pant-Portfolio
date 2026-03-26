@@ -1,20 +1,21 @@
 import DetailPage from '../../components/DetailPage'
 import ScrollReveal from '../../components/ScrollReveal'
 import Gallery from '../../components/Gallery'
+import img from '../../img'
 
 const gallery = [
-  { src: '/images/ringo full assembly iso.png', alt: 'Ringo full assembly' },
-  { src: '/images/ringo iso back.png', alt: 'Ringo iso back' },
-  { src: '/images/ringo base assembly.png', alt: 'Ringo base' },
-  { src: '/images/ringo shooter assembly.png', alt: 'Ringo shooter and intake' },
-  { src: '/images/ringo arm end effector assembly.png', alt: 'Amp mechanism' },
-  { src: '/images/ringo frc robot driving.png', alt: 'Ringo driving' },
+  { src: img('/images/ringo full assembly iso.png'), alt: 'Ringo full assembly' },
+  { src: img('/images/ringo iso back.png'), alt: 'Ringo iso back' },
+  { src: img('/images/ringo base assembly.png'), alt: 'Ringo base' },
+  { src: img('/images/ringo shooter assembly.png'), alt: 'Ringo shooter and intake' },
+  { src: img('/images/ringo arm end effector assembly.png'), alt: 'Amp mechanism' },
+  { src: img('/images/ringo frc robot driving.png'), alt: 'Ringo driving' },
 ]
 
 const subsystems = [
-  { name: 'Base', desc: 'Swerve drive using SDS swerve modules with Colson wheels for extra grip and reliable traction.', image: '/images/ringo base assembly.png' },
-  { name: 'Shooter and Intake', desc: 'A combined mechanism where the shooter angles down to pick up game pieces from the ground. A crankshaft mechanism handles angle changes. 3 motors: 1 angle, 2 flywheels using double-sided timing belts. Compression tuning for accuracy and range.', image: '/images/ringo shooter assembly.png' },
-  { name: 'Amp Mechanism', desc: 'A fast-rotating arm that swivels in front of the shooter, causing the game piece to bounce into the amp scoring position.', image: '/images/ringo arm end effector assembly.png' },
+  { name: 'Base', desc: 'Swerve drive using SDS swerve modules with Colson wheels for extra grip and reliable traction.', image: img('/images/ringo base assembly.png') },
+  { name: 'Shooter and Intake', desc: 'A combined mechanism where the shooter angles down to pick up game pieces from the ground. A crankshaft mechanism handles angle changes. 3 motors: 1 angle, 2 flywheels using double-sided timing belts. Compression tuning for accuracy and range.', image: img('/images/ringo shooter assembly.png') },
+  { name: 'Amp Mechanism', desc: 'A fast-rotating arm that swivels in front of the shooter, causing the game piece to bounce into the amp scoring position.', image: img('/images/ringo arm end effector assembly.png') },
 ]
 
 export default function FRCRingo() {
@@ -24,7 +25,7 @@ export default function FRCRingo() {
       backLabel="FRC Robots"
       tag="FRC Team 5414 · 2024 Season"
       title='2024 — "Ringo"'
-      heroImage="/images/ringo frc robot driving.png"
+      heroImage={img('/images/ringo frc robot driving.png')}
       software={['Onshape CAD', 'Prototyping', '3D Printing', 'CNC Router', 'Shop Tools']}
       roles={['Technical Team Captain', 'Mechanical Designer', 'Fabrication Lead']}
     >

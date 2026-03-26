@@ -1,35 +1,36 @@
 import ProjectCard from '../components/ProjectCard'
 import ScrollReveal from '../components/ScrollReveal'
+import img from '../img'
 
 const projects = [
   {
-    image: '/images/roboball.jpg',
+    image: img('/images/roboball.jpg'),
     title: 'Roboball',
     description: 'Engineering prototype developed during industry experience.',
     to: null,
     comingSoon: true,
   },
   {
-    image: '/images/robotic bed full img.png',
+    image: img('/images/robotic bed full img.png'),
     title: 'Swarm Manufacturing — Hotswappable Heated Bed',
     description: 'UT SiDi Lab: custom resistive PCB heated bed with scissor-lift mechanism for Swarm 3D manufacturing.',
     to: '/industry/swarm-heated-bed',
     inProgress: true,
   },
   {
-    image: '/images/UR5E.jpg',
+    image: img('/images/UR5E.jpg'),
     title: 'Swarm Manufacturing — Extruder',
     description: 'UT SiDi Lab: custom extruder design for the UR5E robotic arm converted into a 3D printer.',
     to: '/industry/swarm-extruder',
   },
   {
-    image: '/images/spring steel wheel.jpg',
+    image: img('/images/spring steel wheel.jpg'),
     title: 'Spring Steel Wheel',
     description: 'NASA Johnson Space Center: spring steel wheel prototype and universal hub for Microchariot lunar rover testing.',
     to: '/industry/spring-steel-wheel',
   },
   {
-    image: '/images/sweetsifter.jpg',
+    image: img('/images/sweetsifter.jpg'),
     title: 'Automated Candy Sorter',
     description: 'SPARX Engineering: autonomous multi-stage self-sorting machine with ~90% accuracy, showcased at trade shows.',
     to: '/industry/candy-sorter',

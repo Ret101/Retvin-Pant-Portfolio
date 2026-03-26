@@ -2,6 +2,7 @@ import DetailPage from '../../components/DetailPage'
 import ScrollReveal from '../../components/ScrollReveal'
 import Gallery from '../../components/Gallery'
 import StickyTOC from '../../components/StickyTOC'
+import img from '../../img'
 
 const toc = [
   { id: 'overview',    label: 'Overview'        },
@@ -13,12 +14,12 @@ const toc = [
 ]
 
 const gallery = [
-  { src: '/images/Baja Mastersketch v1.png', alt: 'Master sketch V1' },
-  { src: '/images/car mastersketch v2.png', alt: 'Master sketch V2' },
-  { src: '/images/car mastersketch v3.png', alt: 'Master sketch V3' },
-  { src: '/images/lotusimage.png', alt: 'Lotus Shark view 1' },
-  { src: '/images/imagelotus2.png', alt: 'Lotus Shark view 2' },
-  { src: '/images/lotus shark animation gif.gif', alt: 'Suspension animation' },
+  { src: img('/images/Baja Mastersketch v1.png'), alt: 'Master sketch V1' },
+  { src: img('/images/car mastersketch v2.png'), alt: 'Master sketch V2' },
+  { src: img('/images/car mastersketch v3.png'), alt: 'Master sketch V3' },
+  { src: img('/images/lotusimage.png'), alt: 'Lotus Shark view 1' },
+  { src: img('/images/imagelotus2.png'), alt: 'Lotus Shark view 2' },
+  { src: img('/images/lotus shark animation gif.gif'), alt: 'Suspension animation' },
 ]
 
 export default function BajaMasterSketch() {
@@ -30,7 +31,7 @@ export default function BajaMasterSketch() {
         backLabel="Longhorn Baja"
         tag="SAE Baja · Vehicle Dynamics"
         title="Master Sketch"
-        heroImage="/images/car mastersketch v3.png"
+        heroImage={img('/images/car mastersketch v3.png')}
         software={['SolidWorks CAD', 'Lotus Shark']}
         roles={['Vehicle Dynamics Lead']}
         inProgress
@@ -64,7 +65,7 @@ export default function BajaMasterSketch() {
                 travel range during early design phases.
               </p>
               <img
-                src="/images/Baja Mastersketch v1.png"
+                src={img('/images/Baja Mastersketch v1.png')}
                 alt="Master sketch V1"
                 className="project-image-single"
                 loading="lazy"
@@ -88,7 +89,7 @@ export default function BajaMasterSketch() {
                 picture of suspension kinematics across the full travel range.
               </p>
               <img
-                src="/images/car mastersketch v2.png"
+                src={img('/images/car mastersketch v2.png')}
                 alt="Master sketch V2"
                 className="project-image-single"
                 loading="lazy"
@@ -110,7 +111,7 @@ export default function BajaMasterSketch() {
                 hardpoint positions derived from Lotus Shark verification and component packaging constraints.
               </p>
               <img
-                src="/images/car mastersketch v3.png"
+                src={img('/images/car mastersketch v3.png')}
                 alt="Master sketch V3"
                 className="project-image-single"
                 loading="lazy"
@@ -134,8 +135,8 @@ export default function BajaMasterSketch() {
                 hardpoint locations.
               </p>
               <div className="project-image-grid">
-                <img src="/images/lotusimage.png" alt="Lotus Shark view 1" loading="lazy" />
-                <img src="/images/imagelotus2.png" alt="Lotus Shark view 2" loading="lazy" />
+                <img src={img('/images/lotusimage.png')} alt="Lotus Shark view 1" loading="lazy" />
+                <img src={img('/images/imagelotus2.png')} alt="Lotus Shark view 2" loading="lazy" />
               </div>
             </div>
           </ScrollReveal>
@@ -154,7 +155,7 @@ export default function BajaMasterSketch() {
                 camber and toe change characteristics.
               </p>
               <img
-                src="/images/lotus shark animation gif.gif"
+                src={img('/images/lotus shark animation gif.gif')}
                 alt="Suspension geometry animation"
                 className="project-image-single"
                 loading="lazy"

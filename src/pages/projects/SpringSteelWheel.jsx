@@ -1,12 +1,13 @@
 import DetailPage from '../../components/DetailPage'
 import ScrollReveal from '../../components/ScrollReveal'
 import Gallery from '../../components/Gallery'
+import img from '../../img'
 
 const gallery = [
-  { src: '/images/spring steel wheel.jpg', alt: 'Spring steel wheel physical prototype' },
-  { src: '/images/nasa spring steel wheel.png', alt: 'Wheel CAD' },
-  { src: '/images/nasa wheel hub front.png', alt: 'Universal hub design 1' },
-  { src: '/images/nasa wheel hub iso back.png', alt: 'Universal hub design 2' },
+  { src: img('/images/spring steel wheel.jpg'), alt: 'Spring steel wheel physical prototype' },
+  { src: img('/images/nasa spring steel wheel.png'), alt: 'Wheel CAD' },
+  { src: img('/images/nasa wheel hub front.png'), alt: 'Universal hub design 1' },
+  { src: img('/images/nasa wheel hub iso back.png'), alt: 'Universal hub design 2' },
 ]
 
 export default function SpringSteelWheel() {
@@ -16,7 +17,7 @@ export default function SpringSteelWheel() {
       backLabel="Industry Experience"
       tag="NASA Johnson Space Center · Internship"
       title="Spring Steel Wheel"
-      heroImage="/images/spring steel wheel.jpg"
+      heroImage={img('/images/spring steel wheel.jpg')}
       software={['SolidWorks CAD', '3D Printing']}
       roles={['Mechanical Designer']}
     >
@@ -63,8 +64,8 @@ export default function SpringSteelWheel() {
             discarding the entire wheel structure.
           </p>
           <div className="project-image-grid">
-            <img src="/images/spring steel wheel.jpg" alt="Spring steel wheel physical prototype" loading="lazy" />
-            <img src="/images/nasa spring steel wheel.png" alt="Wheel CAD screenshot" loading="lazy" />
+            <img src={img('/images/spring steel wheel.jpg')} alt="Spring steel wheel physical prototype" loading="lazy" />
+            <img src={img('/images/nasa spring steel wheel.png')} alt="Wheel CAD screenshot" loading="lazy" />
           </div>
         </div>
       </ScrollReveal>
@@ -78,8 +79,8 @@ export default function SpringSteelWheel() {
             drive system.
           </p>
           <div className="project-image-grid">
-            <img src="/images/nasa wheel hub front.png" alt="Universal hub design 1" loading="lazy" />
-            <img src="/images/nasa wheel hub iso back.png" alt="Universal hub design 2" loading="lazy" />
+            <img src={img('/images/nasa wheel hub front.png')} alt="Universal hub design 1" loading="lazy" />
+            <img src={img('/images/nasa wheel hub iso back.png')} alt="Universal hub design 2" loading="lazy" />
           </div>
         </div>
       </ScrollReveal>

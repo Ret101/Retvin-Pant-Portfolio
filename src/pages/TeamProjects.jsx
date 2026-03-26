@@ -1,28 +1,29 @@
 import ProjectCard from '../components/ProjectCard'
 import ScrollReveal from '../components/ScrollReveal'
+import img from '../img'
 
 const projects = [
   {
-    image: '/images/car mastersketch v2.png',
+    image: img('/images/car mastersketch v2.png'),
     title: "SAE Longhorn Baja 25'–26' Vehicle",
     description: 'Co-founder & Vehicle Dynamics Lead for UT Austin Longhorn Baja SAE off-road competition car.',
     to: '/team/longhorn-baja',
     inProgress: true,
   },
   {
-    image: '/images/guad pod.png',
+    image: img('/images/guad pod.png'),
     title: 'Guadaloop Hyperloop Train Dynamics',
     description: 'Vehicle Dynamics Engineer for Texas Guadaloop — scaled hyperloop pods for the EHW competition in the Netherlands.',
     to: '/team/guadaloop',
   },
   {
-    image: '/images/roadcase.png',
+    image: img('/images/roadcase.png'),
     title: 'Robotics Road Case',
     description: 'FRC Team 5414 — compact road case enabling faster competition setup and double normal material capacity.',
     to: '/team/robotics-roadcase',
   },
   {
-    image: '/images/brownout robot frc.jpg',
+    image: img('/images/brownout robot frc.jpg'),
     title: 'FRC Robots (Team 5414)',
     description: 'Technical Captain & Mechanical Designer for three FIRST Robotics Competition robots across the 2023–2024 seasons.',
     to: '/team/frc-robots',

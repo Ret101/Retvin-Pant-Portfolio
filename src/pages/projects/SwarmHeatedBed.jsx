@@ -2,12 +2,13 @@ import DetailPage from '../../components/DetailPage'
 import CADEmbed from '../../components/CADEmbed'
 import ScrollReveal from '../../components/ScrollReveal'
 import Gallery from '../../components/Gallery'
+import img from '../../img'
 
 const gallery = [
-  { src: '/images/robotic bed full img.png', alt: 'Full assembly' },
-  { src: '/images/robotic bed heating pcb.png', alt: 'Heating bed PCB array' },
-  { src: '/images/robotic bed control pcb.png', alt: 'Heating bed detail' },
-  { src: '/images/bed img.png', alt: 'Scissor lift mechanism' },
+  { src: img('/images/robotic bed full img.png'), alt: 'Full assembly' },
+  { src: img('/images/robotic bed heating pcb.png'), alt: 'Heating bed PCB array' },
+  { src: img('/images/robotic bed control pcb.png'), alt: 'Heating bed detail' },
+  { src: img('/images/bed img.png'), alt: 'Scissor lift mechanism' },
 ]
 
 export default function SwarmHeatedBed() {
@@ -17,7 +18,7 @@ export default function SwarmHeatedBed() {
       backLabel="Industry Experience"
       tag="UT SiDi Lab · Research"
       title="Swarm Manufacturing — Hotswappable Heated Bed"
-      heroImage="/images/robotic bed full img.png"
+      heroImage={img('/images/robotic bed full img.png')}
       software={['SolidWorks CAD', 'Ansys FEA', 'KiCAD', '3D Printing', 'CNC Mill', 'Presentation Skills']}
       roles={['Mechanical Design Lead']}
       inProgress
@@ -52,8 +53,8 @@ export default function SwarmHeatedBed() {
             adhesion in FDM printing.
           </p>
           <div className="project-image-grid">
-            <img src="/images/robotic bed heating pcb.png" alt="Heating bed PCB array" loading="lazy" />
-            <img src="/images/robotic bed control pcb.png" alt="Heating bed detail" loading="lazy" />
+            <img src={img('/images/robotic bed heating pcb.png')} alt="Heating bed PCB array" loading="lazy" />
+            <img src={img('/images/robotic bed control pcb.png')} alt="Heating bed detail" loading="lazy" />
           </div>
         </div>
       </ScrollReveal>
@@ -66,7 +67,7 @@ export default function SwarmHeatedBed() {
             The bed then lowers to the ground, where fans rapidly cool the surface — causing the part to detach and
             enabling immediate restart of the print cycle.
           </p>
-          <img src="/images/bed img.png" alt="Scissor lift mechanism" className="project-image-single" loading="lazy" />
+          <img src={img('/images/bed img.png')} alt="Scissor lift mechanism" className="project-image-single" loading="lazy" />
         </div>
       </ScrollReveal>
 
@@ -78,7 +79,7 @@ export default function SwarmHeatedBed() {
             converted into a 3D printer. By adding a hotswappable bed, the system significantly increases its printing
             range and throughput — moving toward a theoretical infinite printing space.
           </p>
-          <img src="/images/robotic bed full img.png" alt="Full assembly" className="project-image-single" loading="lazy" />
+          <img src={img('/images/robotic bed full img.png')} alt="Full assembly" className="project-image-single" loading="lazy" />
         </div>
       </ScrollReveal>
 

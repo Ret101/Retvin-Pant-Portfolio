@@ -3,17 +3,18 @@ import CADEmbed from '../../components/CADEmbed'
 import ScrollReveal from '../../components/ScrollReveal'
 import StatRow from '../../components/StatRow'
 import Gallery from '../../components/Gallery'
+import img from '../../img'
 
 const gallery = [
-  { src: '/images/sweetsifter.jpg', alt: 'Candy sorter assembled' },
-  { src: '/images/sweetsifter candy sorter iso view.png', alt: 'CAD overview' },
-  { src: '/images/sweetsifter candy sorter salmon ladder.png', alt: 'Salmon ladder 1' },
-  { src: '/images/sweetsifter candy sorter back view.png', alt: 'Salmon ladder 2' },
-  { src: '/images/sweetsifter candy sorter side view.png', alt: 'Slide assembly' },
-  { src: '/images/sweetsifter candy sorter iso back view.png', alt: 'Kicker assembly' },
-  { src: '/images/sweetsifter candy sorter back view.png', alt: 'Collection region' },
-  { src: '/images/sweetsifter candy sorter auger.png', alt: 'Auger mechanism' },
-  { src: '/images/sweetsifter gui.png', alt: 'Python control GUI' },
+  { src: img('/images/sweetsifter.jpg'), alt: 'Candy sorter assembled' },
+  { src: img('/images/sweetsifter candy sorter iso view.png'), alt: 'CAD overview' },
+  { src: img('/images/sweetsifter candy sorter salmon ladder.png'), alt: 'Salmon ladder 1' },
+  { src: img('/images/sweetsifter candy sorter back view.png'), alt: 'Salmon ladder 2' },
+  { src: img('/images/sweetsifter candy sorter side view.png'), alt: 'Slide assembly' },
+  { src: img('/images/sweetsifter candy sorter iso back view.png'), alt: 'Kicker assembly' },
+  { src: img('/images/sweetsifter candy sorter back view.png'), alt: 'Collection region' },
+  { src: img('/images/sweetsifter candy sorter auger.png'), alt: 'Auger mechanism' },
+  { src: img('/images/sweetsifter gui.png'), alt: 'Python control GUI' },
 ]
 
 export default function CandySorter() {
@@ -23,7 +24,7 @@ export default function CandySorter() {
       backLabel="Industry Experience"
       tag="SPARX Engineering · Internship"
       title="Automated Candy Sorter"
-      heroImage="/images/sweetsifter.jpg"
+      heroImage={img('/images/sweetsifter.jpg')}
       software={['Onshape CAD', 'FDM 3D Printing', 'SLA 3D Printing', 'Python + OpenCV', 'PyQt5', 'Presentation Skills']}
       roles={['Mechanical Designer', 'Software Developer']}
     >
@@ -55,8 +56,8 @@ export default function CandySorter() {
             self-sorting with approximately 90% accuracy in candy delivery.
           </p>
           <div className="project-image-grid">
-            <img src="/images/sweetsifter.jpg" alt="Candy sorter assembled" loading="lazy" />
-            <img src="/images/sweetsifter candy sorter iso view.png" alt="CAD overview" loading="lazy" />
+            <img src={img('/images/sweetsifter.jpg')} alt="Candy sorter assembled" loading="lazy" />
+            <img src={img('/images/sweetsifter candy sorter iso view.png')} alt="CAD overview" loading="lazy" />
           </div>
         </div>
       </ScrollReveal>
@@ -69,8 +70,8 @@ export default function CandySorter() {
             linear actuator. This stage separates candy into individual lanes for downstream processing.
           </p>
           <div className="project-image-grid">
-            <img src="/images/sweetsifter candy sorter salmon ladder.png" alt="Salmon ladder 1" loading="lazy" />
-            <img src="/images/sweetsifter candy sorter back view.png" alt="Salmon ladder 2" loading="lazy" />
+            <img src={img('/images/sweetsifter candy sorter salmon ladder.png')} alt="Salmon ladder 1" loading="lazy" />
+            <img src={img('/images/sweetsifter candy sorter back view.png')} alt="Salmon ladder 2" loading="lazy" />
           </div>
         </div>
       </ScrollReveal>
@@ -82,7 +83,7 @@ export default function CandySorter() {
             Rapidly moves candy from the salmon ladder to the kicker assembly, maintaining individual lane
             separation throughout transport.
           </p>
-          <img src="/images/sweetsifter candy sorter iso back view.png" alt="Slide assembly" className="project-image-single" loading="lazy" />
+          <img src={img('/images/sweetsifter candy sorter iso back view.png')} alt="Slide assembly" className="project-image-single" loading="lazy" />
         </div>
       </ScrollReveal>
 
@@ -93,7 +94,7 @@ export default function CandySorter() {
             Position candy for camera color identification. Solenoids extend fully or halfway to route
             candy to either the collection area or the return auger, depending on the color identification result.
           </p>
-          <img src="/images/sweetsifter candy sorter back view.png" alt="Kicker assembly" className="project-image-single" loading="lazy" />
+          <img src={img('/images/sweetsifter candy sorter back view.png')} alt="Kicker assembly" className="project-image-single" loading="lazy" />
         </div>
       </ScrollReveal>
 
@@ -104,7 +105,7 @@ export default function CandySorter() {
             The customer collects their selected candy from this area. After a timeout, a solenoid tips
             any remaining candy into the return auger to restart the cycle.
           </p>
-          <img src="/images/sweetsifter candy sorter back view.png" alt="Collection region" className="project-image-single" loading="lazy" />
+          <img src={img('/images/sweetsifter candy sorter back view.png')} alt="Collection region" className="project-image-single" loading="lazy" />
         </div>
       </ScrollReveal>
 
@@ -115,7 +116,7 @@ export default function CandySorter() {
             A stepper motor drives a spiral auger that lifts rejected or leftover candy back up to the
             main hopper, completing the closed-loop sorting cycle.
           </p>
-          <img src="/images/sweetsifter candy sorter auger.png" alt="Auger mechanism" className="project-image-single" loading="lazy" />
+          <img src={img('/images/sweetsifter candy sorter auger.png')} alt="Auger mechanism" className="project-image-single" loading="lazy" />
         </div>
       </ScrollReveal>
 
@@ -127,7 +128,7 @@ export default function CandySorter() {
             identifying candy color in real time. Serial commands are sent to an Adafruit Feather
             microcontroller that controls the solenoids and stepper motors.
           </p>
-          <img src="/images/sweetsifter gui.png" alt="Python control GUI" className="project-image-single" loading="lazy" />
+          <img src={img('/images/sweetsifter gui.png')} alt="Python control GUI" className="project-image-single" loading="lazy" />
         </div>
       </ScrollReveal>
 

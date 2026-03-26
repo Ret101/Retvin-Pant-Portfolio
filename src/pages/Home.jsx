@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import { FiGithub, FiLinkedin, FiDownload } from 'react-icons/fi'
 import ScrollReveal from '../components/ScrollReveal'
 import HeroCarousel from '../components/HeroCarousel'
+import img from '../img'
 
 const companies = [
   {
@@ -13,7 +14,7 @@ const companies = [
   {
     name: 'SPARX Engineering',
     role: 'Intern',
-    logo: '/images/sparx engineering logo.png',
+    logo: img('/images/sparx engineering logo.png'),
     filter: 'none',
   },
   {
@@ -25,13 +26,13 @@ const companies = [
   {
     name: 'UT SiDi Lab',
     role: 'Researcher',
-    logo: '/images/sidi lab logo.png',
+    logo: img('/images/sidi lab logo.png'),
     filter: 'none',
   },
   {
     name: 'SAE Longhorn Baja',
     role: 'Co-Captain',
-    logo: '/images/lbr-logo.png',
+    logo: img('/images/lbr-logo.png'),
     filter: 'none',
   },
 ]
@@ -113,7 +114,7 @@ export default function Home() {
             {/* Profile card */}
             <ScrollReveal className="hero-profile card" delay={1}>
               <img
-                src="/images/RAD_2496.jpg"
+                src={img('/images/RAD_2496.jpg')}
                 alt="Retvin Pant"
                 className="hero-photo"
               />
