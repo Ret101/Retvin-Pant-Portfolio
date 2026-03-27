@@ -279,7 +279,7 @@ function RadarChartSlideshow() {
       </div>
 
       {/* SVG */}
-      <svg viewBox="0 0 440 440" className="radar-svg" aria-hidden="true">
+      <svg viewBox="-60 -20 560 480" className="radar-svg" aria-hidden="true">
         {/* Grid rings */}
         {GRID_LEVELS.map(level => (
           <polygon key={level} className="radar-grid-ring" points={gridPts(currentAxes, level)} />
