@@ -120,10 +120,9 @@ export default function Home() {
               />
               <div className="hero-name">Retvin Pant</div>
               <div className="hero-title">Mechanical Engineering Student</div>
-              <div className="hero-school">University of Texas at Austin</div>
               <div className="hero-education">
                 <img
-                  src="https://upload.wikimedia.org/wikipedia/commons/8/8d/University_of_Texas_at_Austin_logo.svg"
+                  src={img('/images/ut austin logo.png')}
                   alt="UT Austin"
                   className="hero-edu-logo"
                 />
