@@ -121,6 +121,17 @@ export default function Home() {
               <div className="hero-name">Retvin Pant</div>
               <div className="hero-title">Mechanical Engineering Student</div>
               <div className="hero-school">University of Texas at Austin</div>
+              <div className="hero-education">
+                <img
+                  src="https://upload.wikimedia.org/wikipedia/commons/8/8d/University_of_Texas_at_Austin_logo.svg"
+                  alt="UT Austin"
+                  className="hero-edu-logo"
+                />
+                <div className="hero-edu-text">
+                  <span className="hero-edu-degree">B.S. Mechanical Engineering</span>
+                  <span className="hero-edu-years">2024 – Present</span>
+                </div>
+              </div>
               <div className="hero-social-links">
                 <a href="https://github.com/Ret101" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
                   <FiGithub />

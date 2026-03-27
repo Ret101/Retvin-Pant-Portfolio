@@ -323,8 +323,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .hero-photo {
-  width: 200px;
-  height: 200px;
+  width: 260px;
+  height: 260px;
   border-radius: 20px;
   object-fit: cover;
   object-position: top center;
@@ -350,6 +350,46 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 0.82rem;
   color: var(--text-secondary);
   letter-spacing: 0.02em;
+}
+
+.hero-education {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+  padding: 10px 14px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-sm);
+  width: 100%;
+}
+
+.hero-edu-logo {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+  flex-shrink: 0;
+  filter: brightness(0) invert(1);
+  opacity: 0.85;
+}
+
+.hero-edu-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.hero-edu-degree {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+.hero-edu-years {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  letter-spacing: 0.03em;
 }
 
 .hero-social-links {
