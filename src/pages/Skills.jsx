@@ -46,7 +46,7 @@ const skillCategories = [
         <polyline points="8 6 2 12 8 18"/>
       </svg>
     ),
-    skills: ['Python', 'C++', 'MATLAB', 'Arduino', 'G-Code', 'OpenCV', 'PyQt5', 'ESP-NOW', 'Serial Communication', 'Git'],
+    skills: ['Python', 'MATLAB', 'Arduino', 'G-Code', 'OpenCV', 'PyQt5', 'ESP-NOW', 'Serial Communication', 'Git'],
   },
   {
     label: 'Tools & Methods',
@@ -127,7 +127,7 @@ const radarCharts = [
     title: 'Programming',
     axes: [
       { label: 'Python',   pct: 70, angle: ANGLES[0] },
-      { label: 'C++',      pct: 62, angle: ANGLES[1] },
+      { label: 'MATLAB',   pct: 65, angle: ANGLES[1] },
       { label: 'Arduino',  pct: 72, angle: ANGLES[2] },
       { label: 'G-Code',   pct: 65, angle: ANGLES[3] },
       { label: 'OpenCV',   pct: 55, angle: ANGLES[4] },
