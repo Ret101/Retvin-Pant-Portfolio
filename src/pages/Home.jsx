@@ -74,6 +74,13 @@ const timelineEntries = [
     to: '/industry/swarm-heated-bed',
   },
   {
+    date: '2022 – 2024',
+    org: 'Texas Guadaloop',
+    role: 'Vehicle Dynamics Engineer',
+    tag: 'Student Org',
+    to: '/team/guadaloop',
+  },
+  {
     date: 'Summer 2024',
     org: 'NASA Johnson Space Center',
     role: 'Mechanical Engineering Intern',
@@ -86,13 +93,6 @@ const timelineEntries = [
     role: 'Mechanical Engineering Intern',
     tag: 'Internship',
     to: '/industry/candy-sorter',
-  },
-  {
-    date: '2022 – 2024',
-    org: 'Texas Guadaloop',
-    role: 'Vehicle Dynamics Engineer',
-    tag: 'Student Org',
-    to: '/team/guadaloop',
   },
   {
     date: '2021 – 2024',
