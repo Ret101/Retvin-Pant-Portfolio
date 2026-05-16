@@ -12,14 +12,14 @@ const projects = [
   },
   {
     image: img('/images/robotic bed full img.png'),
-    title: 'Swarm Manufacturing — Hotswappable Heated Bed',
+    title: 'Swarm Manufacturing, Hotswappable Heated Bed',
     description: 'UT SiDi Lab: custom resistive PCB heated bed with scissor-lift mechanism for Swarm 3D manufacturing.',
     to: '/industry/swarm-heated-bed',
     inProgress: true,
   },
   {
     image: img('/images/UR5E.jpg'),
-    title: 'Swarm Manufacturing — Extruder',
+    title: 'Swarm Manufacturing, Extruder',
     description: 'UT SiDi Lab: custom extruder design for the UR5E robotic arm converted into a 3D printer.',
     to: '/industry/swarm-extruder',
   },

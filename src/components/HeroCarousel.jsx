@@ -3,10 +3,10 @@ import img from '../img'
 
 const slides = [
   { src: '/images/spring steel wheel.jpg', label: 'NASA Spring Steel Wheel Prototype', sub: 'NASA JSC Internship · Summer 2024' },
-  { src: '/images/brownout robot frc.jpg', label: 'Brownout', sub: 'FRC Competition Robot · 2024' },
+  { src: '/images/Car Render.png', label: 'Longhorn Baja Racing', sub: 'SAE Baja · Co-Captain & Vehicle Dynamics Lead' },
   { src: '/images/sweetsifter.jpg', label: 'Automated Candy Sorter', sub: 'SPARX Engineering Internship' },
   { src: '/images/battlebot.jpg', label: 'Beetleweight Battlebot', sub: 'Texas Roborumble · 3-2-0' },
-  { src: '/images/car mastersketch v2.png', label: 'Longhorn Baja', sub: 'SAE Baja · Co-Captain' },
+  { src: '/images/brownout robot frc.jpg', label: 'Brownout', sub: 'FRC Competition Robot · 2024' },
   { src: '/images/guad pod.png', label: 'Guadaloop Hyperloop', sub: 'Texas Guadaloop · Vehicle Dynamics' },
   { src: '/images/skateboard horizontal.jpg', label: 'Electric Skateboard', sub: 'Personal Project · 12 mph · ~$250' },
 ]

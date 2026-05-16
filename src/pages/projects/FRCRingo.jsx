@@ -1,7 +1,14 @@
 import DetailPage from '../../components/DetailPage'
 import ScrollReveal from '../../components/ScrollReveal'
 import Gallery from '../../components/Gallery'
+import StickyTOC from '../../components/StickyTOC'
 import img from '../../img'
+
+const toc = [
+  { id: 'overview',   label: 'Overview'   },
+  { id: 'subsystems', label: 'Subsystems' },
+  { id: 'cad',        label: 'CAD Model'  },
+]
 
 const gallery = [
   { src: img('/images/ringo full assembly iso.png'), alt: 'Ringo full assembly' },
@@ -20,17 +27,19 @@ const subsystems = [
 
 export default function FRCRingo() {
   return (
-    <DetailPage
+    <>
+      <StickyTOC sections={toc} />
+      <DetailPage
       backTo="/team/frc-robots"
       backLabel="FRC Robots"
       tag="FRC Team 5414 · 2024 Season"
-      title='2024 — "Ringo"'
+      title='2024, "Ringo"'
       heroImage={img('/images/ringo frc robot driving.png')}
       software={['Onshape CAD', 'Prototyping', '3D Printing', 'CNC Router', 'Shop Tools']}
       roles={['Technical Team Captain', 'Mechanical Designer', 'Fabrication Lead']}
     >
       <ScrollReveal>
-        <div className="project-section">
+        <div id="overview" className="project-section">
           <h3>Overview</h3>
           <p>
             Ringo was the first robot built for the 2024 game season. Focused on scoring in the hub
@@ -40,7 +49,7 @@ export default function FRCRingo() {
       </ScrollReveal>
 
       <ScrollReveal>
-        <div className="project-section">
+        <div id="subsystems" className="project-section">
           <h3>Subsystems</h3>
           {subsystems.map(sub => (
             <div key={sub.name} style={{ marginBottom: 28 }}>
@@ -57,7 +66,7 @@ export default function FRCRingo() {
       </ScrollReveal>
 
       <ScrollReveal>
-        <div className="project-section">
+        <div id="cad" className="project-section">
           <h3>CAD Model</h3>
           <iframe
             src="https://gmail2144250.autodesk360.com/shares/public/SH30dd5QT870c25f12fc0fabf4b0bec9ea26?mode=embed"
@@ -65,7 +74,7 @@ export default function FRCRingo() {
             height="500px"
             allowFullScreen
             style={{ border: 'none', borderRadius: 'var(--radius-sm)', display: 'block', marginTop: 16 }}
-            title="Ringo — Integrated CAD"
+            title="Ringo, Integrated CAD"
           />
           <p style={{ fontSize: '0.72rem', color: 'var(--text-muted)', marginTop: 6, textAlign: 'center', fontFamily: "'Space Grotesk', sans-serif", letterSpacing: '0.04em' }}>Made in Onshape · Displayed in Fusion 360</p>
         </div>
@@ -75,5 +84,6 @@ export default function FRCRingo() {
         <Gallery images={gallery} />
       </ScrollReveal>
     </DetailPage>
+    </>
   )
 }

@@ -1,4 +1,5 @@
 import { useState, useEffect, useCallback } from 'react'
+import { createPortal } from 'react-dom'
 
 function Lightbox({ images, index, onClose }) {
   const [current, setCurrent] = useState(index)
@@ -20,7 +21,7 @@ function Lightbox({ images, index, onClose }) {
     }
   }, [onClose, prev, next])
 
-  return (
+  return createPortal(
     <div className="lightbox">
       <div className="lightbox-backdrop" onClick={onClose} />
       <button className="lightbox-close" onClick={onClose} aria-label="Close">×</button>
@@ -32,7 +33,8 @@ function Lightbox({ images, index, onClose }) {
       />
       <button className="lightbox-arrow lightbox-next" onClick={next} aria-label="Next">›</button>
       <div className="lightbox-counter">{current + 1} / {images.length}</div>
-    </div>
+    </div>,
+    document.body
   )
 }
 
@@ -43,7 +45,7 @@ export default function Gallery({ images, title = 'Project Gallery' }) {
 
   return (
     <div className="gallery-section">
-      <h3 className="gallery-title">{title}</h3>
+      {title && <h3 className="gallery-title">{title}</h3>}
       <div className="gallery-grid">
         {images.map((img, i) => (
           <div

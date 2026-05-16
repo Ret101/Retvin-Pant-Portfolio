@@ -8,13 +8,6 @@ export default function ProjectCard({ image, tag, title, description, to, delay 
     <div className="card project-card" style={{ cursor: to ? 'pointer' : 'default' }}>
       <div className="project-card-img-wrap">
         <img src={image} alt={title} className="project-card-img" loading="lazy" />
-        {to && (
-          <div className="project-card-overlay">
-            <div className="project-card-overlay-title">{title}</div>
-            {description && <p className="project-card-overlay-desc">{description}</p>}
-            <span className="project-card-overlay-cta">Explore →</span>
-          </div>
-        )}
       </div>
       <div className="project-card-body">
         <div style={{ display: 'flex', alignItems: 'center', gap: 8, flexWrap: 'wrap' }}>

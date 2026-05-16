@@ -40,7 +40,7 @@ export default function Footer() {
       </div>
 
       <div className="footer-bottom">
-        <span>© {new Date().getFullYear()} Retvin Pant — Mechanical Engineering</span>
+        <span>© {new Date().getFullYear()} Retvin Pant, Mechanical Engineering</span>
         <span>University of Texas at Austin</span>
       </div>
     </footer>

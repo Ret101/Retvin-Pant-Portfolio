@@ -12,7 +12,7 @@ const projects = [
   {
     image: img('/images/battlebot.jpg'),
     title: 'Beetleweight Battlebot',
-    description: 'Sub-3 lb combat robot for Texas Roborumble at UT Austin — vertical spinner with TPU chassis, went 3-2-0.',
+    description: 'Sub-3 lb combat robot for Texas Roborumble at UT Austin, vertical spinner with TPU chassis, went 3-2-0.',
     to: '/personal/beetleweight',
   },
 ]

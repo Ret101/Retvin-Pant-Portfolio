@@ -3,7 +3,20 @@ import CADEmbed from '../../components/CADEmbed'
 import ScrollReveal from '../../components/ScrollReveal'
 import StatRow from '../../components/StatRow'
 import Gallery from '../../components/Gallery'
+import StickyTOC from '../../components/StickyTOC'
 import img from '../../img'
+
+const toc = [
+  { id: 'engineering-challenge', label: 'Engineering Challenge' },
+  { id: 'result',                label: 'Result'                },
+  { id: 'designed-parts',        label: 'Designed Parts'        },
+  { id: 'wheel-pulley',          label: 'Wheel Pulley'          },
+  { id: 'motor-mount',           label: 'Motor Mount'           },
+  { id: 'motor-pulley',          label: 'Motor Pulley'          },
+  { id: 'electronics',           label: 'Electronics Casings'   },
+  { id: 'remote-control',        label: 'Remote Control'        },
+  { id: 'cad',                   label: 'CAD Files'             },
+]
 
 const gallery = [
   { src: img('/images/skateboard horizontal.jpg'), alt: 'Electric skateboard full view 1' },
@@ -19,7 +32,9 @@ const gallery = [
 
 export default function ElectricSkateboard() {
   return (
-    <DetailPage
+    <>
+      <StickyTOC sections={toc} />
+      <DetailPage
       backTo="/personal"
       backLabel="Personal Projects"
       tag="Personal Project · First Semester College"
@@ -37,17 +52,20 @@ export default function ElectricSkateboard() {
       </ScrollReveal>
 
       <ScrollReveal>
-        <div className="project-section">
-          <h3>Introduction</h3>
+        <div id="engineering-challenge" className="project-section">
+          <h3>Engineering Challenge</h3>
           <p>
-            A personal project completed during the first semester at college. The goal was to build a
-            reliable electric skateboard at a fraction of the cost of commercial alternatives.
+            Build a functional electric skateboard for under $250 during the first semester of college.
+            Off-the-shelf longboard components handle the deck and trucks, but all mechanical interfaces
+            between the drivetrain and the board, motor mount, wheel pulley, motor pulley, and electronics
+            housings, had to be custom designed and fabricated. Every part needed to fit existing hardware,
+            survive real street use, and stay within the budget.
           </p>
         </div>
       </ScrollReveal>
 
       <ScrollReveal>
-        <div className="project-section">
+        <div id="result" className="project-section">
           <h3>Result</h3>
           <p>
             An electric skateboard reaching 12 mph with 15 miles per charge, built for approximately $250.
@@ -62,7 +80,7 @@ export default function ElectricSkateboard() {
       </ScrollReveal>
 
       <ScrollReveal>
-        <div className="project-section">
+        <div id="designed-parts" className="project-section">
           <h3>Designed Parts</h3>
           <p>
             Off-the-shelf: longboard deck, trucks, wheels. Custom-designed: wheel pulley, motor mount,
@@ -72,10 +90,10 @@ export default function ElectricSkateboard() {
       </ScrollReveal>
 
       <ScrollReveal>
-        <div className="project-section">
+        <div id="wheel-pulley" className="project-section">
           <h3>Wheel Pulley</h3>
           <p>
-            Uses a Kegel wheel design — meshes into the wheel's spokes, bolted in place to secure the
+            Uses a Kegel wheel design, meshes into the wheel's spokes, bolted in place to secure the
             pulley. Ensures positive rotation transfer from the belt drive system to the wheel.
           </p>
           <div className="project-image-grid">
@@ -86,7 +104,7 @@ export default function ElectricSkateboard() {
       </ScrollReveal>
 
       <ScrollReveal>
-        <div className="project-section">
+        <div id="motor-mount" className="project-section">
           <h3>Motor Mount</h3>
           <p>
             Two-part design: the motor mount holds the motor at the correct spacing from the truck axle,
@@ -101,7 +119,7 @@ export default function ElectricSkateboard() {
       </ScrollReveal>
 
       <ScrollReveal>
-        <div className="project-section">
+        <div id="motor-pulley" className="project-section">
           <h3>Motor Pulley</h3>
           <p>
             A 30-tooth HTD pulley meshes around the motor spindle to transfer torque from the motor to
@@ -112,11 +130,11 @@ export default function ElectricSkateboard() {
       </ScrollReveal>
 
       <ScrollReveal>
-        <div className="project-section">
+        <div id="electronics" className="project-section">
           <h3>Electronics Casings</h3>
           <p>
             Two casings house the battery pack and the H-bridge/ESP32 respectively. All casings are
-            coated in epoxy — hiding layer lines from 3D printing, providing waterproofing, and
+            coated in epoxy, hiding layer lines from 3D printing, providing waterproofing, and
             significantly increasing structural strength.
           </p>
           <img src={img('/images/skateboard underside.jpg')} alt="Electronics casing" className="project-image-single" loading="lazy" />
@@ -124,8 +142,8 @@ export default function ElectricSkateboard() {
       </ScrollReveal>
 
       <ScrollReveal>
-        <div className="project-section">
-          <h3>Remote Control — ESP-NOW Protocol</h3>
+        <div id="remote-control" className="project-section">
+          <h3>Remote Control, ESP-NOW Protocol</h3>
           <p>
             The skateboard uses an ESP32 remote communicating with an onboard ESP32 via the ESP-NOW
             wireless protocol. This enables low-latency, reliable control of speed and braking without
@@ -270,7 +288,7 @@ void loop() {
       </ScrollReveal>
 
       <ScrollReveal>
-        <div className="project-section">
+        <div id="cad" className="project-section">
           <h3>View CAD Files</h3>
           <div style={{ display: 'grid', gap: 24 }}>
             <div>
@@ -358,5 +376,6 @@ void loop() {
         <Gallery images={gallery} />
       </ScrollReveal>
     </DetailPage>
+    </>
   )
 }

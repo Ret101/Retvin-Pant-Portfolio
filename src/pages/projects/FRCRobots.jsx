@@ -2,7 +2,13 @@ import { Link } from 'react-router-dom'
 import DetailPage from '../../components/DetailPage'
 import ScrollReveal from '../../components/ScrollReveal'
 import Gallery from '../../components/Gallery'
+import StickyTOC from '../../components/StickyTOC'
 import img from '../../img'
+
+const toc = [
+  { id: 'introduction', label: 'Introduction' },
+  { id: 'robots',       label: 'Robots'       },
+]
 
 const robots = [
   {
@@ -44,11 +50,14 @@ const gallery = [
   { src: img('/images/brownout robot in action frc.jpg'), alt: 'Brownout in action' },
   { src: img('/images/brownout iso front.png'), alt: 'Brownout CAD front' },
   { src: img('/images/brownout frc robot iso back.png'), alt: 'Brownout CAD back' },
+  { src: img('/images/additional robot design.png'), alt: 'Additional robot designs' },
 ]
 
 export default function FRCRobots() {
   return (
-    <DetailPage
+    <>
+      <StickyTOC sections={toc} />
+      <DetailPage
       backTo="/team"
       backLabel="Team Projects"
       tag="FRC Team 5414 · 2023–2024"
@@ -58,7 +67,7 @@ export default function FRCRobots() {
       roles={['Technical Team Captain', 'Mechanical Designer', 'Fabrication Lead', 'Pit Boss']}
     >
       <ScrollReveal>
-        <div className="project-section">
+        <div id="introduction" className="project-section">
           <h3>Introduction</h3>
           <p>
             Three competition robots designed and built across the 2023–2024 FRC seasons as Technical
@@ -74,7 +83,7 @@ export default function FRCRobots() {
         </div>
       </ScrollReveal>
 
-      <div className="frc-robots-grid">
+      <div id="robots" className="frc-robots-grid">
         {robots.map((robot, i) => (
           <ScrollReveal key={robot.title} delay={(i % 3) + 1}>
             <Link to={robot.to} className="frc-robot-card">
@@ -98,5 +107,6 @@ export default function FRCRobots() {
         <Gallery images={gallery} />
       </ScrollReveal>
     </DetailPage>
+    </>
   )
 }

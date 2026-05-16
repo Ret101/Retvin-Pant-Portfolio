@@ -49,12 +49,12 @@ function AnimatedRoutes() {
         <Route path="/industry/swarm-extruder"    element={<PT><SwarmExtruder /></PT>} />
         <Route path="/industry/spring-steel-wheel" element={<PT><SpringSteelWheel /></PT>} />
         <Route path="/industry/candy-sorter"      element={<PT><CandySorter /></PT>} />
+        <Route path="/baja"                        element={<PT><LonghornBaja /></PT>} />
+        <Route path="/baja/master-sketch"          element={<PT><BajaMasterSketch /></PT>} />
+        <Route path="/baja/control-arms"           element={<PT><BajaControlArms /></PT>} />
+        <Route path="/baja/rear-hubs"              element={<PT><BajaRearHubs /></PT>} />
+        <Route path="/baja/front-hubs"             element={<PT><BajaFrontHubs /></PT>} />
         <Route path="/team"                       element={<PT><TeamProjects /></PT>} />
-        <Route path="/team/longhorn-baja"                    element={<PT><LonghornBaja /></PT>} />
-        <Route path="/team/longhorn-baja/master-sketch"    element={<PT><BajaMasterSketch /></PT>} />
-        <Route path="/team/longhorn-baja/control-arms"     element={<PT><BajaControlArms /></PT>} />
-        <Route path="/team/longhorn-baja/rear-hubs"        element={<PT><BajaRearHubs /></PT>} />
-        <Route path="/team/longhorn-baja/front-hubs"       element={<PT><BajaFrontHubs /></PT>} />
         <Route path="/team/guadaloop"             element={<PT><Guadaloop /></PT>} />
         <Route path="/team/robotics-roadcase"     element={<PT><RoboticsRoadcase /></PT>} />
         <Route path="/team/frc-robots"            element={<PT><FRCRobots /></PT>} />

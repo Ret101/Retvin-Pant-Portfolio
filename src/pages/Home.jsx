@@ -20,8 +20,8 @@ const companies = [
   {
     name: 'SAE at UT Austin',
     role: 'Chapter Chair',
-    logo: 'https://sae-static-content-prod.cl.sae.org/logos/svg/sae.svg',
-    filter: 'brightness(0) invert(1)',
+    logo: img('/images/SAE_International_logo.svg'),
+    filter: 'none',
   },
   {
     name: 'UT SiDi Lab',
@@ -57,7 +57,7 @@ const timelineEntries = [
     org: 'Longhorn Baja Racing',
     role: 'Co-Founder · Co-Captain · Vehicle Dynamics Lead',
     tag: 'Student Org',
-    to: '/team/longhorn-baja',
+    to: '/baja',
   },
   {
     date: 'Summer 2025',
@@ -151,14 +151,13 @@ export default function Home() {
               </h1>
               <p className="hero-bio-text">
                 I'm Retvin Pant, a mechanical engineering student at the University of Texas at Austin
-                building real systems — from 6DOF robotic printers to vehicle subsystems and hardware
+                building real systems, from 6DOF robotic printers to vehicle subsystems and hardware
                 prototypes. Check out my projects and resume to see what I've been working on.
               </p>
               <div className="hero-bio-actions">
                 <a
-                  href="https://d2b0d7e8-68b9-42c1-892a-1d906e88c17d.filesusr.com/ugd/073043_4edf17ac796c4659ac687ca0df9b1d6b.pdf"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href="/resume.pdf"
+                  download="Resume_Retvin_Pant.pdf"
                   className="btn btn-primary"
                 >
                   <FiDownload size={14} />

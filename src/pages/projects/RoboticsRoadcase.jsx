@@ -1,7 +1,16 @@
 import DetailPage from '../../components/DetailPage'
 import ScrollReveal from '../../components/ScrollReveal'
 import Gallery from '../../components/Gallery'
+import StickyTOC from '../../components/StickyTOC'
 import img from '../../img'
+
+const toc = [
+  { id: 'introduction', label: 'Introduction'        },
+  { id: 'result',       label: 'Purpose & Result'    },
+  { id: 'overview',     label: 'Overview'            },
+  { id: 'components',   label: 'Designed Components' },
+  { id: 'cad',          label: 'CAD Files'           },
+]
 
 const gallery = [
   { src: img('/images/roadcase.png'), alt: 'Road case hero' },
@@ -12,7 +21,9 @@ const gallery = [
 
 export default function RoboticsRoadcase() {
   return (
-    <DetailPage
+    <>
+      <StickyTOC sections={toc} />
+      <DetailPage
       backTo="/team"
       backLabel="Team Projects"
       tag="FRC Team 5414"
@@ -22,7 +33,7 @@ export default function RoboticsRoadcase() {
       roles={['Designer', 'Assembly Lead']}
     >
       <ScrollReveal>
-        <div className="project-section">
+        <div id="introduction" className="project-section">
           <h3>Introduction</h3>
           <p>
             Designed for FRC Team 5414, this road case serves as the team's pit case at competitions.
@@ -33,18 +44,18 @@ export default function RoboticsRoadcase() {
       </ScrollReveal>
 
       <ScrollReveal>
-        <div className="project-section">
+        <div id="result" className="project-section">
           <h3>Purpose &amp; Result</h3>
           <p>
             The compact road case enables faster competition setup, significantly increased organization,
-            and allows the team to carry approximately double the normal amount of materials — enabling
+            and allows the team to carry approximately double the normal amount of materials, enabling
             the team to assist other teams at events.
           </p>
         </div>
       </ScrollReveal>
 
       <ScrollReveal>
-        <div className="project-section">
+        <div id="overview" className="project-section">
           <h3>Overview</h3>
           <img
             src={img('/images/roadcase front view.png')}
@@ -56,7 +67,7 @@ export default function RoboticsRoadcase() {
       </ScrollReveal>
 
       <ScrollReveal>
-        <div className="project-section">
+        <div id="components" className="project-section">
           <h3>Designed Components</h3>
           <p>
             The upper assembly stores COTS (commercial off-the-shelf) items for the team or to share
@@ -72,8 +83,8 @@ export default function RoboticsRoadcase() {
       </ScrollReveal>
 
       <ScrollReveal>
-        <div className="project-section">
-          <h3>View CAD Files — Roadcase</h3>
+        <div id="cad" className="project-section">
+          <h3>View CAD Files, Roadcase</h3>
           <iframe
             src="https://gmail2144250.autodesk360.com/shares/public/SH30dd5QT870c25f12fc2d0e9604df049a03?mode=embed"
             width="100%"
@@ -90,5 +101,6 @@ export default function RoboticsRoadcase() {
         <Gallery images={gallery} />
       </ScrollReveal>
     </DetailPage>
+    </>
   )
 }

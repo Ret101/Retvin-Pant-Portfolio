@@ -1,13 +1,13 @@
 import { Link } from 'react-router-dom'
 import { PillGroup } from './PillBadge'
 import InProgressBadge from './InProgressBadge'
-export default function DetailPage({ backTo, backLabel, tag, title, heroImage, software, roles, inProgress, children }) {
+export default function DetailPage({ backTo, backLabel, tag, title, heroImage, heroStyle, software, roles, inProgress, children }) {
   return (
     <div className="project-detail">
 
       {heroImage ? (
         <div className="cinematic-header">
-          <div className="cinematic-header-bg" style={{ backgroundImage: `url('${heroImage}')` }} />
+          <div className="cinematic-header-bg" style={{ backgroundImage: `url('${heroImage}')`, ...heroStyle }} />
           <div className="cinematic-header-overlay" />
           <div className="container cinematic-header-content">
             <Link to={backTo} className="project-detail-back">← {backLabel}</Link>
@@ -16,11 +16,6 @@ export default function DetailPage({ backTo, backLabel, tag, title, heroImage, s
               {inProgress && <InProgressBadge />}
             </div>
             <h1 className="cinematic-header-title">{title}</h1>
-            {software && software.length > 0 && (
-              <div className="pill-group cinematic-header-pills">
-                {software.slice(0, 6).map(s => <span key={s} className="pill">{s}</span>)}
-              </div>
-            )}
           </div>
         </div>
       ) : (
