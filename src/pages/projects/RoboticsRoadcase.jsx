@@ -16,7 +16,7 @@ const gallery = [
   { src: img('/images/roadcase.png'), alt: 'Road case hero' },
   { src: img('/images/roadcase front view.png'), alt: 'Road case overview' },
   { src: img('/images/roadcase iso view.png'), alt: 'Road case components 1' },
-  { src: img('/images/roadcase at competition.png'), alt: 'Road case components 2' },
+  { src: img('/images/roadcase at competition.webp'), alt: 'Road case components 2' },
 ]
 
 export default function RoboticsRoadcase() {
@@ -28,7 +28,7 @@ export default function RoboticsRoadcase() {
       backLabel="Team Projects"
       tag="FRC Team 5414"
       title="Robotics Road Case"
-      heroImage={img('/images/roadcase at competition.png')}
+      heroImage={img('/images/roadcase at competition.webp')}
       software={['Onshape CAD', '3D Printing', 'CNC Mill', 'Shop Tools']}
       roles={['Designer', 'Assembly Lead']}
     >
@@ -77,7 +77,7 @@ export default function RoboticsRoadcase() {
           </p>
           <div className="project-image-grid">
             <img src={img('/images/roadcase iso view.png')} alt="Road case components 1" loading="lazy" />
-            <img src={img('/images/roadcase at competition.png')} alt="Road case components 2" loading="lazy" />
+            <img src={img('/images/roadcase at competition.webp')} alt="Road case components 2" loading="lazy" />
           </div>
         </div>
       </ScrollReveal>

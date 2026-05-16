@@ -4,7 +4,7 @@ import img from '../img'
 
 const projects = [
   {
-    image: img('/images/Car Render.png'),
+    image: img('/images/Car Render.webp'),
     title: "SAE Longhorn Baja Racing",
     description: 'Co-founder, Co-Captain & Vehicle Dynamics Lead. Designing a single-seater off-road competition car from scratch for SAE Baja.',
     to: '/baja',

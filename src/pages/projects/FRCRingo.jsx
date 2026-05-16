@@ -16,7 +16,7 @@ const gallery = [
   { src: img('/images/ringo base assembly.png'), alt: 'Ringo base' },
   { src: img('/images/ringo shooter assembly.png'), alt: 'Ringo shooter and intake' },
   { src: img('/images/ringo arm end effector assembly.png'), alt: 'Amp mechanism' },
-  { src: img('/images/ringo frc robot driving.png'), alt: 'Ringo driving' },
+  { src: img('/images/ringo frc robot driving.webp'), alt: 'Ringo driving' },
 ]
 
 const subsystems = [
@@ -34,7 +34,7 @@ export default function FRCRingo() {
       backLabel="FRC Robots"
       tag="FRC Team 5414 · 2024 Season"
       title='2024, "Ringo"'
-      heroImage={img('/images/ringo frc robot driving.png')}
+      heroImage={img('/images/ringo frc robot driving.webp')}
       software={['Onshape CAD', 'Prototyping', '3D Printing', 'CNC Router', 'Shop Tools']}
       roles={['Technical Team Captain', 'Mechanical Designer', 'Fabrication Lead']}
     >

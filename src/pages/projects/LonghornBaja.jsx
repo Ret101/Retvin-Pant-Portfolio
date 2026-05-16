@@ -75,7 +75,7 @@ export default function LonghornBaja() {
 
       {/* ── Hero ── */}
       <div className="cinematic-header">
-        <div className="cinematic-header-bg" style={{ backgroundImage: `url('${img('/images/Car Render.png')}')`, backgroundSize: '150%', backgroundPosition: 'center 55%' }} />
+        <div className="cinematic-header-bg" style={{ backgroundImage: `url('${img('/images/Car Render.webp')}')`, backgroundSize: '150%', backgroundPosition: 'center 55%' }} />
         <div className="cinematic-header-overlay" />
         <div className="container cinematic-header-content">
           <div className="cinematic-header-meta">
