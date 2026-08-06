@@ -110,7 +110,7 @@ const radarCharts = [
       { label: 'FEA Analysis',  pct: 82, angle: ANGLES[1] },
       { label: 'GD&T',          pct: 85, angle: ANGLES[2] },
       { label: 'DFM / DFA',     pct: 78, angle: ANGLES[3] },
-      { label: 'Flow Sim',      pct: 70, angle: ANGLES[4] },
+      { label: 'Lotus Shark',   pct: 70, angle: ANGLES[4] },
       { label: 'Tech Drawing',  pct: 80, angle: ANGLES[5] },
     ],
   },
