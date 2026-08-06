@@ -74,7 +74,7 @@ const timelineEntries = [
     to: '/industry/swarm-heated-bed',
   },
   {
-    date: '2022 – 2024',
+    date: 'Spring – Fall 2025',
     org: 'Texas Guadaloop',
     role: 'Vehicle Dynamics Engineer',
     tag: 'Student Org',
@@ -88,7 +88,7 @@ const timelineEntries = [
     to: '/industry/spring-steel-wheel',
   },
   {
-    date: 'Summer 2023',
+    date: 'Aug 2023 – June 2024',
     org: 'SPARX Engineering',
     role: 'Mechanical Engineering Intern',
     tag: 'Internship',
@@ -156,7 +156,7 @@ export default function Home() {
               </p>
               <div className="hero-bio-actions">
                 <a
-                  href="/resume.pdf"
+                  href={img('/resume.pdf')}
                   download="Resume_Retvin_Pant.pdf"
                   className="btn btn-primary"
                 >

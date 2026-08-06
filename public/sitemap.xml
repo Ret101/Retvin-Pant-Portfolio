@@ -2,6 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://ret101.github.io/Retvin-Pant-Portfolio/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
   <url><loc>https://ret101.github.io/Retvin-Pant-Portfolio/industry</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ret101.github.io/Retvin-Pant-Portfolio/industry/daikin</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://ret101.github.io/Retvin-Pant-Portfolio/industry/swarm-heated-bed</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://ret101.github.io/Retvin-Pant-Portfolio/industry/swarm-extruder</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://ret101.github.io/Retvin-Pant-Portfolio/industry/spring-steel-wheel</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>

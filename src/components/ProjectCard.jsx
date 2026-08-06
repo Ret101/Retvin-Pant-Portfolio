@@ -3,11 +3,11 @@ import ScrollReveal from './ScrollReveal'
 import InProgressBadge from './InProgressBadge'
 import ComingSoonBadge from './ComingSoonBadge'
 
-export default function ProjectCard({ image, tag, title, description, to, delay = 0, inProgress, comingSoon }) {
+export default function ProjectCard({ image, tag, title, description, to, delay = 0, inProgress, comingSoon, imageStyle }) {
   const inner = (
     <div className="card project-card" style={{ cursor: to ? 'pointer' : 'default' }}>
       <div className="project-card-img-wrap">
-        <img src={image} alt={title} className="project-card-img" loading="lazy" />
+        <img src={image} alt={title} className="project-card-img" style={imageStyle} loading="lazy" />
       </div>
       <div className="project-card-body">
         <div style={{ display: 'flex', alignItems: 'center', gap: 8, flexWrap: 'wrap' }}>

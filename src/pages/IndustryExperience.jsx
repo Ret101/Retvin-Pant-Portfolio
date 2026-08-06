@@ -4,9 +4,17 @@ import img from '../img'
 
 const projects = [
   {
+    image: img('/images/Daikin/Full Cell (2).webp'),
+    title: 'Heat Exchanger Automated Manufacturing Cell',
+    description: 'Daikin: robotic cell for heat exchanger forming and bending, covering cell layout, robot integration, material handling, and end-of-arm tooling.',
+    to: '/industry/daikin',
+    // Transparent-background render sitting low in the frame, crop toward the bottom over off-white
+    imageStyle: { objectPosition: 'center bottom', background: '#f2f0ec' },
+  },
+  {
     image: img('/images/roboball.jpg'),
     title: 'Roboball',
-    description: 'Engineering prototype developed during industry experience.',
+    description: 'TEES RAD Lab: engineering prototype developed during industry experience.',
     to: null,
     comingSoon: true,
   },
@@ -48,7 +56,7 @@ export default function IndustryExperience() {
               <div className="section-header-bar" />
             </div>
             <p style={{ color: 'var(--text-secondary)', marginBottom: 40, maxWidth: 600, fontSize: '0.95rem' }}>
-              Professional work completed at NASA Johnson Space Center, SPARX Engineering, and the UT Austin SiDi Lab.
+              Professional work completed at Daikin, NASA Johnson Space Center, SPARX Engineering, and the UT Austin SiDi Lab.
             </p>
           </ScrollReveal>
 

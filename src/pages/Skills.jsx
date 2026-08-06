@@ -22,7 +22,7 @@ const skillCategories = [
         <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
       </svg>
     ),
-    skills: ['Ansys FEA', 'SolidWorks FEA', 'SolidWorks Flow Simulation', 'MATLAB', 'Lotus Shark', 'Static Analysis', 'Dynamic Analysis', 'Hand Calculations', 'Tolerance Stack-Up'],
+    skills: ['Ansys FEA', 'SolidWorks FEA', 'MATLAB', 'Lotus Shark', 'Static Analysis', 'Dynamic Analysis', 'Hand Calculations', 'Tolerance Stack-Up'],
   },
   {
     label: 'Manufacturing',
@@ -46,7 +46,7 @@ const skillCategories = [
         <polyline points="8 6 2 12 8 18"/>
       </svg>
     ),
-    skills: ['Python', 'MATLAB', 'Arduino', 'G-Code', 'OpenCV', 'PyQt5', 'ESP-NOW', 'Serial Communication', 'Git'],
+    skills: ['Python', 'MATLAB', 'Arduino', 'G-Code', 'OpenCV', 'PyQt5', 'FANUC RoboGuide', 'ESP-NOW', 'Serial Communication', 'Git'],
   },
   {
     label: 'Tools & Methods',
@@ -82,6 +82,8 @@ const tools = [
   { name: 'Git'        },
   { name: 'OpenCV'     },
   { name: 'G-Code'     },
+  { name: 'FANUC RoboGuide' },
+  { name: 'AutoCAD'    },
 ]
 
 // ─── Radar / Spider Chart ───────────────────────────────────────────────────────

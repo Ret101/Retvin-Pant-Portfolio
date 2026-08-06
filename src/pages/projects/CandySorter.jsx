@@ -143,7 +143,9 @@ export default function CandySorter() {
           <p>
             A PyQt5 + OpenCV GUI application runs on a connected computer, displaying a live camera view and
             identifying candy color in real time. Serial commands are sent to an Adafruit Feather
-            microcontroller that controls the solenoids and stepper motors.
+            microcontroller that controls the solenoids and stepper motors. The detection method changed
+            over the course of the project, from trained classifiers for multiple candy types down to
+            color-based identification once the machine was scoped to a single candy.
           </p>
           <img src={img('/images/sweetsifter gui.png')} alt="Python control GUI" className="project-image-single" loading="lazy" />
         </div>
@@ -159,6 +161,14 @@ export default function CandySorter() {
                 <strong style={{ color: 'var(--text-primary)' }}>Original:</strong> Motor-actuated rope and pulley system to drive the salmon ladder.<br />
                 <strong style={{ color: 'var(--text-primary)' }}>Problem:</strong> Under actual candy load, the system was inconsistent. The combined weight of the ladder structure and candy on the slides exceeded what the motor could move efficiently, resulting in stalls and missed cycles during testing.<br />
                 <strong style={{ color: 'var(--text-primary)' }}>Fix:</strong> Replaced with a linear actuator, which provided the force and consistency needed to reliably drive the ladder under full candy load without stalling.
+              </p>
+            </div>
+            <div style={{ background: 'var(--card-bg)', border: '1px solid var(--card-border)', borderRadius: 'var(--radius-sm)', padding: '16px 20px' }}>
+              <div style={{ fontFamily: "'Space Grotesk', sans-serif", fontWeight: 700, fontSize: '0.88rem', color: 'var(--accent-light)', marginBottom: 6, letterSpacing: '0.06em', textTransform: 'uppercase' }}>Candy Detection, Haar Cascade vs. Color Identification</div>
+              <p style={{ margin: 0, fontSize: '0.92rem', color: 'var(--text-secondary)', lineHeight: 1.65 }}>
+                <strong style={{ color: 'var(--text-primary)' }}>Original:</strong> The initial goal was to sort multiple types of candy, which required custom Haar cascade models trained to tell one candy type from another.<br />
+                <strong style={{ color: 'var(--text-primary)' }}>Problem:</strong> Stocking the machine with multiple candy types added complexity to running the demo, so the scope narrowed to Starbursts as the primary candy.<br />
+                <strong style={{ color: 'var(--text-primary)' }}>Fix:</strong> With a single candy type, distinguishing flavors comes down to color alone, so the trained classifiers were dropped for a simpler color-based sorting system, less to tune and less to break during a live trade show demo.
               </p>
             </div>
             <div style={{ background: 'var(--card-bg)', border: '1px solid var(--card-border)', borderRadius: 'var(--radius-sm)', padding: '16px 20px' }}>

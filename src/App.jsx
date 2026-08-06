@@ -12,6 +12,7 @@ import Skills from './pages/Skills'
 import SwarmHeatedBed from './pages/projects/SwarmHeatedBed'
 import SwarmExtruder from './pages/projects/SwarmExtruder'
 import SpringSteelWheel from './pages/projects/SpringSteelWheel'
+import Daikin from './pages/projects/Daikin'
 import CandySorter from './pages/projects/CandySorter'
 import LonghornBaja from './pages/projects/LonghornBaja'
 import BajaMasterSketch from './pages/projects/BajaMasterSketch'
@@ -49,6 +50,7 @@ function AnimatedRoutes() {
         <Route path="/industry/swarm-extruder"    element={<PT><SwarmExtruder /></PT>} />
         <Route path="/industry/spring-steel-wheel" element={<PT><SpringSteelWheel /></PT>} />
         <Route path="/industry/candy-sorter"      element={<PT><CandySorter /></PT>} />
+        <Route path="/industry/daikin"            element={<PT><Daikin /></PT>} />
         <Route path="/baja"                        element={<PT><LonghornBaja /></PT>} />
         <Route path="/baja/master-sketch"          element={<PT><BajaMasterSketch /></PT>} />
         <Route path="/baja/control-arms"           element={<PT><BajaControlArms /></PT>} />
