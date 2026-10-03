@@ -105,7 +105,7 @@ export default function BajaCVAxles() {
         title="Modified CV Axles"
         heroImage={img('/images/CV Axle Modification.jpeg')}
         heroStyle={{ backgroundSize: 'cover', backgroundPosition: 'center 45%' }}
-        software={['Hand Calculations', 'Machining', 'TIG Welding']}
+        software={['Hand Calculations', 'Machining']}
         roles={['Vehicle Dynamics Lead']}
       >
         <ScrollReveal>

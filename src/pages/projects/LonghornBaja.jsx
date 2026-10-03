@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { FiDownload } from 'react-icons/fi'
 import ScrollReveal from '../../components/ScrollReveal'
 import DocSlider from '../../components/DocSlider'
 import StatRow from '../../components/StatRow'
@@ -215,6 +216,31 @@ export default function LonghornBaja() {
               <ProjectCard key={p.title} {...p} delay={(i % 3) + 1} />
             ))}
           </div>
+
+          <ScrollReveal>
+            <div className="doc-card card">
+              <a href={img('/documents/Longhorn-Baja-185-DRB.pdf')} target="_blank" rel="noopener noreferrer" className="doc-card-preview">
+                <img src={img('/images/drb-cover.webp')} alt="2026 Baja SAE Design Review Briefing title slide, car 185" loading="lazy" />
+              </a>
+              <div className="doc-card-body">
+                <span className="doc-card-tag">Competition Document · PDF · 74 slides</span>
+                <h3 className="doc-card-title">Design Review Briefing (DRB)</h3>
+                <p className="doc-card-desc">
+                  The team's 2026 Baja SAE design review for car #185, presenting the full vehicle design
+                  across every subsystem to the competition judges.
+                </p>
+                <div className="doc-card-actions">
+                  <a href={img('/documents/Longhorn-Baja-185-DRB.pdf')} target="_blank" rel="noopener noreferrer" className="btn btn-primary">
+                    View DRB
+                  </a>
+                  <a href={img('/documents/Longhorn-Baja-185-DRB.pdf')} download="Longhorn-Baja-185-DRB.pdf" className="btn btn-outline">
+                    <FiDownload size={14} />
+                    Download
+                  </a>
+                </div>
+              </div>
+            </div>
+          </ScrollReveal>
         </div>
       </section>
 

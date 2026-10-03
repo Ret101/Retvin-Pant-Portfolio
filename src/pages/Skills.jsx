@@ -36,7 +36,7 @@ const skillCategories = [
         <line x1="20" y1="12" x2="22" y2="12"/>
       </svg>
     ),
-    skills: ['3D Printing (FDM)', 'SLA 3D Printing', 'CNC Milling', 'Lathe', 'Waterjet', 'Welding (MIG/TIG)', 'Sheet Metal', 'Epoxy Coating', 'Soldering', 'PCB Assembly'],
+    skills: ['3D Printing (FDM)', 'SLA 3D Printing', 'CNC Milling', 'Lathe', 'Waterjet', 'Sheet Metal', 'Epoxy Coating', 'Soldering', 'PCB Assembly'],
   },
   {
     label: 'Programming',
@@ -120,7 +120,7 @@ const radarCharts = [
       { label: '3D Printing',  pct: 90, angle: ANGLES[0] },
       { label: 'CNC Milling',  pct: 80, angle: ANGLES[1] },
       { label: 'Lathe',        pct: 75, angle: ANGLES[2] },
-      { label: 'Welding',      pct: 68, angle: ANGLES[3] },
+      { label: 'Soldering',    pct: 70, angle: ANGLES[3] },
       { label: 'Waterjet',     pct: 72, angle: ANGLES[4] },
       { label: 'Sheet Metal',  pct: 68, angle: ANGLES[5] },
     ],
