@@ -13,6 +13,7 @@ const toc = [
   { id: 'hub-design',            label: 'Hub Design'                 },
   { id: 'manufacturing',         label: 'Manufacturing'              },
   { id: 'fea',                   label: 'FEA Results'                },
+  { id: 'interim-solution',      label: 'Interim OEM Hub'            },
 ]
 
 export default function BajaRearHubs() {
@@ -39,6 +40,11 @@ export default function BajaRearHubs() {
             structural cross-section all interact with each other. Minimizing unsprung mass at the
             rear also affects traction under throttle, so every gram of material is a tradeoff
             against structural margin.
+          </p>
+          <p>
+            The reason for going custom at all: the off-the-shelf OEM Grizzly 660 hubs that match our
+            axle spline have no brake rotor mounting built in. The rear brakes needed somewhere to bolt
+            a rotor, so the hub had to be either designed from scratch or modified to carry one.
           </p>
         </div>
       </ScrollReveal>
@@ -233,12 +239,41 @@ export default function BajaRearHubs() {
       </ScrollReveal>
 
       <ScrollReveal>
+        <div id="interim-solution" className="project-section">
+          <h3>Interim Solution: Modified OEM Hub</h3>
+          <div style={{ background: 'var(--accent-dim)', border: '1px solid var(--accent)', borderRadius: 'var(--radius-sm)', padding: '18px 22px' }}>
+            <div style={{ fontFamily: "'Space Grotesk', sans-serif", fontWeight: 700, fontSize: '0.75rem', color: 'var(--accent-light)', marginBottom: 8, letterSpacing: '0.1em', textTransform: 'uppercase' }}>Note</div>
+            <p style={{ margin: 0, fontSize: '0.92rem', color: 'var(--text-secondary)', lineHeight: 1.7 }}>
+              The full manufacturing timeline for the laminated hub ran past the time the team had
+              before the car needed to run. To keep the build moving, we modified an OEM Grizzly 660
+              hub in the meantime.
+            </p>
+          </div>
+          <ul style={{ color: 'var(--text-secondary)', paddingLeft: 20, lineHeight: 2, fontSize: '0.95rem', marginTop: 20 }}>
+            <li><strong style={{ color: 'var(--text-primary)' }}>Standoffs:</strong> standoff holes were drilled into the OEM hub flange, and machined steel standoffs were fastened through them with M6 countersunk bolts.</li>
+            <li><strong style={{ color: 'var(--text-primary)' }}>Adapter plate:</strong> the standoffs carry an adapter plate, and the brake rotor mounts to that plate, adding the rotor interface the stock hub was missing.</li>
+            <li><strong style={{ color: 'var(--text-primary)' }}>Custom rotors:</strong> the rotors were made custom so their mounting holes landed where enough material remained on the hub after drilling, keeping adequate edge distance around every new hole.</li>
+          </ul>
+          <p style={{ color: 'var(--text-secondary)', fontSize: '0.95rem', lineHeight: 1.75, marginTop: 16 }}>
+            The final stackup: modified OEM hub, machined steel standoffs, and brake rotor assembled on the rear upright.
+          </p>
+          <img
+            src={img('/images/Hub stackup image.jpeg')}
+            alt="Final rear hub stackup: upright, brake rotor, machined steel standoffs, and modified OEM Grizzly 660 hub"
+            className="project-image-single"
+            loading="lazy"
+          />
+        </div>
+      </ScrollReveal>
+
+      <ScrollReveal>
         <Gallery
           title="Rear Hub Gallery"
           images={[
             { src: img('/images/Rear Hub.png'), alt: 'Rear hub CAD' },
             { src: img('/images/rear hub machined image.jpg'), alt: 'Rear hub machined part' },
             { src: img('/images/rear hub manufacturing.jpg'), alt: 'Rear hub manufacturing' },
+            { src: img('/images/Hub stackup image.jpeg'), alt: 'Final rear hub and rotor stackup' },
           ]}
         />
       </ScrollReveal>

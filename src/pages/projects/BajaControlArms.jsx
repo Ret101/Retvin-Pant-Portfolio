@@ -13,6 +13,9 @@ const toc = [
   { id: 'cad',                   label: 'Control Arm CAD'             },
   { id: 'load-cases',            label: 'Load Cases'                  },
   { id: 'forces-analysis',       label: 'Forces Analysis'             },
+  { id: 'final-build',           label: 'Final Build'                 },
+  { id: 'lessons-learned',       label: 'Lessons Learned'             },
+  { id: 'steering',              label: 'Steering Check'              },
 ]
 
 const gallery = [
@@ -20,6 +23,9 @@ const gallery = [
   { src: img('/images/Front Control Arm Render.png'), alt: 'Front control arm render' },
   { src: img('/images/Rear Control Arm Render.png'), alt: 'Rear control arm render' },
   { src: img('/images/Rear Control Arms.png'), alt: 'Rear control arms CAD' },
+  { src: img('/images/Front Control Arms.jpeg'), alt: 'Fabricated front lower control arm' },
+  { src: img('/images/Trailing Arm Images/WhatsApp Image 2026-10-03 at 5.46.39 PM (6).jpeg'), alt: 'Rear trailing arms installed' },
+  { src: img('/images/Trailing Arm Images/WhatsApp Image 2026-10-03 at 5.46.39 PM (3).jpeg'), alt: 'Rear trailing arm with LBR plate' },
   { src: img('/images/Lotus Full Car Suspension Hardpoint Verification.png'), alt: 'Lotus Shark full car suspension verification' },
   { src: img('/images/Camber Graph.png'), alt: 'Camber curve output from Lotus Shark' },
   { src: img('/images/Bending stiffness vs area.png'), alt: 'Bending stiffness vs area comparison' },
@@ -35,11 +41,10 @@ export default function BajaControlArms() {
       backLabel="Longhorn Baja"
       tag="SAE Baja · Vehicle Dynamics"
       title="Control Arms"
-      heroImage={img('/images/Front Control Arm Render.png')}
-      heroStyle={{ backgroundSize: '75%', backgroundPosition: 'center 40%' }}
+      heroImage={img('/images/Trailing Arm Images/WhatsApp Image 2026-10-03 at 5.46.39 PM (6).jpeg')}
+      heroStyle={{ backgroundSize: 'cover', backgroundPosition: 'center 65%' }}
       software={['SolidWorks CAD', 'SolidWorks FEA', 'Lotus Shark']}
       roles={['Vehicle Dynamics Lead']}
-      inProgress
     >
       <ScrollReveal>
         <div id="engineering-challenge" className="project-section">
@@ -184,11 +189,153 @@ export default function BajaControlArms() {
       </ScrollReveal>
 
       <ScrollReveal>
-        <div className="project-section" style={{ borderTop: '1px solid var(--card-border)', paddingTop: 32 }}>
-          <p style={{ color: 'var(--text-muted)', fontStyle: 'italic' }}>
-            FEA analysis, tube sizing decisions, and manufacturing details are under active development
-            and will be added as the design cycle progresses.
+        <div id="final-build" className="project-section">
+          <h3>Final Build</h3>
+          <p>
+            Both the front A-arms and the rear semi-trailing arms were fabricated in-house from the
+            shared chassis tube stock and fitted to the frame. During manufacturing, the internal
+            trussing on both designs was altered from the CAD. Changing the truss layout moved where load entered the tube members, so extra plates were welded
+            on at the affected nodes to spread the load across a wider section of tube and prevent
+            local tube buckling under the bump and cornering cases above.
           </p>
+
+          <h4 style={{ marginTop: 28, marginBottom: 4 }}>Front Control Arms</h4>
+          <p>
+            On the front lower arm, a formed gusset plate fills the inside of the arm between the
+            lower shock mount and the outboard ball joint. That region takes the highest combined
+            load from the shock reaction, braking, and cornering.
+          </p>
+          <div className="project-image-grid">
+            <img
+              src={img('/images/Front Control Arms.jpeg')}
+              alt="Fabricated front lower control arm with welded gusset plate, mounted to the chassis with Fox shock"
+              style={{ height: 480 }}
+              loading="lazy"
+            />
+          </div>
+
+          <h4 style={{ marginTop: 28, marginBottom: 4 }}>Rear Trailing Arms</h4>
+          <p>
+            On the rear semi-trailing arms, a laser-cut LBR plate ties the upright mount into the
+            arm's tube members, closing out the open truss section near the hub so the drive and
+            braking loads are spread across the arm instead of concentrating at single tube joints.
+          </p>
+          <div className="project-image-grid">
+            <img
+              src={img('/images/Trailing Arm Images/WhatsApp Image 2026-10-03 at 5.46.39 PM (6).jpeg')}
+              alt="Rear view of both semi-trailing arms installed with hubs, axles, and toe links"
+              style={{ height: 360 }}
+              loading="lazy"
+            />
+            <img
+              src={img('/images/Trailing Arm Images/WhatsApp Image 2026-10-03 at 5.46.39 PM (3).jpeg')}
+              alt="Rear semi-trailing arm with welded LBR plate, hub, and Fox shock"
+              style={{ height: 360 }}
+              loading="lazy"
+            />
+          </div>
+          <div className="project-image-grid">
+            <img
+              src={img('/images/Trailing Arm Images/WhatsApp Image 2026-10-03 at 5.46.39 PM (4).jpeg')}
+              alt="Top-down view of trailing arm, axle, and toe link running to the gearbox"
+              style={{ height: 420 }}
+              loading="lazy"
+            />
+            <img
+              src={img('/images/Trailing Arm Images/WhatsApp Image 2026-10-03 at 5.46.39 PM (5).jpeg')}
+              alt="Close-up of axle and toe links between the gearbox and the trailing arm"
+              style={{ height: 420 }}
+              loading="lazy"
+            />
+          </div>
+
+          <p style={{ marginTop: 20 }}>Cycling the rear suspension through its travel on the bench:</p>
+          <video
+            src={img('/images/Trailing Arm Images/trailing-arm-travel.mp4')}
+            controls
+            muted
+            loop
+            playsInline
+            style={{ width: '100%', borderRadius: 'var(--radius-sm)', border: '1px solid var(--card-border)', display: 'block', marginTop: 16 }}
+          />
+        </div>
+      </ScrollReveal>
+
+      <ScrollReveal>
+        <div id="lessons-learned" className="project-section">
+          <h3>Lessons Learned</h3>
+          <p>
+            The goal for this first set of arms was durability: make them bulky enough that they would
+            survive competition. In practice they ended up overbuilt, and there is real weight to be
+            trimmed in the next iteration.
+          </p>
+
+          <div className="lessons-grid">
+            <div className="lesson-card lesson-card-key">
+              <span className="lesson-card-tag">Front · Biggest Lesson</span>
+              <h4 className="lesson-card-title">Vertical Weld Cups &amp; Custom Misalignment Spacers</h4>
+              <p>
+                This year's horizontal weld cup orientation caused multiple tolerance stack-up issues and
+                quickly maxed out the spherical bearings' angular limits along the control arm's arc of
+                travel, heavily limiting both steering and suspension travel. Mounting the weld cups
+                vertically and taking the extra time to make custom misalignment spacers for the front
+                upright would give the steering much more room to work.
+              </p>
+            </div>
+            <div className="lesson-card">
+              <span className="lesson-card-tag">Overall</span>
+              <h4 className="lesson-card-title">Design Intent Has to Reach the Shop</h4>
+              <p>
+                Shock mounting location and internal truss placement both matter structurally. When those
+                details aren't relayed clearly to the manufacturing team, the build drifts from the design,
+                as it did with the trussing changes this year.
+              </p>
+            </div>
+            <div className="lesson-card">
+              <span className="lesson-card-tag">Overall</span>
+              <h4 className="lesson-card-title">Trim for Weight</h4>
+              <p>
+                The arms can be slimmed down now that the team has real parts and loads to size against.
+              </p>
+            </div>
+            <div className="lesson-card">
+              <span className="lesson-card-tag">Rear</span>
+              <h4 className="lesson-card-title">Double Shear Toe Rods</h4>
+              <p>
+                The rear toe rod mounts are currently single shear and should be moved to double shear for
+                added support.
+              </p>
+            </div>
+            <div className="lesson-card">
+              <span className="lesson-card-tag">Front</span>
+              <h4 className="lesson-card-title">Upper Arm Material</h4>
+              <p>
+                The front upper control arm sees minimal load, so a lighter material could be considered.
+              </p>
+            </div>
+            <div className="lesson-card">
+              <span className="lesson-card-tag">Front</span>
+              <h4 className="lesson-card-title">Gull-Wing Lower Arm</h4>
+              <p>
+                Reshaping the front lower control arm into a gull-wing profile would give it extra clearance.
+              </p>
+            </div>
+          </div>
+        </div>
+      </ScrollReveal>
+
+      <ScrollReveal>
+        <div id="steering" className="project-section">
+          <h3>Steering Check</h3>
+          <p>Steering swept through its range of travel.</p>
+          <video
+            src={img('/images/steering-video.mp4')}
+            controls
+            muted
+            loop
+            playsInline
+            style={{ width: '100%', borderRadius: 'var(--radius-sm)', border: '1px solid var(--card-border)', display: 'block', marginTop: 16 }}
+          />
         </div>
       </ScrollReveal>
 

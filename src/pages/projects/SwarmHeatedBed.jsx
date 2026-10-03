@@ -183,7 +183,7 @@ export default function SwarmHeatedBed() {
             I am currently working on more accurate and less improvised thermal characterization.
           </p>
           <video
-            src={img('/images/Initial PCB Heater Testing.MOV')}
+            src={img('/images/pcb-heater-testing.mp4')}
             controls
             muted
             style={{ width: '100%', borderRadius: 'var(--radius-sm)', border: '1px solid var(--card-border)', display: 'block', marginTop: 16 }}

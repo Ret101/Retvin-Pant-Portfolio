@@ -3,7 +3,7 @@ import img from '../img'
 
 const slides = [
   { src: '/images/spring steel wheel.jpg', label: 'NASA Spring Steel Wheel Prototype', sub: 'NASA JSC Internship · Summer 2024' },
-  { src: '/images/Car Render.webp', label: 'Longhorn Baja Racing', sub: 'SAE Baja · Co-Captain & Vehicle Dynamics Lead' },
+  { src: '/images/baja sae hero image.jpeg', position: 'center 60%', label: 'Longhorn Baja Racing', sub: 'SAE Baja · Co-Captain & Vehicle Dynamics Lead' },
   { src: '/images/sweetsifter.jpg', label: 'Automated Candy Sorter', sub: 'SPARX Engineering Internship' },
   { src: '/images/battlebot.jpg', label: 'Beetleweight Battlebot', sub: 'Texas Roborumble · 3-2-0' },
   { src: '/images/brownout robot frc.jpg', label: 'Brownout', sub: 'FRC Competition Robot · 2024' },
@@ -25,7 +25,7 @@ export default function HeroCarousel() {
         <div
           key={i}
           className={`hero-carousel-slide${i === current ? ' active' : ''}`}
-          style={{ backgroundImage: `url('${img(slide.src)}')` }}
+          style={{ backgroundImage: `url('${img(slide.src)}')`, ...(slide.position && { backgroundPosition: slide.position }) }}
         />
       ))}
       <div className="hero-carousel-gradient" />

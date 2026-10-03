@@ -1,5 +1,5 @@
+import { Link } from 'react-router-dom'
 import ScrollReveal from '../../components/ScrollReveal'
-import Gallery from '../../components/Gallery'
 import DocSlider from '../../components/DocSlider'
 import StatRow from '../../components/StatRow'
 import ProjectCard from '../../components/ProjectCard'
@@ -24,11 +24,10 @@ const teamStats = [
 
 const subprojects25 = [
   {
-    image: img('/images/Front Control Arm Render.png'),
+    image: img('/images/Trailing Arm Images/WhatsApp Image 2026-10-03 at 5.46.39 PM (6).jpeg'),
     title: 'Control Arms',
     description: 'Load-path optimized suspension links sized against max cornering, bump, and combined load cases. Geometry fixed by master sketch; structural cross-section driven by FEA.',
     to: '/baja/control-arms',
-    inProgress: true,
   },
   {
     image: img('/images/rear hub machined image.jpg'),
@@ -46,6 +45,12 @@ const subprojects25 = [
     comingSoon: true,
   },
   {
+    image: img('/images/CV Axle Modification.jpeg'),
+    title: 'Modified CV Axles',
+    description: 'Stock CV axles were too short and narrowed the rear track. Extended them with machined press-fit sleeves and welded joints, keeping the shaft coaxial and restoring the designed track width.',
+    to: '/baja/cv-axles',
+  },
+  {
     image: img('/images/car mastersketch v2.png'),
     title: 'Vehicle Master Sketch',
     description: 'Single source of truth for all suspension hardpoints. Defines roll and pitch instantaneous centers, camber curves, and packaging constraints that every downstream component is built from.',
@@ -54,28 +59,33 @@ const subprojects25 = [
   },
 ]
 
-const gallery = [
-  { src: img('/images/Car render 25-26 clear background.png'), alt: '25-26 competition car render' },
-  { src: img('/images/car mastersketch v3.png'), alt: 'Master sketch V3' },
-  { src: img('/images/car mastersketch v2.png'), alt: 'Master sketch V2' },
-  { src: img('/images/Baja Mastersketch v1.png'), alt: 'Master sketch V1' },
-  { src: img('/images/Front Control Arms.png'), alt: 'Front control arms CAD' },
-  { src: img('/images/Rear Control Arms.png'), alt: 'Rear control arms CAD' },
-  { src: img('/images/Rear Hub.png'), alt: 'Rear hub CAD' },
-  { src: img('/images/rear hub machined image.jpg'), alt: 'Rear hub machined part' },
-  { src: img('/images/rear hub manufacturing.jpg'), alt: 'Rear hub manufacturing' },
-  { src: img('/images/lotusimage.png'), alt: 'Lotus Shark kinematics view 1' },
-  { src: img('/images/imagelotus2.png'), alt: 'Lotus Shark kinematics view 2' },
-]
-
 export default function LonghornBaja() {
   return (
     <div className="page-wrapper">
       <StickyTOC sections={toc} />
 
       {/* ── Hero ── */}
-      <div className="cinematic-header">
-        <div className="cinematic-header-bg" style={{ backgroundImage: `url('${img('/images/Car Render.webp')}')`, backgroundSize: '150%', backgroundPosition: 'center 55%' }} />
+      <div className="cinematic-header" style={{ height: 'clamp(320px, 70vh, 760px)' }}>
+        {/* Portrait photo in a wide header: blurred copy fills the sides, sharp copy shows the whole jump */}
+        <div className="cinematic-header-bg" style={{ backgroundImage: `url('${img('/images/baja sae hero image.jpeg')}')`, backgroundPosition: 'center 60%', filter: 'blur(28px) brightness(0.45)' }} />
+        <div
+          className="cinematic-header-bg"
+          style={{
+            backgroundImage: `url('${img('/images/baja sae hero image.jpeg')}')`,
+            backgroundColor: 'transparent',
+            backgroundRepeat: 'no-repeat',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center 61%',
+            filter: 'brightness(0.8)',
+            // Sized to the photo at ~2.6x header height, centred, edges faded into the blur
+            left: '50%',
+            right: 'auto',
+            aspectRatio: '1.75',
+            transform: 'translateX(-50%)',
+            maskImage: 'linear-gradient(to right, transparent, #000 18%, #000 82%, transparent)',
+            WebkitMaskImage: 'linear-gradient(to right, transparent, #000 18%, #000 82%, transparent)',
+          }}
+        />
         <div className="cinematic-header-overlay" />
         <div className="container cinematic-header-content">
           <div className="cinematic-header-meta">
@@ -183,7 +193,7 @@ export default function LonghornBaja() {
                 <ul style={{ color: 'var(--text-secondary)', paddingLeft: 20, lineHeight: 2, fontSize: '0.9rem' }}>
                   <li><strong style={{ color: 'var(--text-primary)' }}>Chassis:</strong> Custom welded steel spaceframe</li>
                   <li><strong style={{ color: 'var(--text-primary)' }}>Dynamics:</strong> Double wishbone front, semi-trailing arm rear, custom hubs and uprights</li>
-                  <li><strong style={{ color: 'var(--text-primary)' }}>Powertrain:</strong> 10HP Briggs &amp; Stratton engine with CVT, competition-mandated</li>
+                  <li><strong style={{ color: 'var(--text-primary)' }}>Powertrain:</strong> Kohler engine with CVT, competition-mandated</li>
                   <li><strong style={{ color: 'var(--text-primary)' }}>Electronics:</strong> Custom wiring harness, sensor integration, and power distribution</li>
                   <li><strong style={{ color: 'var(--text-primary)' }}>Software:</strong> Driver-facing GUI for real-time vehicle data monitoring</li>
                   <li><strong style={{ color: 'var(--text-primary)' }}>Ergonomics:</strong> Driver fitment, seating position, and control placement designed to competition rules</li>
@@ -245,10 +255,20 @@ export default function LonghornBaja() {
         </div>
       </section>
 
-      {/* ── Gallery ── */}
+      {/* ── Season Photo Gallery link ── */}
       <section className="projects-section" style={{ paddingTop: 0 }}>
         <div className="container">
-          <Gallery images={gallery} />
+          <ScrollReveal>
+            <Link to="/baja/gallery" className="gallery-banner">
+              <img src={img('/images/baja-gallery/DSC05988.webp')} alt="Longhorn Baja Racing team with the 25'–26' car" className="gallery-banner-img" loading="lazy" />
+              <div className="gallery-banner-overlay" />
+              <div className="gallery-banner-content">
+                <span className="gallery-banner-tag">25'–26' Season · Photos</span>
+                <h3 className="gallery-banner-title">Memories from the Season</h3>
+                <span className="gallery-banner-link">View Gallery →</span>
+              </div>
+            </Link>
+          </ScrollReveal>
         </div>
       </section>
 

@@ -56,7 +56,7 @@ export default function Gallery({ images, title = 'Project Gallery' }) {
             tabIndex={0}
             onKeyDown={e => e.key === 'Enter' && setLightboxIndex(i)}
           >
-            <img src={img.src} alt={img.alt} loading="lazy" />
+            <img src={img.thumb || img.src} alt={img.alt} width={img.w} height={img.h} loading="lazy" />
             <div className="gallery-item-overlay" />
           </div>
         ))}

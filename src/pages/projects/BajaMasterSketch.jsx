@@ -22,7 +22,6 @@ const gallery = [
   { src: img('/images/car mastersketch v3.png'), alt: 'Master sketch V3' },
   { src: img('/images/lotusimage.png'), alt: 'Lotus Shark view 1' },
   { src: img('/images/imagelotus2.png'), alt: 'Lotus Shark view 2' },
-  { src: img('/images/lotus shark animation gif.gif'), alt: 'Suspension animation' },
 ]
 
 const specs = [
@@ -241,11 +240,14 @@ export default function BajaMasterSketch() {
                 conflict occurs at the travel limits, a failure mode that can be invisible in
                 static CAD but visible immediately in kinematic simulation.
               </p>
-              <img
-                src={img('/images/lotus shark animation gif.gif')}
-                alt="Suspension geometry animation"
+              <video
+                src={img('/images/lotus-shark-animation.mp4')}
+                aria-label="Suspension geometry animation"
                 className="project-image-single"
-                loading="lazy"
+                autoPlay
+                loop
+                muted
+                playsInline
               />
             </div>
           </ScrollReveal>

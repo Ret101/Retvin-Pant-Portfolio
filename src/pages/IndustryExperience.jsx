@@ -16,7 +16,7 @@ const projects = [
     title: 'Roboball',
     description: 'TEES RAD Lab: engineering prototype developed during industry experience.',
     to: null,
-    comingSoon: true,
+    restricted: true,
   },
   {
     image: img('/images/robotic bed full img.png'),

@@ -4,7 +4,9 @@ import img from '../img'
 
 const projects = [
   {
-    image: img('/images/Car Render.webp'),
+    image: img('/images/baja sae hero image.jpeg'),
+    // Portrait shot, keep the airborne car in frame
+    imageStyle: { objectPosition: 'center 60%' },
     title: "SAE Longhorn Baja Racing",
     description: 'Co-founder, Co-Captain & Vehicle Dynamics Lead. Designing a single-seater off-road competition car from scratch for SAE Baja.',
     to: '/baja',

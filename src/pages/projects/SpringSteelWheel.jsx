@@ -156,11 +156,14 @@ export default function SpringSteelWheel() {
       <ScrollReveal>
         <div id="drop-test" className="project-section">
           <h3>Drop Test</h3>
-          <img
-            src={img('/images/spring steel wheel drop test.gif')}
-            alt="Spring steel wheel drop test"
-            style={{ display: 'block', maxWidth: 360, borderRadius: 'var(--radius-sm)', border: '1px solid var(--card-border)', margin: '16px auto 0' }}
-            loading="lazy"
+          <video
+            src={img('/images/spring-steel-wheel-drop-test.mp4')}
+            aria-label="Spring steel wheel drop test"
+            autoPlay
+            loop
+            muted
+            playsInline
+            style={{ display: 'block', width: '100%', maxWidth: 360, borderRadius: 'var(--radius-sm)', border: '1px solid var(--card-border)', margin: '16px auto 0' }}
           />
         </div>
       </ScrollReveal>

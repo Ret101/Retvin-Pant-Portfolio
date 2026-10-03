@@ -19,6 +19,8 @@ import BajaMasterSketch from './pages/projects/BajaMasterSketch'
 import BajaControlArms from './pages/projects/BajaControlArms'
 import BajaRearHubs from './pages/projects/BajaRearHubs'
 import BajaFrontHubs from './pages/projects/BajaFrontHubs'
+import BajaGallery from './pages/projects/BajaGallery'
+import BajaCVAxles from './pages/projects/BajaCVAxles'
 import Guadaloop from './pages/projects/Guadaloop'
 import RoboticsRoadcase from './pages/projects/RoboticsRoadcase'
 import FRCRobots from './pages/projects/FRCRobots'
@@ -56,6 +58,8 @@ function AnimatedRoutes() {
         <Route path="/baja/control-arms"           element={<PT><BajaControlArms /></PT>} />
         <Route path="/baja/rear-hubs"              element={<PT><BajaRearHubs /></PT>} />
         <Route path="/baja/front-hubs"             element={<PT><BajaFrontHubs /></PT>} />
+        <Route path="/baja/gallery"                element={<PT><BajaGallery /></PT>} />
+        <Route path="/baja/cv-axles"               element={<PT><BajaCVAxles /></PT>} />
         <Route path="/team"                       element={<PT><TeamProjects /></PT>} />
         <Route path="/team/guadaloop"             element={<PT><Guadaloop /></PT>} />
         <Route path="/team/robotics-roadcase"     element={<PT><RoboticsRoadcase /></PT>} />

@@ -39,6 +39,13 @@ const companies = [
 
 const timelineEntries = [
   {
+    date: 'Summer 2027',
+    org: 'Boeing',
+    role: 'Incoming Loads & Dynamics Engineering Intern · International Space Station',
+    tag: 'Incoming',
+    to: null,
+  },
+  {
     date: 'Summer 2026',
     org: 'Daikin',
     role: 'Automation Engineering Intern',
