@@ -8,6 +8,8 @@ const projects = [
     title: 'Heat Exchanger Automated Manufacturing Cell',
     description: 'Daikin: robotic cell for heat exchanger forming and bending, covering cell layout, robot integration, material handling, and end-of-arm tooling.',
     to: '/industry/daikin',
+    restricted: true,
+    restrictedLabel: 'Under NDA · Limited Information',
     // Transparent-background render sitting low in the frame, crop toward the bottom over off-white
     imageStyle: { objectPosition: 'center bottom', background: '#f2f0ec' },
   },

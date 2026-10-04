@@ -6,22 +6,24 @@ import img from '../img'
 
 const companies = [
   {
+    name: 'Boeing',
+    role: 'Intern',
+    logo: img('/images/boeing-logo.svg'),
+    // Navy wordmark would disappear on the dark card, render it white
+    filter: 'brightness(0) invert(1)',
+  },
+  {
     name: 'NASA JSC',
     role: 'Intern',
     logo: 'https://www.nasa.gov/wp-content/themes/nasa/assets/images/nasa-logo@2x.png',
     filter: 'none',
   },
   {
-    name: 'SPARX Engineering',
+    name: 'Daikin',
     role: 'Intern',
-    logo: img('/images/sparx engineering logo.png'),
-    filter: 'none',
-  },
-  {
-    name: 'SAE at UT Austin',
-    role: 'Chapter Chair',
-    logo: img('/images/SAE_International_logo.svg'),
-    filter: 'none',
+    logo: img('/images/daikin-logo.svg'),
+    // Near-black lettering would disappear on the dark card, render it white
+    filter: 'brightness(0) invert(1)',
   },
   {
     name: 'UT SiDi Lab',
@@ -44,13 +46,15 @@ const timelineEntries = [
     role: 'Incoming Loads & Dynamics Engineering Intern · International Space Station',
     tag: 'Incoming',
     to: null,
+    logo: img('/images/boeing-logo.svg'),
   },
   {
     date: 'Summer 2026',
     org: 'Daikin',
     role: 'Automation Engineering Intern',
     tag: 'Internship',
-    to: null,
+    to: '/industry/daikin',
+    logo: img('/images/daikin-logo.svg'),
   },
   {
     date: '2026 – Present',
@@ -58,6 +62,7 @@ const timelineEntries = [
     role: 'Chapter Chair',
     tag: 'Leadership',
     to: null,
+    logo: img('/images/SAE_International_logo.svg'),
   },
   {
     date: '2025 – Present',
@@ -65,6 +70,7 @@ const timelineEntries = [
     role: 'Co-Founder · Co-Captain · Vehicle Dynamics Lead',
     tag: 'Student Org',
     to: '/baja',
+    logo: img('/images/lbr-logo.png'),
   },
   {
     date: 'Summer 2025',
@@ -72,6 +78,7 @@ const timelineEntries = [
     role: 'Research Intern',
     tag: 'Internship',
     to: null,
+    logo: img('/images/radlab.jpg'),
   },
   {
     date: '2024 – Present',
@@ -79,6 +86,7 @@ const timelineEntries = [
     role: 'Undergraduate Research Assistant',
     tag: 'Research',
     to: '/industry/swarm-heated-bed',
+    logo: img('/images/sidi lab logo.png'),
   },
   {
     date: 'Spring – Fall 2025',
@@ -86,6 +94,7 @@ const timelineEntries = [
     role: 'Vehicle Dynamics Engineer',
     tag: 'Student Org',
     to: '/team/guadaloop',
+    logo: img('/images/guadaloop.png'),
   },
   {
     date: 'Summer 2024',
@@ -93,6 +102,7 @@ const timelineEntries = [
     role: 'Mechanical Engineering Intern',
     tag: 'Internship',
     to: '/industry/spring-steel-wheel',
+    logo: img('/images/nasa-logo.svg'),
   },
   {
     date: 'Aug 2023 – June 2024',
@@ -100,6 +110,7 @@ const timelineEntries = [
     role: 'Mechanical Engineering Intern',
     tag: 'Internship',
     to: '/industry/candy-sorter',
+    logo: img('/images/sparx engineering logo.png'),
   },
   {
     date: '2021 – 2024',
@@ -107,6 +118,7 @@ const timelineEntries = [
     role: 'Technical Team Captain',
     tag: 'Robotics',
     to: '/team/frc-robots',
+    logo: img('/images/pearadox.png'),
   },
 ]
 
@@ -121,7 +133,7 @@ export default function Home() {
             {/* Profile card */}
             <ScrollReveal className="hero-profile card" delay={1}>
               <img
-                src={img('/images/RAD_2496.jpg')}
+                src={img('/images/profile-baja.webp')}
                 alt="Retvin Pant"
                 className="hero-photo"
               />
@@ -256,9 +268,18 @@ export default function Home() {
                     <span className="pill">{entry.tag}</span>
                     {entry.to && <span className="zz-arrow">→</span>}
                   </div>
-                  <div className="zz-date">{entry.date}</div>
-                  <div className="zz-org">{entry.org}</div>
-                  <div className="zz-role">{entry.role}</div>
+                  <div className="zz-card-main">
+                    <div className="zz-logo">
+                      {entry.logo
+                        ? <img src={entry.logo} alt={`${entry.org} logo`} loading="lazy" />
+                        : <span className="zz-logo-initials">{entry.initials}</span>}
+                    </div>
+                    <div className="zz-card-text">
+                      <div className="zz-date">{entry.date}</div>
+                      <div className="zz-org">{entry.org}</div>
+                      <div className="zz-role">{entry.role}</div>
+                    </div>
+                  </div>
                 </div>
               )
               return (

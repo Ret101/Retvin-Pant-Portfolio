@@ -4,7 +4,7 @@ import InProgressBadge from './InProgressBadge'
 import ComingSoonBadge from './ComingSoonBadge'
 import RestrictedBadge from './RestrictedBadge'
 
-export default function ProjectCard({ image, tag, title, description, to, delay = 0, inProgress, comingSoon, restricted, imageStyle }) {
+export default function ProjectCard({ image, tag, title, description, to, delay = 0, inProgress, comingSoon, restricted, restrictedLabel, imageStyle }) {
   const inner = (
     <div className="card project-card" style={{ cursor: to ? 'pointer' : 'default' }}>
       <div className="project-card-img-wrap">
@@ -15,7 +15,7 @@ export default function ProjectCard({ image, tag, title, description, to, delay 
           {tag && <div className="project-card-tag">{tag}</div>}
           {inProgress && <InProgressBadge />}
           {comingSoon && <ComingSoonBadge />}
-          {restricted && <RestrictedBadge />}
+          {restricted && <RestrictedBadge label={restrictedLabel} />}
         </div>
         <h3 className="project-card-title">{title}</h3>
         {description && <p className="project-card-desc">{description}</p>}

@@ -1104,6 +1104,47 @@ h1, h2, h3, h4, h5, h6 {
   transform: translateY(-2px);
 }
 
+.zz-card-main {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.zz-card-text {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+/* White tile so dark logos (Boeing, Daikin, NASA) read on the dark card */
+.zz-logo {
+  flex-shrink: 0;
+  width: 64px;
+  height: 44px;
+  padding: 6px;
+  border-radius: 8px;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.zz-logo img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.zz-logo-initials {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: #0a0a0c;
+}
+
 .zz-card-top {
   display: flex;
   align-items: center;
