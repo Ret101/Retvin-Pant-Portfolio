@@ -7,6 +7,7 @@ import img from '../../img'
 
 const toc = [
   { id: 'introduction', label: 'Introduction' },
+  { id: 'my-contribution', label: 'My Contribution' },
   { id: 'robots',       label: 'Robots'       },
 ]
 
@@ -74,6 +75,18 @@ export default function FRCRobots() {
             Team Captain for Team 5414. Each robot targeted a specific game's objectives with full
             mechanical ownership from concept through competition.
           </p>
+        </div>
+      </ScrollReveal>
+
+      <ScrollReveal>
+        <div id="my-contribution" className="project-section">
+          <h3>My Contribution</h3>
+          <ul style={{ color: 'var(--text-secondary)', paddingLeft: 20, lineHeight: 2, fontSize: '0.95rem' }}>
+            <li>Served as Technical Team Captain across the 2023 and 2024 seasons, leading the team's mechanical design</li>
+            <li>Designed robot mechanisms in Onshape for Rooty, Ringo, and Brownout</li>
+            <li>Led fabrication as Fabrication Lead, taking designs from CAD to competition robots</li>
+            <li>Ran the pit at competitions as Pit Boss, managing repairs and readiness between matches</li>
+          </ul>
         </div>
       </ScrollReveal>
 

@@ -7,6 +7,7 @@ import img from '../../img'
 
 const toc = [
   { id: 'engineering-challenge', label: 'Engineering Challenge'       },
+  { id: 'my-contribution',       label: 'My Contribution'             },
   { id: 'design-basis',          label: 'Design Basis'                },
   { id: 'lotus-verification',    label: 'Lotus Shark Verification'    },
   { id: 'material-selection',    label: 'Material Selection'          },
@@ -16,6 +17,28 @@ const toc = [
   { id: 'final-build',           label: 'Final Build'                 },
   { id: 'lessons-learned',       label: 'Lessons Learned'             },
   { id: 'steering',              label: 'Steering Check'              },
+]
+
+const specGroups = [
+  {
+    title: 'Kinematics (Lotus Shark)',
+    specs: [
+      ['Camber Range', '−3° to +1°'],
+      ['Front Camber Gain', '−0.339°/in'],
+      ['Rear Camber Gain', '−0.724°/in'],
+      ['Front Caster Change', '≈ −1.35°/in'],
+      ['Static Caster', '8.15°'],
+      ['Motion Ratio (F / R)', '2.42 / 2.23'],
+    ],
+  },
+  {
+    title: 'Suspension Springs',
+    specs: [
+      ['Front Spring Rate', '125 lb/in'],
+      ['Rear Spring Rate', '210 lb/in'],
+      ['Helper Springs', '7 lb/in'],
+    ],
+  },
 ]
 
 const gallery = [
@@ -28,6 +51,7 @@ const gallery = [
   { src: img('/images/Trailing Arm Images/WhatsApp Image 2026-10-03 at 5.46.39 PM (3).jpeg'), alt: 'Rear trailing arm with LBR plate' },
   { src: img('/images/Lotus Full Car Suspension Hardpoint Verification.png'), alt: 'Lotus Shark full car suspension verification' },
   { src: img('/images/Camber Graph.png'), alt: 'Camber curve output from Lotus Shark' },
+  { src: img('/images/kinematic-graphs.webp'), alt: 'Lotus Shark camber, toe, caster, and KPI curves' },
   { src: img('/images/Bending stiffness vs area.png'), alt: 'Bending stiffness vs area comparison' },
   { src: img('/images/bending strength vs area graph.png'), alt: 'Bending strength vs area comparison' },
 ]
@@ -59,13 +83,26 @@ export default function BajaControlArms() {
       </ScrollReveal>
 
       <ScrollReveal>
+        <div id="my-contribution" className="project-section">
+          <h3>My Contribution</h3>
+          <ul style={{ color: 'var(--text-secondary)', paddingLeft: 20, lineHeight: 2, fontSize: '0.95rem' }}>
+            <li>Set the front and rear control arm geometry from the master sketch hardpoints I defined as Vehicle Dynamics Lead</li>
+            <li>Verified the suspension kinematics in Lotus Shark before releasing geometry to the chassis, steering, and unsprung mass teams</li>
+            <li>Selected the tube section, 1.25 in OD × 0.065 in wall 4130 chromoly, coordinating a shared tube spec with the chassis team</li>
+            <li>Defined the cornering, bump, combined, and braking load cases and worked through the control arm force analysis</li>
+            <li>Followed the arms through fabrication and installation, then documented what to change for next year</li>
+          </ul>
+        </div>
+      </ScrollReveal>
+
+      <ScrollReveal>
         <div id="design-basis" className="project-section">
           <h3>Design Basis</h3>
           <p>
-            Geometry comes directly from the master sketch hardpoints. The inboard and outboard pickup
-            points, arm lengths, and sweep angles are set by the kinematics work. This design effort
-            focuses on structural cross-section, tube diameter, wall thickness, and gusset placement
-            to meet load requirements within those fixed geometry constraints.
+            Geometry comes directly from the master sketch hardpoints I set. The inboard and outboard
+            pickup points, arm lengths, and sweep angles are fixed by that kinematics work, so my design
+            effort here focused on structural cross-section, tube diameter, wall thickness, and gusset
+            placement to meet the load requirements within those fixed geometry constraints.
           </p>
         </div>
       </ScrollReveal>
@@ -74,7 +111,7 @@ export default function BajaControlArms() {
         <div id="lotus-verification" className="project-section">
           <h3>Lotus Shark Verification</h3>
           <p>
-            Suspension hardpoints were verified in Lotus Shark before geometry was released to any
+            I verified the suspension hardpoints in Lotus Shark before releasing geometry to any
             downstream team. The software provides detailed kinematic output across the full travel
             range, including camber gain, caster change, roll center migration, and motion ratio,
             giving the dynamics team precise insight into how the geometry behaves before committing
@@ -88,6 +125,19 @@ export default function BajaControlArms() {
             and upright sizing), ensuring all downstream teams worked from a common, verified
             geometric foundation.
           </p>
+          {specGroups.map(g => (
+            <div key={g.title} className="spec-group">
+              <div className="spec-group-title">{g.title}</div>
+              <div className="spec-grid">
+                {g.specs.map(([label, value]) => (
+                  <div key={label} className="spec-tile">
+                    <div className="spec-tile-value">{value}</div>
+                    <div className="spec-tile-label">{label}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
           <div className="project-image-grid">
             <img
               src={img('/images/Lotus Full Car Suspension Hardpoint Verification.png')}
@@ -100,6 +150,17 @@ export default function BajaControlArms() {
               loading="lazy"
             />
           </div>
+          <p style={{ marginTop: 20 }}>
+            Final 25'–26' kinematic curves across the full travel range, from rebound to bump: camber and
+            toe for the front and rear, plus front caster and kingpin inclination.
+          </p>
+          <img
+            src={img('/images/kinematic-graphs.webp')}
+            alt="Lotus Shark kinematic curves, rebound to bump: camber and toe (front and rear), front caster, and front kingpin inclination"
+            className="project-image-single"
+            style={{ maxHeight: 'none', background: '#fff' }}
+            loading="lazy"
+          />
         </div>
       </ScrollReveal>
 
@@ -107,14 +168,17 @@ export default function BajaControlArms() {
         <div id="material-selection" className="project-section">
           <h3>Material Selection</h3>
           <p>
-            Tube section was chosen over solid bar and other profiles based on bending stiffness
+            I chose tube section over solid bar and other profiles based on bending stiffness
             and strength per unit area. Tubes provide high resistance to bending in any direction
             and high torsional stiffness relative to their cross-sectional area, making them the
             most efficient profile for a control arm under combined lateral, vertical, and
             longitudinal loading.
           </p>
           <p>
-            The selection was made in coordination with the chassis team to simplify raw stock
+            The final spec was <strong style={{ color: 'var(--text-primary)' }}>1.25 in OD × 0.065 in wall 4130 chromoly steel tube</strong>.
+          </p>
+          <p>
+            I made the selection in coordination with the chassis team to simplify raw stock
             orders, as chassis tubing and arm tubing could share common stock sizes. Both teams
             also projected similar expected load magnitudes across their respective members,
             making a shared tube spec practical without compromising either design.

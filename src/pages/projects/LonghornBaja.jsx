@@ -1,26 +1,68 @@
 import { Link } from 'react-router-dom'
 import { FiDownload } from 'react-icons/fi'
 import ScrollReveal from '../../components/ScrollReveal'
-import DocSlider from '../../components/DocSlider'
 import StatRow from '../../components/StatRow'
 import ProjectCard from '../../components/ProjectCard'
 import StickyTOC from '../../components/StickyTOC'
 import img from '../../img'
 
 const toc = [
-  { id: 'overview',              label: 'Overview'              },
+  { id: 'overview',                label: 'Overview'                },
+  { id: 'leadership',              label: 'Leadership'              },
+  { id: 'vehicle-25-26',           label: "25'–26' Vehicle"         },
+  { id: 'design-philosophy',       label: 'Design Philosophy'       },
   { id: 'engineering-constraints', label: 'Engineering Constraints' },
-  { id: 'geometry-simulation',   label: 'Geometry & Simulation' },
-  { id: 'system-integration',    label: 'System Integration'    },
-  { id: 'performance-targets',   label: 'Performance Targets'   },
-  { id: 'vehicle-25-26',         label: "25'–26' Vehicle"       },
-  { id: 'vehicle-26-27',         label: "26'–27' Vehicle"       },
+  { id: 'geometry-simulation',     label: 'Geometry & Simulation'   },
+  { id: 'system-integration',      label: 'Integration & Targets'   },
+  { id: 'parts',                   label: 'Parts I Worked On'       },
+  { id: 'season-results',          label: 'Season Results'          },
+  { id: 'drb',                     label: 'Design Review'           },
+  { id: 'vehicle-26-27',           label: "26'–27' Vehicle"         },
 ]
 
 const teamStats = [
   { value: 'Co-Founder', label: 'Team Role' },
   { value: 'Co-Captain', label: 'Leadership' },
   { value: 'Vehicle Dynamics Lead', label: 'Technical Lead' },
+]
+
+const philosophy = [
+  { title: 'Rule Compliance', text: 'Design to margin, leaving more than 1 in and 3° of tolerance on Baja SAE rules, with at least two mock tech reviews built into design and fabrication.' },
+  { title: 'Manufacturability', text: 'Use OEM components and subsystems where possible, minimize custom CNC parts, and keep manufacturing modular to suit a non-permanent workspace.' },
+  { title: 'Durability', text: 'Minimum factor of safety above 2 on all critical components under 5–7 g of load, prioritizing durability over weight.' },
+  { title: 'Serviceability', text: 'Critical outboard components easy to reach and replace, fewer fastener sizes, and quick fasteners wherever possible.' },
+]
+
+const constraints = [
+  { title: 'Spec Engine', text: 'Every team runs the same competition-mandated engine, so performance comes from chassis and dynamics, not horsepower.' },
+  { title: 'No Legacy Vehicle', text: 'All geometry derived from first principles, with no previous car to reference.' },
+  { title: 'Competition Durability', text: 'Suspension must survive endurance, impact, and service loads.' },
+  { title: 'Cross-Team Packaging', text: 'Steering, drivetrain, and chassis share common hardpoints with no margin for error.' },
+]
+
+const specGroups = [
+  {
+    title: 'Vehicle',
+    specs: [
+      ['Wheelbase', '72.5 in'],
+      ['Track Width (F/R)', '56.77 in'],
+      ['Wheel Travel', '12 in'],
+    ],
+  },
+]
+
+const goals2627 = [
+  { tag: 'Packaging', title: 'Same Chassis, Tighter Packaging', text: 'With a limited budget, the chassis carries over. The focus shifts to packaging: how close and compact every system can sit in the car, as groundwork for future 4WD development.' },
+  { tag: 'Suspension & Dynamics', title: 'Ride Height, Steering, and Weight', text: 'Revise the suspension for ride height and steering interferences, and fix the weight issues found on the first car.' },
+  { tag: 'Manufacturing', title: 'Better DFM and DFA', text: 'Design suspension and dynamics parts to be easier to make and assemble, using off-the-shelf parts where applicable.' },
+  { tag: 'Durability', title: 'Two Competitions, Five Months of Testing', text: 'Parts sized to survive both Williamsport and Michigan 2027 plus roughly five months of testing.' },
+]
+
+const seasonResults = [
+  { value: '65th / 83', label: 'Overall Finish' },
+  { value: 'Passed', label: 'Technical Inspection' },
+  { value: 'Passed', label: 'Dynamic Brake Check' },
+  { value: '3 Laps', label: 'Endurance Completed' },
 ]
 
 const subprojects25 = [
@@ -35,7 +77,6 @@ const subprojects25 = [
     title: 'Rear Hubs',
     description: 'Drive torque transmission with laminated spline manufacturing, eliminating broach and wire EDM constraints while meeting the axle interface and unsprung mass targets.',
     to: '/baja/rear-hubs',
-    inProgress: true,
   },
   {
     image: img('/images/Front Hub.png'),
@@ -100,13 +141,13 @@ export default function LonghornBaja() {
       </div>
 
       {/* ── Team Overview ── */}
-      <section id="overview" className="projects-section" style={{ paddingBottom: 0 }}>
+      <section id="overview" className="projects-section" style={{ paddingTop: 40, paddingBottom: 0 }}>
         <div className="container">
           <ScrollReveal>
             <p style={{ color: 'var(--text-secondary)', marginBottom: 16, maxWidth: 700, fontSize: '0.95rem', lineHeight: 1.75 }}>
-              Co-founded Longhorn Baja Racing and serve as Co-Captain and Vehicle Dynamics &amp; Vehicle
-              Systems Lead for the team's first competition vehicle, responsible for end-to-end vehicle
-              architecture including suspension geometry, kinematic targets, and system-level integration
+              I co-founded Longhorn Baja Racing and serve as Co-Captain and Vehicle Dynamics &amp; Vehicle
+              Systems Lead. For the team's first competition vehicle I was responsible for end-to-end vehicle
+              architecture: suspension geometry, kinematic targets, and cross-team packaging and integration
               across all subsystems.
             </p>
             <p style={{ marginBottom: 40 }}>
@@ -120,49 +161,16 @@ export default function LonghornBaja() {
             <StatRow stats={teamStats} />
           </ScrollReveal>
 
-
           <ScrollReveal>
-            <div id="engineering-constraints" className="project-section">
-              <h3 style={{ fontSize: '1.6rem' }}>Engineering Constraints</h3>
+            <div id="leadership" className="project-section" style={{ marginBottom: 0 }}>
+              <h3 style={{ fontSize: '1.6rem' }}>Leadership &amp; Team Development</h3>
               <ul style={{ color: 'var(--text-secondary)', paddingLeft: 20, lineHeight: 2, fontSize: '0.92rem' }}>
-                <li><strong style={{ color: 'var(--text-primary)' }}>10 HP power limit:</strong> performance comes from chassis and dynamics, not horsepower</li>
-                <li><strong style={{ color: 'var(--text-primary)' }}>No legacy vehicle:</strong> all geometry derived from first principles, no baseline to reference</li>
-                <li><strong style={{ color: 'var(--text-primary)' }}>Competition durability:</strong> suspension must survive endurance, impact, and service loads</li>
-                <li><strong style={{ color: 'var(--text-primary)' }}>Cross-team packaging:</strong> steering, drivetrain, and chassis share common hardpoints with no margin for error</li>
-              </ul>
-            </div>
-          </ScrollReveal>
-
-          <ScrollReveal>
-            <div id="geometry-simulation" className="project-section">
-              <h3 style={{ fontSize: '1.6rem' }}>Geometry &amp; Simulation</h3>
-              <ul style={{ color: 'var(--text-secondary)', paddingLeft: 20, lineHeight: 2, fontSize: '0.92rem' }}>
-                <li>Defined front and rear suspension hardpoints from first principles, targeting 12 in of wheel travel (jounce/rebound) and a −3° to +1° camber range, establishing the geometric foundation that all downstream subsystem design was built on.</li>
-                <li>A master sketch was maintained as the single source of truth for suspension, steering, and chassis interface geometry, constraining wheelbase (95.2 in), track width (56.77 in front/rear), and critical packaging envelopes for steering, brake, and drivetrain integration.</li>
-                <li>Kinematic performance was iteratively validated in Lotus Shark across multiple design cycles, resulting in −0.339°/in front camber gain, −0.724°/in rear camber gain, approximately −1.35°/in front caster change through bump, and motion ratios of 2.4215:1 (front) and 2.2287:1 (rear) prior to releasing geometry to subsystem designers.</li>
-                <li>Subsystem implementation of control arms, uprights, and steering components was guided through tightly defined geometric and kinematic constraints, including a static caster of 8.15° and a steering system architecture built around a 16.4 in rack with a 1.5 in pinion input.</li>
-                <li>System-level convergence was ensured through continuous integration of suspension geometry with chassis, drivetrain, and controls architecture, resolving packaging and interface constraints across an 8 ft turning radius envelope, 1 in plunge travel allowance, and a 60/40 front-rear brake bias target.</li>
-              </ul>
-            </div>
-          </ScrollReveal>
-
-          <ScrollReveal>
-            <div id="system-integration" className="project-section">
-              <h3 style={{ fontSize: '1.6rem' }}>System Integration</h3>
-              <ul style={{ color: 'var(--text-secondary)', paddingLeft: 20, lineHeight: 2, fontSize: '0.92rem' }}>
-                <li>Coordinated cross-subsystem interface constraints across chassis, drivetrain, steering, and hub design to ensure compatibility with suspension kinematics and packaging envelopes</li>
-                <li>Resolved geometric and mechanical conflicts between suspension travel, drivetrain routing, and chassis constraints during iterative vehicle development</li>
-                <li>Defined shared hardpoints and interface boundaries to maintain system-wide consistency across independently developed subsystems</li>
-              </ul>
-            </div>
-          </ScrollReveal>
-
-          <ScrollReveal>
-            <div id="performance-targets" className="project-section">
-              <h3 style={{ fontSize: '1.6rem' }}>Performance Targets</h3>
-              <ul style={{ color: 'var(--text-secondary)', paddingLeft: 20, lineHeight: 2, fontSize: '0.92rem' }}>
-                <li>Defined braking, steering response, and unsprung mass targets per corner based on competition performance objectives</li>
-                <li>Translated vehicle-level requirements into subsystem-level design specifications for suspension and steering architecture, ensuring system-wide consistency with integration constraints</li>
+                <li>Co-founded the team and, as Co-Captain, led it through its first full design cycle to its first competition</li>
+                <li>Worked with UT Austin administration to establish the new team and support its operations as a student organization</li>
+                <li>Led CAD trainings to bring new members up to speed on the team's design tools and workflow</li>
+                <li>Guided design development across subsystems, reviewing designs as they progressed from concept to manufacturing</li>
+                <li>Led the team's progress on the Design Review Briefing (DRB) submitted for competition</li>
+                <li>Owned cross-team packaging and integration for all subsystems, coordinating chassis, drivetrain, steering, and hubs</li>
               </ul>
             </div>
           </ScrollReveal>
@@ -211,6 +219,85 @@ export default function LonghornBaja() {
             </div>
           </ScrollReveal>
 
+          <ScrollReveal>
+            <div id="design-philosophy" className="project-section">
+              <h3 style={{ fontSize: '1.6rem' }}>Design Philosophy</h3>
+              <p style={{ color: 'var(--text-secondary)', fontSize: '0.95rem', lineHeight: 1.75, maxWidth: 760 }}>
+                As a first-year team, the 25'–26' car was designed around four priorities, in order.
+              </p>
+              <div className="lessons-grid">
+                {philosophy.map((c, i) => (
+                  <div key={c.title} className="lesson-card">
+                    <span className="lesson-card-tag">{`Priority ${i + 1}`}</span>
+                    <h4 className="lesson-card-title">{c.title}</h4>
+                    <p>{c.text}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </ScrollReveal>
+
+          <ScrollReveal>
+            <div id="engineering-constraints" className="project-section">
+              <h3 style={{ fontSize: '1.6rem' }}>Engineering Constraints</h3>
+              <div className="lessons-grid">
+                {constraints.map(c => (
+                  <div key={c.title} className="lesson-card">
+                    <h4 className="lesson-card-title">{c.title}</h4>
+                    <p>{c.text}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </ScrollReveal>
+
+          <ScrollReveal>
+            <div id="geometry-simulation" className="project-section">
+              <h3 style={{ fontSize: '1.6rem' }}>Geometry &amp; Simulation</h3>
+              <p style={{ color: 'var(--text-secondary)', fontSize: '0.95rem', lineHeight: 1.75, maxWidth: 760 }}>
+                I defined the front and rear suspension hardpoints from first principles and kept them in a
+                single master sketch, the source of truth for suspension, steering, and chassis interfaces.
+                Kinematics were validated in Lotus Shark over multiple design cycles before geometry was
+                released to subsystem designers. The kinematic results and spring rates are on the{' '}
+                <Link to="/baja/control-arms" style={{ color: 'var(--accent-light)' }}>Control Arms</Link> page.
+              </p>
+              {specGroups.map(g => (
+                <div key={g.title} className="spec-group">
+                  <div className="spec-group-title">{g.title}</div>
+                  <div className="spec-grid">
+                    {g.specs.map(([label, value]) => (
+                      <div key={label} className="spec-tile">
+                        <div className="spec-tile-value">{value}</div>
+                        <div className="spec-tile-label">{label}</div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </ScrollReveal>
+
+          <ScrollReveal>
+            <div id="system-integration" className="project-section">
+              <h3 style={{ fontSize: '1.6rem' }}>Integration &amp; Targets</h3>
+              <ul style={{ color: 'var(--text-secondary)', paddingLeft: 20, lineHeight: 2, fontSize: '0.92rem' }}>
+                <li>Led cross-team packaging and integration for all subsystems</li>
+                <li>Set braking, steering response, and per-corner unsprung mass targets, and translated them into subsystem design specs</li>
+                <li>Defined shared hardpoints and interface boundaries across chassis, drivetrain, steering, and hubs</li>
+                <li>Resolved conflicts between suspension travel, drivetrain routing, and chassis packaging as the design iterated</li>
+              </ul>
+            </div>
+          </ScrollReveal>
+
+          <ScrollReveal>
+            <div id="parts" className="project-section" style={{ marginBottom: 24 }}>
+              <h3 style={{ fontSize: '1.6rem' }}>Parts I Worked On</h3>
+              <p style={{ color: 'var(--text-secondary)', fontSize: '0.95rem', lineHeight: 1.75, maxWidth: 760 }}>
+                Subsystem components I designed, analyzed, or developed for the 25'–26' car.
+              </p>
+            </div>
+          </ScrollReveal>
+
           <div className="project-grid">
             {subprojects25.map((p, i) => (
               <ProjectCard key={p.title} {...p} delay={(i % 3) + 1} />
@@ -218,7 +305,23 @@ export default function LonghornBaja() {
           </div>
 
           <ScrollReveal>
-            <div className="doc-card card">
+            <div id="season-results" className="project-section" style={{ marginTop: 64 }}>
+              <h3 style={{ fontSize: '1.6rem' }}>Season Results</h3>
+              <p style={{ color: 'var(--text-secondary)', fontSize: '0.95rem', lineHeight: 1.75, maxWidth: 760 }}>
+                As a first-year team, the main goal at competition was to pass technical inspection, which
+                we did. The car also passed the dynamic brake check and finished 65th overall out of 83 teams.
+              </p>
+              <StatRow stats={seasonResults} />
+              <p style={{ color: 'var(--text-secondary)', fontSize: '0.95rem', lineHeight: 1.75, maxWidth: 760, marginTop: 20 }}>
+                We then competed in the endurance race, where the driveshaft (a separate part from the
+                extended CV axles) fell out of the rear differential multiple times. We still completed 3
+                full laps.
+              </p>
+            </div>
+          </ScrollReveal>
+
+          <ScrollReveal>
+            <div id="drb" className="doc-card card">
               <a href={img('/documents/Longhorn-Baja-185-DRB.pdf')} target="_blank" rel="noopener noreferrer" className="doc-card-preview">
                 <img src={img('/images/drb-cover.webp')} alt="2026 Baja SAE Design Review Briefing title slide, car 185" loading="lazy" />
               </a>
@@ -227,7 +330,7 @@ export default function LonghornBaja() {
                 <h3 className="doc-card-title">Design Review Briefing (DRB)</h3>
                 <p className="doc-card-desc">
                   The team's 2026 Baja SAE design review for car #185, presenting the full vehicle design
-                  across every subsystem to the competition judges.
+                  across every subsystem to the competition judges. I led the team's progress on the DRB.
                 </p>
                 <div className="doc-card-actions">
                   <a href={img('/documents/Longhorn-Baja-185-DRB.pdf')} target="_blank" rel="noopener noreferrer" className="btn btn-primary">
@@ -254,29 +357,31 @@ export default function LonghornBaja() {
           </ScrollReveal>
 
           <ScrollReveal>
-            <div className="project-section" style={{ maxWidth: 680 }}>
-              <h3>26'–27' Season Overview</h3>
-              <p style={{ color: 'var(--text-secondary)', fontSize: '0.95rem', lineHeight: 1.75 }}>
-                The 26'–27' car builds on lessons learned from the 25'–26' build cycle. With the team's
-                first full design process complete, the next season targets refinement: tighter suspension
-                geometry based on real competition data, improved manufacturing tolerances from laminated
-                hub experience, and reduced unsprung mass across all corners. Design will begin following
-                the 25'–26' competition.
+            <div className="project-section">
+              <h3>An Evolution of the First Car</h3>
+              <p style={{ color: 'var(--text-secondary)', fontSize: '0.95rem', lineHeight: 1.75, maxWidth: 760 }}>
+                The 26'–27' car is an improvement on the 25'–26' car rather than a clean-sheet design. With
+                money limited, the chassis stays the same and the effort goes into packaging, refinement, and
+                durability.
               </p>
-              <p style={{ color: 'var(--text-muted)', fontSize: '0.85rem', fontStyle: 'italic', marginTop: 8 }}>
-                Project pages coming as the design cycle begins.
-              </p>
+              <div className="lessons-grid">
+                <div className="lesson-card lesson-card-key">
+                  <span className="lesson-card-tag">Main Goal</span>
+                  <h4 className="lesson-card-title">Test, and Learn as Much as Possible</h4>
+                  <p>
+                    Testing is the priority this season: run the car hard and learn as much as possible to feed
+                    future iterations.
+                  </p>
+                </div>
+                {goals2627.map(g => (
+                  <div key={g.title} className="lesson-card">
+                    <span className="lesson-card-tag">{g.tag}</span>
+                    <h4 className="lesson-card-title">{g.title}</h4>
+                    <p>{g.text}</p>
+                  </div>
+                ))}
+              </div>
             </div>
-          </ScrollReveal>
-
-          <ScrollReveal>
-            <DocSlider
-              title="26'–27' Design Goals Meeting"
-              images={Array.from({ length: 13 }, (_, i) => ({
-                src: img(`/images/pdf-2027-design-goals/page-${String(i + 1).padStart(2, '0')}.jpg`),
-                alt: `Design goals meeting, page ${i + 1}`,
-              }))}
-            />
           </ScrollReveal>
         </div>
       </section>

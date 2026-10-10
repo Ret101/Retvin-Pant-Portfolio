@@ -14,6 +14,7 @@ const toc = [
 
   { id: 'lotus-shark', label: 'Lotus Shark'     },
   { id: 'animation',   label: 'Animation'       },
+  { id: 'outcome',     label: 'Outcome'         },
 ]
 
 const gallery = [
@@ -43,7 +44,6 @@ export default function BajaMasterSketch() {
         heroImage={img('/images/car mastersketch v3.png')}
         software={['SolidWorks CAD', 'Lotus Shark']}
         roles={['Vehicle Dynamics Lead']}
-        inProgress
       >
 
         {/* ── Overview ── */}
@@ -249,6 +249,43 @@ export default function BajaMasterSketch() {
                 muted
                 playsInline
               />
+            </div>
+          </ScrollReveal>
+        </div>
+
+        {/* ── Outcome ── */}
+        <div id="outcome">
+          <div className="section-marker">
+            <div className="section-marker-inner">Outcome</div>
+          </div>
+          <ScrollReveal>
+            <div className="project-section">
+              <div className="lessons-grid">
+                <div className="lesson-card lesson-card-key">
+                  <span className="lesson-card-tag">Outcome</span>
+                  <h4 className="lesson-card-title">The Foundation for the Car's Vehicle Dynamics</h4>
+                  <p>
+                    The master sketch became the team's foundational tool for understanding vehicle dynamics
+                    and how the key concepts relate to each other, from instant centers and roll centers to
+                    camber gain and motion ratio.
+                  </p>
+                </div>
+                <div className="lesson-card">
+                  <span className="lesson-card-tag">Hardpoints</span>
+                  <h4 className="lesson-card-title">Initial Hardpoint Estimate</h4>
+                  <p>
+                    It gave the initial estimate for where the suspension hardpoints should sit on the chassis.
+                  </p>
+                </div>
+                <div className="lesson-card">
+                  <span className="lesson-card-tag">Verification</span>
+                  <h4 className="lesson-card-title">Refined in Lotus Shark</h4>
+                  <p>
+                    Those starting hardpoints were then verified and fine-tuned in Lotus Shark before geometry
+                    was released to the rest of the team.
+                  </p>
+                </div>
+              </div>
             </div>
           </ScrollReveal>
         </div>

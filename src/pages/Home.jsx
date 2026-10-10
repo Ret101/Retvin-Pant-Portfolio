@@ -15,7 +15,7 @@ const companies = [
   {
     name: 'NASA JSC',
     role: 'Intern',
-    logo: 'https://www.nasa.gov/wp-content/themes/nasa/assets/images/nasa-logo@2x.png',
+    logo: img('/images/nasa-logo.svg'),
     filter: 'none',
   },
   {
@@ -81,20 +81,20 @@ const timelineEntries = [
     logo: img('/images/radlab.jpg'),
   },
   {
-    date: '2024 – Present',
-    org: 'UT Austin SiDi Lab',
-    role: 'Undergraduate Research Assistant',
-    tag: 'Research',
-    to: '/industry/swarm-heated-bed',
-    logo: img('/images/sidi lab logo.png'),
-  },
-  {
     date: 'Spring – Fall 2025',
     org: 'Texas Guadaloop',
     role: 'Vehicle Dynamics Engineer',
     tag: 'Student Org',
     to: '/team/guadaloop',
     logo: img('/images/guadaloop.png'),
+  },
+  {
+    date: '2024 – Present',
+    org: 'UT Austin SiDi Lab',
+    role: 'Undergraduate Research Assistant',
+    tag: 'Research',
+    to: '/industry/swarm-heated-bed',
+    logo: img('/images/sidi lab logo.png'),
   },
   {
     date: 'Summer 2024',
@@ -147,7 +147,8 @@ export default function Home() {
                 />
                 <div className="hero-edu-text">
                   <span className="hero-edu-degree">B.S. Mechanical Engineering</span>
-                  <span className="hero-edu-years">2024 – Present</span>
+                  <span className="hero-edu-minor">Minor in Business</span>
+                  <span className="hero-edu-years">2024 – December 2027</span>
                 </div>
               </div>
               <div className="hero-social-links">
@@ -168,6 +169,11 @@ export default function Home() {
                 to <span style={{ color: 'var(--accent)' }}>Race Cars</span>,<br />
                 I Build It.
               </h1>
+              <div className="hero-bio-chips">
+                <span className="hero-bio-chip">ME + Business · UT Austin · Dec 2027</span>
+                <span className="hero-bio-chip">Incoming Boeing Loads &amp; Dynamics Intern</span>
+                <span className="hero-bio-chip">Interested in product design roles</span>
+              </div>
               <p className="hero-bio-text">
                 I'm Retvin Pant, a mechanical engineering student at the University of Texas at Austin
                 building real systems, from 6DOF robotic printers to vehicle subsystems and hardware
@@ -191,7 +197,7 @@ export default function Home() {
               <Link to="/industry" className="card-link" style={{ height: '100%', display: 'block' }}>
                 <div className="cta-card card" style={{ height: '100%' }}>
                   <div className="cta-card-number">01</div>
-                  <div className="cta-card-title">Industry<br />Experience</div>
+                  <div className="cta-card-title">Industry &<br />Research</div>
                 </div>
               </Link>
             </ScrollReveal>

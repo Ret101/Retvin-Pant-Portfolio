@@ -375,7 +375,14 @@ h1, h2, h3, h4, h5, h6 {
 .hero-edu-text {
   display: flex;
   flex-direction: column;
-  gap: 2px;
+  gap: 3px;
+  text-align: left;
+  line-height: 1.3;
+}
+
+.hero-edu-minor {
+  font-size: 0.74rem;
+  color: var(--text-secondary);
 }
 
 .hero-edu-degree {
@@ -443,6 +450,27 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 700;
   letter-spacing: -0.03em;
   line-height: 1.05;
+}
+
+.hero-bio-chips {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin: 22px 0 18px;
+}
+
+.hero-bio-chip {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.74rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--accent-light);
+  background: var(--accent-dim);
+  border: 1px solid rgba(70, 130, 180, 0.3);
+  border-radius: 999px;
+  padding: 5px 12px;
+  line-height: 1.4;
 }
 
 .hero-bio-text {
@@ -1322,220 +1350,6 @@ h1, h2, h3, h4, h5, h6 {
   min-height: 1.6em;
 }
 
-/* ── Radar Chart ── */
-.radar-card {
-  padding: 32px;
-  margin-bottom: 40px;
-  text-align: center;
-}
-
-.skills-highlights-label {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 0.7rem;
-  font-weight: 600;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--accent);
-  margin-bottom: 24px;
-}
-
-.radar-wrap {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-}
-
-.radar-svg {
-  display: block;
-  width: 100%;
-  max-width: 420px;
-  height: auto;
-  margin: 0 auto;
-}
-
-.radar-grid-ring {
-  fill: none;
-  stroke: rgba(255, 255, 255, 0.1);
-  stroke-width: 1;
-}
-
-.radar-axis-line {
-  stroke: rgba(255, 255, 255, 0.08);
-  stroke-width: 1;
-}
-
-.radar-fill-poly {
-  fill: rgba(70, 130, 180, 0.35);
-  stroke: #4682B4;
-  stroke-width: 2;
-  stroke-linejoin: round;
-  transition: fill 0.2s ease;
-}
-
-.radar-dot {
-  fill: #4682B4;
-  stroke: var(--bg);
-  stroke-width: 2;
-  cursor: pointer;
-  transition: r 0.15s ease, fill 0.15s ease;
-}
-
-.radar-dot-active {
-  fill: var(--accent-light);
-}
-
-.radar-label {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 12px;
-  fill: rgba(255, 255, 255, 0.82);
-  font-weight: 500;
-}
-
-.radar-tooltip-bg {
-  fill: rgba(10, 10, 12, 0.92);
-  stroke: var(--card-border);
-  stroke-width: 1;
-}
-
-.radar-tooltip-text {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 11px;
-  fill: #fff;
-  font-weight: 600;
-}
-
-/* ── Radar slideshow nav ── */
-.radar-nav-row {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 16px;
-  margin-bottom: 8px;
-}
-
-.radar-chart-title {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 1rem;
-  font-weight: 600;
-  color: var(--text-primary);
-  letter-spacing: -0.01em;
-  min-width: 160px;
-  text-align: center;
-  transition: opacity 0.18s ease;
-}
-
-.radar-chart-title.fading {
-  opacity: 0;
-}
-
-.radar-nav-arrow {
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  background: var(--card-bg);
-  border: 1px solid var(--card-border);
-  color: var(--text-secondary);
-  font-size: 1.3rem;
-  line-height: 1;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: background var(--transition), border-color var(--transition), color var(--transition);
-  flex-shrink: 0;
-}
-
-.radar-nav-arrow:hover {
-  background: rgba(70, 130, 180, 0.15);
-  border-color: rgba(70, 130, 180, 0.5);
-  color: var(--accent-light);
-}
-
-.radar-nav-dots {
-  display: flex;
-  gap: 8px;
-  justify-content: center;
-  margin-top: 16px;
-}
-
-.radar-nav-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: var(--card-border);
-  border: none;
-  cursor: pointer;
-  padding: 0;
-  transition: background var(--transition), transform var(--transition);
-}
-
-.radar-nav-dot.active {
-  background: var(--accent);
-  transform: scale(1.35);
-}
-
-.radar-nav-dot:hover:not(.active) {
-  background: var(--text-muted);
-}
-
-/* fade groups for labels/dots during chart transition */
-.radar-group-fading {
-  opacity: 0;
-  transition: opacity 0.18s ease;
-}
-
-.radar-legend {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px 14px;
-  justify-content: center;
-  margin-top: 20px;
-  padding-top: 16px;
-  border-top: 1px solid var(--card-border);
-  width: 100%;
-  transition: opacity 0.18s ease;
-}
-
-.radar-legend.radar-legend-fading {
-  opacity: 0;
-}
-
-.radar-legend-item {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  cursor: pointer;
-  padding: 4px 8px;
-  border-radius: 6px;
-  transition: background var(--transition);
-}
-
-.radar-legend-item:hover,
-.radar-legend-item.active {
-  background: rgba(70, 130, 180, 0.12);
-}
-
-.radar-legend-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: var(--accent);
-  flex-shrink: 0;
-}
-
-.radar-legend-label {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 0.78rem;
-  color: var(--text-secondary);
-}
-
-.radar-legend-pct {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 0.75rem;
-  font-weight: 600;
-  color: var(--accent-light);
-}
 
 /* ── Marquee ── */
 @keyframes marquee {
@@ -1724,6 +1538,19 @@ h1, h2, h3, h4, h5, h6 {
   transition: background 150ms ease, color 150ms ease, transform 150ms ease, box-shadow 150ms ease;
 }
 
+.skill-pill-link {
+  gap: 5px;
+  text-decoration: none;
+  background: var(--accent-dim);
+  border-color: var(--accent);
+}
+
+.skills-proof-note {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-top: 6px;
+}
+
 .skill-pill:hover {
   background: var(--accent);
   color: #fff;
@@ -1762,9 +1589,6 @@ h1, h2, h3, h4, h5, h6 {
 @media (max-width: 640px) {
   .skills-grid {
     grid-template-columns: 1fr;
-  }
-  .radar-label {
-    font-size: 10px;
   }
 }
 
@@ -2822,6 +2646,47 @@ h1, h2, h3, h4, h5, h6 {
     gap: 20px;
     padding: 18px;
   }
+}
+
+/* ===== SPEC TILES (key numbers grid) ===== */
+.spec-group {
+  margin-top: 22px;
+}
+
+.spec-group-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent-light);
+  margin-bottom: 10px;
+}
+
+.spec-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 10px;
+}
+
+.spec-tile {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-sm);
+  padding: 12px 14px;
+}
+
+.spec-tile-value {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.spec-tile-label {
+  font-size: 0.74rem;
+  color: var(--text-secondary);
+  margin-top: 2px;
 }
 
 /* ===== LESSONS LEARNED CARDS ===== */

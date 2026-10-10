@@ -1,4 +1,5 @@
 import { FiGithub, FiLinkedin, FiMail, FiPhone, FiDownload } from 'react-icons/fi'
+import img from '../img'
 
 export default function Footer() {
   return (
@@ -27,14 +28,14 @@ export default function Footer() {
             </a>
           </div>
           <a
-            href="https://d2b0d7e8-68b9-42c1-892a-1d906e88c17d.filesusr.com/ugd/073043_dc2f027bf7094ee4a294b98f2c7a4526.pdf"
+            href={img('/resume.pdf')}
             target="_blank"
             rel="noopener noreferrer"
             className="btn btn-outline"
             style={{ fontSize: '0.72rem', padding: '8px 14px' }}
           >
             <FiDownload size={13} />
-            PDF Portfolio
+            Resume
           </a>
         </div>
       </div>

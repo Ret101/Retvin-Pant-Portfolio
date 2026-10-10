@@ -114,7 +114,7 @@ export default function Daikin() {
       <StickyTOC sections={toc} />
       <DetailPage
       backTo="/industry"
-      backLabel="Industry Experience"
+      backLabel="Industry & Research"
       tag="Daikin · Internship"
       title="Heat Exchanger Automated Manufacturing Cell"
       heroImage={img('/images/Daikin/Full Cell (2).webp')}
@@ -123,24 +123,14 @@ export default function Daikin() {
       roles={['Automation Engineering Intern']}
     >
       <ScrollReveal>
-        <div style={{ background: 'var(--card-bg)', border: '1px solid var(--card-border)', borderLeft: '3px solid var(--accent)', borderRadius: 'var(--radius-sm)', padding: '16px 20px', marginBottom: 32 }}>
-          <div style={{ fontFamily: "'Space Grotesk', sans-serif", fontWeight: 700, fontSize: '0.88rem', color: 'var(--accent-light)', marginBottom: 6, letterSpacing: '0.06em', textTransform: 'uppercase' }}>Disclosure</div>
-          <p style={{ margin: 0, fontSize: '0.92rem', color: 'var(--text-secondary)', lineHeight: 1.65 }}>
-            This project was completed under an NDA with Daikin. All information, figures, and images
-            shown on this page have been approved for public release by Daikin. Details covered by the
-            NDA are omitted.
-          </p>
-        </div>
-      </ScrollReveal>
-
-      <ScrollReveal>
         <div id="overview" className="project-section">
           <h3>Project Overview</h3>
           <p>
             An automation cell design project for heat exchanger manufacturing, covering cell layout,
             robot integration, material handling systems, and end-of-arm tooling. The cell automates
             part transfer between the forming and bending operations, which were previously run
-            manually at four operators per shift.
+            manually at four operators per shift. The cell is projected to go onto the production
+            floor by the end of 2026.
           </p>
         </div>
       </ScrollReveal>
@@ -158,6 +148,17 @@ export default function Daikin() {
             <li>Designed four custom material handling systems in SolidWorks, the hopper, buffer, decoupled extraction and conveyor, and end-of-arm tooling, to automate part transfer between forming and bending</li>
             <li>Built the cost, cycle time, and production models used to justify the cell against current manual operation</li>
           </ul>
+        </div>
+      </ScrollReveal>
+
+      <ScrollReveal>
+        <div style={{ background: 'var(--card-bg)', border: '1px solid var(--card-border)', borderLeft: '3px solid var(--accent)', borderRadius: 'var(--radius-sm)', padding: '16px 20px', marginBottom: 32 }}>
+          <div style={{ fontFamily: "'Space Grotesk', sans-serif", fontWeight: 700, fontSize: '0.88rem', color: 'var(--accent-light)', marginBottom: 6, letterSpacing: '0.06em', textTransform: 'uppercase' }}>Disclosure</div>
+          <p style={{ margin: 0, fontSize: '0.92rem', color: 'var(--text-secondary)', lineHeight: 1.65 }}>
+            This project was completed under an NDA with Daikin. All information, figures, and images
+            shown on this page have been approved for public release by Daikin. Details covered by the
+            NDA are omitted.
+          </p>
         </div>
       </ScrollReveal>
 

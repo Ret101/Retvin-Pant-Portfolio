@@ -40,7 +40,7 @@ export default function SpringSteelWheel() {
       <StickyTOC sections={toc} />
       <DetailPage
       backTo="/industry"
-      backLabel="Industry Experience"
+      backLabel="Industry & Research"
       tag="NASA Johnson Space Center · Internship"
       title="Spring Steel Wheel"
       heroImage={img('/images/spring steel wheel.jpg')}

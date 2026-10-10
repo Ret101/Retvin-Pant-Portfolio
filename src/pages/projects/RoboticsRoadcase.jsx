@@ -6,6 +6,7 @@ import img from '../../img'
 
 const toc = [
   { id: 'introduction', label: 'Introduction'        },
+  { id: 'my-contribution', label: 'My Contribution' },
   { id: 'result',       label: 'Purpose & Result'    },
   { id: 'overview',     label: 'Overview'            },
   { id: 'components',   label: 'Designed Components' },
@@ -44,6 +45,16 @@ export default function RoboticsRoadcase() {
       </ScrollReveal>
 
       <ScrollReveal>
+        <div id="my-contribution" className="project-section">
+          <h3>My Contribution</h3>
+          <ul style={{ color: 'var(--text-secondary)', paddingLeft: 20, lineHeight: 2, fontSize: '0.95rem' }}>
+            <li>Designed the road case in SolidWorks, including the COTS storage upper assembly and the tote bin lower assembly</li>
+            <li>Led assembly of the finished case for competition use</li>
+          </ul>
+        </div>
+      </ScrollReveal>
+
+      <ScrollReveal>
         <div id="result" className="project-section">
           <h3>Purpose &amp; Result</h3>
           <p>
@@ -72,8 +83,7 @@ export default function RoboticsRoadcase() {
           <p>
             The upper assembly stores COTS (commercial off-the-shelf) items for the team or to share
             with other teams. The lower assembly features tote bin storage, a battery charger, and
-            shelves for subsystem-specific tool boxes. A fold-out workbench provides access to
-            lighting, power outlets, and a computer workstation.
+            shelves for subsystem-specific tool boxes.
           </p>
           <div className="project-image-grid">
             <img src={img('/images/roadcase iso view.png')} alt="Road case components 1" loading="lazy" />

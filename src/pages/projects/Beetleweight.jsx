@@ -7,6 +7,7 @@ import img from '../../img'
 
 const toc = [
   { id: 'engineering-challenge', label: 'Engineering Challenge' },
+  { id: 'my-contribution', label: 'My Contribution' },
   { id: 'key-decisions',         label: 'Key Decisions'         },
   { id: 'robot-design',          label: 'Robot Design'          },
   { id: 'failures',              label: 'Failures'              },
@@ -51,6 +52,17 @@ export default function Beetleweight() {
             absorb high-energy impacts without shattering while still being light enough to stay
             under the class limit.
           </p>
+        </div>
+      </ScrollReveal>
+
+      <ScrollReveal>
+        <div id="my-contribution" className="project-section">
+          <h3>My Contribution</h3>
+          <ul style={{ color: 'var(--text-secondary)', paddingLeft: 20, lineHeight: 2, fontSize: '0.95rem' }}>
+            <li>Designed the robot's TPU chassis and bolt-tipped vertical spinner within the 3 lb weight limit</li>
+            <li>Chose TPU at 80% infill to absorb spinner hits instead of fracturing</li>
+            <li>Competed at Texas Roborumble, finishing with a 3-2-0 record</li>
+          </ul>
         </div>
       </ScrollReveal>
 

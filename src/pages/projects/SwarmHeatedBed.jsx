@@ -40,7 +40,7 @@ export default function SwarmHeatedBed() {
       <StickyTOC sections={toc} />
       <DetailPage
       backTo="/industry"
-      backLabel="Industry Experience"
+      backLabel="Industry & Research"
       tag="UT SiDi Lab · Research"
       title="Swarm Manufacturing, Hotswappable Heated Bed"
       heroImage={img('/images/robotic bed full img.png')}
@@ -48,6 +48,17 @@ export default function SwarmHeatedBed() {
       roles={['Mechanical Design Lead']}
       inProgress
     >
+      <ScrollReveal>
+        <div style={{ background: 'var(--card-bg)', border: '1px solid var(--card-border)', borderLeft: '3px solid var(--accent)', borderRadius: 'var(--radius-sm)', padding: '16px 20px', marginBottom: 32 }}>
+          <div style={{ fontFamily: "'Space Grotesk', sans-serif", fontWeight: 700, fontSize: '0.88rem', color: 'var(--accent-light)', marginBottom: 6, letterSpacing: '0.06em', textTransform: 'uppercase' }}>Project Status: Paused</div>
+          <p style={{ margin: 0, fontSize: '0.92rem', color: 'var(--text-secondary)', lineHeight: 1.65 }}>
+            This project is still in progress but currently on hold for lab reasons: the lab has not held
+            meetings this semester. The design, testing, and failure work below reflect where the project
+            stands as of Fall 2026.
+          </p>
+        </div>
+      </ScrollReveal>
+
       <ScrollReveal>
         <div id="engineering-challenge" className="project-section">
           <h3>Engineering Challenge</h3>
@@ -243,14 +254,6 @@ export default function SwarmHeatedBed() {
         <Gallery images={gallery} />
       </ScrollReveal>
 
-      <ScrollReveal>
-        <div className="project-section" style={{ borderTop: '1px solid var(--card-border)', paddingTop: 32 }}>
-          <p style={{ color: 'var(--text-muted)', fontStyle: 'italic' }}>
-            This project is still in progress. More simulations, test results, and design updates
-            will be added as the work continues.
-          </p>
-        </div>
-      </ScrollReveal>
     </DetailPage>
     </>
   )

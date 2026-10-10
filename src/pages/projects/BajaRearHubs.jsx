@@ -7,6 +7,7 @@ import img from '../../img'
 
 const toc = [
   { id: 'engineering-challenge', label: 'Engineering Challenge'      },
+  { id: 'my-contribution',       label: 'My Contribution'            },
   { id: 'cad',                   label: 'Rear Hub CAD'               },
   { id: 'sketches',              label: 'Rear Hub Sketches'          },
   { id: 'design-constraints',    label: 'Design Constraints'         },
@@ -14,6 +15,7 @@ const toc = [
   { id: 'manufacturing',         label: 'Manufacturing'              },
   { id: 'fea',                   label: 'FEA Results'                },
   { id: 'interim-solution',      label: 'Interim OEM Hub'            },
+  { id: 'lessons-learned',       label: 'Result & Lessons'           },
 ]
 
 export default function BajaRearHubs() {
@@ -28,7 +30,6 @@ export default function BajaRearHubs() {
       heroImage={img('/images/rear hub machined image.jpg')}
       software={['SolidWorks CAD', 'SolidWorks FEA', 'CNC Mill']}
       roles={['Vehicle Dynamics Lead']}
-      inProgress
     >
       <ScrollReveal>
         <div id="engineering-challenge" className="project-section">
@@ -46,6 +47,18 @@ export default function BajaRearHubs() {
             axle spline have no brake rotor mounting built in. The rear brakes needed somewhere to bolt
             a rotor, so the hub had to be either designed from scratch or modified to carry one.
           </p>
+        </div>
+      </ScrollReveal>
+
+      <ScrollReveal>
+        <div id="my-contribution" className="project-section">
+          <h3>My Contribution</h3>
+          <ul style={{ color: 'var(--text-secondary)', paddingLeft: 20, lineHeight: 2, fontSize: '0.95rem' }}>
+            <li>Designed the custom rear hub around a laminated spline stack, avoiding broaching and wire EDM</li>
+            <li>Specified the 6061-T6 hub body, laser-cut spline plates, and ceramic hard anodize, and compensated the spline teeth for laser kerf</li>
+            <li>Ran structural FEA in Ansys Mechanical across six combined load cases plus a separate spline plate analysis</li>
+            <li>When the laminated hub's timeline ran past the build schedule, developed the interim modified OEM hub that the car ran at competition</li>
+          </ul>
         </div>
       </ScrollReveal>
 
@@ -121,7 +134,7 @@ export default function BajaRearHubs() {
         <div id="manufacturing" className="project-section">
           <h3>Manufacturing &amp; Challenges</h3>
           <p style={{ color: 'var(--text-secondary)', fontSize: '0.95rem', lineHeight: 1.75, marginBottom: 24 }}>
-            The approach is to stack CNC-milled plates whose 2D profiles combine to form the spline
+            My approach was to stack CNC-milled plates whose 2D profiles combine to form the spline
             geometry in 3D. Each plate is within the team's machining capability, and stacking them
             reproduces the spline pattern with tight tolerances across the full hub depth.
           </p>
@@ -134,7 +147,7 @@ export default function BajaRearHubs() {
                 Conventional internal splines are cut by broaching or wire EDM. Custom broach tooling
                 for a one-off spline profile is expensive and is effectively single-use, which would
                 lock the team into that geometry for the life of the tooling. Wire EDM wasn't
-                accessible to us either. Both were ruled out, so we landed on laminated plate stacking.
+                accessible to us either. Both were ruled out, so I landed on laminated plate stacking.
                 Each plate's spline profile is a simple 2D cutout that can be done with standard
                 sheet-cutting, and stacking them builds the full 3D spline geometry without any
                 special tooling.
@@ -147,7 +160,7 @@ export default function BajaRearHubs() {
                 The hub body needed to handle combined braking, cornering, and bump loads without
                 adding too much unsprung mass. That was already a concern with the welded laminate
                 construction, so 6061-T6 aluminum was the right call. For the spline plates, the
-                cyclic torsional loading at the axle interface was a concern, so we specified a
+                cyclic torsional loading at the axle interface was a concern, so I specified a
                 ceramic hardness anodizing coat through Xometry to improve the wear life of the
                 spline tooth surfaces under repeated load cycles.
               </p>
@@ -158,7 +171,7 @@ export default function BajaRearHubs() {
               <p style={{ margin: 0, fontSize: '0.92rem', color: 'var(--text-secondary)', lineHeight: 1.65 }}>
                 We initially planned on waterjet cutting for the spline plates. Waterjetting had
                 decent edge quality but the resolution wasn't fine enough for the spline tooth
-                geometry, so we switched to laser cutting for better dimensional precision on
+                geometry, so I switched to laser cutting for better dimensional precision on
                 the tooth profile.
               </p>
               <p style={{ margin: '10px 0 0', fontSize: '0.92rem', color: 'var(--text-secondary)', lineHeight: 1.65 }}>
@@ -166,7 +179,7 @@ export default function BajaRearHubs() {
                 of 0.012 in of material burned off per cut edge. The spline tooth tips in the
                 original design were only 0.014 in thick, so the laser would have basically
                 incinerated them. Even the thicker parts of each tooth would get reduced by around
-                30%. We increased the tooth thickness in the design by 0.008 to 0.012 in to
+                30%. I increased the tooth thickness in the design by 0.008 to 0.012 in to
                 compensate, so the post-cut geometry lands where it needs to.
               </p>
               <p style={{ margin: '10px 0 0', fontSize: '0.92rem', color: 'var(--text-secondary)', lineHeight: 1.65 }}>
@@ -174,7 +187,7 @@ export default function BajaRearHubs() {
                 material to around 2,500 °C right at the cut edge. 6061 in T-6 condition gets
                 its strength from controlled precipitation hardening, and that much heat pushes
                 the edge toward an annealed state, reducing hardness and ductility right where
-                the cut was made. We had to account for that softened boundary condition when
+                the cut was made. I had to account for that softened boundary condition when
                 analyzing the spline tooth dimensions and the stackup tolerances.
               </p>
             </div>
@@ -245,13 +258,13 @@ export default function BajaRearHubs() {
             <div style={{ fontFamily: "'Space Grotesk', sans-serif", fontWeight: 700, fontSize: '0.75rem', color: 'var(--accent-light)', marginBottom: 8, letterSpacing: '0.1em', textTransform: 'uppercase' }}>Note</div>
             <p style={{ margin: 0, fontSize: '0.92rem', color: 'var(--text-secondary)', lineHeight: 1.7 }}>
               The full manufacturing timeline for the laminated hub ran past the time the team had
-              before the car needed to run. To keep the build moving, we modified an OEM Grizzly 660
-              hub in the meantime.
+              before the car needed to run. To keep the build moving, I developed a modified OEM
+              Grizzly 660 hub to run in the meantime.
             </p>
           </div>
           <ul style={{ color: 'var(--text-secondary)', paddingLeft: 20, lineHeight: 2, fontSize: '0.95rem', marginTop: 20 }}>
-            <li><strong style={{ color: 'var(--text-primary)' }}>Standoffs:</strong> standoff holes were drilled into the OEM hub flange, and machined steel standoffs were fastened through them with M6 countersunk bolts.</li>
-            <li><strong style={{ color: 'var(--text-primary)' }}>Adapter plate:</strong> the standoffs carry an adapter plate, and the brake rotor mounts to that plate, adding the rotor interface the stock hub was missing.</li>
+            <li><strong style={{ color: 'var(--text-primary)' }}>Standoffs:</strong> standoff holes were drilled into the OEM hub flange and machined steel standoffs were welded to the hub. The hub's factory coating was ground off first to give a clean weld surface.</li>
+            <li><strong style={{ color: 'var(--text-primary)' }}>Adapter plate:</strong> M6 countersunk bolts pass through the standoffs to attach an adapter plate, and the brake rotor mounts to that plate, adding the rotor interface the stock hub was missing.</li>
             <li><strong style={{ color: 'var(--text-primary)' }}>Custom rotors:</strong> the rotors were made custom so their mounting holes landed where enough material remained on the hub after drilling, keeping adequate edge distance around every new hole.</li>
           </ul>
           <p style={{ color: 'var(--text-secondary)', fontSize: '0.95rem', lineHeight: 1.75, marginTop: 16 }}>
@@ -263,6 +276,46 @@ export default function BajaRearHubs() {
             className="project-image-single"
             loading="lazy"
           />
+        </div>
+      </ScrollReveal>
+
+      <ScrollReveal>
+        <div id="lessons-learned" className="project-section">
+          <h3>Competition Result &amp; Lessons Learned</h3>
+          <div className="lessons-grid">
+            <div className="lesson-card lesson-card-key">
+              <span className="lesson-card-tag">Competition Result</span>
+              <h4 className="lesson-card-title">Survived the Full Competition, No Deflection Under Braking</h4>
+              <p>
+                The modified OEM hubs, with welded steel standoffs and the bolted adapter plate, ran the
+                entire competition with no deflection under braking loads.
+              </p>
+            </div>
+            <div className="lesson-card">
+              <span className="lesson-card-tag">Next Year</span>
+              <h4 className="lesson-card-title">Shorter Standoffs</h4>
+              <p>
+                Braking torque reacts through the rotor at the end of the standoffs. Shortening them reduces
+                the moment arm, and with it the bending moment the standoff welds have to carry.
+              </p>
+            </div>
+            <div className="lesson-card">
+              <span className="lesson-card-tag">Manufacturing</span>
+              <h4 className="lesson-card-title">Surface Prep Before Welding</h4>
+              <p>
+                The hub's factory coating had to be ground off before welding the standoffs to get a clean,
+                sound weld surface.
+              </p>
+            </div>
+            <div className="lesson-card">
+              <span className="lesson-card-tag">Schedule</span>
+              <h4 className="lesson-card-title">Plan an Interim Path for Long-Lead Parts</h4>
+              <p>
+                The laminated hub's manufacturing timeline ran past the build schedule. Having a modified
+                OEM fallback kept the car on track for competition.
+              </p>
+            </div>
+          </div>
         </div>
       </ScrollReveal>
 

@@ -1,35 +1,35 @@
 import { Routes, Route, useLocation } from 'react-router-dom'
-import { useEffect } from 'react'
+import { useEffect, lazy, Suspense } from 'react'
 import { AnimatePresence } from 'framer-motion'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import PageTransition from './components/PageTransition'
 import Home from './pages/Home'
-import IndustryExperience from './pages/IndustryExperience'
-import TeamProjects from './pages/TeamProjects'
-import PersonalProjects from './pages/PersonalProjects'
-import Skills from './pages/Skills'
-import SwarmHeatedBed from './pages/projects/SwarmHeatedBed'
-import SwarmExtruder from './pages/projects/SwarmExtruder'
-import SpringSteelWheel from './pages/projects/SpringSteelWheel'
-import Daikin from './pages/projects/Daikin'
-import CandySorter from './pages/projects/CandySorter'
-import LonghornBaja from './pages/projects/LonghornBaja'
-import BajaMasterSketch from './pages/projects/BajaMasterSketch'
-import BajaControlArms from './pages/projects/BajaControlArms'
-import BajaRearHubs from './pages/projects/BajaRearHubs'
-import BajaFrontHubs from './pages/projects/BajaFrontHubs'
-import BajaGallery from './pages/projects/BajaGallery'
-import BajaCVAxles from './pages/projects/BajaCVAxles'
-import Guadaloop from './pages/projects/Guadaloop'
-import RoboticsRoadcase from './pages/projects/RoboticsRoadcase'
-import FRCRobots from './pages/projects/FRCRobots'
-import FRCRooty from './pages/projects/FRCRooty'
-import FRCRingo from './pages/projects/FRCRingo'
-import FRCBrownout from './pages/projects/FRCBrownout'
-import FRCAdditional from './pages/projects/FRCAdditional'
-import ElectricSkateboard from './pages/projects/ElectricSkateboard'
-import Beetleweight from './pages/projects/Beetleweight'
+const IndustryExperience = lazy(() => import('./pages/IndustryExperience'))
+const TeamProjects = lazy(() => import('./pages/TeamProjects'))
+const PersonalProjects = lazy(() => import('./pages/PersonalProjects'))
+const Skills = lazy(() => import('./pages/Skills'))
+const SwarmHeatedBed = lazy(() => import('./pages/projects/SwarmHeatedBed'))
+const SwarmExtruder = lazy(() => import('./pages/projects/SwarmExtruder'))
+const SpringSteelWheel = lazy(() => import('./pages/projects/SpringSteelWheel'))
+const Daikin = lazy(() => import('./pages/projects/Daikin'))
+const CandySorter = lazy(() => import('./pages/projects/CandySorter'))
+const LonghornBaja = lazy(() => import('./pages/projects/LonghornBaja'))
+const BajaMasterSketch = lazy(() => import('./pages/projects/BajaMasterSketch'))
+const BajaControlArms = lazy(() => import('./pages/projects/BajaControlArms'))
+const BajaRearHubs = lazy(() => import('./pages/projects/BajaRearHubs'))
+const BajaFrontHubs = lazy(() => import('./pages/projects/BajaFrontHubs'))
+const BajaGallery = lazy(() => import('./pages/projects/BajaGallery'))
+const BajaCVAxles = lazy(() => import('./pages/projects/BajaCVAxles'))
+const Guadaloop = lazy(() => import('./pages/projects/Guadaloop'))
+const RoboticsRoadcase = lazy(() => import('./pages/projects/RoboticsRoadcase'))
+const FRCRobots = lazy(() => import('./pages/projects/FRCRobots'))
+const FRCRooty = lazy(() => import('./pages/projects/FRCRooty'))
+const FRCRingo = lazy(() => import('./pages/projects/FRCRingo'))
+const FRCBrownout = lazy(() => import('./pages/projects/FRCBrownout'))
+const FRCAdditional = lazy(() => import('./pages/projects/FRCAdditional'))
+const ElectricSkateboard = lazy(() => import('./pages/projects/ElectricSkateboard'))
+const Beetleweight = lazy(() => import('./pages/projects/Beetleweight'))
 
 function ScrollToTop() {
   const { pathname } = useLocation()
@@ -37,8 +37,9 @@ function ScrollToTop() {
   return null
 }
 
+// Pages other than Home are lazy-loaded; Suspense sits inside the transition so animations still run
 function PT({ children }) {
-  return <PageTransition>{children}</PageTransition>
+  return <PageTransition><Suspense fallback={null}>{children}</Suspense></PageTransition>
 }
 
 function AnimatedRoutes() {

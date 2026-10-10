@@ -7,6 +7,7 @@ import img from '../../img'
 
 const toc = [
   { id: 'problem',          label: 'The Problem'       },
+  { id: 'my-contribution',  label: 'My Contribution'   },
   { id: 'approach',         label: 'Approach'          },
   { id: 'sleeve-sizing',    label: 'Sleeve Sizing'     },
   { id: 'weld-analysis',    label: 'Weld Throat Analysis' },
@@ -15,6 +16,7 @@ const toc = [
 ]
 
 const keyStats = [
+  { value: '~10 → ~20 in', label: 'Cup-to-Cup Length' },
   { value: '162.7 N·m', label: 'Design Torque' },
   { value: '1.30', label: 'Weld FS (AWS Allowable)' },
   { value: '2.54', label: 'Base Metal FS (Yield)' },
@@ -125,6 +127,18 @@ export default function BajaCVAxles() {
         </ScrollReveal>
 
         <ScrollReveal>
+          <div id="my-contribution" className="project-section">
+            <h3>My Contribution</h3>
+            <ul style={{ color: 'var(--text-secondary)', paddingLeft: 20, lineHeight: 2, fontSize: '0.95rem' }}>
+              <li>Identified that the stock axle length would narrow the rear track below the designed geometry</li>
+              <li>Worked out the cut-and-sleeve extension approach, with press-fit sleeves to keep the shaft coaxial</li>
+              <li>Sized the sleeve wall and checked the weld throat and base metal against the design torque</li>
+              <li>Weighed mechanical backups against the added stress concentration and made the call to run without them</li>
+            </ul>
+          </div>
+        </ScrollReveal>
+
+        <ScrollReveal>
           <div id="approach" className="project-section">
             <h3>Approach</h3>
             <p>
@@ -220,6 +234,12 @@ export default function BajaCVAxles() {
                 <p>A key or spline carries the torque mechanically, making the weld a secondary load path.</p>
               </div>
             </div>
+            <h4 style={{ marginTop: 28, marginBottom: 4 }}>Decision: No Mechanical Backup</h4>
+            <p>
+              Neither backup was added. Drilling for pins or cutting a keyway would have introduced new
+              stress concentrations into the same shaft section the weld was already loading, so the
+              axles ran with the welded sleeves alone.
+            </p>
           </div>
         </ScrollReveal>
 
@@ -229,6 +249,13 @@ export default function BajaCVAxles() {
             <p>
               Both rear axles were extended, welded, and installed, bringing the rear track back to the
               designed width.
+            </p>
+            <h4 style={{ marginTop: 24, marginBottom: 4 }}>Competition Result</h4>
+            <p>
+              Both extended axles survived the entire competition without failure. In hindsight the
+              calculations were conservative: they applied the full design torque to the shaft, but did
+              not account for terramechanics. Under heavy rotational load the tires slip on loose terrain,
+              which caps the torque that actually reaches the axle well below the calculated case.
             </p>
           </div>
         </ScrollReveal>

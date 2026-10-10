@@ -38,7 +38,7 @@ export default function SwarmExtruder() {
       <StickyTOC sections={toc} />
       <DetailPage
       backTo="/industry"
-      backLabel="Industry Experience"
+      backLabel="Industry & Research"
       tag="UT Austin · FIRE Program"
       title="Swarm Manufacturing Research – Extruder End Effector"
       heroImage={img('/images/UR5E.jpg')}

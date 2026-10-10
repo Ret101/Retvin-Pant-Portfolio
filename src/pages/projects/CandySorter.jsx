@@ -8,6 +8,7 @@ import img from '../../img'
 
 const toc = [
   { id: 'introduction',  label: 'Introduction'        },
+  { id: 'my-contribution', label: 'My Contribution' },
   { id: 'result',        label: 'Purpose & Result'    },
   { id: 'salmon-ladder', label: 'Salmon Ladder'       },
   { id: 'slide',         label: 'Slide'               },
@@ -37,7 +38,7 @@ export default function CandySorter() {
       <StickyTOC sections={toc} />
       <DetailPage
       backTo="/industry"
-      backLabel="Industry Experience"
+      backLabel="Industry & Research"
       tag="SPARX Engineering · Internship"
       title="Automated Candy Sorter"
       heroImage={img('/images/sweetsifter.jpg')}
@@ -61,6 +62,18 @@ export default function CandySorter() {
             SPARX Engineering's capabilities at trade shows, a live, interactive showcase of multi-stage
             autonomous systems.
           </p>
+        </div>
+      </ScrollReveal>
+
+      <ScrollReveal>
+        <div id="my-contribution" className="project-section">
+          <h3>My Contribution</h3>
+          <ul style={{ color: 'var(--text-secondary)', paddingLeft: 20, lineHeight: 2, fontSize: '0.95rem' }}>
+            <li>Designed the slide and kicker stages in Onshape, moving candy from the salmon ladder into position and routing it by color</li>
+            <li>Wrote the Python control application (PyQt5 + OpenCV) for live camera color identification</li>
+            <li>Implemented serial control of the solenoids and stepper motors through an Adafruit Feather microcontroller</li>
+            <li>Iterated the design through build failures to reach roughly 90% sorting accuracy for trade show use</li>
+          </ul>
         </div>
       </ScrollReveal>
 
@@ -194,7 +207,7 @@ export default function CandySorter() {
             style={{ border: 'none', borderRadius: 'var(--radius-sm)', display: 'block' }}
             title="Candy Sorter, Integrated Assembly"
           />
-          <p style={{ fontSize: '0.72rem', color: 'var(--text-muted)', marginTop: 6, textAlign: 'center', fontFamily: "'Space Grotesk', sans-serif", letterSpacing: '0.04em' }}>Made in SolidWorks · Displayed in Fusion 360</p>
+          <p style={{ fontSize: '0.72rem', color: 'var(--text-muted)', marginTop: 6, textAlign: 'center', fontFamily: "'Space Grotesk', sans-serif", letterSpacing: '0.04em' }}>Made in Onshape · Displayed in Fusion 360</p>
         </div>
       </ScrollReveal>
 
