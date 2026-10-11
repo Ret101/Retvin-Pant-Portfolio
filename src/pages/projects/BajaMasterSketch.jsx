@@ -87,20 +87,20 @@ export default function BajaMasterSketch() {
           </div>
           <ScrollReveal>
             <div className="project-section">
-              <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
-                <div style={{ background: 'var(--card-bg)', border: '1px solid var(--card-border)', borderRadius: 'var(--radius-sm)', padding: '16px 20px' }}>
-                  <div style={{ fontFamily: "'Space Grotesk', sans-serif", fontWeight: 700, fontSize: '0.88rem', color: 'var(--accent-light)', marginBottom: 6, letterSpacing: '0.06em', textTransform: 'uppercase' }}>Suspension Type, Double Wishbone F&amp;R</div>
-                  <p style={{ margin: 0, fontSize: '0.92rem', color: 'var(--text-secondary)', lineHeight: 1.65 }}>
-                    <strong style={{ color: 'var(--text-primary)' }}>Chose:</strong> Double wishbone front and rear.<br />
-                    <strong style={{ color: 'var(--text-primary)' }}>Rejected:</strong> trailing arm or MacPherson alternatives.<br />
+              <div className="decision-grid">
+                <div className="decision-card">
+                  <div className="decision-card-title">Suspension Type, Double Wishbone F&amp;R</div>
+                  <p className="decision-card-body">
+                    <span className="decision-chose"><strong>Chose</strong>Double wishbone front and rear.</span>
+                    <span className="decision-rejected"><strong>Rejected</strong>trailing arm or MacPherson alternatives.</span>
                     Double wishbone gives independent control of roll center height and camber curve
                     through upper and lower arm length and angle, the only geometry that allows
                     fine-tuning the handling balance SAE Baja off-road conditions demand.
                   </p>
                 </div>
-                <div style={{ background: 'var(--card-bg)', border: '1px solid var(--card-border)', borderRadius: 'var(--radius-sm)', padding: '16px 20px' }}>
-                  <div style={{ fontFamily: "'Space Grotesk', sans-serif", fontWeight: 700, fontSize: '0.88rem', color: 'var(--accent-light)', marginBottom: 6, letterSpacing: '0.06em', textTransform: 'uppercase' }}>Roll Center Height</div>
-                  <p style={{ margin: 0, fontSize: '0.92rem', color: 'var(--text-secondary)', lineHeight: 1.65 }}>
+                <div className="decision-card">
+                  <div className="decision-card-title">Roll Center Height</div>
+                  <p className="decision-card-body">
                     Roll center height was set to balance body roll resistance (higher RC = less roll
                     but more jacking force) against lateral load transfer (lower RC = less jacking
                     but more roll). The chosen heights front and rear were verified in Lotus Shark to
@@ -108,9 +108,9 @@ export default function BajaMasterSketch() {
                     that would compromise competition handling.
                   </p>
                 </div>
-                <div style={{ background: 'var(--card-bg)', border: '1px solid var(--card-border)', borderRadius: 'var(--radius-sm)', padding: '16px 20px' }}>
-                  <div style={{ fontFamily: "'Space Grotesk', sans-serif", fontWeight: 700, fontSize: '0.88rem', color: 'var(--accent-light)', marginBottom: 6, letterSpacing: '0.06em', textTransform: 'uppercase' }}>Camber Curve</div>
-                  <p style={{ margin: 0, fontSize: '0.92rem', color: 'var(--text-secondary)', lineHeight: 1.65 }}>
+                <div className="decision-card">
+                  <div className="decision-card-title">Camber Curve</div>
+                  <p className="decision-card-body">
                     Upper arm length was set shorter than the lower arm to produce negative camber
                     gain in compression, keeping the contact patch square to the ground as the
                     wheel travels through bumps and body roll. Lotus Shark animation was used to

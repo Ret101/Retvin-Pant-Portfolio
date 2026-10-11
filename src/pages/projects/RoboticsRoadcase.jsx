@@ -34,7 +34,7 @@ export default function RoboticsRoadcase() {
       roles={['Designer', 'Assembly Lead']}
     >
       <ScrollReveal>
-        <div id="introduction" className="project-section">
+        <div id="introduction" className="project-section intro-tile">
           <h3>Introduction</h3>
           <p>
             Designed for FRC Team 5414, this road case serves as the team's pit case at competitions.
@@ -47,7 +47,7 @@ export default function RoboticsRoadcase() {
       <ScrollReveal>
         <div id="my-contribution" className="project-section">
           <h3>My Contribution</h3>
-          <ul style={{ color: 'var(--text-secondary)', paddingLeft: 20, lineHeight: 2, fontSize: '0.95rem' }}>
+          <ul className="contrib-grid">
             <li>Designed the road case in SolidWorks, including the COTS storage upper assembly and the tote bin lower assembly</li>
             <li>Led assembly of the finished case for competition use</li>
           </ul>

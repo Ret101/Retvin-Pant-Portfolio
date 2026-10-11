@@ -71,7 +71,7 @@ export default function BajaControlArms() {
       roles={['Vehicle Dynamics Lead']}
     >
       <ScrollReveal>
-        <div id="engineering-challenge" className="project-section">
+        <div id="engineering-challenge" className="project-section intro-tile">
           <h3>Engineering Challenge</h3>
           <p>
             Control arms need to be stiff enough to transmit cornering and bump loads without deflecting
@@ -85,7 +85,7 @@ export default function BajaControlArms() {
       <ScrollReveal>
         <div id="my-contribution" className="project-section">
           <h3>My Contribution</h3>
-          <ul style={{ color: 'var(--text-secondary)', paddingLeft: 20, lineHeight: 2, fontSize: '0.95rem' }}>
+          <ul className="contrib-grid">
             <li>Set the front and rear control arm geometry from the master sketch hardpoints I defined as Vehicle Dynamics Lead</li>
             <li>Verified the suspension kinematics in Lotus Shark before releasing geometry to the chassis, steering, and unsprung mass teams</li>
             <li>Selected the tube section, 1.25 in OD × 0.065 in wall 4130 chromoly, coordinating a shared tube spec with the chassis team</li>

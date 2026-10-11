@@ -32,7 +32,7 @@ export default function BajaRearHubs() {
       roles={['Vehicle Dynamics Lead']}
     >
       <ScrollReveal>
-        <div id="engineering-challenge" className="project-section">
+        <div id="engineering-challenge" className="project-section intro-tile">
           <h3>Engineering Challenge</h3>
           <p>
             The rear hub carries drive torque from the axle to the wheel while reacting suspension
@@ -53,7 +53,7 @@ export default function BajaRearHubs() {
       <ScrollReveal>
         <div id="my-contribution" className="project-section">
           <h3>My Contribution</h3>
-          <ul style={{ color: 'var(--text-secondary)', paddingLeft: 20, lineHeight: 2, fontSize: '0.95rem' }}>
+          <ul className="contrib-grid">
             <li>Designed the custom rear hub around a laminated spline stack, avoiding broaching and wire EDM</li>
             <li>Specified the 6061-T6 hub body, laser-cut spline plates, and ceramic hard anodize, and compensated the spline teeth for laser kerf</li>
             <li>Ran structural FEA in Ansys Mechanical across six combined load cases plus a separate spline plate analysis</li>
@@ -89,12 +89,12 @@ export default function BajaRearHubs() {
       <ScrollReveal>
         <div id="design-constraints" className="project-section">
           <h3>Design Constraints</h3>
-          <ul style={{ color: 'var(--text-secondary)', paddingLeft: 20, lineHeight: 2, fontSize: '0.95rem' }}>
-            <li><strong style={{ color: 'var(--text-primary)' }}>Geometry:</strong> Ball joint positions fixed by master sketch hardpoints</li>
-            <li><strong style={{ color: 'var(--text-primary)' }}>Drive interface:</strong> Must accept the axle spline profile and transmit full drivetrain torque to the wheel</li>
-            <li><strong style={{ color: 'var(--text-primary)' }}>Bearing:</strong> Must carry combined radial (cornering) and axial (bump) loads simultaneously</li>
-            <li><strong style={{ color: 'var(--text-primary)' }}>Spline interface:</strong> Internal spline must be achievable without broaching or wire EDM (cost and access constraints)</li>
-            <li><strong style={{ color: 'var(--text-primary)' }}>Mass:</strong> Minimized to keep rear unsprung mass low for better traction and ride over rough terrain</li>
+          <ul className="constraint-grid">
+            <li><strong style={{ color: 'var(--text-primary)' }}>Geometry</strong> Ball joint positions fixed by master sketch hardpoints</li>
+            <li><strong style={{ color: 'var(--text-primary)' }}>Drive interface</strong> Must accept the axle spline profile and transmit full drivetrain torque to the wheel</li>
+            <li><strong style={{ color: 'var(--text-primary)' }}>Bearing</strong> Must carry combined radial (cornering) and axial (bump) loads simultaneously</li>
+            <li><strong style={{ color: 'var(--text-primary)' }}>Spline interface</strong> Internal spline must be achievable without broaching or wire EDM (cost and access constraints)</li>
+            <li><strong style={{ color: 'var(--text-primary)' }}>Mass</strong> Minimized to keep rear unsprung mass low for better traction and ride over rough terrain</li>
           </ul>
         </div>
       </ScrollReveal>

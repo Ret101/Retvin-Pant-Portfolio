@@ -43,7 +43,7 @@ export default function Guadaloop() {
       roles={['Vehicle Dynamics Engineer']}
     >
       <ScrollReveal>
-        <div id="engineering-challenge" className="project-section">
+        <div id="engineering-challenge" className="project-section intro-tile">
           <h3>Engineering Challenge</h3>
           <p>
             The bogie must do three conflicting things at once: magnetically levitate the pod above
@@ -62,7 +62,7 @@ export default function Guadaloop() {
       <ScrollReveal>
         <div id="my-contribution" className="project-section">
           <h3>My Contribution</h3>
-          <ul style={{ color: 'var(--text-secondary)', paddingLeft: 20, lineHeight: 2, fontSize: '0.95rem' }}>
+          <ul className="contrib-grid">
             <li>Performed subsystem integration checks to prevent interference between track, bogie chassis, and main chassis</li>
             <li>Analyzed the bogie structure under the power-failure braking scenario, the governing load case</li>
             <li>Ran FEA to evaluate maximum forces and calculated factor of safety across all critical members</li>

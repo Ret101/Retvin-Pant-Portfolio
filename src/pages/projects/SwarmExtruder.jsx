@@ -46,7 +46,7 @@ export default function SwarmExtruder() {
       roles={['Mechanical Design']}
     >
       <ScrollReveal>
-        <div id="engineering-challenge" className="project-section">
+        <div id="engineering-challenge" className="project-section intro-tile">
           <h3>Engineering Challenge</h3>
           <p>
             Mounting a functional FDM extruder on a 6-DOF robot arm wrist introduces constraints
@@ -65,7 +65,7 @@ export default function SwarmExtruder() {
       <ScrollReveal>
         <div id="my-contribution" className="project-section">
           <h3>My Contribution</h3>
-          <ul style={{ color: 'var(--text-secondary)', paddingLeft: 20, lineHeight: 2, fontSize: '0.95rem' }}>
+          <ul className="contrib-grid">
             <li>Designed the toolchanger mount interfacing with the UR5E's final DOF</li>
             <li>Designed the full extruder end effector assembly, cold end, hot end, and structural integration</li>
             <li>Ran Ansys FEA to identify structural weak points in the toolhead under combined loading</li>
@@ -91,31 +91,31 @@ export default function SwarmExtruder() {
       <ScrollReveal>
         <div id="key-decisions" className="project-section">
           <h3>Key Engineering Decisions</h3>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
-            <div style={{ background: 'var(--card-bg)', border: '1px solid var(--card-border)', borderRadius: 'var(--radius-sm)', padding: '16px 20px' }}>
-              <div style={{ fontFamily: "'Space Grotesk', sans-serif", fontWeight: 700, fontSize: '0.88rem', color: 'var(--accent-light)', marginBottom: 6, letterSpacing: '0.06em', textTransform: 'uppercase' }}>Extruder Type, Direct Drive vs. Bowden</div>
-              <p style={{ margin: 0, fontSize: '0.92rem', color: 'var(--text-secondary)', lineHeight: 1.65 }}>
-                <strong style={{ color: 'var(--text-primary)' }}>Chose:</strong> Orbiter direct drive.<br />
-                <strong style={{ color: 'var(--text-primary)' }}>Rejected:</strong> Bowden setup.<br />
+          <div className="decision-grid">
+            <div className="decision-card">
+              <div className="decision-card-title">Extruder Type, Direct Drive vs. Bowden</div>
+              <p className="decision-card-body">
+                <span className="decision-chose"><strong>Chose</strong>Orbiter direct drive.</span>
+                <span className="decision-rejected"><strong>Rejected</strong>Bowden setup.</span>
                 Conformal printing demands consistent retraction at any orientation. A Bowden tube
                 introduces variable filament pressure and sag at non-vertical angles, making flow
                 control unreliable mid-path. Direct drive eliminates that variability and shortens
                 the filament path from motor to nozzle.
               </p>
             </div>
-            <div style={{ background: 'var(--card-bg)', border: '1px solid var(--card-border)', borderRadius: 'var(--radius-sm)', padding: '16px 20px' }}>
-              <div style={{ fontFamily: "'Space Grotesk', sans-serif", fontWeight: 700, fontSize: '0.88rem', color: 'var(--accent-light)', marginBottom: 6, letterSpacing: '0.06em', textTransform: 'uppercase' }}>Tool Interface, Quick-Change vs. Fixed Mount</div>
-              <p style={{ margin: 0, fontSize: '0.92rem', color: 'var(--text-secondary)', lineHeight: 1.65 }}>
-                <strong style={{ color: 'var(--text-primary)' }}>Chose:</strong> Toolchanger attachment on final DOF.<br />
-                <strong style={{ color: 'var(--text-primary)' }}>Rejected:</strong> permanent fixed mount.<br />
+            <div className="decision-card">
+              <div className="decision-card-title">Tool Interface, Quick-Change vs. Fixed Mount</div>
+              <p className="decision-card-body">
+                <span className="decision-chose"><strong>Chose</strong>Toolchanger attachment on final DOF.</span>
+                <span className="decision-rejected"><strong>Rejected</strong>permanent fixed mount.</span>
                 Swarm research requires iterating across multiple end effector types. A quick-change
                 interface allows head swaps without full arm disassembly or recalibration, compressing
                 the test-iterate cycle significantly.
               </p>
             </div>
-            <div style={{ background: 'var(--card-bg)', border: '1px solid var(--card-border)', borderRadius: 'var(--radius-sm)', padding: '16px 20px' }}>
-              <div style={{ fontFamily: "'Space Grotesk', sans-serif", fontWeight: 700, fontSize: '0.88rem', color: 'var(--accent-light)', marginBottom: 6, letterSpacing: '0.06em', textTransform: 'uppercase' }}>Thermal Isolation</div>
-              <p style={{ margin: 0, fontSize: '0.92rem', color: 'var(--text-secondary)', lineHeight: 1.65 }}>
+            <div className="decision-card">
+              <div className="decision-card-title">Thermal Isolation</div>
+              <p className="decision-card-body">
                 Cold end / hot end separation with a heat break prevents thermal creep from the
                 200°C+ hot end toward the toolchanger interface. FEA confirmed structural
                 components at the mount stay below the threshold that would affect wrist joint

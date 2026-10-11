@@ -68,7 +68,7 @@ export default function FRCRobots() {
       roles={['Technical Team Captain', 'Mechanical Designer', 'Fabrication Lead', 'Pit Boss']}
     >
       <ScrollReveal>
-        <div id="introduction" className="project-section">
+        <div id="introduction" className="project-section intro-tile">
           <h3>Introduction</h3>
           <p>
             Three competition robots designed and built across the 2023–2024 FRC seasons as Technical
@@ -81,7 +81,7 @@ export default function FRCRobots() {
       <ScrollReveal>
         <div id="my-contribution" className="project-section">
           <h3>My Contribution</h3>
-          <ul style={{ color: 'var(--text-secondary)', paddingLeft: 20, lineHeight: 2, fontSize: '0.95rem' }}>
+          <ul className="contrib-grid">
             <li>Served as Technical Team Captain across the 2023 and 2024 seasons, leading the team's mechanical design</li>
             <li>Designed robot mechanisms in Onshape for Rooty, Ringo, and Brownout</li>
             <li>Led fabrication as Fabrication Lead, taking designs from CAD to competition robots</li>

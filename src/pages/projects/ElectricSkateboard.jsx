@@ -52,7 +52,7 @@ export default function ElectricSkateboard() {
       </ScrollReveal>
 
       <ScrollReveal>
-        <div id="engineering-challenge" className="project-section">
+        <div id="engineering-challenge" className="project-section intro-tile">
           <h3>Engineering Challenge</h3>
           <p>
             Build a functional electric skateboard for under $250 during the first semester of college.

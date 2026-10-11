@@ -55,7 +55,7 @@ export default function CandySorter() {
       </ScrollReveal>
 
       <ScrollReveal>
-        <div id="introduction" className="project-section">
+        <div id="introduction" className="project-section intro-tile">
           <h3>Introduction</h3>
           <p>
             Completed at SPARX Engineering in Manvel, Texas as an internship project. Designed to demonstrate
@@ -68,7 +68,7 @@ export default function CandySorter() {
       <ScrollReveal>
         <div id="my-contribution" className="project-section">
           <h3>My Contribution</h3>
-          <ul style={{ color: 'var(--text-secondary)', paddingLeft: 20, lineHeight: 2, fontSize: '0.95rem' }}>
+          <ul className="contrib-grid">
             <li>Designed the slide and kicker stages in Onshape, moving candy from the salmon ladder into position and routing it by color</li>
             <li>Wrote the Python control application (PyQt5 + OpenCV) for live camera color identification</li>
             <li>Implemented serial control of the solenoids and stepper motors through an Adafruit Feather microcontroller</li>

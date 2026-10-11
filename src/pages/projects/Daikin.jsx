@@ -142,7 +142,7 @@ export default function Daikin() {
       <ScrollReveal>
         <div id="my-contribution" className="project-section">
           <h3>My Contribution</h3>
-          <ul style={{ color: 'var(--text-secondary)', paddingLeft: 20, lineHeight: 2, fontSize: '0.95rem' }}>
+          <ul className="contrib-grid">
             <li>Led the automation cell design project for heat exchanger manufacturing, defining cell layout, robot integration, material handling systems, and end-of-arm tooling</li>
             <li>Developed robot motion paths in FANUC RoboGuide for both the forming and bending operations</li>
             <li>Designed four custom material handling systems in SolidWorks, the hopper, buffer, decoupled extraction and conveyor, and end-of-arm tooling, to automate part transfer between forming and bending</li>

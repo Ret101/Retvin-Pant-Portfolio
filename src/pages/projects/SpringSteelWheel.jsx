@@ -48,7 +48,7 @@ export default function SpringSteelWheel() {
       roles={['Mechanical Designer']}
     >
       <ScrollReveal>
-        <div id="engineering-challenge" className="project-section">
+        <div id="engineering-challenge" className="project-section intro-tile">
           <h3>Engineering Challenge</h3>
           <p>
             This was an early-stage prototype built for initial replicative lunar surface testing,
@@ -69,7 +69,7 @@ export default function SpringSteelWheel() {
       <ScrollReveal>
         <div id="my-contribution" className="project-section">
           <h3>My Contribution</h3>
-          <ul style={{ color: 'var(--text-secondary)', paddingLeft: 20, lineHeight: 2, fontSize: '0.95rem' }}>
+          <ul className="contrib-grid">
             <li>Co-designed the spring steel wheel prototype with another intern, from geometry definition through physical build</li>
             <li>Defined the modular segment architecture to allow field repairability and weight tuning</li>
             <li>Co-designed the universal wheel hub providing a standardized interface between hub motors and wheel variants</li>
@@ -95,33 +95,33 @@ export default function SpringSteelWheel() {
       <ScrollReveal>
         <div id="key-decisions" className="project-section">
           <h3>Key Engineering Decisions</h3>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
-            <div style={{ background: 'var(--card-bg)', border: '1px solid var(--card-border)', borderRadius: 'var(--radius-sm)', padding: '16px 20px' }}>
-              <div style={{ fontFamily: "'Space Grotesk', sans-serif", fontWeight: 700, fontSize: '0.88rem', color: 'var(--accent-light)', marginBottom: 6, letterSpacing: '0.06em', textTransform: 'uppercase' }}>Wheel Material, Spring Steel vs. Rigid Aluminum</div>
-              <p style={{ margin: 0, fontSize: '0.92rem', color: 'var(--text-secondary)', lineHeight: 1.65 }}>
-                <strong style={{ color: 'var(--text-primary)' }}>Chose:</strong> Spring steel.<br />
-                <strong style={{ color: 'var(--text-primary)' }}>Rejected:</strong> rigid aluminum shell.<br />
+          <div className="decision-grid">
+            <div className="decision-card">
+              <div className="decision-card-title">Wheel Material, Spring Steel vs. Rigid Aluminum</div>
+              <p className="decision-card-body">
+                <span className="decision-chose"><strong>Chose</strong>Spring steel.</span>
+                <span className="decision-rejected"><strong>Rejected</strong>rigid aluminum shell.</span>
                 Spring steel deforms elastically under load to increase ground contact area on loose
                 regolith, preventing sinkage without needing air pressure. A rigid wheel would
                 require a much larger diameter to achieve equivalent floatation, driving up mass and
                 packaging constraints.
               </p>
             </div>
-            <div style={{ background: 'var(--card-bg)', border: '1px solid var(--card-border)', borderRadius: 'var(--radius-sm)', padding: '16px 20px' }}>
-              <div style={{ fontFamily: "'Space Grotesk', sans-serif", fontWeight: 700, fontSize: '0.88rem', color: 'var(--accent-light)', marginBottom: 6, letterSpacing: '0.06em', textTransform: 'uppercase' }}>Wheel Architecture, Modular Segments vs. One-Piece</div>
-              <p style={{ margin: 0, fontSize: '0.92rem', color: 'var(--text-secondary)', lineHeight: 1.65 }}>
-                <strong style={{ color: 'var(--text-primary)' }}>Chose:</strong> Modular segments that assemble into a complete wheel.<br />
-                <strong style={{ color: 'var(--text-primary)' }}>Rejected:</strong> monolithic one-piece ring.<br />
+            <div className="decision-card">
+              <div className="decision-card-title">Wheel Architecture, Modular Segments vs. One-Piece</div>
+              <p className="decision-card-body">
+                <span className="decision-chose"><strong>Chose</strong>Modular segments that assemble into a complete wheel.</span>
+                <span className="decision-rejected"><strong>Rejected</strong>monolithic one-piece ring.</span>
                 Segmented construction allows individual spoke/segment replacement if a section fails
                 during testing, without scrapping the full wheel. It also enables geometry tuning
                 by swapping segment profiles across test runs.
               </p>
             </div>
-            <div style={{ background: 'var(--card-bg)', border: '1px solid var(--card-border)', borderRadius: 'var(--radius-sm)', padding: '16px 20px' }}>
-              <div style={{ fontFamily: "'Space Grotesk', sans-serif", fontWeight: 700, fontSize: '0.88rem', color: 'var(--accent-light)', marginBottom: 6, letterSpacing: '0.06em', textTransform: 'uppercase' }}>Hub Interface, Universal Adapter vs. Wheel-Specific Mount</div>
-              <p style={{ margin: 0, fontSize: '0.92rem', color: 'var(--text-secondary)', lineHeight: 1.65 }}>
-                <strong style={{ color: 'var(--text-primary)' }}>Chose:</strong> Universal hub that decouples wheel geometry from rover drive system.<br />
-                <strong style={{ color: 'var(--text-primary)' }}>Rejected:</strong> bespoke mount per wheel type.<br />
+            <div className="decision-card">
+              <div className="decision-card-title">Hub Interface, Universal Adapter vs. Wheel-Specific Mount</div>
+              <p className="decision-card-body">
+                <span className="decision-chose"><strong>Chose</strong>Universal hub that decouples wheel geometry from rover drive system.</span>
+                <span className="decision-rejected"><strong>Rejected</strong>bespoke mount per wheel type.</span>
                 A universal interface means the rover's hub motor and drivetrain never change between
                 wheel test configurations. Without it, every new wheel design would require a rover-level
                 redesign, multiplying integration time and risk.
@@ -220,3 +220,4 @@ export default function SpringSteelWheel() {
     </>
   )
 }
+

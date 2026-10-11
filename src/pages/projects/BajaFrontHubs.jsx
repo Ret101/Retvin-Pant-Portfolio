@@ -21,7 +21,7 @@ export default function BajaFrontHubs() {
       inProgress
     >
       <ScrollReveal>
-        <div id="engineering-challenge" className="project-section">
+        <div id="engineering-challenge" className="project-section intro-tile">
           <h3>Engineering Challenge</h3>
           <p>
             The front hub is the most geometrically constrained component on the vehicle: it has to
@@ -35,11 +35,11 @@ export default function BajaFrontHubs() {
       <ScrollReveal>
         <div id="design-constraints" className="project-section">
           <h3>Design Constraints</h3>
-          <ul style={{ color: 'var(--text-secondary)', paddingLeft: 20, lineHeight: 2, fontSize: '0.95rem' }}>
-            <li><strong style={{ color: 'var(--text-primary)' }}>Geometry:</strong> Ball joint positions fixed by master sketch hardpoints, no deviation allowed</li>
-            <li><strong style={{ color: 'var(--text-primary)' }}>Bearing:</strong> Must accommodate the selected wheel bearing OD and width without overhang</li>
-            <li><strong style={{ color: 'var(--text-primary)' }}>Brake:</strong> Rotor must clear the caliper at full steering lock in both directions</li>
-            <li><strong style={{ color: 'var(--text-primary)' }}>Mass:</strong> Minimized since front unsprung mass directly affects transient handling response</li>
+          <ul className="constraint-grid">
+            <li><strong style={{ color: 'var(--text-primary)' }}>Geometry</strong> Ball joint positions fixed by master sketch hardpoints, no deviation allowed</li>
+            <li><strong style={{ color: 'var(--text-primary)' }}>Bearing</strong> Must accommodate the selected wheel bearing OD and width without overhang</li>
+            <li><strong style={{ color: 'var(--text-primary)' }}>Brake</strong> Rotor must clear the caliper at full steering lock in both directions</li>
+            <li><strong style={{ color: 'var(--text-primary)' }}>Mass</strong> Minimized since front unsprung mass directly affects transient handling response</li>
           </ul>
         </div>
       </ScrollReveal>

@@ -115,7 +115,7 @@ export default function BajaCVAxles() {
         </ScrollReveal>
 
         <ScrollReveal>
-          <div id="problem" className="project-section">
+          <div id="problem" className="project-section intro-tile">
             <h3>The Problem</h3>
             <p>
               The off-the-shelf CV axles were too short for the car. Running them as-is would have pulled
@@ -129,7 +129,7 @@ export default function BajaCVAxles() {
         <ScrollReveal>
           <div id="my-contribution" className="project-section">
             <h3>My Contribution</h3>
-            <ul style={{ color: 'var(--text-secondary)', paddingLeft: 20, lineHeight: 2, fontSize: '0.95rem' }}>
+            <ul className="contrib-grid">
               <li>Identified that the stock axle length would narrow the rear track below the designed geometry</li>
               <li>Worked out the cut-and-sleeve extension approach, with press-fit sleeves to keep the shaft coaxial</li>
               <li>Sized the sleeve wall and checked the weld throat and base metal against the design torque</li>

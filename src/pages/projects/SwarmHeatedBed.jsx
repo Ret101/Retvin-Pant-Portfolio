@@ -60,7 +60,7 @@ export default function SwarmHeatedBed() {
       </ScrollReveal>
 
       <ScrollReveal>
-        <div id="engineering-challenge" className="project-section">
+        <div id="engineering-challenge" className="project-section intro-tile">
           <h3>Engineering Challenge</h3>
           <p>
             Standard FDM printers pause the print cycle every time a part finishes, the user
@@ -80,7 +80,7 @@ export default function SwarmHeatedBed() {
       <ScrollReveal>
         <div id="my-contribution" className="project-section">
           <h3>My Contribution</h3>
-          <ul style={{ color: 'var(--text-secondary)', paddingLeft: 20, lineHeight: 2, fontSize: '0.95rem' }}>
+          <ul className="contrib-grid">
             <li>Led mechanical design of the full hotswappable bed system</li>
             <li>Designed the scissor lift mechanism, geometry, motor selection, ball screw sizing</li>
             <li>Designed the bed frame and mounting interface for the PCB heating array</li>
@@ -93,23 +93,23 @@ export default function SwarmHeatedBed() {
       <ScrollReveal>
         <div id="key-decisions" className="project-section">
           <h3>Key Engineering Decisions</h3>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
-            <div style={{ background: 'var(--card-bg)', border: '1px solid var(--card-border)', borderRadius: 'var(--radius-sm)', padding: '16px 20px' }}>
-              <div style={{ fontFamily: "'Space Grotesk', sans-serif", fontWeight: 700, fontSize: '0.88rem', color: 'var(--accent-light)', marginBottom: 6, letterSpacing: '0.06em', textTransform: 'uppercase' }}>Lift Mechanism, Scissor vs. Linear Rail</div>
-              <p style={{ margin: 0, fontSize: '0.92rem', color: 'var(--text-secondary)', lineHeight: 1.65 }}>
-                <strong style={{ color: 'var(--text-primary)' }}>Chose:</strong> Scissor lift driven by NEMA 24 + ball screw.<br />
-                <strong style={{ color: 'var(--text-primary)' }}>Rejected:</strong> direct linear rail lift.<br />
+          <div className="decision-grid">
+            <div className="decision-card">
+              <div className="decision-card-title">Lift Mechanism, Scissor vs. Linear Rail</div>
+              <p className="decision-card-body">
+                <span className="decision-chose"><strong>Chose</strong>Scissor lift driven by NEMA 24 + ball screw.</span>
+                <span className="decision-rejected"><strong>Rejected</strong>direct linear rail lift.</span>
                 A scissor mechanism provides high mechanical advantage at the bottom of stroke (where
                 the bed is heaviest relative to the motor torque requirement), compresses into a low
                 profile when retracted, and keeps the motor mounted stationary rather than riding
                 with the moving mass, reducing the dynamic load on the drive system.
               </p>
             </div>
-            <div style={{ background: 'var(--card-bg)', border: '1px solid var(--card-border)', borderRadius: 'var(--radius-sm)', padding: '16px 20px' }}>
-              <div style={{ fontFamily: "'Space Grotesk', sans-serif", fontWeight: 700, fontSize: '0.88rem', color: 'var(--accent-light)', marginBottom: 6, letterSpacing: '0.06em', textTransform: 'uppercase' }}>Heating, Distributed PCB Array vs. Single Heater</div>
-              <p style={{ margin: 0, fontSize: '0.92rem', color: 'var(--text-secondary)', lineHeight: 1.65 }}>
-                <strong style={{ color: 'var(--text-primary)' }}>Chose:</strong> Array of custom resistive PCBs.<br />
-                <strong style={{ color: 'var(--text-primary)' }}>Rejected:</strong> single centralized heater.<br />
+            <div className="decision-card">
+              <div className="decision-card-title">Heating, Distributed PCB Array vs. Single Heater</div>
+              <p className="decision-card-body">
+                <span className="decision-chose"><strong>Chose</strong>Array of custom resistive PCBs.</span>
+                <span className="decision-rejected"><strong>Rejected</strong>single centralized heater.</span>
                 A single heater creates a thermal gradient across the bed surface, the center runs
                 hot, edges run cold. For consistent FDM layer adhesion the entire surface must be
                 within a tight temperature band. Thermal gradients also cause differential expansion
@@ -120,9 +120,9 @@ export default function SwarmHeatedBed() {
                 gradient that drives warping.
               </p>
             </div>
-            <div style={{ background: 'var(--card-bg)', border: '1px solid var(--card-border)', borderRadius: 'var(--radius-sm)', padding: '16px 20px' }}>
-              <div style={{ fontFamily: "'Space Grotesk', sans-serif", fontWeight: 700, fontSize: '0.88rem', color: 'var(--accent-light)', marginBottom: 6, letterSpacing: '0.06em', textTransform: 'uppercase' }}>Part Release, Fan Cooling vs. Manual Removal</div>
-              <p style={{ margin: 0, fontSize: '0.92rem', color: 'var(--text-secondary)', lineHeight: 1.65 }}>
+            <div className="decision-card">
+              <div className="decision-card-title">Part Release, Fan Cooling vs. Manual Removal</div>
+              <p className="decision-card-body">
                 After printing completes, the bed lifts above the arm base height, then lowers to
                 the ground where fans rapidly cool the surface. Thermal contraction causes the part
                 to detach from the print surface without mechanical prying, enabling fully

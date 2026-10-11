@@ -42,7 +42,7 @@ export default function Beetleweight() {
       </ScrollReveal>
 
       <ScrollReveal>
-        <div id="engineering-challenge" className="project-section">
+        <div id="engineering-challenge" className="project-section intro-tile">
           <h3>Engineering Challenge</h3>
           <p>
             Design a combat robot that fits under 3 pounds, survives direct hits from opponents,
@@ -58,7 +58,7 @@ export default function Beetleweight() {
       <ScrollReveal>
         <div id="my-contribution" className="project-section">
           <h3>My Contribution</h3>
-          <ul style={{ color: 'var(--text-secondary)', paddingLeft: 20, lineHeight: 2, fontSize: '0.95rem' }}>
+          <ul className="contrib-grid">
             <li>Designed the robot's TPU chassis and bolt-tipped vertical spinner within the 3 lb weight limit</li>
             <li>Chose TPU at 80% infill to absorb spinner hits instead of fracturing</li>
             <li>Competed at Texas Roborumble, finishing with a 3-2-0 record</li>
@@ -69,22 +69,22 @@ export default function Beetleweight() {
       <ScrollReveal>
         <div id="key-decisions" className="project-section">
           <h3>Key Engineering Decisions</h3>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
-            <div style={{ background: 'var(--card-bg)', border: '1px solid var(--card-border)', borderRadius: 'var(--radius-sm)', padding: '16px 20px' }}>
-              <div style={{ fontFamily: "'Space Grotesk', sans-serif", fontWeight: 700, fontSize: '0.88rem', color: 'var(--accent-light)', marginBottom: 6, letterSpacing: '0.06em', textTransform: 'uppercase' }}>Chassis Material, TPU vs. Rigid PLA</div>
-              <p style={{ margin: 0, fontSize: '0.92rem', color: 'var(--text-secondary)', lineHeight: 1.65 }}>
-                <strong style={{ color: 'var(--text-primary)' }}>Chose:</strong> TPU printed at 80% infill.<br />
-                <strong style={{ color: 'var(--text-primary)' }}>Rejected:</strong> rigid PLA or PETG shell.<br />
+          <div className="decision-grid">
+            <div className="decision-card">
+              <div className="decision-card-title">Chassis Material, TPU vs. Rigid PLA</div>
+              <p className="decision-card-body">
+                <span className="decision-chose"><strong>Chose</strong>TPU printed at 80% infill.</span>
+                <span className="decision-rejected"><strong>Rejected</strong>rigid PLA or PETG shell.</span>
                 TPU deforms elastically under impact and returns to shape, absorbing hit energy instead
                 of fracturing. A rigid material at this weight class shatters under the spinner hits
                 common in beetleweight combat. The 80% infill density balances impact absorption against
                 the weight budget.
               </p>
             </div>
-            <div style={{ background: 'var(--card-bg)', border: '1px solid var(--card-border)', borderRadius: 'var(--radius-sm)', padding: '16px 20px' }}>
-              <div style={{ fontFamily: "'Space Grotesk', sans-serif", fontWeight: 700, fontSize: '0.88rem', color: 'var(--accent-light)', marginBottom: 6, letterSpacing: '0.06em', textTransform: 'uppercase' }}>Weapon Design, Bolt-Tipped Vertical Spinner</div>
-              <p style={{ margin: 0, fontSize: '0.92rem', color: 'var(--text-secondary)', lineHeight: 1.65 }}>
-                <strong style={{ color: 'var(--text-primary)' }}>Chose:</strong> Two large hex bolts mounted at the ends of the spinner bar as strike tips.<br />
+            <div className="decision-card">
+              <div className="decision-card-title">Weapon Design, Bolt-Tipped Vertical Spinner</div>
+              <p className="decision-card-body">
+                <span className="decision-chose"><strong>Chose</strong>Two large hex bolts mounted at the ends of the spinner bar as strike tips.</span>
                 The bolts concentrate mass at the furthest point from the rotation center, maximizing
                 rotational kinetic energy for a given weapon motor RPM. This replicates the eggbeater
                 weapon style used in higher-weight classes, adapted entirely from hardware available at
