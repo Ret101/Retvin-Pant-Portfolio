@@ -37,7 +37,7 @@ export default function Guadaloop() {
       backTo="/team"
       backLabel="Team Projects"
       tag="Texas Guadaloop · Austin, TX"
-      title="Guadaloop Hyperloop Train Dynamics"
+      title="Guadaloop Hyperloop Bogie"
       heroImage={img('/images/guad pod.png')}
       software={['SolidWorks CAD', 'SolidWorks FEA']}
       roles={['Vehicle Dynamics Engineer']}

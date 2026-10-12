@@ -403,7 +403,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .hero-edu-years {
   font-size: 0.72rem;
-  color: var(--text-muted);
+  color: var(--text-secondary);
   letter-spacing: 0.03em;
 }
 

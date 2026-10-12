@@ -44,7 +44,7 @@ export default function SwarmHeatedBed() {
       tag="UT SiDi Lab · Research"
       title="Swarm Manufacturing, Hotswappable Heated Bed"
       heroImage={img('/images/robotic bed full img.png')}
-      software={['SolidWorks CAD', 'Ansys FEA', 'KiCAD', '3D Printing', 'CNC Mill', 'Presentation Skills']}
+      software={['SolidWorks CAD', 'Ansys FEA', 'KiCAD', '3D Printing', 'CNC Mill']}
       roles={['Mechanical Design Lead']}
       inProgress
     >

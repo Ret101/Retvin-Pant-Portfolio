@@ -108,7 +108,7 @@ export default function BajaCVAxles() {
         heroImage={img('/images/CV Axle Modification.jpeg')}
         heroStyle={{ backgroundSize: 'cover', backgroundPosition: 'center 45%' }}
         software={['Hand Calculations', 'Machining']}
-        roles={['Vehicle Dynamics Lead']}
+        roles={['Mechanical Designer', 'Vehicle Dynamics Lead']}
       >
         <ScrollReveal>
           <StatRow stats={keyStats} />
@@ -130,8 +130,8 @@ export default function BajaCVAxles() {
           <div id="my-contribution" className="project-section">
             <h3>My Contribution</h3>
             <ul className="contrib-grid">
+              <li>Designed the cut-and-sleeve extension (~10 → ~20 in cup to cup), with press-fit sleeves to keep the shaft coaxial</li>
               <li>Identified that the stock axle length would narrow the rear track below the designed geometry</li>
-              <li>Worked out the cut-and-sleeve extension approach, with press-fit sleeves to keep the shaft coaxial</li>
               <li>Sized the sleeve wall and checked the weld throat and base metal against the design torque</li>
               <li>Weighed mechanical backups against the added stress concentration and made the call to run without them</li>
             </ul>

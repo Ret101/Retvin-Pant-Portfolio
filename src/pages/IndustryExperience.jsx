@@ -6,7 +6,7 @@ const industry = [
   {
     image: img('/images/Daikin/Full Cell (2).webp'),
     title: 'Heat Exchanger Automated Manufacturing Cell',
-    description: 'Daikin: robotic cell for heat exchanger forming and bending, covering cell layout, robot integration, material handling, and end-of-arm tooling.',
+    description: 'Daikin: designed four custom material-handling systems and end-of-arm tooling for a robotic heat exchanger forming and bending cell.',
     to: '/industry/daikin',
     tag: 'Daikin · Summer 2026',
     restricted: true,
@@ -86,7 +86,7 @@ export default function IndustryExperience() {
         <div className="container">
           <Section
             title="Industry Experience"
-            intro="Professional internship work completed at Daikin, NASA Johnson Space Center, and SPARX Engineering."
+            intro="Hardware I designed during internships at Daikin, NASA Johnson Space Center, and SPARX Engineering."
             items={industry}
           />
         </div>
@@ -96,7 +96,7 @@ export default function IndustryExperience() {
         <div className="container">
           <Section
             title="Research"
-            intro="University lab research at the UT Austin SiDi Lab and the TEES Robotics, Automation and Design (RAD) Lab."
+            intro="Hardware I designed in university research labs: the UT Austin SiDi Lab and the TEES Robotics, Automation and Design (RAD) Lab."
             items={research}
           />
         </div>

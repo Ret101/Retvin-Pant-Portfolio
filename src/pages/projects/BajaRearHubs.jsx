@@ -25,11 +25,11 @@ export default function BajaRearHubs() {
       <DetailPage
       backTo="/baja"
       backLabel="Longhorn Baja"
-      tag="SAE Baja · Laminated Manufacturing"
+      tag="SAE Baja · Hub Design & Manufacturing"
       title="Rear Hubs: Laminated Manufacturing"
       heroImage={img('/images/rear hub machined image.jpg')}
-      software={['SolidWorks CAD', 'SolidWorks FEA', 'CNC Mill']}
-      roles={['Vehicle Dynamics Lead']}
+      software={['SolidWorks CAD', 'SolidWorks FEA', 'DFM', 'CNC Mill']}
+      roles={['Mechanical Designer', 'Vehicle Dynamics Lead']}
     >
       <ScrollReveal>
         <div id="engineering-challenge" className="project-section intro-tile">

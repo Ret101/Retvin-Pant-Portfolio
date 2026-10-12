@@ -63,12 +63,12 @@ export default function BajaControlArms() {
       <DetailPage
       backTo="/baja"
       backLabel="Longhorn Baja"
-      tag="SAE Baja · Vehicle Dynamics"
+      tag="SAE Baja · Suspension Design"
       title="Control Arms"
       heroImage={img('/images/Trailing Arm Images/WhatsApp Image 2026-10-03 at 5.46.39 PM (6).jpeg')}
       heroStyle={{ backgroundSize: 'cover', backgroundPosition: 'center 65%' }}
       software={['SolidWorks CAD', 'SolidWorks FEA', 'Lotus Shark']}
-      roles={['Vehicle Dynamics Lead']}
+      roles={['Mechanical Designer', 'Vehicle Dynamics Lead']}
     >
       <ScrollReveal>
         <div id="engineering-challenge" className="project-section intro-tile">
@@ -86,7 +86,7 @@ export default function BajaControlArms() {
         <div id="my-contribution" className="project-section">
           <h3>My Contribution</h3>
           <ul className="contrib-grid">
-            <li>Set the front and rear control arm geometry from the master sketch hardpoints I defined as Vehicle Dynamics Lead</li>
+            <li>Designed the front and rear control arm geometry from the master sketch hardpoints I defined as Vehicle Dynamics Lead</li>
             <li>Verified the suspension kinematics in Lotus Shark before releasing geometry to the chassis, steering, and unsprung mass teams</li>
             <li>Selected the tube section, 1.25 in OD × 0.065 in wall 4130 chromoly, coordinating a shared tube spec with the chassis team</li>
             <li>Defined the cornering, bump, combined, and braking load cases and worked through the control arm force analysis</li>

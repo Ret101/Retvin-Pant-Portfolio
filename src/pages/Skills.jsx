@@ -14,7 +14,17 @@ const skillCategories = [
         <line x1="12" y1="22.08" x2="12" y2="12"/>
       </svg>
     ),
-    skills: ['SolidWorks', 'Onshape', 'AutoCAD', 'CATIA', 'Fusion 360', 'GD&T', 'Technical Drawing', 'Sheet Metal Design', 'Press-Fit Design', 'KiCAD'],
+    skills: ['SolidWorks', 'Onshape', 'AutoCAD', 'CATIA', 'Fusion 360', 'Sheet Metal Design', 'Press-Fit Design', 'KiCAD'],
+  },
+  {
+    label: 'Design Process',
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M12 20h9"/>
+        <path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/>
+      </svg>
+    ),
+    skills: ['GD&T', 'Technical Drawing', 'Tolerance Stack-Up', 'DFM / DFA', 'Prototyping → Test → Iterate', 'Design Reviews', 'Jig & Fixture Design', 'Poka-Yoke'],
   },
   {
     label: 'Analysis & Simulation',
@@ -23,7 +33,7 @@ const skillCategories = [
         <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
       </svg>
     ),
-    skills: ['Ansys FEA', 'SolidWorks FEA', 'Lotus Shark', 'Suspension Kinematics', 'Weld Design & Analysis', 'Free-Body / Load Path Analysis', 'Hand Calculations', 'Tolerance Stack-Up'],
+    skills: ['Ansys FEA', 'SolidWorks FEA', 'Lotus Shark', 'Suspension Kinematics', 'Weld Design & Analysis', 'Free-Body / Load Path Analysis', 'Hand Calculations'],
   },
   {
     label: 'Manufacturing',
@@ -56,7 +66,7 @@ const skillCategories = [
         <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
       </svg>
     ),
-    skills: ['Excel / Spreadsheet Modeling', 'Technical Writing', 'DFM / DFA', 'Root Cause Analysis', 'DFMEA', 'Prototyping', 'BOM Management', 'Trade Show Demos'],
+    skills: ['Excel / Spreadsheet Modeling', 'Technical Writing', 'Root Cause Analysis', 'DFMEA', 'BOM Management', 'Trade Show Demos'],
   },
   {
     label: 'Leadership',
@@ -141,6 +151,10 @@ function useTypewriter(text, speed = 18) {
   useEffect(() => {
     const el = ref.current
     if (!el) return
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      el.textContent = text
+      return
+    }
     el.textContent = ''
 
     const observer = new IntersectionObserver(([entry]) => {

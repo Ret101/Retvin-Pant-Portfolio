@@ -39,7 +39,7 @@ export default function BajaMasterSketch() {
       <DetailPage
         backTo="/baja"
         backLabel="Longhorn Baja"
-        tag="SAE Baja · Vehicle Dynamics"
+        tag="SAE Baja · Suspension Design"
         title="Master Sketch"
         heroImage={img('/images/car mastersketch v3.png')}
         software={['SolidWorks CAD', 'Lotus Shark']}

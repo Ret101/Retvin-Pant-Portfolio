@@ -43,7 +43,7 @@ const timelineEntries = [
   {
     date: 'Summer 2027',
     org: 'Boeing',
-    role: 'Incoming Loads & Dynamics Engineering Intern · International Space Station',
+    role: 'Incoming Structures Engineering Intern · International Space Station',
     tag: 'Incoming',
     to: null,
     logo: img('/images/boeing-logo.svg'),
@@ -51,7 +51,7 @@ const timelineEntries = [
   {
     date: 'Summer 2026',
     org: 'Daikin',
-    role: 'Automation Engineering Intern',
+    role: 'Automation Engineering Intern · Material Handling & Tooling Design',
     tag: 'Internship',
     to: '/industry/daikin',
     logo: img('/images/daikin-logo.svg'),
@@ -67,7 +67,7 @@ const timelineEntries = [
   {
     date: '2025 – Present',
     org: 'Longhorn Baja Racing',
-    role: 'Co-Founder · Co-Captain · Vehicle Dynamics Lead',
+    role: 'Co-Founder · Co-Captain · Vehicle Dynamics Lead · Suspension Design',
     tag: 'Student Org',
     to: '/baja',
     logo: img('/images/lbr-logo.png'),
@@ -99,7 +99,7 @@ const timelineEntries = [
   {
     date: 'Summer 2024',
     org: 'NASA Johnson Space Center',
-    role: 'Mechanical Engineering Intern',
+    role: 'Mechanical Engineering Intern · Wheel & Hub Design',
     tag: 'Internship',
     to: '/industry/spring-steel-wheel',
     logo: img('/images/nasa-logo.svg'),
@@ -167,17 +167,17 @@ export default function Home() {
               <h1 className="hero-bio-heading">
                 From Rovers<br />
                 to <span style={{ color: 'var(--accent)' }}>Race Cars</span>,<br />
-                I Build It.
+                I Design It.
               </h1>
               <div className="hero-bio-chips">
                 <span className="hero-bio-chip">ME + Business · UT Austin · Dec 2027</span>
-                <span className="hero-bio-chip">Incoming Boeing Loads &amp; Dynamics Intern</span>
-                <span className="hero-bio-chip">Interested in product design roles</span>
+                <span className="hero-bio-chip">Incoming Boeing Structures Intern</span>
+                <span className="hero-bio-chip">Seeking Mechanical / Product Design roles</span>
               </div>
               <p className="hero-bio-text">
-                I'm Retvin Pant, a mechanical engineering student at the University of Texas at Austin
-                building real systems, from 6DOF robotic printers to vehicle subsystems and hardware
-                prototypes. Check out my projects and resume to see what I've been working on.
+                I'm Retvin Pant, a mechanical engineering student at UT Austin who designs hardware from
+                concept to competition, from lunar rover wheels to race car suspension. My analysis and
+                manufacturing experience means I design parts that survive their loads and can actually be built.
               </p>
               <div className="hero-bio-actions">
                 <a

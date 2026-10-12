@@ -10,7 +10,7 @@ Live site: **[ret101.github.io/Retvin-Pant-Portfolio](https://ret101.github.io/R
 
 This portfolio covers engineering work across internships, research labs, student organizations, and personal projects, including:
 
-- **Boeing**: Incoming Loads & Dynamics Engineering Intern, International Space Station (Summer 2027)
+- **Boeing**: Incoming Structures Engineering Intern, International Space Station (Summer 2027)
 - **Daikin**: Automation Engineering Intern (Summer 2026), heat exchanger automated manufacturing cell
 - **NASA Johnson Space Center**: Spring steel wheel and universal hub for the Microchariot lunar rover
 - **SPARX Engineering**: Autonomous multi-stage candy sorting machine (SweetSifter)

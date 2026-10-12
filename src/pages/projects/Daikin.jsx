@@ -143,9 +143,9 @@ export default function Daikin() {
         <div id="my-contribution" className="project-section">
           <h3>My Contribution</h3>
           <ul className="contrib-grid">
+            <li>Designed four custom material handling systems in SolidWorks, the hopper, buffer, decoupled extraction and conveyor, and end-of-arm tooling, to automate part transfer between forming and bending</li>
             <li>Led the automation cell design project for heat exchanger manufacturing, defining cell layout, robot integration, material handling systems, and end-of-arm tooling</li>
             <li>Developed robot motion paths in FANUC RoboGuide for both the forming and bending operations</li>
-            <li>Designed four custom material handling systems in SolidWorks, the hopper, buffer, decoupled extraction and conveyor, and end-of-arm tooling, to automate part transfer between forming and bending</li>
             <li>Built the cost, cycle time, and production models used to justify the cell against current manual operation</li>
           </ul>
         </div>

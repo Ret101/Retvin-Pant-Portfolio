@@ -8,14 +8,14 @@ const projects = [
     // Portrait shot, keep the airborne car in frame
     imageStyle: { objectPosition: 'center 60%' },
     title: "SAE Longhorn Baja Racing",
-    description: 'Co-founder, Co-Captain & Vehicle Dynamics Lead. Designing a single-seater off-road competition car from scratch for SAE Baja.',
+    description: 'Suspension design lead and co-founder. Designed a single-seater off-road competition car from scratch for SAE Baja.',
     to: '/baja',
     inProgress: true,
   },
   {
     image: img('/images/guad pod.png'),
-    title: 'Guadaloop Hyperloop Train Dynamics',
-    description: 'Vehicle Dynamics Engineer for Texas Guadaloop, scaled hyperloop pods for the EHW competition in the Netherlands.',
+    title: 'Guadaloop Hyperloop Bogie',
+    description: 'Bogie structure for a scaled hyperloop pod at European Hyperloop Week: subsystem integration and FEA under the power-failure braking case.',
     to: '/team/guadaloop',
   },
   {

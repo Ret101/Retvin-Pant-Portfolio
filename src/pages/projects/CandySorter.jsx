@@ -42,7 +42,7 @@ export default function CandySorter() {
       tag="SPARX Engineering · Internship"
       title="Automated Candy Sorter"
       heroImage={img('/images/sweetsifter.jpg')}
-      software={['Onshape CAD', 'FDM 3D Printing', 'SLA 3D Printing', 'Python + OpenCV', 'PyQt5', 'Presentation Skills']}
+      software={['Onshape CAD', 'FDM 3D Printing', 'SLA 3D Printing', 'Python + OpenCV', 'PyQt5']}
       roles={['Mechanical Designer', 'Software Developer']}
     >
       <ScrollReveal>

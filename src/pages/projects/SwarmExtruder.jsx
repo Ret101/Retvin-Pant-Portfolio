@@ -42,7 +42,7 @@ export default function SwarmExtruder() {
       tag="UT Austin · FIRE Program"
       title="Swarm Manufacturing Research – Extruder End Effector"
       heroImage={img('/images/UR5E.jpg')}
-      software={['Onshape CAD', 'Ansys', '3D Printing', 'CNC Mill', 'Presentation Skills']}
+      software={['Onshape CAD', 'Ansys', '3D Printing', 'CNC Mill']}
       roles={['Mechanical Design']}
     >
       <ScrollReveal>

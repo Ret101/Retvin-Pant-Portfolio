@@ -14,7 +14,7 @@ export default function BajaFrontHubs() {
       <DetailPage
       backTo="/baja"
       backLabel="Longhorn Baja"
-      tag="SAE Baja · Vehicle Dynamics"
+      tag="SAE Baja · Suspension Design"
       title="Front Hubs"
       software={['SolidWorks CAD', 'SolidWorks FEA']}
       roles={['Vehicle Dynamics Lead']}

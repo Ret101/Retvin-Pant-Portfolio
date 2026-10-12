@@ -64,7 +64,7 @@ export default function FRCRobots() {
       tag="FRC Team 5414 · 2023–2024"
       title="FRC Robots (Team 5414)"
       heroImage={img('/images/brownout robot frc.jpg')}
-      software={['Onshape CAD', 'Prototyping', '3D Printing', 'CNC Router', 'Shop Tools', 'Presentation Skills']}
+      software={['Onshape CAD', 'Prototyping', '3D Printing', 'CNC Router', 'Shop Tools']}
       roles={['Technical Team Captain', 'Mechanical Designer', 'Fabrication Lead', 'Pit Boss']}
     >
       <ScrollReveal>
