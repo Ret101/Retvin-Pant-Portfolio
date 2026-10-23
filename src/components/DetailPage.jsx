@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import { PillGroup } from './PillBadge'
 import InProgressBadge from './InProgressBadge'
+import ProjectNav from './ProjectNav'
 export default function DetailPage({ backTo, backLabel, tag, title, heroImage, heroStyle, software, roles, inProgress, children }) {
   return (
     <div className="project-detail">
@@ -52,6 +53,7 @@ export default function DetailPage({ backTo, backLabel, tag, title, heroImage, h
             </Link>
           </aside>
         </div>
+        <ProjectNav />
       </div>
 
     </div>

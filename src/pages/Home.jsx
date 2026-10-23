@@ -4,6 +4,39 @@ import ScrollReveal from '../components/ScrollReveal'
 import HeroCarousel from '../components/HeroCarousel'
 import img from '../img'
 
+// Width / height of each logo's artwork, so every logo can be drawn at the same visual area
+// (wide wordmarks get wider and shorter, square marks get taller) instead of one fixed box.
+const LOGO_ASPECT = {
+  [img('/images/boeing-logo.svg')]: 4.30,
+  [img('/images/tesla-logo.svg')]: 1.00,
+  [img('/images/nasa-logo.svg')]: 1.20,
+  [img('/images/daikin-logo.svg')]: 4.64,
+  [img('/images/SAE_International_logo.svg')]: 1.62,
+  [img('/images/sidi lab logo.png')]: 1.00,
+  [img('/images/lbr-logo-trimmed.png')]: 3.70,
+  [img('/images/radlab-trimmed.png')]: 5.02,
+  [img('/images/guadaloop.png')]: 1.00,
+  [img('/images/sparx engineering logo.png')]: 1.00,
+  [img('/images/pearadox.png')]: 0.87,
+}
+
+// Artwork with built-in whitespace or very thin strokes reads small at equal area, so nudge it up
+const LOGO_SCALE = {
+  [img('/images/nasa-logo.svg')]: 1.3,
+  [img('/images/boeing-logo.svg')]: 1.15,
+  [img('/images/sparx engineering logo.png')]: 1.25,
+}
+
+function logoSize(src, area, maxW, maxH) {
+  const a = LOGO_ASPECT[src] ?? 1
+  const k = LOGO_SCALE[src] ?? 1
+  let w = Math.sqrt(area * a) * k
+  let h = w / a
+  if (w > maxW) { w = maxW; h = w / a }
+  if (h > maxH) { h = maxH; w = h * a }
+  return { width: Math.round(w), height: Math.round(h) }
+}
+
 const companies = [
   {
     name: 'Boeing',
@@ -11,6 +44,12 @@ const companies = [
     logo: img('/images/boeing-logo.svg'),
     // Navy wordmark would disappear on the dark card, render it white
     filter: 'brightness(0) invert(1)',
+  },
+  {
+    name: 'Tesla',
+    role: 'Intern',
+    logo: img('/images/tesla-logo.svg'),
+    filter: 'none',
   },
   {
     name: 'NASA JSC',
@@ -34,7 +73,7 @@ const companies = [
   {
     name: 'SAE Longhorn Baja',
     role: 'Co-Captain',
-    logo: img('/images/lbr-logo.png'),
+    logo: img('/images/lbr-logo-trimmed.png'),
     filter: 'none',
   },
 ]
@@ -47,6 +86,14 @@ const timelineEntries = [
     tag: 'Incoming',
     to: null,
     logo: img('/images/boeing-logo.svg'),
+  },
+  {
+    date: 'Winter / Spring 2027',
+    org: 'Tesla',
+    role: 'Incoming Automation Engineering Intern',
+    tag: 'Incoming',
+    to: null,
+    logo: img('/images/tesla-logo.svg'),
   },
   {
     date: 'Summer 2026',
@@ -70,7 +117,7 @@ const timelineEntries = [
     role: 'Co-Founder · Co-Captain · Vehicle Dynamics Lead · Suspension Design',
     tag: 'Student Org',
     to: '/baja',
-    logo: img('/images/lbr-logo.png'),
+    logo: img('/images/lbr-logo-trimmed.png'),
   },
   {
     date: 'Summer 2025',
@@ -78,7 +125,7 @@ const timelineEntries = [
     role: 'Research Intern',
     tag: 'Internship',
     to: null,
-    logo: img('/images/radlab.jpg'),
+    logo: img('/images/radlab-trimmed.png'),
   },
   {
     date: 'Spring – Fall 2025',
@@ -171,6 +218,7 @@ export default function Home() {
               </h1>
               <div className="hero-bio-chips">
                 <span className="hero-bio-chip">ME + Business · UT Austin · Dec 2027</span>
+                <span className="hero-bio-chip">Incoming Tesla Automation Engineering Intern</span>
                 <span className="hero-bio-chip">Incoming Boeing Structures Intern</span>
                 <span className="hero-bio-chip">Seeking Mechanical / Product Design roles</span>
               </div>
@@ -238,7 +286,7 @@ export default function Home() {
                         src={c.logo}
                         alt={c.name}
                         className="company-logo-img"
-                        style={{ filter: c.filter || 'none' }}
+                        style={{ filter: c.filter || 'none', ...logoSize(c.logo, 1900, 120, 44) }}
                         loading="lazy"
                       />
                     ) : (
@@ -277,7 +325,7 @@ export default function Home() {
                   <div className="zz-card-main">
                     <div className="zz-logo">
                       {entry.logo
-                        ? <img src={entry.logo} alt={`${entry.org} logo`} loading="lazy" />
+                        ? <img src={entry.logo} alt={`${entry.org} logo`} style={logoSize(entry.logo, 850, 76, 34)} loading="lazy" />
                         : <span className="zz-logo-initials">{entry.initials}</span>}
                     </div>
                     <div className="zz-card-text">

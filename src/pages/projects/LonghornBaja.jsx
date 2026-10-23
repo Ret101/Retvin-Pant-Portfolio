@@ -4,6 +4,7 @@ import ScrollReveal from '../../components/ScrollReveal'
 import StatRow from '../../components/StatRow'
 import ProjectCard from '../../components/ProjectCard'
 import StickyTOC from '../../components/StickyTOC'
+import ProjectNav from '../../components/ProjectNav'
 import img from '../../img'
 
 const toc = [
@@ -400,6 +401,7 @@ export default function LonghornBaja() {
               </div>
             </Link>
           </ScrollReveal>
+          <ProjectNav />
         </div>
       </section>
 

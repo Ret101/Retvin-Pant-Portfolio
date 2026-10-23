@@ -1,4 +1,4 @@
-import { FiGithub, FiLinkedin, FiMail, FiPhone, FiDownload } from 'react-icons/fi'
+import { FiGithub, FiLinkedin, FiMail, FiDownload } from 'react-icons/fi'
 import img from '../img'
 
 export default function Footer() {
@@ -8,10 +8,6 @@ export default function Footer() {
         <div className="footer-brand">RETVIN PANT</div>
 
         <div className="footer-contact">
-          <a href="tel:7137955821">
-            <FiPhone size={14} />
-            713-795-5821
-          </a>
           <a href="mailto:retvinpant@gmail.com">
             <FiMail size={14} />
             retvinpant@gmail.com
