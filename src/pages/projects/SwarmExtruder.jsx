@@ -201,6 +201,8 @@ export default function SwarmExtruder() {
           </p>
           <video
             src={img('/images/Extruder print success 1.mp4')}
+            poster={img('/images/posters/extruder-print-success-1.webp')}
+            preload="none"
             controls
             style={{ width: '100%', borderRadius: 'var(--radius-sm)', border: '1px solid var(--card-border)', marginTop: 16, display: 'block' }}
           />
@@ -220,7 +222,7 @@ export default function SwarmExtruder() {
                 style={{ border: 'none', borderRadius: 'var(--radius-sm)', display: 'block' }}
                 title="Full Assembly"
               />
-              <p style={{ fontSize: '0.72rem', color: 'var(--text-muted)', marginTop: 6, textAlign: 'center', fontFamily: "'Space Grotesk', sans-serif", letterSpacing: '0.04em' }}>Made in Onshape · Displayed in Fusion 360</p>
+              <p style={{ fontSize: 'var(--step-small)', color: 'var(--text-muted)', marginTop: 6, textAlign: 'center', fontFamily: 'inherit', letterSpacing: 0 }}>Made in Onshape · Displayed in Fusion 360</p>
             </div>
             <div>
               <iframe
@@ -231,7 +233,7 @@ export default function SwarmExtruder() {
                 style={{ border: 'none', borderRadius: 'var(--radius-sm)', display: 'block' }}
                 title="End Effector – Full Assembly"
               />
-              <p style={{ fontSize: '0.72rem', color: 'var(--text-muted)', marginTop: 6, textAlign: 'center', fontFamily: "'Space Grotesk', sans-serif", letterSpacing: '0.04em' }}>Made in Onshape · Displayed in Fusion 360</p>
+              <p style={{ fontSize: 'var(--step-small)', color: 'var(--text-muted)', marginTop: 6, textAlign: 'center', fontFamily: 'inherit', letterSpacing: 0 }}>Made in Onshape · Displayed in Fusion 360</p>
             </div>
             <div>
               <iframe
@@ -242,7 +244,7 @@ export default function SwarmExtruder() {
                 style={{ border: 'none', borderRadius: 'var(--radius-sm)', display: 'block' }}
                 title="Toolchanger Mount"
               />
-              <p style={{ fontSize: '0.72rem', color: 'var(--text-muted)', marginTop: 6, textAlign: 'center', fontFamily: "'Space Grotesk', sans-serif", letterSpacing: '0.04em' }}>Made in Onshape · Displayed in Fusion 360</p>
+              <p style={{ fontSize: 'var(--step-small)', color: 'var(--text-muted)', marginTop: 6, textAlign: 'center', fontFamily: 'inherit', letterSpacing: 0 }}>Made in Onshape · Displayed in Fusion 360</p>
             </div>
           </div>
         </div>

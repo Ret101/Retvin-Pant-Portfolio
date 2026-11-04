@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
-import { FiDownload } from 'react-icons/fi'
+import { useReducedMotion } from 'framer-motion'
+import { FiDownload, FiArrowRight, FiArrowUpRight } from 'react-icons/fi'
 import ScrollReveal from '../../components/ScrollReveal'
 import StatRow from '../../components/StatRow'
 import ProjectCard from '../../components/ProjectCard'
@@ -103,57 +104,35 @@ const subprojects25 = [
 ]
 
 export default function LonghornBaja() {
+  const reduceMotion = useReducedMotion()
   return (
     <div className="page-wrapper">
       <StickyTOC sections={toc} />
 
       {/* ── Hero ── */}
-      <div className="cinematic-header" style={{ height: 'clamp(320px, 70vh, 760px)' }}>
-        {/* Portrait photo in a wide header: blurred copy fills the sides, sharp copy shows the whole jump */}
-        <div className="cinematic-header-bg" style={{ backgroundImage: `url('${img('/images/baja sae hero image.jpeg')}')`, backgroundPosition: 'center 60%', filter: 'blur(28px) brightness(0.45)' }} />
-        <div
-          className="cinematic-header-bg"
-          style={{
-            backgroundImage: `url('${img('/images/baja sae hero image.jpeg')}')`,
-            backgroundColor: 'transparent',
-            backgroundRepeat: 'no-repeat',
-            backgroundSize: 'cover',
-            backgroundPosition: 'center 61%',
-            filter: 'brightness(0.8)',
-            // Sized to the photo at ~2.6x header height, centred, edges faded into the blur
-            left: '50%',
-            right: 'auto',
-            aspectRatio: '1.75',
-            transform: 'translateX(-50%)',
-            maskImage: 'linear-gradient(to right, transparent, #000 18%, #000 82%, transparent)',
-            WebkitMaskImage: 'linear-gradient(to right, transparent, #000 18%, #000 82%, transparent)',
-          }}
-        />
-        <div className="cinematic-header-overlay" />
-        <div className="container cinematic-header-content">
-          <div className="cinematic-header-meta">
-            <span className="cinematic-header-tag">SAE Baja · Austin, TX</span>
-          </div>
-          <h1 className="cinematic-header-title">Longhorn Baja Racing</h1>
-          <div className="pill-group cinematic-header-pills">
-            {['SolidWorks CAD', 'SolidWorks FEA', 'Lotus Shark'].map(s => <span key={s} className="pill">{s}</span>)}
-          </div>
+      <header className="detail-head container">
+        <div className="detail-head-copy">
+          <h1 className="detail-title is-long"><span className="plate plate-line">Longhorn Baja Racing</span></h1>
+          <p className="detail-tag">The Baja SAE team I co-founded at UT Austin.</p>
         </div>
-      </div>
+        <figure className="detail-head-media">
+          <img src={img('/images/home/hero-185.webp')} alt="Car 185 airborne off a dirt jump at competition" style={{ objectPosition: 'center 62%' }} fetchpriority="high" />
+        </figure>
+      </header>
 
       {/* ── Team Overview ── */}
       <section id="overview" className="projects-section" style={{ paddingTop: 40, paddingBottom: 0 }}>
         <div className="container">
           <ScrollReveal>
-            <p style={{ color: 'var(--text-secondary)', marginBottom: 16, maxWidth: 700, fontSize: '0.95rem', lineHeight: 1.75 }}>
+            <p style={{ color: 'var(--text-secondary)', marginBottom: 16, maxWidth: 700, fontSize: 'var(--step-body)', lineHeight: 1.75 }}>
               I co-founded Longhorn Baja Racing and serve as Co-Captain and Vehicle Dynamics &amp; Vehicle
               Systems Lead. For the team's first competition vehicle I was responsible for end-to-end vehicle
               architecture: suspension geometry, kinematic targets, and cross-team packaging and integration
               across all subsystems.
             </p>
             <p style={{ marginBottom: 40 }}>
-              <a href="https://longhornbajaracing.com/" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--accent-light)', fontSize: '0.9rem' }}>
-                Visit the Team Website →
+              <a href="https://longhornbajaracing.com/" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--accent-light)', fontSize: 'var(--step-body)' }}>
+                Visit the team website <FiArrowUpRight aria-hidden="true" />
               </a>
             </p>
           </ScrollReveal>
@@ -165,7 +144,7 @@ export default function LonghornBaja() {
           <ScrollReveal>
             <div id="leadership" className="project-section" style={{ marginBottom: 0 }}>
               <h3 style={{ fontSize: '1.6rem' }}>Leadership &amp; Team Development</h3>
-              <ul style={{ color: 'var(--text-secondary)', paddingLeft: 20, lineHeight: 2, fontSize: '0.92rem' }}>
+              <ul style={{ color: 'var(--text-secondary)', paddingLeft: 20, lineHeight: 2, fontSize: 'var(--step-body)' }}>
                 <li>Co-founded the team and, as Co-Captain, led it through its first full design cycle to its first competition</li>
                 <li>Worked with UT Austin administration to establish the new team and support its operations as a student organization</li>
                 <li>Led CAD trainings to bring new members up to speed on the team's design tools and workflow</li>
@@ -191,16 +170,16 @@ export default function LonghornBaja() {
           <ScrollReveal>
             <div style={{ display: 'flex', gap: 48, alignItems: 'center', marginBottom: 56, flexWrap: 'wrap' }}>
               <div style={{ flex: '1 1 320px', minWidth: 0 }}>
-                <h3 style={{ marginBottom: 16, textTransform: 'uppercase', letterSpacing: '0.06em' }}>First Competition Car</h3>
-                <p style={{ color: 'var(--text-secondary)', fontSize: '0.95rem', lineHeight: 1.75, marginBottom: 20 }}>
+                <h3 style={{ marginBottom: 16, textTransform: 'none', letterSpacing: 0 }}>First Competition Car</h3>
+                <p style={{ color: 'var(--text-secondary)', fontSize: 'var(--step-body)', lineHeight: 1.75, marginBottom: 20 }}>
                   The 25'–26' car is Longhorn Baja's first full competition vehicle, designed from scratch
                   targeting the SAE Baja competition in Ohio. Every hardpoint, load case, and design
                   target was derived from first principles with no prior baseline to build from.
                 </p>
-                <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem', lineHeight: 1.75, marginBottom: 12 }}>
+                <p style={{ color: 'var(--text-secondary)', fontSize: 'var(--step-body)', lineHeight: 1.75, marginBottom: 12 }}>
                   Vehicle architecture and subsystem layout defined under system-level integration constraints to ensure compatibility across all major design domains.
                 </p>
-                <ul style={{ color: 'var(--text-secondary)', paddingLeft: 20, lineHeight: 2, fontSize: '0.9rem' }}>
+                <ul style={{ color: 'var(--text-secondary)', paddingLeft: 20, lineHeight: 2, fontSize: 'var(--step-body)' }}>
                   <li><strong style={{ color: 'var(--text-primary)' }}>Chassis:</strong> Custom welded steel spaceframe</li>
                   <li><strong style={{ color: 'var(--text-primary)' }}>Dynamics:</strong> Double wishbone front, semi-trailing arm rear, custom hubs and uprights</li>
                   <li><strong style={{ color: 'var(--text-primary)' }}>Powertrain:</strong> Kohler engine with CVT, competition-mandated</li>
@@ -223,14 +202,14 @@ export default function LonghornBaja() {
           <ScrollReveal>
             <div id="design-philosophy" className="project-section">
               <h3 style={{ fontSize: '1.6rem' }}>Design Philosophy</h3>
-              <p style={{ color: 'var(--text-secondary)', fontSize: '0.95rem', lineHeight: 1.75, maxWidth: 760 }}>
+              <p style={{ color: 'var(--text-secondary)', fontSize: 'var(--step-body)', lineHeight: 1.75, maxWidth: 760 }}>
                 As a first-year team, the 25'–26' car was designed around four priorities, in order.
               </p>
               <div className="lessons-grid">
                 {philosophy.map((c, i) => (
                   <div key={c.title} className="lesson-card">
-                    <span className="lesson-card-tag">{`Priority ${i + 1}`}</span>
                     <h4 className="lesson-card-title">{c.title}</h4>
+                    <span className="lesson-card-tag">{`Priority ${i + 1}`}</span>
                     <p>{c.text}</p>
                   </div>
                 ))}
@@ -253,9 +232,10 @@ export default function LonghornBaja() {
           </ScrollReveal>
 
           <ScrollReveal>
-            <div id="geometry-simulation" className="project-section">
+            <div id="geometry-simulation" className="project-section split-section">
+              <div className="split-copy">
               <h3 style={{ fontSize: '1.6rem' }}>Geometry &amp; Simulation</h3>
-              <p style={{ color: 'var(--text-secondary)', fontSize: '0.95rem', lineHeight: 1.75, maxWidth: 760 }}>
+              <p style={{ color: 'var(--text-secondary)', fontSize: 'var(--step-body)', lineHeight: 1.75, maxWidth: 760 }}>
                 I defined the front and rear suspension hardpoints from first principles and kept them in a
                 single master sketch, the source of truth for suspension, steering, and chassis interfaces.
                 Kinematics were validated in Lotus Shark over multiple design cycles before geometry was
@@ -275,25 +255,46 @@ export default function LonghornBaja() {
                   </div>
                 </div>
               ))}
+              </div>
+              <figure className="split-media">
+                <video
+                  src={img('/images/lotus-shark-animation.mp4')}
+                  poster={img('/images/posters/lotus-shark-animation.webp')}
+                  autoPlay={!reduceMotion}
+                  controls={!!reduceMotion}
+                  muted
+                  loop
+                  playsInline
+                  preload="metadata"
+                  aria-label="Lotus Shark model of the suspension cycling through its travel"
+                />
+                <figcaption>Lotus Shark model of the suspension geometry, cycled through its travel.</figcaption>
+              </figure>
             </div>
           </ScrollReveal>
 
           <ScrollReveal>
-            <div id="system-integration" className="project-section">
+            <div id="system-integration" className="project-section split-section">
+              <div className="split-copy">
               <h3 style={{ fontSize: '1.6rem' }}>Integration &amp; Targets</h3>
-              <ul style={{ color: 'var(--text-secondary)', paddingLeft: 20, lineHeight: 2, fontSize: '0.92rem' }}>
+              <ul style={{ color: 'var(--text-secondary)', paddingLeft: 20, lineHeight: 2, fontSize: 'var(--step-body)' }}>
                 <li>Led cross-team packaging and integration for all subsystems</li>
                 <li>Set braking, steering response, and per-corner unsprung mass targets, and translated them into subsystem design specs</li>
                 <li>Defined shared hardpoints and interface boundaries across chassis, drivetrain, steering, and hubs</li>
                 <li>Resolved conflicts between suspension travel, drivetrain routing, and chassis packaging as the design iterated</li>
               </ul>
+              </div>
+              <figure className="split-media">
+                <img src={img('/images/home/car-render-25-26.webp')} alt="Render of the full 25'–26' Longhorn Baja car" loading="lazy" />
+                <figcaption>The 25'–26' car, with every subsystem packaged around the shared hardpoints.</figcaption>
+              </figure>
             </div>
           </ScrollReveal>
 
           <ScrollReveal>
             <div id="parts" className="project-section" style={{ marginBottom: 24 }}>
               <h3 style={{ fontSize: '1.6rem' }}>Parts I Worked On</h3>
-              <p style={{ color: 'var(--text-secondary)', fontSize: '0.95rem', lineHeight: 1.75, maxWidth: 760 }}>
+              <p style={{ color: 'var(--text-secondary)', fontSize: 'var(--step-body)', lineHeight: 1.75, maxWidth: 760 }}>
                 Subsystem components I designed, analyzed, or developed for the 25'–26' car.
               </p>
             </div>
@@ -308,12 +309,12 @@ export default function LonghornBaja() {
           <ScrollReveal>
             <div id="season-results" className="project-section" style={{ marginTop: 64 }}>
               <h3 style={{ fontSize: '1.6rem' }}>Season Results</h3>
-              <p style={{ color: 'var(--text-secondary)', fontSize: '0.95rem', lineHeight: 1.75, maxWidth: 760 }}>
+              <p style={{ color: 'var(--text-secondary)', fontSize: 'var(--step-body)', lineHeight: 1.75, maxWidth: 760 }}>
                 As a first-year team, the main goal at competition was to pass technical inspection, which
                 we did. The car also passed the dynamic brake check and finished 65th overall out of 83 teams.
               </p>
               <StatRow stats={seasonResults} />
-              <p style={{ color: 'var(--text-secondary)', fontSize: '0.95rem', lineHeight: 1.75, maxWidth: 760, marginTop: 20 }}>
+              <p style={{ color: 'var(--text-secondary)', fontSize: 'var(--step-body)', lineHeight: 1.75, maxWidth: 760, marginTop: 20 }}>
                 We then competed in the endurance race, where the driveshaft (a separate part from the
                 extended CV axles) fell out of the rear differential multiple times. We still completed 3
                 full laps.
@@ -322,13 +323,13 @@ export default function LonghornBaja() {
           </ScrollReveal>
 
           <ScrollReveal>
-            <div id="drb" className="doc-card card">
+            <div id="drb" className="doc-card">
               <a href={img('/documents/Longhorn-Baja-185-DRB.pdf')} target="_blank" rel="noopener noreferrer" className="doc-card-preview">
                 <img src={img('/images/drb-cover.webp')} alt="2026 Baja SAE Design Review Briefing title slide, car 185" loading="lazy" />
               </a>
               <div className="doc-card-body">
-                <span className="doc-card-tag">Competition Document · PDF · 74 slides</span>
                 <h3 className="doc-card-title">Design Review Briefing (DRB)</h3>
+                <span className="doc-card-tag">Competition document, PDF, 74 slides</span>
                 <p className="doc-card-desc">
                   The team's 2026 Baja SAE design review for car #185, presenting the full vehicle design
                   across every subsystem to the competition judges. I led the team's progress on the DRB.
@@ -360,15 +361,15 @@ export default function LonghornBaja() {
           <ScrollReveal>
             <div className="project-section">
               <h3>An Evolution of the First Car</h3>
-              <p style={{ color: 'var(--text-secondary)', fontSize: '0.95rem', lineHeight: 1.75, maxWidth: 760 }}>
+              <p style={{ color: 'var(--text-secondary)', fontSize: 'var(--step-body)', lineHeight: 1.75, maxWidth: 760 }}>
                 The 26'–27' car is an improvement on the 25'–26' car rather than a clean-sheet design. With
                 money limited, the chassis stays the same and the effort goes into packaging, refinement, and
                 durability.
               </p>
               <div className="lessons-grid">
                 <div className="lesson-card lesson-card-key">
-                  <span className="lesson-card-tag">Main Goal</span>
                   <h4 className="lesson-card-title">Test, and Learn as Much as Possible</h4>
+                  <span className="lesson-card-tag">Main Goal</span>
                   <p>
                     Testing is the priority this season: run the car hard and learn as much as possible to feed
                     future iterations.
@@ -376,8 +377,8 @@ export default function LonghornBaja() {
                 </div>
                 {goals2627.map(g => (
                   <div key={g.title} className="lesson-card">
-                    <span className="lesson-card-tag">{g.tag}</span>
                     <h4 className="lesson-card-title">{g.title}</h4>
+                    <span className="lesson-card-tag">{g.tag}</span>
                     <p>{g.text}</p>
                   </div>
                 ))}
@@ -393,11 +394,9 @@ export default function LonghornBaja() {
           <ScrollReveal>
             <Link to="/baja/gallery" className="gallery-banner">
               <img src={img('/images/baja-gallery/DSC05988.webp')} alt="Longhorn Baja Racing team with the 25'–26' car" className="gallery-banner-img" loading="lazy" />
-              <div className="gallery-banner-overlay" />
               <div className="gallery-banner-content">
-                <span className="gallery-banner-tag">25'–26' Season · Photos</span>
-                <h3 className="gallery-banner-title">Memories from the Season</h3>
-                <span className="gallery-banner-link">View Gallery →</span>
+                <h3 className="gallery-banner-title">Photos from the season</h3>
+                <span className="gallery-banner-link">Open the 25'–26' gallery <FiArrowRight aria-hidden="true" /></span>
               </div>
             </Link>
           </ScrollReveal>

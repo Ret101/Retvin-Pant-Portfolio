@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react'
+import { FiChevronLeft, FiChevronRight } from 'react-icons/fi'
 
 const DEFAULT_INTERVAL = 4000
 
@@ -41,7 +42,7 @@ export default function DocSlider({ images, title, interval = DEFAULT_INTERVAL }
           onClick={prev}
           aria-label="Previous page"
         >
-          ‹
+          <FiChevronLeft aria-hidden="true" />
         </button>
         <img
           src={images[current].src}
@@ -54,7 +55,7 @@ export default function DocSlider({ images, title, interval = DEFAULT_INTERVAL }
           onClick={next}
           aria-label="Next page"
         >
-          ›
+          <FiChevronRight aria-hidden="true" />
         </button>
       </div>
       {images[current].caption && (

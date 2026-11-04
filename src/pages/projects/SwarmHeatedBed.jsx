@@ -1,5 +1,4 @@
 import DetailPage from '../../components/DetailPage'
-import CADEmbed from '../../components/CADEmbed'
 import ScrollReveal from '../../components/ScrollReveal'
 import Gallery from '../../components/Gallery'
 import DocSlider from '../../components/DocSlider'
@@ -43,15 +42,16 @@ export default function SwarmHeatedBed() {
       backLabel="Industry & Research"
       tag="UT SiDi Lab · Research"
       title="Swarm Manufacturing, Hotswappable Heated Bed"
-      heroImage={img('/images/robotic bed full img.png')}
+      heroImage={img('/images/heated bed crossbar bending failure.jpg')}
+      heroStyle={{ backgroundPosition: 'center 50%' }}
       software={['SolidWorks CAD', 'Ansys FEA', 'KiCAD', '3D Printing', 'CNC Mill']}
       roles={['Mechanical Design Lead']}
       inProgress
     >
       <ScrollReveal>
         <div style={{ background: 'var(--card-bg)', border: '1px solid var(--card-border)', borderLeft: '3px solid var(--accent)', borderRadius: 'var(--radius-sm)', padding: '16px 20px', marginBottom: 32 }}>
-          <div style={{ fontFamily: "'Space Grotesk', sans-serif", fontWeight: 700, fontSize: '0.88rem', color: 'var(--accent-light)', marginBottom: 6, letterSpacing: '0.06em', textTransform: 'uppercase' }}>Project Status: Paused</div>
-          <p style={{ margin: 0, fontSize: '0.92rem', color: 'var(--text-secondary)', lineHeight: 1.65 }}>
+          <div style={{ fontFamily: 'inherit', fontWeight: 700, fontSize: 'var(--step-body)', color: 'var(--accent-light)', marginBottom: 6, letterSpacing: 0, textTransform: 'none' }}>Project Status: Paused</div>
+          <p style={{ margin: 0, fontSize: 'var(--step-body)', color: 'var(--text-secondary)', lineHeight: 1.65 }}>
             This project is still in progress but currently on hold for lab reasons: the lab has not held
             meetings this semester. The design, testing, and failure work below reflect where the project
             stands as of Fall 2026.
@@ -195,6 +195,8 @@ export default function SwarmHeatedBed() {
           </p>
           <video
             src={img('/images/pcb-heater-testing.mp4')}
+            poster={img('/images/posters/pcb-heater-testing.webp')}
+            preload="none"
             controls
             muted
             style={{ width: '100%', borderRadius: 'var(--radius-sm)', border: '1px solid var(--card-border)', display: 'block', marginTop: 16 }}
@@ -207,8 +209,8 @@ export default function SwarmHeatedBed() {
           <h3>Failures and In-Progress Fixes</h3>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
             <div style={{ background: 'var(--card-bg)', border: '1px solid var(--card-border)', borderRadius: 'var(--radius-sm)', padding: '16px 20px' }}>
-              <div style={{ fontFamily: "'Space Grotesk', sans-serif", fontWeight: 700, fontSize: '0.88rem', color: 'var(--accent-light)', marginBottom: 6, letterSpacing: '0.06em', textTransform: 'uppercase' }}>Crossbar Bending Under Load</div>
-              <p style={{ margin: 0, fontSize: '0.92rem', color: 'var(--text-secondary)', lineHeight: 1.65 }}>
+              <div style={{ fontFamily: 'inherit', fontWeight: 700, fontSize: 'var(--step-body)', color: 'var(--accent-light)', marginBottom: 6, letterSpacing: 0, textTransform: 'none' }}>Crossbar Bending Under Load</div>
+              <p style={{ margin: 0, fontSize: 'var(--step-body)', color: 'var(--text-secondary)', lineHeight: 1.65 }}>
                 During assembly, the crossbar beam was unexpectedly bending under load, a failure mode
                 that wasn't predicted in the initial FEA. The deflection was significant enough to affect
                 the lift geometry and bed levelness at full extension. Design changes to the crossbar
@@ -222,8 +224,8 @@ export default function SwarmHeatedBed() {
               />
             </div>
             <div style={{ background: 'var(--card-bg)', border: '1px solid var(--card-border)', borderRadius: 'var(--radius-sm)', padding: '16px 20px' }}>
-              <div style={{ fontFamily: "'Space Grotesk', sans-serif", fontWeight: 700, fontSize: '0.88rem', color: 'var(--accent-light)', marginBottom: 6, letterSpacing: '0.06em', textTransform: 'uppercase' }}>PCB Heater Power Draw Higher Than Expected</div>
-              <p style={{ margin: 0, fontSize: '0.92rem', color: 'var(--text-secondary)', lineHeight: 1.65 }}>
+              <div style={{ fontFamily: 'inherit', fontWeight: 700, fontSize: 'var(--step-body)', color: 'var(--accent-light)', marginBottom: 6, letterSpacing: 0, textTransform: 'none' }}>PCB Heater Power Draw Higher Than Expected</div>
+              <p style={{ margin: 0, fontSize: 'var(--step-body)', color: 'var(--text-secondary)', lineHeight: 1.65 }}>
                 Testing revealed each PCB heater drawing approximately 60 watts, significantly above
                 initial estimates. Two directions are being explored to address this. The first is a
                 logic-based control system where the control board variably distributes power across

@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { FiArrowRight } from 'react-icons/fi'
 import DetailPage from '../../components/DetailPage'
 import ScrollReveal from '../../components/ScrollReveal'
 import Gallery from '../../components/Gallery'
@@ -109,7 +110,7 @@ export default function FRCRobots() {
                   <span className="frc-robot-card-title">"{robot.title}"</span>
                 </div>
                 <p className="frc-robot-card-desc">{robot.description}</p>
-                <span className="frc-robot-card-cta">View Robot →</span>
+                <span className="frc-robot-card-cta">View robot <FiArrowRight aria-hidden="true" /></span>
               </div>
             </Link>
           </ScrollReveal>

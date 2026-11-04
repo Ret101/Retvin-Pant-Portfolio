@@ -1,73 +1,13 @@
 import ProjectCard from '../components/ProjectCard'
 import ScrollReveal from '../components/ScrollReveal'
-import img from '../img'
-
-const industry = [
-  {
-    image: img('/images/Daikin/Full Cell (2).webp'),
-    title: 'Heat Exchanger Automated Manufacturing Cell',
-    description: 'Daikin: designed four custom material-handling systems and end-of-arm tooling for a robotic heat exchanger forming and bending cell.',
-    to: '/industry/daikin',
-    tag: 'Daikin · Summer 2026',
-    restricted: true,
-    restrictedLabel: 'Limited Information',
-    // Transparent-background render sitting low in the frame, crop toward the bottom over off-white
-    imageStyle: { objectPosition: 'center bottom', background: '#f2f0ec' },
-  },
-  {
-    image: img('/images/spring steel wheel.jpg'),
-    title: 'Spring Steel Wheel',
-    description: 'NASA Johnson Space Center: spring steel wheel prototype and universal hub for Microchariot lunar rover testing.',
-    to: '/industry/spring-steel-wheel',
-    tag: 'NASA JSC · Summer 2024',
-  },
-  {
-    image: img('/images/sweetsifter.jpg'),
-    title: 'Automated Candy Sorter',
-    description: 'SPARX Engineering: autonomous multi-stage self-sorting machine with ~90% accuracy, showcased at trade shows.',
-    to: '/industry/candy-sorter',
-    tag: 'SPARX · 2023 – 2024',
-  },
-]
-
-const research = [
-  {
-    image: img('/images/heated bed crossbar bending failure.jpg'),
-    title: 'Swarm Manufacturing, Hotswappable Heated Bed',
-    description: 'UT SiDi Lab: custom resistive PCB heated bed with scissor-lift mechanism for Swarm 3D manufacturing.',
-    to: '/industry/swarm-heated-bed',
-    tag: 'UT SiDi Lab · 2024 – Present',
-    imageStyle: { objectPosition: 'center 62%' },
-    inProgress: true,
-  },
-  {
-    image: img('/images/UR5E.jpg'),
-    title: 'Swarm Manufacturing, Extruder',
-    description: 'UT SiDi Lab: custom extruder design for the UR5E robotic arm converted into a 3D printer.',
-    to: '/industry/swarm-extruder',
-    tag: 'UT SiDi Lab · Fall 2024',
-  },
-  {
-    image: img('/images/roboball.jpg'),
-    title: 'Roboball',
-    description: 'TEES RAD Lab: engineering prototype developed during a summer research internship.',
-    to: null,
-    tag: 'TEES RAD Lab · Summer 2025',
-    restricted: true,
-  },
-]
+import { industry, research } from '../data/listings'
 
 function Section({ title, intro, items }) {
   return (
     <>
-      <ScrollReveal>
-        <div className="section-header">
-          <h2><span className="section-title-accent">{title}</span></h2>
-          <div className="section-header-bar" />
-        </div>
-        <p style={{ color: 'var(--text-secondary)', marginBottom: 40, maxWidth: 600, fontSize: '0.95rem' }}>
-          {intro}
-        </p>
+      <ScrollReveal className="section-head">
+        <h2>{title}</h2>
+        <p>{intro}</p>
       </ScrollReveal>
 
       <div className="project-grid">
@@ -82,17 +22,25 @@ function Section({ title, intro, items }) {
 export default function IndustryExperience() {
   return (
     <div className="page-wrapper">
+      <header className="page-head container">
+        <h1><span className="plate plate-line">Industry and Research</span></h1>
+        <div>
+          <p className="page-count">{industry.length + research.length} projects</p>
+          <p>What I designed on the job and in the lab, from a lunar rover wheel to a robotic manufacturing cell.</p>
+        </div>
+      </header>
+
       <section className="projects-section">
         <div className="container">
           <Section
-            title="Industry Experience"
+            title="Internships"
             intro="Hardware I designed during internships at Daikin, NASA Johnson Space Center, and SPARX Engineering."
             items={industry}
           />
         </div>
       </section>
 
-      <section className="projects-section" style={{ paddingTop: 0 }}>
+      <section className="projects-section">
         <div className="container">
           <Section
             title="Research"

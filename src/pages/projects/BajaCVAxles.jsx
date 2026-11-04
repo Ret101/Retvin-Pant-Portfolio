@@ -53,18 +53,18 @@ const cell = {
 
 const headCell = {
   ...cell,
-  fontFamily: "'Space Grotesk', sans-serif",
-  fontSize: '0.72rem',
+  fontFamily: 'inherit',
+  fontSize: 'var(--step-small)',
   fontWeight: 700,
-  letterSpacing: '0.06em',
-  textTransform: 'uppercase',
+  letterSpacing: 0,
+  textTransform: 'none',
   color: 'var(--accent-light)',
 }
 
 function Table({ columns, rows }) {
   return (
     <div style={{ overflowX: 'auto', border: '1px solid var(--card-border)', borderRadius: 'var(--radius-sm)', background: 'var(--card-bg)', marginTop: 16 }}>
-      <table style={{ width: '100%', minWidth: 480, borderCollapse: 'collapse', fontSize: '0.9rem' }}>
+      <table style={{ width: '100%', minWidth: 480, borderCollapse: 'collapse', fontSize: 'var(--step-body)' }}>
         <thead>
           <tr>
             {columns.map((c, i) => (
@@ -194,16 +194,16 @@ export default function BajaCVAxles() {
             <Table columns={['Step', 'Expression', 'Result']} rows={weldSteps} />
             <div className="lessons-grid">
               <div className="lesson-card">
-                <span className="lesson-card-tag">Weld Throat · Governs</span>
                 <h4 className="lesson-card-title">τ = 111.8 MPa</h4>
+                <span className="lesson-card-tag">Weld Throat · Governs</span>
                 <p>
                   FS = 1.30 against the 144.8 MPa AWS allowable and 2.59 against ultimate. Torque capacity is
                   roughly 211 N·m (allowable) to 422 N·m (ultimate).
                 </p>
               </div>
               <div className="lesson-card">
-                <span className="lesson-card-tag">Base Metal · 4130</span>
                 <h4 className="lesson-card-title">τ = 98.8 MPa</h4>
+                <span className="lesson-card-tag">Base Metal · 4130</span>
                 <p>
                   FS = 2.54 against the 250.6 MPa shear yield, with failure around 413–661 N·m.
                 </p>
@@ -224,13 +224,13 @@ export default function BajaCVAxles() {
             </p>
             <div className="lessons-grid">
               <div className="lesson-card">
-                <span className="lesson-card-tag">Option</span>
                 <h4 className="lesson-card-title">Radial Shear Pins</h4>
+                <span className="lesson-card-tag">Option</span>
                 <p>Pins through the sleeve and shaft back up the weld if it cracks. Fast, low-machining, and easy to inspect or replace.</p>
               </div>
               <div className="lesson-card">
-                <span className="lesson-card-tag">Option</span>
                 <h4 className="lesson-card-title">Keyed or Splined Interface</h4>
+                <span className="lesson-card-tag">Option</span>
                 <p>A key or spline carries the torque mechanically, making the weld a secondary load path.</p>
               </div>
             </div>

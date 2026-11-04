@@ -1,55 +1,23 @@
 import ProjectCard from '../components/ProjectCard'
-import ScrollReveal from '../components/ScrollReveal'
-import img from '../img'
-
-const projects = [
-  {
-    image: img('/images/baja sae hero image.jpeg'),
-    // Portrait shot, keep the airborne car in frame
-    imageStyle: { objectPosition: 'center 60%' },
-    title: "SAE Longhorn Baja Racing",
-    description: 'Suspension design lead and co-founder. Designed a single-seater off-road competition car from scratch for SAE Baja.',
-    to: '/baja',
-    inProgress: true,
-  },
-  {
-    image: img('/images/guad pod.png'),
-    title: 'Guadaloop Hyperloop Bogie',
-    description: 'Bogie structure for a scaled hyperloop pod at European Hyperloop Week: subsystem integration and FEA under the power-failure braking case.',
-    to: '/team/guadaloop',
-  },
-  {
-    image: img('/images/brownout robot frc.jpg'),
-    title: 'FRC Robots (Team 5414)',
-    description: 'Technical Captain & Mechanical Designer for three FIRST Robotics Competition robots across the 2023–2024 seasons.',
-    to: '/team/frc-robots',
-  },
-  {
-    image: img('/images/roadcase.png'),
-    title: 'Robotics Road Case',
-    description: 'FRC Team 5414, compact road case enabling faster competition setup and double normal material capacity.',
-    to: '/team/robotics-roadcase',
-  },
-]
+import { team as projects } from '../data/listings'
 
 export default function TeamProjects() {
   return (
     <div className="page-wrapper">
+      <header className="page-head container">
+        <h1><span className="plate plate-line">Team Projects</span></h1>
+        <div>
+          <p className="page-count">{projects.length} projects</p>
+          <p>Collaborative engineering projects including SAE Baja, hyperloop, and FIRST Robotics competitions.</p>
+        </div>
+      </header>
+
       <section className="projects-section">
         <div className="container">
-          <ScrollReveal>
-            <div className="section-header">
-              <h2><span className="section-title-accent">Team Projects</span></h2>
-              <div className="section-header-bar" />
-            </div>
-            <p style={{ color: 'var(--text-secondary)', marginBottom: 40, maxWidth: 600, fontSize: '0.95rem' }}>
-              Collaborative engineering projects including SAE Baja, hyperloop, and FIRST Robotics competitions.
-            </p>
-          </ScrollReveal>
 
           <div className="project-grid">
             {projects.map((p, i) => (
-              <ProjectCard key={p.title} {...p} tag="Team" delay={(i % 3) + 1} />
+              <ProjectCard key={p.title} {...p} delay={(i % 3) + 1} />
             ))}
           </div>
         </div>

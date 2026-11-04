@@ -1,4 +1,5 @@
 import { Link, useLocation } from 'react-router-dom'
+import { FiArrowLeft, FiArrowRight } from 'react-icons/fi'
 import { projectSequence, featuredProjects } from '../data/projects'
 
 export default function ProjectNav() {
@@ -18,32 +19,29 @@ export default function ProjectNav() {
 
   return (
     <nav className="project-nav" aria-label="More projects">
-      <div className="project-nav-label">Keep Exploring</div>
+      <h2 className="project-nav-label">Keep exploring</h2>
 
       <div className="project-nav-prevnext">
         {prev && (
           <Link to={prev.to} className="project-nav-step">
-            <span className="project-nav-dir">← Previous</span>
+            <span className="project-nav-dir"><FiArrowLeft aria-hidden="true" /> Previous</span>
             <span className="project-nav-title">{prev.title}</span>
           </Link>
         )}
         <Link to={next.to} className="project-nav-step project-nav-next">
-          <span className="project-nav-dir">Next →</span>
+          <span className="project-nav-dir">Next <FiArrowRight aria-hidden="true" /></span>
           <span className="project-nav-title">{next.title}</span>
         </Link>
       </div>
 
-      <div className="project-nav-label" style={{ marginTop: 36 }}>Other Projects</div>
       <div className="project-nav-grid">
         {others.map(p => (
           <Link key={p.to} to={p.to} className="project-nav-card">
             <div className="project-nav-thumb">
-              <img src={p.image} alt={p.title} loading="lazy" />
+              <img src={p.image} alt="" loading="lazy" />
             </div>
-            <div className="project-nav-card-body">
-              <span className="project-nav-tag">{p.tag}</span>
-              <span className="project-nav-card-title">{p.title}</span>
-            </div>
+            <span className="project-nav-card-title">{p.title}</span>
+            <span className="project-nav-tag">{p.tag}</span>
           </Link>
         ))}
       </div>

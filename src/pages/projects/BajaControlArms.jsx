@@ -231,7 +231,7 @@ export default function BajaControlArms() {
       <ScrollReveal>
         <div id="load-cases" className="project-section">
           <h3>Load Cases</h3>
-          <ul style={{ color: 'var(--text-secondary)', paddingLeft: 20, lineHeight: 2, fontSize: '0.95rem' }}>
+          <ul style={{ color: 'var(--text-secondary)', paddingLeft: 20, lineHeight: 2, fontSize: 'var(--step-body)' }}>
             <li><strong style={{ color: 'var(--text-primary)' }}>Maximum cornering:</strong> lateral G-load transferred through the control arm into the chassis pickup</li>
             <li><strong style={{ color: 'var(--text-primary)' }}>Maximum bump (jounce):</strong> vertical impact load from hitting an obstacle at speed</li>
             <li><strong style={{ color: 'var(--text-primary)' }}>Combined:</strong> simultaneous lateral and vertical loading during cornering over rough terrain</li>
@@ -316,6 +316,8 @@ export default function BajaControlArms() {
           <p style={{ marginTop: 20 }}>Cycling the rear suspension through its travel on the bench:</p>
           <video
             src={img('/images/Trailing Arm Images/trailing-arm-travel.mp4')}
+            poster={img('/images/posters/trailing-arm-travel.webp')}
+            preload="none"
             controls
             muted
             loop
@@ -336,8 +338,8 @@ export default function BajaControlArms() {
 
           <div className="lessons-grid">
             <div className="lesson-card lesson-card-key">
-              <span className="lesson-card-tag">Front · Biggest Lesson</span>
               <h4 className="lesson-card-title">Vertical Weld Cups &amp; Custom Misalignment Spacers</h4>
+              <span className="lesson-card-tag">Front · Biggest Lesson</span>
               <p>
                 This year's horizontal weld cup orientation caused multiple tolerance stack-up issues and
                 quickly maxed out the spherical bearings' angular limits along the control arm's arc of
@@ -347,8 +349,8 @@ export default function BajaControlArms() {
               </p>
             </div>
             <div className="lesson-card">
-              <span className="lesson-card-tag">Overall</span>
               <h4 className="lesson-card-title">Design Intent Has to Reach the Shop</h4>
+              <span className="lesson-card-tag">Overall</span>
               <p>
                 Shock mounting location and internal truss placement both matter structurally. When those
                 details aren't relayed clearly to the manufacturing team, the build drifts from the design,
@@ -356,30 +358,30 @@ export default function BajaControlArms() {
               </p>
             </div>
             <div className="lesson-card">
-              <span className="lesson-card-tag">Overall</span>
               <h4 className="lesson-card-title">Trim for Weight</h4>
+              <span className="lesson-card-tag">Overall</span>
               <p>
                 The arms can be slimmed down now that the team has real parts and loads to size against.
               </p>
             </div>
             <div className="lesson-card">
-              <span className="lesson-card-tag">Rear</span>
               <h4 className="lesson-card-title">Double Shear Toe Rods</h4>
+              <span className="lesson-card-tag">Rear</span>
               <p>
                 The rear toe rod mounts are currently single shear and should be moved to double shear for
                 added support.
               </p>
             </div>
             <div className="lesson-card">
-              <span className="lesson-card-tag">Front</span>
               <h4 className="lesson-card-title">Upper Arm Material</h4>
+              <span className="lesson-card-tag">Front</span>
               <p>
                 The front upper control arm sees minimal load, so a lighter material could be considered.
               </p>
             </div>
             <div className="lesson-card">
-              <span className="lesson-card-tag">Front</span>
               <h4 className="lesson-card-title">Gull-Wing Lower Arm</h4>
+              <span className="lesson-card-tag">Front</span>
               <p>
                 Reshaping the front lower control arm into a gull-wing profile would give it extra clearance.
               </p>
@@ -394,6 +396,8 @@ export default function BajaControlArms() {
           <p>Steering swept through its range of travel.</p>
           <video
             src={img('/images/steering-video.mp4')}
+            poster={img('/images/posters/steering-video.webp')}
+            preload="none"
             controls
             muted
             loop

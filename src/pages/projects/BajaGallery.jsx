@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import ScrollReveal from '../../components/ScrollReveal'
+import { FiArrowLeft } from 'react-icons/fi'
 import Gallery from '../../components/Gallery'
 import img from '../../img'
 import photos from '../../data/bajaGallery.json'
@@ -53,29 +53,22 @@ const images = [...seasonPhotos, ...buildPhotos, ...designPhotos]
 export default function BajaGallery() {
   return (
     <div className="page-wrapper">
-      <div className="cinematic-header">
-        <div className="cinematic-header-bg" style={{ backgroundImage: `url('${img('/images/baja-gallery/DSC05988.webp')}')`, backgroundPosition: 'center 40%', filter: 'brightness(0.6)' }} />
-        <div className="cinematic-header-overlay" />
-        <div className="container cinematic-header-content">
-          <div className="cinematic-header-meta">
-            <span className="cinematic-header-tag">Longhorn Baja Racing · 2025–2026</span>
+      <header className="detail-head container">
+        <div className="detail-head-copy">
+          <h1 className="detail-title"><span className="plate plate-line">Season gallery</span></h1>
+          <p className="detail-tag">Longhorn Baja Racing, 2025–2026. Shop nights, testing days, and the people who built our first car.</p>
+          <div className="detail-head-actions">
+            <Link to="/baja" className="project-detail-back"><FiArrowLeft aria-hidden="true" /> Longhorn Baja</Link>
           </div>
-          <h1 className="cinematic-header-title">Season Gallery</h1>
         </div>
-      </div>
+        <figure className="detail-head-media">
+          <img src={img('/images/home/DSC05988.webp')} alt="The Longhorn Baja Racing team with car 185" fetchpriority="high" />
+        </figure>
+      </header>
 
       <section className="projects-section">
         <div className="container">
-          <ScrollReveal>
-            <p style={{ color: 'var(--text-secondary)', marginBottom: 8, maxWidth: 640, fontSize: '0.95rem', lineHeight: 1.75 }}>
-              Shop nights, testing days, and the people who built our first car. Click any photo to view it full size.
-            </p>
-            <p style={{ marginBottom: 0 }}>
-              <Link to="/baja" style={{ color: 'var(--accent-light)', fontSize: '0.9rem' }}>← Back to Longhorn Baja</Link>
-            </p>
-          </ScrollReveal>
-
-          <Gallery images={images} title={`${images.length} Photos`} />
+          <Gallery images={images} title={`${images.length} photos`} />
         </div>
       </section>
     </div>

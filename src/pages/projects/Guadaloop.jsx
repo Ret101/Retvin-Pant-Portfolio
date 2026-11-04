@@ -91,7 +91,7 @@ export default function Guadaloop() {
             The bogie carries the main chassis above it on air springs and uses vertical magnetic
             yokes to maintain hover position on the track. Key systems integrated within the bogie envelope:
           </p>
-          <ul style={{ color: 'var(--text-secondary)', paddingLeft: 20, lineHeight: 2, fontSize: '0.95rem' }}>
+          <ul style={{ color: 'var(--text-secondary)', paddingLeft: 20, lineHeight: 2, fontSize: 'var(--step-body)' }}>
             <li>Air springs, chassis isolation from track shock</li>
             <li>Linear induction motor, electromagnetic propulsion along the guideway</li>
             <li>Vertical magnetic yokes, passive hover above the track rail</li>
@@ -131,13 +131,13 @@ export default function Guadaloop() {
       <ScrollReveal>
         <div id="manufacturing" className="project-section">
           <h3>Manufacturing</h3>
-          <p style={{ color: 'var(--text-secondary)', fontSize: '0.95rem', lineHeight: 1.75, marginBottom: 16 }}>
+          <p style={{ color: 'var(--text-secondary)', fontSize: 'var(--step-body)', lineHeight: 1.75, marginBottom: 16 }}>
             Most bogie components started as large raw aluminum stock, which meant each part required
             significant material removal before reaching final geometry. With only a miter saw and drill
             press available to the team, conventional layout and marking methods were too slow to meet
             the build schedule.
           </p>
-          <p style={{ color: 'var(--text-secondary)', fontSize: '0.95rem', lineHeight: 1.75, marginBottom: 24 }}>
+          <p style={{ color: 'var(--text-secondary)', fontSize: 'var(--step-body)', lineHeight: 1.75, marginBottom: 24 }}>
             The solution was to produce 1:1 scale engineering drawings of every part and physically
             place them directly onto the raw stock as cutting and drilling templates. This eliminated
             measurement transfer errors, let multiple parts be laid out simultaneously, and allowed

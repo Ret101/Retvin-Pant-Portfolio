@@ -2,3 +2,12 @@ node_modules/
 dist/
 .env
 .env.local
+
+# Design-skill working files (screenshots, decision pages)
+.taste-skill/
+.impeccable/questions/
+.impeccable/review/
+.impeccable/*.json
+.impeccable/*.txt
+.impeccable/*.log
+.impeccable/brief-body.md

@@ -24,7 +24,7 @@ const skillCategories = [
         <path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/>
       </svg>
     ),
-    skills: ['GD&T', 'Technical Drawing', 'Tolerance Stack-Up', 'DFM / DFA', 'Prototyping → Test → Iterate', 'Design Reviews', 'Jig & Fixture Design', 'Poka-Yoke'],
+    skills: ['GD&T', 'Technical Drawing', 'Tolerance Stack-Up', 'DFM / DFA', 'Prototyping → Test → Iterate', 'Design Reviews', 'Jig & Fixture Design', 'Poka-Yoke', 'Robotic Cell Design / Layout', 'End-of-Arm Tooling (EOAT) Design', 'Material Handling Design', 'Concept Sketching / Ideation'],
   },
   {
     label: 'Analysis & Simulation',
@@ -33,7 +33,7 @@ const skillCategories = [
         <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
       </svg>
     ),
-    skills: ['Ansys FEA', 'SolidWorks FEA', 'Lotus Shark', 'Suspension Kinematics', 'Weld Design & Analysis', 'Free-Body / Load Path Analysis', 'Hand Calculations'],
+    skills: ['Ansys FEA', 'SolidWorks FEA', 'Lotus Shark', 'Suspension Kinematics', 'Weld Design & Analysis', 'Free-Body / Load Path Analysis', 'Hand Calculations', 'Material Selection', 'Physical Testing'],
   },
   {
     label: 'Manufacturing',
@@ -47,7 +47,7 @@ const skillCategories = [
         <line x1="20" y1="12" x2="22" y2="12"/>
       </svg>
     ),
-    skills: ['3D Printing (FDM)', 'SLA 3D Printing', 'CNC Milling', 'Lathe', 'Waterjet', 'Sheet Metal', 'Epoxy Coating', 'Soldering', 'PCB Assembly'],
+    skills: ['3D Printing (FDM)', 'SLA 3D Printing', 'CNC Milling', 'Lathe', 'Waterjet', 'Sheet Metal Fabrication', 'Epoxy Coating', 'Soldering', 'PCB Assembly'],
   },
   {
     label: 'Programming',
@@ -66,7 +66,7 @@ const skillCategories = [
         <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
       </svg>
     ),
-    skills: ['Excel / Spreadsheet Modeling', 'Technical Writing', 'Root Cause Analysis', 'DFMEA', 'BOM Management', 'Trade Show Demos'],
+    skills: ['Excel / Spreadsheet Modeling', 'Technical Writing', 'Root Cause Analysis', 'DFMEA', 'BOM Management', 'Trade Show Demos', 'Cost & ROI Analysis'],
   },
   {
     label: 'Leadership',
@@ -78,7 +78,7 @@ const skillCategories = [
         <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
       </svg>
     ),
-    skills: ['Team Management', 'Project Planning', 'Stakeholder Communication', 'Mentorship', 'Technical Presentations', 'Cross-functional Collaboration', 'Scheduling', 'Budget Management'],
+    skills: ['Team Management', 'Project Planning', 'Stakeholder Communication', 'Mentorship', 'Technical Presentations', 'Cross-functional Collaboration', 'Scheduling', 'Budget Management', 'Project Scheduling (Gantt)'],
   },
 ]
 
@@ -110,6 +110,14 @@ const skillProof = {
   'OpenCV':                       '/industry/candy-sorter',
   'PyQt5':                        '/industry/candy-sorter',
   'ESP-NOW':                      '/personal/electric-skateboard',
+  'Robotic Cell Design / Layout': '/industry/daikin',
+  'End-of-Arm Tooling (EOAT) Design': '/industry/daikin',
+  'Material Handling Design':     '/industry/daikin',
+  'Cost & ROI Analysis':          '/industry/daikin',
+  'Project Scheduling (Gantt)':   '/industry/daikin',
+  'Material Selection':           '/baja/control-arms',
+  'Physical Testing':             '/industry/spring-steel-wheel',
+  'Concept Sketching / Ideation': '/baja/rear-hubs',
 }
 
 // ─── Skill Card ────────────────────────────────────────────────────────────────
@@ -127,7 +135,7 @@ function SkillCard({ label, icon, skills }) {
     <div className="skills-cat-card-v2">
       <div className="skills-cat-header-v2">
         <span className="skills-cat-icon-v2">{icon}</span>
-        <span className="skills-cat-label-v2">{label}</span>
+        <h2 className="skills-cat-label-v2">{label}</h2>
       </div>
       <div className="pill-group skills-pill-group">
         {skills.map(s => skillProof[s] ? (
@@ -184,29 +192,29 @@ export default function Skills() {
 
   return (
     <div className="page-wrapper">
+      <header className="page-head container">
+        <h1><span className="plate plate-line">Skills</span></h1>
+        <div>
+          <p className="skills-subtitle-tw">
+            <span className="sr-only">{SUBTITLE}</span>
+            <span ref={subtitleRef} aria-hidden="true">&nbsp;</span>
+          </p>
+          <p className="skills-proof-note">Underlined skills link to a project where I used them.</p>
+        </div>
+      </header>
+
       <section className="projects-section">
         <div className="container">
-
-          {/* Header */}
-          <ScrollReveal>
-            <div className="skills-header-block">
-              <h2 className="skills-heading"><span className="section-title-accent">Skills</span></h2>
-              <div className="skills-underline-bar" />
-              <p ref={subtitleRef} className="skills-subtitle-tw" aria-label={SUBTITLE}>&nbsp;</p>
-              <p className="skills-proof-note">Highlighted skills link to a project where I used them.</p>
-            </div>
-          </ScrollReveal>
 
           {/* Marquee */}
           <ScrollReveal>
             <div className="skills-marquee-section">
-              <div className="skills-marquee-label">Tools I Use</div>
+              <h2 className="skills-marquee-label">Tools I use</h2>
               <div className="marquee-outer">
                 <div className="marquee-track">
                   {[...tools, ...tools].map((t, i) => (
                     <div key={i} className="marquee-badge">
-                      <span className="marquee-badge-dot" />
-                      <span className="marquee-badge-name">{t.name}</span>
+                                            <span className="marquee-badge-name">{t.name}</span>
                     </div>
                   ))}
                 </div>

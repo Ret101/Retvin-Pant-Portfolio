@@ -48,7 +48,7 @@ export default function FRCAdditional() {
             style={{ border: 'none', borderRadius: 'var(--radius-sm)', display: 'block', marginTop: 16 }}
             title="Additional Designed Robots, CAD"
           />
-          <p style={{ fontSize: '0.72rem', color: 'var(--text-muted)', marginTop: 6, textAlign: 'center', fontFamily: "'Space Grotesk', sans-serif", letterSpacing: '0.04em' }}>Made in Onshape · Displayed in Fusion 360</p>
+          <p style={{ fontSize: 'var(--step-small)', color: 'var(--text-muted)', marginTop: 6, textAlign: 'center', fontFamily: 'inherit', letterSpacing: 0 }}>Made in Onshape · Displayed in Fusion 360</p>
         </div>
       </ScrollReveal>
 

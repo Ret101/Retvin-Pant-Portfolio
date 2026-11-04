@@ -158,6 +158,7 @@ export default function SpringSteelWheel() {
           <h3>Drop Test</h3>
           <video
             src={img('/images/spring-steel-wheel-drop-test.mp4')}
+            poster={img('/images/posters/spring-steel-wheel-drop-test.webp')}
             aria-label="Spring steel wheel drop test"
             autoPlay
             loop
@@ -209,7 +210,7 @@ export default function SpringSteelWheel() {
             style={{ border: 'none', borderRadius: 'var(--radius-sm)', display: 'block' }}
             title="Spring Steel Wheel"
           />
-          <p style={{ fontSize: '0.72rem', color: 'var(--text-muted)', marginTop: 6, textAlign: 'center', fontFamily: "'Space Grotesk', sans-serif", letterSpacing: '0.04em' }}>Made in SolidWorks · Displayed in Fusion 360</p>
+          <p style={{ fontSize: 'var(--step-small)', color: 'var(--text-muted)', marginTop: 6, textAlign: 'center', fontFamily: 'inherit', letterSpacing: 0 }}>Made in SolidWorks · Displayed in Fusion 360</p>
         </div>
       </ScrollReveal>
 

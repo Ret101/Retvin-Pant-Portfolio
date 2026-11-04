@@ -1,365 +1,417 @@
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { FiGithub, FiLinkedin, FiDownload } from 'react-icons/fi'
+import { useReducedMotion } from 'framer-motion'
+import { FiDownload, FiArrowDown, FiArrowUpRight, FiGithub, FiLinkedin } from 'react-icons/fi'
+import HeroBackdrop, { slides, useSlide } from '../components/HeroBackdrop'
 import ScrollReveal from '../components/ScrollReveal'
-import HeroCarousel from '../components/HeroCarousel'
+import { projectSequence, startHere } from '../data/projects'
+import { industry, research, team, personal } from '../data/listings'
 import img from '../img'
 
-// Width / height of each logo's artwork, so every logo can be drawn at the same visual area
-// (wide wordmarks get wider and shorter, square marks get taller) instead of one fixed box.
-const LOGO_ASPECT = {
-  [img('/images/boeing-logo.svg')]: 4.30,
-  [img('/images/tesla-logo.svg')]: 1.00,
-  [img('/images/nasa-logo.svg')]: 1.20,
-  [img('/images/daikin-logo.svg')]: 4.64,
-  [img('/images/SAE_International_logo.svg')]: 1.62,
-  [img('/images/sidi lab logo.png')]: 1.00,
-  [img('/images/lbr-logo-trimmed.png')]: 3.70,
-  [img('/images/radlab-trimmed.png')]: 5.02,
-  [img('/images/guadaloop.png')]: 1.00,
-  [img('/images/sparx engineering logo.png')]: 1.00,
-  [img('/images/pearadox.png')]: 0.87,
+const categories = [
+  { to: '/industry', title: 'Industry & Research', count: industry.length + research.length, image: img('/images/spring steel wheel.jpg') },
+  { to: '/team', title: 'Team Projects', count: team.length, image: img('/images/brownout robot frc.jpg') },
+  { to: '/personal', title: 'Personal Projects', count: personal.length, image: img('/images/battlebot.jpg') },
+]
+
+const logos = [
+  { name: 'Boeing', role: 'Incoming intern', logo: '/images/boeing-logo.svg', invert: true, row: 'Boeing' },
+  { name: 'Tesla', role: 'Incoming intern', logo: '/images/tesla-logo.svg', row: 'Tesla' },
+  { name: 'Daikin', role: 'Intern', logo: '/images/daikin-logo.svg', invert: true, to: '/industry/daikin' },
+  { name: 'NASA JSC', role: 'Intern', logo: '/images/nasa-logo.svg', to: '/industry/spring-steel-wheel' },
+  { name: 'UT SiDi Lab', role: 'Researcher', logo: '/images/sidi lab logo.png', to: '/industry/swarm-heated-bed' },
+  { name: 'Longhorn Baja', role: 'Co-Captain', logo: '/images/lbr-logo-trimmed.png', to: '/baja' },
+]
+
+const rowId = org => 'exp-' + org.toLowerCase().replace(/[^a-z0-9]+/g, '-')
+
+// Glide to an experience row and flash it so the eye lands on it
+function showRow(org, reduceMotion) {
+  const el = document.getElementById(rowId(org))
+  if (!el) return
+  el.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'center' })
+  el.classList.remove('is-flash')
+  void el.offsetWidth
+  el.classList.add('is-flash')
 }
 
-// Artwork with built-in whitespace or very thin strokes reads small at equal area, so nudge it up
-const LOGO_SCALE = {
-  [img('/images/nasa-logo.svg')]: 1.3,
-  [img('/images/boeing-logo.svg')]: 1.15,
-  [img('/images/sparx engineering logo.png')]: 1.25,
-}
+const groups = ['Industry & Research', 'Longhorn Baja Racing', 'Team Projects', 'Personal']
 
-function logoSize(src, area, maxW, maxH) {
-  const a = LOGO_ASPECT[src] ?? 1
-  const k = LOGO_SCALE[src] ?? 1
-  let w = Math.sqrt(area * a) * k
-  let h = w / a
-  if (w > maxW) { w = maxW; h = w / a }
-  if (h > maxH) { h = maxH; w = h * a }
-  return { width: Math.round(w), height: Math.round(h) }
-}
-
-const companies = [
+const record = [
   {
-    name: 'Boeing',
-    role: 'Intern',
-    logo: img('/images/boeing-logo.svg'),
-    // Navy wordmark would disappear on the dark card, render it white
-    filter: 'brightness(0) invert(1)',
+    group: 'Next',
+    rows: [
+      { org: 'Boeing', role: 'Structures Engineering Intern, International Space Station', date: 'Summer 2027', logo: '/images/boeing-logo.svg', next: true },
+      { org: 'Tesla', role: 'Automation Engineering Intern', date: 'Winter–Spring 2027', logo: '/images/tesla-logo.svg', next: true },
+    ],
   },
   {
-    name: 'Tesla',
-    role: 'Intern',
-    logo: img('/images/tesla-logo.svg'),
-    filter: 'none',
+    group: 'Internships and research',
+    rows: [
+      { org: 'Daikin', role: 'Automation Engineering Intern, material handling and tooling design', date: 'Summer 2026', logo: '/images/daikin-logo.svg', to: '/industry/daikin' },
+      { org: 'Robotics, Automation and Design Lab', role: 'Research Intern', date: 'Summer 2025', logo: '/images/radlab-trimmed.png' },
+      { org: 'UT Austin SiDi Lab', role: 'Undergraduate Research Assistant', date: '2024–now', logo: '/images/sidi lab logo.png', to: '/industry/swarm-heated-bed' },
+      { org: 'NASA Johnson Space Center', role: 'Mechanical Engineering Intern, wheel and hub design', date: 'Summer 2024', logo: '/images/nasa-logo.svg', to: '/industry/spring-steel-wheel' },
+      { org: 'SPARX Engineering', role: 'Mechanical Engineering Intern', date: '2023–2024', logo: '/images/sparx engineering logo.png', to: '/industry/candy-sorter' },
+    ],
   },
   {
-    name: 'NASA JSC',
-    role: 'Intern',
-    logo: img('/images/nasa-logo.svg'),
-    filter: 'none',
-  },
-  {
-    name: 'Daikin',
-    role: 'Intern',
-    logo: img('/images/daikin-logo.svg'),
-    // Near-black lettering would disappear on the dark card, render it white
-    filter: 'brightness(0) invert(1)',
-  },
-  {
-    name: 'UT SiDi Lab',
-    role: 'Researcher',
-    logo: img('/images/sidi lab logo.png'),
-    filter: 'none',
-  },
-  {
-    name: 'SAE Longhorn Baja',
-    role: 'Co-Captain',
-    logo: img('/images/lbr-logo-trimmed.png'),
-    filter: 'none',
+    group: 'Teams and leadership',
+    rows: [
+      { org: 'SAE at UT Austin', role: 'Chapter Chair', date: '2026–now', logo: '/images/SAE_International_logo.svg' },
+      { org: 'Longhorn Baja Racing', role: 'Co-Founder, Co-Captain, Vehicle Dynamics Lead', date: '2025–now', logo: '/images/lbr-logo-trimmed.png', to: '/baja' },
+      { org: 'Texas Guadaloop', role: 'Vehicle Dynamics Engineer', date: '2025', logo: '/images/guadaloop.png', to: '/team/guadaloop' },
+      { org: 'FRC Team 5414', role: 'Technical Team Captain', date: '2021–2024', logo: '/images/pearadox.png', to: '/team/frc-robots' },
+    ],
   },
 ]
 
-const timelineEntries = [
-  {
-    date: 'Summer 2027',
-    org: 'Boeing',
-    role: 'Incoming Structures Engineering Intern · International Space Station',
-    tag: 'Incoming',
-    to: null,
-    logo: img('/images/boeing-logo.svg'),
-  },
-  {
-    date: 'Winter / Spring 2027',
-    org: 'Tesla',
-    role: 'Incoming Automation Engineering Intern',
-    tag: 'Incoming',
-    to: null,
-    logo: img('/images/tesla-logo.svg'),
-  },
-  {
-    date: 'Summer 2026',
-    org: 'Daikin',
-    role: 'Automation Engineering Intern · Material Handling & Tooling Design',
-    tag: 'Internship',
-    to: '/industry/daikin',
-    logo: img('/images/daikin-logo.svg'),
-  },
-  {
-    date: '2026 – Present',
-    org: 'SAE at UT Austin',
-    role: 'Chapter Chair',
-    tag: 'Leadership',
-    to: null,
-    logo: img('/images/SAE_International_logo.svg'),
-  },
-  {
-    date: '2025 – Present',
-    org: 'Longhorn Baja Racing',
-    role: 'Co-Founder · Co-Captain · Vehicle Dynamics Lead · Suspension Design',
-    tag: 'Student Org',
-    to: '/baja',
-    logo: img('/images/lbr-logo-trimmed.png'),
-  },
-  {
-    date: 'Summer 2025',
-    org: 'Robotics, Automation and Design Lab',
-    role: 'Research Intern',
-    tag: 'Internship',
-    to: null,
-    logo: img('/images/radlab-trimmed.png'),
-  },
-  {
-    date: 'Spring – Fall 2025',
-    org: 'Texas Guadaloop',
-    role: 'Vehicle Dynamics Engineer',
-    tag: 'Student Org',
-    to: '/team/guadaloop',
-    logo: img('/images/guadaloop.png'),
-  },
-  {
-    date: '2024 – Present',
-    org: 'UT Austin SiDi Lab',
-    role: 'Undergraduate Research Assistant',
-    tag: 'Research',
-    to: '/industry/swarm-heated-bed',
-    logo: img('/images/sidi lab logo.png'),
-  },
-  {
-    date: 'Summer 2024',
-    org: 'NASA Johnson Space Center',
-    role: 'Mechanical Engineering Intern · Wheel & Hub Design',
-    tag: 'Internship',
-    to: '/industry/spring-steel-wheel',
-    logo: img('/images/nasa-logo.svg'),
-  },
-  {
-    date: 'Aug 2023 – June 2024',
-    org: 'SPARX Engineering',
-    role: 'Mechanical Engineering Intern',
-    tag: 'Internship',
-    to: '/industry/candy-sorter',
-    logo: img('/images/sparx engineering logo.png'),
-  },
-  {
-    date: '2021 – 2024',
-    org: 'FRC Team 5414',
-    role: 'Technical Team Captain',
-    tag: 'Robotics',
-    to: '/team/frc-robots',
-    logo: img('/images/pearadox.png'),
-  },
+const stats = [
+  { value: String(record.find(g => g.group === 'Internships and research').rows.length + record.find(g => g.group === 'Next').rows.length), label: 'internships and research roles, including Tesla and Boeing' },
+  { value: '3', label: 'teams led: Baja co-captain, SAE chapter chair, FRC technical captain' },
+  { value: String(projectSequence.length), label: 'projects documented, each with the reasoning behind it' },
 ]
+
+const bajaFrames = ['DSC05747', 'DSC05821', 'DSC05807', 'DSC05843', 'DSC05825', 'DSC05899', 'DSC05774', 'DSC05988']
+
+function WorkIndex() {
+  const [active, setActive] = useState(projectSequence[0].to)
+  const current = projectSequence.find(p => p.to === active) ?? projectSequence[0]
+
+  return (
+    <div className="work-index">
+      <div className="work-list">
+        {groups.map(g => (
+          <ScrollReveal key={g} className="work-group">
+            <h3 className="work-group-title">{g}</h3>
+            <ul>
+              {projectSequence.filter(p => p.group === g).map(p => (
+                <li key={p.to}>
+                  <Link
+                    to={p.to}
+                    className={`work-row${p.to === active ? ' is-active' : ''}`}
+                    onMouseEnter={() => setActive(p.to)}
+                    onFocus={() => setActive(p.to)}
+                  >
+                    <img className="work-row-thumb" src={p.image} alt="" loading="lazy" />
+                    <span className="work-row-title">{p.title}</span>
+                    <span className="work-row-tag">{p.tag}</span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </ScrollReveal>
+        ))}
+      </div>
+
+      <div className="work-preview" aria-hidden="true">
+        <div className="work-preview-frame">
+          {projectSequence.map(p => (
+            <img
+              key={p.to}
+              src={p.image}
+              alt=""
+              loading="lazy"
+              className={p.to === current.to ? 'is-shown' : ''}
+            />
+          ))}
+        </div>
+        <p className="work-preview-caption">
+          <strong>{current.title}.</strong> {current.blurb}
+        </p>
+      </div>
+    </div>
+  )
+}
 
 export default function Home() {
+  const reduceMotion = useReducedMotion()
+  const [slide, setSlide] = useSlide()
   return (
-    <div className="page-wrapper">
-      <section className="hero-section">
-        <HeroCarousel />
-        <div className="container hero-section-content">
-          <div className="hero-grid bento-grid">
+    <div className="home">
+      {/* First screen: the board, in front of the work rotating behind it */}
+      <section className="pit-hero">
+        <HeroBackdrop current={slide} />
+        <div className="container hero-bento">
+          <figure className="glass bento-photo">
+            <img
+              src={img('/images/profile-baja.webp')}
+              alt="Retvin Pant sitting on the roll cage of Longhorn Baja car 185"
+              width="800"
+              height="800"
+              fetchpriority="high"
+            />
+          </figure>
 
-            {/* Profile card */}
-            <ScrollReveal className="hero-profile card" delay={1}>
-              <img
-                src={img('/images/profile-baja.webp')}
-                alt="Retvin Pant"
-                className="hero-photo"
-              />
-              <div className="hero-name">Retvin Pant</div>
-              <div className="hero-title">Mechanical Engineering Student</div>
-              <div className="hero-education">
-                <img
-                  src={img('/images/ut austin logo.png')}
-                  alt="UT Austin"
-                  className="hero-edu-logo"
-                />
-                <div className="hero-edu-text">
-                  <span className="hero-edu-degree">B.S. Mechanical Engineering</span>
-                  <span className="hero-edu-minor">Minor in Business</span>
-                  <span className="hero-edu-years">2024 – December 2027</span>
-                </div>
-              </div>
-              <div className="hero-social-links">
-                <a href="https://github.com/Ret101" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-                  <FiGithub />
-                </a>
-                <a href="http://www.linkedin.com/in/retvin-pant" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-                  <FiLinkedin />
-                </a>
-              </div>
-            </ScrollReveal>
-
-            {/* Bio card */}
-            <ScrollReveal className="hero-bio card" delay={2}>
-              <div className="hero-bio-label">Portfolio</div>
-              <h1 className="hero-bio-heading">
-                From Rovers<br />
-                to <span style={{ color: 'var(--accent)' }}>Race Cars</span>,<br />
-                I Design It.
-              </h1>
-              <div className="hero-bio-chips">
-                <span className="hero-bio-chip">ME + Business · UT Austin · Dec 2027</span>
-                <span className="hero-bio-chip">Incoming Tesla Automation Engineering Intern</span>
-                <span className="hero-bio-chip">Incoming Boeing Structures Intern</span>
-                <span className="hero-bio-chip">Seeking Mechanical / Product Design roles</span>
-              </div>
-              <p className="hero-bio-text">
-                I'm Retvin Pant, a mechanical engineering student at UT Austin who designs hardware from
-                concept to competition, from lunar rover wheels to race car suspension. My analysis and
-                manufacturing experience means I design parts that survive their loads and can actually be built.
+          <div className="glass bento-intro pit-board">
+            <h1 className="pit-name">
+              <span className="plate">Retvin</span> <span className="plate">Pant</span>
+            </h1>
+            <div className="plate-row">
+              <span className="plate plate-mid">Mechanical + product design</span>
+              <span className="plate plate-mid plate-next">Next: Tesla, then Boeing</span>
+            </div>
+            <p className="pit-lead">
+              I'm Retvin Pant, a mechanical engineering student at UT Austin who designs hardware from
+              concept to competition, from lunar rover wheels to race car suspension. My analysis and
+              manufacturing experience means I design parts that survive their loads and can actually be
+              built. Most recently at Daikin, I designed four material-handling systems and the robot
+              tooling for an automated heat exchanger manufacturing cell.
+            </p>
+            <div className="pit-edu">
+              <img src={img('/images/ut austin logo.png')} alt="" width="44" height="44" />
+              <p>
+                <strong>B.S. Mechanical Engineering, UT Austin</strong>
+                <span>Minor in Business · 2024 to December 2027</span>
               </p>
-              <div className="hero-bio-actions">
-                <a
-                  href={img('/resume.pdf')}
-                  download="Resume_Retvin_Pant.pdf"
-                  className="btn btn-primary"
-                >
-                  <FiDownload size={14} />
-                  Download Resume
-                </a>
-                <Link to="/industry" className="btn btn-outline">View Work</Link>
-              </div>
-            </ScrollReveal>
+            </div>
+            <div className="pit-actions">
+              <a href={img('/resume.pdf')} download="Resume_Retvin_Pant.pdf" className="btn btn-primary">
+                <FiDownload aria-hidden="true" /> Download resume
+              </a>
+              <a
+                href="#work"
+                className="text-link"
+                onClick={e => {
+                  e.preventDefault()
+                  document.getElementById('work')?.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth' })
+                }}
+              >
+                See the work <FiArrowDown aria-hidden="true" />
+              </a>
+              <span className="pit-social">
+                <a href="https://github.com/Ret101" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><FiGithub /></a>
+                <a href="http://www.linkedin.com/in/retvin-pant" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><FiLinkedin /></a>
+              </span>
+            </div>
+          </div>
 
-            {/* CTA cards */}
-            <ScrollReveal delay={3} className="hero-cta-industry">
-              <Link to="/industry" className="card-link" style={{ height: '100%', display: 'block' }}>
-                <div className="cta-card card" style={{ height: '100%' }}>
-                  <div className="cta-card-number">01</div>
-                  <div className="cta-card-title">Industry &<br />Research</div>
-                </div>
+          <nav className="bento-tiles" aria-label="Project categories">
+            {categories.map(c => (
+              <Link key={c.to} to={c.to} className="glass bento-tile">
+                <img src={c.image} alt="" loading="lazy" />
+                <span className="bento-tile-text">
+                  <span className="bento-tile-title">{c.title}</span>
+                  <span className="bento-tile-count">{c.count} projects</span>
+                </span>
+                <FiArrowUpRight className="bento-tile-arrow" aria-hidden="true" />
               </Link>
-            </ScrollReveal>
-
-            <ScrollReveal delay={4} className="hero-cta-team">
-              <Link to="/team" className="card-link" style={{ height: '100%', display: 'block' }}>
-                <div className="cta-card card" style={{ height: '100%' }}>
-                  <div className="cta-card-number">02</div>
-                  <div className="cta-card-title">Team<br />Projects</div>
-                </div>
-              </Link>
-            </ScrollReveal>
-
-            <ScrollReveal delay={5} className="hero-cta-personal">
-              <Link to="/personal" className="card-link" style={{ height: '100%', display: 'block' }}>
-                <div className="cta-card card" style={{ height: '100%' }}>
-                  <div className="cta-card-number">03</div>
-                  <div className="cta-card-title">Personal<br />Projects</div>
-                </div>
-              </Link>
-            </ScrollReveal>
-
+            ))}
+          </nav>
+        </div>
+        <div className="pit-slides container">
+          <Link to={slides[slide].to} className="pit-slide-label">{slides[slide].label}</Link>
+          <div className="pit-dots">
+            {slides.map((s, i) => (
+              <button
+                key={s.src}
+                className={i === slide ? 'is-on' : ''}
+                onClick={() => setSlide(i)}
+                aria-label={`Show ${s.label}`}
+                aria-pressed={i === slide}
+              />
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Company logos strip */}
-
-      <section style={{ padding: '64px 0 64px' }}>
-        <div className="container">
-          <ScrollReveal>
-            <div className="company-strip">
-              {companies.map((c, i) => (
-                <div key={c.name} className="company-badge">
-                  <div className="company-logo-wrap">
-                    {c.logo ? (
-                      <img
-                        src={c.logo}
-                        alt={c.name}
-                        className="company-logo-img"
-                        style={{ filter: c.filter || 'none', ...logoSize(c.logo, 1900, 120, 44) }}
-                        loading="lazy"
-                      />
-                    ) : (
-                      <div className="company-logo-initials">{c.initials}</div>
-                    )}
-                  </div>
-                  <div className="company-badge-name">{c.name}</div>
-                  <div className="company-badge-role">{c.role}</div>
-                </div>
-              ))}
-            </div>
-          </ScrollReveal>
-        </div>
-      </section>
-
-      {/* Experience Timeline */}
-      <section style={{ padding: '0 0 100px' }}>
-        <div className="container">
-          <ScrollReveal>
-            <div className="section-header" style={{ marginBottom: 48 }}>
-              <h2><span className="section-title-accent">Experience</span></h2>
-              <div className="section-header-bar" />
-            </div>
-          </ScrollReveal>
-
-          <div className="zz-timeline">
-            <div className="zz-spine" />
-            {timelineEntries.map((entry, i) => {
-              const isLeft = i % 2 === 0
-              const inner = (
-                <div className={`zz-card card${entry.to ? ' zz-card-link' : ''}`}>
-                  <div className="zz-card-top">
-                    <span className="pill">{entry.tag}</span>
-                    {entry.to && <span className="zz-arrow">→</span>}
-                  </div>
-                  <div className="zz-card-main">
-                    <div className="zz-logo">
-                      {entry.logo
-                        ? <img src={entry.logo} alt={`${entry.org} logo`} style={logoSize(entry.logo, 850, 76, 34)} loading="lazy" />
-                        : <span className="zz-logo-initials">{entry.initials}</span>}
-                    </div>
-                    <div className="zz-card-text">
-                      <div className="zz-date">{entry.date}</div>
-                      <div className="zz-org">{entry.org}</div>
-                      <div className="zz-role">{entry.role}</div>
-                    </div>
-                  </div>
-                </div>
-              )
-              return (
-                <ScrollReveal key={entry.org + entry.date} delay={(i % 3) + 1} className={`zz-entry ${isLeft ? 'zz-left' : 'zz-right'}`}>
-                  {isLeft ? (
-                    <>
-                      <div className="zz-side">
-                        {entry.to ? <Link to={entry.to} className="card-link">{inner}</Link> : inner}
-                      </div>
-                      <div className="zz-dot-col"><div className="zz-dot" /></div>
-                      <div className="zz-side" />
-                    </>
-                  ) : (
-                    <>
-                      <div className="zz-side" />
-                      <div className="zz-dot-col"><div className="zz-dot" /></div>
-                      <div className="zz-side">
-                        {entry.to ? <Link to={entry.to} className="card-link">{inner}</Link> : inner}
-                      </div>
-                    </>
+      {/* Where I have worked, at a glance */}
+      <section className="container logo-strip-section" aria-label="Companies and teams">
+        <ul className="logo-strip">
+          {logos.map(l => {
+            const inner = (
+              <>
+                <span className="logo-tile-mark"><img src={img(l.logo)} alt="" style={l.invert ? { filter: 'brightness(0) invert(1)' } : undefined} loading="lazy" /></span>
+                <span className="logo-tile-name">{l.name}</span>
+                <span className="logo-tile-role">{l.role}</span>
+                <FiArrowUpRight className="logo-tile-arrow" aria-hidden="true" />
+              </>
+            )
+            return (
+              <li key={l.name}>
+                {l.to
+                  ? <Link to={l.to} className="logo-tile" aria-label={`${l.name}, ${l.role}: open the project`}>{inner}</Link>
+                  : (
+                    <a
+                      href={`#${rowId(l.row)}`}
+                      className="logo-tile"
+                      aria-label={`${l.name}, ${l.role}: see it in Where I have worked`}
+                      onClick={e => { e.preventDefault(); showRow(l.row, reduceMotion) }}
+                    >
+                      {inner}
+                    </a>
                   )}
-                </ScrollReveal>
-              )
-            })}
-          </div>
+              </li>
+            )
+          })}
+        </ul>
+      </section>
+
+      {/* Start here: the three projects to read first */}
+      <section className="section container" aria-labelledby="start-here">
+        <h2 id="start-here" className="start-here-title">Start with these</h2>
+        <div className="start-here">
+          {startHere.map((to, i) => {
+            const p = projectSequence.find(x => x.to === to)
+            return (
+              <ScrollReveal key={to} delay={i + 1} className="start-card-wrap">
+                <Link to={to} className="start-card">
+                  <span className="start-card-media"><img src={p.image} alt="" loading="lazy" /></span>
+                  <span className="start-card-body">
+                    <span className="start-card-tag">{p.tag}</span>
+                    <span className="start-card-title">{p.title}</span>
+                    <span className="start-card-result">{p.result}</span>
+                    <span className="start-card-link">Read the case study <FiArrowUpRight aria-hidden="true" /></span>
+                  </span>
+                </Link>
+              </ScrollReveal>
+            )
+          })}
         </div>
+      </section>
+
+      {/* The work */}
+      <section id="work" className="section container">
+        <div className="bento-panel">
+        <ScrollReveal className="section-head">
+          <h2>The work</h2>
+          <p>All eighteen projects, each with the reasoning behind it and what I would change next time.</p>
+        </ScrollReveal>
+        <WorkIndex />
+        </div>
+      </section>
+
+      {/* Baja: the orange field */}
+      <section className="section container">
+       <div className="baja-field">
+        <div className="baja-field-inner">
+          <ScrollReveal className="baja-copy">
+            <h2>Longhorn Baja Racing</h2>
+            <p>
+              In 2025 I co-founded UT Austin's Baja SAE team. As Co-Captain and Vehicle Dynamics Lead I
+              set the vehicle architecture: the suspension hardpoints, the kinematic targets, and how
+              every subsystem packages around them. Car 185 was the team's first car, designed with
+              no earlier car to start from. It passed technical inspection and finished 65th of 83.
+            </p>
+            <div className="baja-actions">
+              <Link to="/baja" className="btn btn-ink">Read the Baja story</Link>
+              <Link to="/baja/gallery" className="text-link text-link-ink">
+                Season photos <FiArrowUpRight aria-hidden="true" />
+              </Link>
+            </div>
+          </ScrollReveal>
+          <ScrollReveal className="baja-video" delay={1}>
+            <video
+              src={img('/images/home/trailing-arm-loop.mp4')}
+              poster={img('/images/home/trailing-arm-loop.jpg')}
+              autoPlay={!reduceMotion}
+              controls={!!reduceMotion}
+              muted
+              loop
+              playsInline
+              aria-label="Rear trailing arm cycling through its suspension travel on the bench"
+            />
+            <p className="baja-video-caption">The rear trailing arm I designed, cycled through its travel on the bench.</p>
+          </ScrollReveal>
+        </div>
+        <ul className="baja-strip" aria-label="Car 185 photos">
+          {bajaFrames.map(f => (
+            <li key={f}>
+              <img src={img(`/images/baja-gallery/${f}.webp`)} alt="Longhorn Baja car 185" loading="lazy" />
+            </li>
+          ))}
+        </ul>
+       </div>
+      </section>
+
+      {/* The record */}
+      <section className="section container">
+        <div className="bento-panel record">
+        <ScrollReveal className="record-head">
+          <h2>Where I have worked</h2>
+          <p>Internships, research labs and the teams I have led, newest first. Rows with an arrow open the project.</p>
+        </ScrollReveal>
+        <div className="record-list">
+          {/* One line for the career sequence (Next, then internships); teams ran alongside, so they get their own */}
+          {[record.slice(0, 2), record.slice(2)].map((track, t) => (
+            <div key={t} className="record-track">
+            {track.map(({ group, rows }) => (
+              <ScrollReveal key={group} className="record-group">
+                <h3 className={group === 'Next' ? 'record-group-title is-next' : 'record-group-title'}>{group}</h3>
+                <ul>
+                  {rows.map(r => {
+                    const inner = (
+                      <>
+                        <span className="record-logo"><img src={img(r.logo)} alt="" loading="lazy" /></span>
+                        <span className="record-text">
+                          <span className="record-org">{r.org}{r.to && <FiArrowUpRight aria-hidden="true" />}</span>
+                          <span className="record-role">{r.role}</span>
+                        </span>
+                        <span className="record-date">{r.date}</span>
+                      </>
+                    )
+                    return (
+                      <li key={r.org} id={rowId(r.org)}>
+                        {r.to
+                          ? <Link to={r.to} className="record-row is-link">{inner}</Link>
+                          : <div className="record-row">{inner}</div>}
+                      </li>
+                    )
+                  })}
+                </ul>
+              </ScrollReveal>
+            ))}
+            </div>
+          ))}
+        </div>
+        </div>
+      </section>
+
+      {/* About */}
+      <section className="section container about">
+        <ScrollReveal className="about-photo bento-panel">
+          <img src={img('/images/home/DSC05599.webp')} alt="Retvin working on the chassis of Longhorn Baja car 185 at competition" width="1100" height="1650" loading="lazy" />
+        </ScrollReveal>
+        <ScrollReveal className="about-copy bento-panel" delay={1}>
+          <h2>About</h2>
+          <p className="about-lead">
+            I started as technical captain of FRC Team 5414, building competition robots. In 2025 I
+            co-founded Longhorn Baja Racing at UT Austin and set the suspension geometry for its first
+            car. Along the way, internships at SPARX, NASA and Daikin taught me to design for the load
+            case and the machine shop at the same time.
+          </p>
+
+          <ul className="about-stats">
+            {stats.map(s => (
+              <li key={s.label}>
+                <span className="plate about-stat-value">{s.value}</span>
+                <span className="about-stat-label">{s.label}</span>
+              </li>
+            ))}
+          </ul>
+
+          <p className="about-seeking">
+            <span className="plate plate-mid plate-next">Looking for mechanical and product design roles</span>
+          </p>
+          <div className="about-school">
+            <img src={img('/images/ut austin logo.png')} alt="" width="52" height="52" />
+            <p>
+              <strong>B.S. Mechanical Engineering</strong>
+              <span>The University of Texas at Austin · Minor in Business</span>
+            </p>
+            <span className="about-grad">
+              <span className="about-grad-label">Graduating</span>
+              <span className="plate about-grad-date">Dec 2027</span>
+            </span>
+          </div>
+
+          <div className="about-links">
+            <a href={img('/resume.pdf')} download="Resume_Retvin_Pant.pdf" className="btn btn-primary">
+              <FiDownload aria-hidden="true" /> Download resume
+            </a>
+            <Link to="/skills" className="text-link">Tools and skills <FiArrowUpRight aria-hidden="true" /></Link>
+          </div>
+        </ScrollReveal>
       </section>
     </div>
   )

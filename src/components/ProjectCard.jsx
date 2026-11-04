@@ -1,41 +1,38 @@
 import { Link } from 'react-router-dom'
+import { FiArrowRight } from 'react-icons/fi'
 import ScrollReveal from './ScrollReveal'
 import InProgressBadge from './InProgressBadge'
 import ComingSoonBadge from './ComingSoonBadge'
 import RestrictedBadge from './RestrictedBadge'
 
-export default function ProjectCard({ image, tag, title, description, to, delay = 0, inProgress, comingSoon, restricted, restrictedLabel, imageStyle }) {
+// A project as a card: the picture on top, the words beneath, the whole card is the link.
+export default function ProjectCard({ image, tag, title, description, result, to, delay = 0, inProgress, comingSoon, restricted, restrictedLabel, imageStyle }) {
   const inner = (
-    <div className="card project-card" style={{ cursor: to ? 'pointer' : 'default' }}>
-      <div className="project-card-img-wrap">
-        <img src={image} alt={title} className="project-card-img" style={imageStyle} loading="lazy" />
+    <article className="project-card">
+      <div className="project-card-media">
+        <img src={image} alt={title} style={imageStyle} loading="lazy" />
       </div>
       <div className="project-card-body">
-        <div style={{ display: 'flex', alignItems: 'center', gap: 8, flexWrap: 'wrap' }}>
-          {tag && <div className="project-card-tag">{tag}</div>}
-          {inProgress && <InProgressBadge />}
-          {comingSoon && <ComingSoonBadge />}
-          {restricted && <RestrictedBadge label={restrictedLabel} />}
-        </div>
         <h3 className="project-card-title">{title}</h3>
+        {result && <p className="project-card-result">{result}</p>}
+        {(tag || inProgress || comingSoon || restricted) && (
+          <p className="project-card-meta">
+            {tag && <span>{tag}</span>}
+            {inProgress && <InProgressBadge />}
+            {comingSoon && <ComingSoonBadge />}
+            {restricted && <RestrictedBadge label={restrictedLabel} />}
+          </p>
+        )}
         {description && <p className="project-card-desc">{description}</p>}
-        {restricted && !to && (
-          <div className="project-card-footer">
-            <span className="project-card-restricted-note">Details withheld</span>
-          </div>
-        )}
-        {to && (
-          <div className="project-card-footer">
-            <span className="project-card-link">View Project →</span>
-          </div>
-        )}
+        {to && <span className="project-card-link">Read the case study <FiArrowRight aria-hidden="true" /></span>}
+        {restricted && !to && <span className="project-card-note">Details withheld</span>}
       </div>
-    </div>
+    </article>
   )
 
   return (
     <ScrollReveal delay={delay}>
-      {to ? <Link to={to} style={{ display: 'block', height: '100%', textDecoration: 'none', color: 'inherit' }}>{inner}</Link> : inner}
+      {to ? <Link to={to} className="project-card-anchor">{inner}</Link> : inner}
     </ScrollReveal>
   )
 }

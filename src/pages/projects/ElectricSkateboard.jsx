@@ -1,5 +1,4 @@
 import DetailPage from '../../components/DetailPage'
-import CADEmbed from '../../components/CADEmbed'
 import ScrollReveal from '../../components/ScrollReveal'
 import StatRow from '../../components/StatRow'
 import Gallery from '../../components/Gallery'
@@ -155,7 +154,7 @@ export default function ElectricSkateboard() {
             borderRadius: 'var(--radius-sm)',
             padding: '20px 24px',
             overflowX: 'auto',
-            fontSize: '0.8rem',
+            fontSize: 'var(--step-small)',
             lineHeight: 1.6,
             marginTop: 16,
             fontFamily: "'Courier New', Courier, monospace",
@@ -228,7 +227,7 @@ void loop() {
             borderRadius: 'var(--radius-sm)',
             padding: '20px 24px',
             overflowX: 'auto',
-            fontSize: '0.8rem',
+            fontSize: 'var(--step-small)',
             lineHeight: 1.6,
             marginTop: 8,
             fontFamily: "'Courier New', Courier, monospace",
@@ -300,7 +299,7 @@ void loop() {
                 style={{ border: 'none', borderRadius: 'var(--radius-sm)', display: 'block' }}
                 title="Deck Assembly (Without Trucks)"
               />
-              <p style={{ fontSize: '0.72rem', color: 'var(--text-muted)', marginTop: 6, textAlign: 'center', fontFamily: "'Space Grotesk', sans-serif", letterSpacing: '0.04em' }}>Made in SolidWorks · Displayed in Fusion 360</p>
+              <p style={{ fontSize: 'var(--step-small)', color: 'var(--text-muted)', marginTop: 6, textAlign: 'center', fontFamily: 'inherit', letterSpacing: 0 }}>Made in SolidWorks · Displayed in Fusion 360</p>
             </div>
             <div>
               <iframe
@@ -311,7 +310,7 @@ void loop() {
                 style={{ border: 'none', borderRadius: 'var(--radius-sm)', display: 'block' }}
                 title="Motor Mount"
               />
-              <p style={{ fontSize: '0.72rem', color: 'var(--text-muted)', marginTop: 6, textAlign: 'center', fontFamily: "'Space Grotesk', sans-serif", letterSpacing: '0.04em' }}>Made in SolidWorks · Displayed in Fusion 360</p>
+              <p style={{ fontSize: 'var(--step-small)', color: 'var(--text-muted)', marginTop: 6, textAlign: 'center', fontFamily: 'inherit', letterSpacing: 0 }}>Made in SolidWorks · Displayed in Fusion 360</p>
             </div>
             <div>
               <iframe
@@ -322,7 +321,7 @@ void loop() {
                 style={{ border: 'none', borderRadius: 'var(--radius-sm)', display: 'block' }}
                 title="Truck Clamp"
               />
-              <p style={{ fontSize: '0.72rem', color: 'var(--text-muted)', marginTop: 6, textAlign: 'center', fontFamily: "'Space Grotesk', sans-serif", letterSpacing: '0.04em' }}>Made in SolidWorks · Displayed in Fusion 360</p>
+              <p style={{ fontSize: 'var(--step-small)', color: 'var(--text-muted)', marginTop: 6, textAlign: 'center', fontFamily: 'inherit', letterSpacing: 0 }}>Made in SolidWorks · Displayed in Fusion 360</p>
             </div>
             <div>
               <iframe
@@ -333,7 +332,7 @@ void loop() {
                 style={{ border: 'none', borderRadius: 'var(--radius-sm)', display: 'block' }}
                 title="Motor Pulley"
               />
-              <p style={{ fontSize: '0.72rem', color: 'var(--text-muted)', marginTop: 6, textAlign: 'center', fontFamily: "'Space Grotesk', sans-serif", letterSpacing: '0.04em' }}>Made in SolidWorks · Displayed in Fusion 360</p>
+              <p style={{ fontSize: 'var(--step-small)', color: 'var(--text-muted)', marginTop: 6, textAlign: 'center', fontFamily: 'inherit', letterSpacing: 0 }}>Made in SolidWorks · Displayed in Fusion 360</p>
             </div>
             <div>
               <iframe
@@ -344,7 +343,7 @@ void loop() {
                 style={{ border: 'none', borderRadius: 'var(--radius-sm)', display: 'block' }}
                 title="Wheel Pulley"
               />
-              <p style={{ fontSize: '0.72rem', color: 'var(--text-muted)', marginTop: 6, textAlign: 'center', fontFamily: "'Space Grotesk', sans-serif", letterSpacing: '0.04em' }}>Made in SolidWorks · Displayed in Fusion 360</p>
+              <p style={{ fontSize: 'var(--step-small)', color: 'var(--text-muted)', marginTop: 6, textAlign: 'center', fontFamily: 'inherit', letterSpacing: 0 }}>Made in SolidWorks · Displayed in Fusion 360</p>
             </div>
             <div>
               <iframe
@@ -355,7 +354,7 @@ void loop() {
                 style={{ border: 'none', borderRadius: 'var(--radius-sm)', display: 'block' }}
                 title="Battery Holder"
               />
-              <p style={{ fontSize: '0.72rem', color: 'var(--text-muted)', marginTop: 6, textAlign: 'center', fontFamily: "'Space Grotesk', sans-serif", letterSpacing: '0.04em' }}>Made in SolidWorks · Displayed in Fusion 360</p>
+              <p style={{ fontSize: 'var(--step-small)', color: 'var(--text-muted)', marginTop: 6, textAlign: 'center', fontFamily: 'inherit', letterSpacing: 0 }}>Made in SolidWorks · Displayed in Fusion 360</p>
             </div>
             <div>
               <iframe
@@ -366,7 +365,7 @@ void loop() {
                   style={{ border: 'none', borderRadius: 'var(--radius-sm)', display: 'block' }}
                 title="ESP-32 and H-Bridge Holder"
               />
-              <p style={{ fontSize: '0.72rem', color: 'var(--text-muted)', marginTop: 6, textAlign: 'center', fontFamily: "'Space Grotesk', sans-serif", letterSpacing: '0.04em' }}>Made in SolidWorks · Displayed in Fusion 360</p>
+              <p style={{ fontSize: 'var(--step-small)', color: 'var(--text-muted)', marginTop: 6, textAlign: 'center', fontFamily: 'inherit', letterSpacing: 0 }}>Made in SolidWorks · Displayed in Fusion 360</p>
             </div>
           </div>
         </div>

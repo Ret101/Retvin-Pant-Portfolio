@@ -57,7 +57,7 @@ function DataTable({ columns, rows, note }) {
   return (
     <>
       <div style={{ overflowX: 'auto', border: '1px solid var(--card-border)', borderRadius: 'var(--radius-sm)', background: 'var(--card-bg)' }}>
-        <table style={{ width: '100%', minWidth: 520, borderCollapse: 'collapse', fontSize: '0.9rem' }}>
+        <table style={{ width: '100%', minWidth: 520, borderCollapse: 'collapse', fontSize: 'var(--step-body)' }}>
           <thead>
             <tr>
               {columns.map((c, i) => (
@@ -66,11 +66,11 @@ function DataTable({ columns, rows, note }) {
                   style={{
                     ...cellStyle,
                     textAlign: i === 0 ? 'left' : 'right',
-                    fontFamily: "'Space Grotesk', sans-serif",
-                    fontSize: '0.72rem',
+                    fontFamily: 'inherit',
+                    fontSize: 'var(--step-small)',
                     fontWeight: 700,
-                    letterSpacing: '0.06em',
-                    textTransform: 'uppercase',
+                    letterSpacing: 0,
+                    textTransform: 'none',
                     color: 'var(--accent-light)',
                   }}
                 >
@@ -102,7 +102,7 @@ function DataTable({ columns, rows, note }) {
         </table>
       </div>
       {note && (
-        <p style={{ fontSize: '0.8rem', color: 'var(--text-muted)', marginTop: 8 }}>{note}</p>
+        <p style={{ fontSize: 'var(--step-small)', color: 'var(--text-muted)', marginTop: 8 }}>{note}</p>
       )}
     </>
   )
@@ -117,8 +117,8 @@ export default function Daikin() {
       backLabel="Industry & Research"
       tag="Daikin · Internship"
       title="Heat Exchanger Automated Manufacturing Cell"
-      heroImage={img('/images/Daikin/Full Cell (2).webp')}
-      heroStyle={{ backgroundSize: 'auto 200%', backgroundPosition: 'center 90%', backgroundColor: '#f2f0ec' }}
+      heroImage={img('/images/Daikin/full-cell-cropped.webp')}
+      heroStyle={{ backgroundSize: 'cover', backgroundPosition: 'center 60%', backgroundColor: '#f2f0ec' }}
       software={['FANUC RoboGuide', 'AutoCAD', 'SolidWorks CAD']}
       roles={['Automation Engineering Intern']}
     >
@@ -153,8 +153,8 @@ export default function Daikin() {
 
       <ScrollReveal>
         <div style={{ background: 'var(--card-bg)', border: '1px solid var(--card-border)', borderLeft: '3px solid var(--accent)', borderRadius: 'var(--radius-sm)', padding: '16px 20px', marginBottom: 32 }}>
-          <div style={{ fontFamily: "'Space Grotesk', sans-serif", fontWeight: 700, fontSize: '0.88rem', color: 'var(--accent-light)', marginBottom: 6, letterSpacing: '0.06em', textTransform: 'uppercase' }}>Disclosure</div>
-          <p style={{ margin: 0, fontSize: '0.92rem', color: 'var(--text-secondary)', lineHeight: 1.65 }}>
+          <div style={{ fontFamily: 'inherit', fontWeight: 700, fontSize: 'var(--step-body)', color: 'var(--accent-light)', marginBottom: 6, letterSpacing: 0, textTransform: 'none' }}>Disclosure</div>
+          <p style={{ margin: 0, fontSize: 'var(--step-body)', color: 'var(--text-secondary)', lineHeight: 1.65 }}>
             This project was completed under an NDA with Daikin. All information, figures, and images
             shown on this page have been approved for public release by Daikin. Details covered by the
             NDA are omitted.
@@ -172,8 +172,8 @@ export default function Daikin() {
           </p>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
             <div style={{ background: 'var(--card-bg)', border: '1px solid var(--card-border)', borderRadius: 'var(--radius-sm)', padding: '16px 20px' }}>
-              <div style={{ fontFamily: "'Space Grotesk', sans-serif", fontWeight: 700, fontSize: '0.88rem', color: 'var(--accent-light)', marginBottom: 6, letterSpacing: '0.06em', textTransform: 'uppercase' }}>Setup 1, Grouped Operations</div>
-              <p style={{ margin: 0, fontSize: '0.92rem', color: 'var(--text-secondary)', lineHeight: 1.65 }}>
+              <div style={{ fontFamily: 'inherit', fontWeight: 700, fontSize: 'var(--step-body)', color: 'var(--accent-light)', marginBottom: 6, letterSpacing: 0, textTransform: 'none' }}>Setup 1, Grouped Operations</div>
+              <p style={{ margin: 0, fontSize: 'var(--step-body)', color: 'var(--text-secondary)', lineHeight: 1.65 }}>
                 One cell handles the forming processes and the other handles the bending processes.
                 This would have provided decent throughput, but it limits production significantly if a
                 machine goes down, restricting maintenance's ability to perform repairs during the day
@@ -182,8 +182,8 @@ export default function Daikin() {
               <img src={img('/images/Daikin/setup 1.png')} alt="Cell concept, setup 1" loading="lazy" style={{ display: 'block', width: '100%', maxWidth: 520, margin: '14px auto 0', borderRadius: 'var(--radius-sm)', border: '1px solid var(--card-border)' }} />
             </div>
             <div style={{ background: 'var(--card-bg)', border: '1px solid var(--card-border)', borderRadius: 'var(--radius-sm)', padding: '16px 20px' }}>
-              <div style={{ fontFamily: "'Space Grotesk', sans-serif", fontWeight: 700, fontSize: '0.88rem', color: 'var(--accent-light)', marginBottom: 6, letterSpacing: '0.06em', textTransform: 'uppercase' }}>Setup 2, Grouped Operations with Multiple Robots</div>
-              <p style={{ margin: 0, fontSize: '0.92rem', color: 'var(--text-secondary)', lineHeight: 1.65 }}>
+              <div style={{ fontFamily: 'inherit', fontWeight: 700, fontSize: 'var(--step-body)', color: 'var(--accent-light)', marginBottom: 6, letterSpacing: 0, textTransform: 'none' }}>Setup 2, Grouped Operations with Multiple Robots</div>
+              <p style={{ margin: 0, fontSize: 'var(--step-body)', color: 'var(--text-secondary)', lineHeight: 1.65 }}>
                 Same grouping, but with multiple robots in the bending cell so its throughput could
                 match the former cell. This added extra complexity and still carried the same
                 single-point-of-failure flaws as Setup 1.
@@ -191,8 +191,8 @@ export default function Daikin() {
               <img src={img('/images/Daikin/setup 2.png')} alt="Cell concept, setup 2" loading="lazy" style={{ display: 'block', width: '100%', maxWidth: 520, margin: '14px auto 0', borderRadius: 'var(--radius-sm)', border: '1px solid var(--card-border)' }} />
             </div>
             <div style={{ background: 'var(--card-bg)', border: '1px solid var(--card-border)', borderLeft: '3px solid var(--accent)', borderRadius: 'var(--radius-sm)', padding: '16px 20px' }}>
-              <div style={{ fontFamily: "'Space Grotesk', sans-serif", fontWeight: 700, fontSize: '0.88rem', color: 'var(--accent-light)', marginBottom: 6, letterSpacing: '0.06em', textTransform: 'uppercase' }}>Setup 3, Redundant Cells — Selected</div>
-              <p style={{ margin: 0, fontSize: '0.92rem', color: 'var(--text-secondary)', lineHeight: 1.65 }}>
+              <div style={{ fontFamily: 'inherit', fontWeight: 700, fontSize: 'var(--step-body)', color: 'var(--accent-light)', marginBottom: 6, letterSpacing: 0, textTransform: 'none' }}>Setup 3, Redundant Cells — Selected</div>
+              <p style={{ margin: 0, fontSize: 'var(--step-body)', color: 'var(--text-secondary)', lineHeight: 1.65 }}>
                 Redundant cells, where one arm performs both the forming and bending processes for its
                 own cell. Each cell contains one former, one bender, a hopper, and a buffer, so every
                 operation sits within a single arm's reach. Production continues even when one cell is
@@ -213,7 +213,7 @@ export default function Daikin() {
             station, and it automatically indexes tubes so they arrive aligned for downstream
             processes such as the end former.
           </p>
-          <ul style={{ color: 'var(--text-secondary)', paddingLeft: 20, lineHeight: 2, fontSize: '0.95rem' }}>
+          <ul style={{ color: 'var(--text-secondary)', paddingLeft: 20, lineHeight: 2, fontSize: 'var(--step-body)' }}>
             <li><strong style={{ color: 'var(--text-primary)' }}>Loading station:</strong> a high-lift pallet jack inserts a pallet of raw tubes into the cell. The doors behind the opening close and lock, the pallet is disassembled so the tubes sit unconstrained, and once the operator removes the pallet material a t-slot pole is pulled out to release the tubes into the hopper region.</li>
             <li><strong style={{ color: 'var(--text-primary)' }}>Passive filtering:</strong> an angled plate filters tubes into the conveyor region one at a time.</li>
             <li><strong style={{ color: 'var(--text-primary)' }}>Conveyor:</strong> a multiple-finger design allowing safe pickup and dropoff of raw tubes as they move from the hopper to the indexing stage.</li>
@@ -234,7 +234,7 @@ export default function Daikin() {
             draining, part accumulation, orientation adjustment, seam detection, process decoupling,
             and presentation to the robot.
           </p>
-          <ul style={{ color: 'var(--text-secondary)', paddingLeft: 20, lineHeight: 2, fontSize: '0.95rem' }}>
+          <ul style={{ color: 'var(--text-secondary)', paddingLeft: 20, lineHeight: 2, fontSize: 'var(--step-body)' }}>
             <li><strong style={{ color: 'var(--text-primary)' }}>Offset funnel:</strong> the robot simply drops formed tubes into the machine, and the passive funnel keeps tubes from jamming as they enter the rotary indexer.</li>
             <li><strong style={{ color: 'var(--text-primary)' }}>Rotary indexer:</strong> its mounting angle drains the tubes, it indexes them properly into the system, and its rotation delivers them to the weld seam indexing system. The skeletal design is easier to manufacture than the alternatives considered.</li>
             <li><strong style={{ color: 'var(--text-primary)' }}>Seam alignment:</strong> a camera system supports rotational alignment of the tube before the robot picks up the part, with air knives and shielding to minimize contamination. Once the tube is in the correct orientation, the buffer signals that it is ready for pickup.</li>
@@ -251,7 +251,7 @@ export default function Daikin() {
             Extraction pulls the bent tube out of the mandrel bender and hands it to the conveyor,
             decoupling the bender from whatever happens downstream.
           </p>
-          <ul style={{ color: 'var(--text-secondary)', paddingLeft: 20, lineHeight: 2, fontSize: '0.95rem' }}>
+          <ul style={{ color: 'var(--text-secondary)', paddingLeft: 20, lineHeight: 2, fontSize: 'var(--step-body)' }}>
             <li><strong style={{ color: 'var(--text-primary)' }}>Die stripper piston:</strong> mounted directly to the mandrel bender and positioned so its actuation pushes the tube off the die, moving it forward and out of the machine to be picked up.</li>
             <li><strong style={{ color: 'var(--text-primary)' }}>Swing arm:</strong> on a motorized base. Once the bending operation and the piston die stripper operation are complete, it swings in front of the machine, grips the bent portion of the tube, pulls it out, swings back to its resting position hovering over the conveyor, and releases the part to downstream operations.</li>
             <li><strong style={{ color: 'var(--text-primary)' }}>Overflow cart:</strong> a place for the arm to deposit formed tubes when the production floor needs that operation or excess exists. Tubes drained in the buffer can be stored there for future use or parallel production.</li>
@@ -268,7 +268,7 @@ export default function Daikin() {
             it does. Running four grippers lets the arm combine multiple cycles into a single
             operation, getting more done per trip.
           </p>
-          <ul style={{ color: 'var(--text-secondary)', paddingLeft: 20, lineHeight: 2, fontSize: '0.95rem' }}>
+          <ul style={{ color: 'var(--text-secondary)', paddingLeft: 20, lineHeight: 2, fontSize: 'var(--step-body)' }}>
             <li><strong style={{ color: 'var(--text-primary)' }}>Structure:</strong> a base welded steel frame built from bent sheet metal components welded together. An adapter plate on the back interfaces with the last degree of freedom of the robot arm, giving a rigid attachment while still allowing easy disassembly.</li>
             <li><strong style={{ color: 'var(--text-primary)' }}>Geometry:</strong> the design was geometrically focused, ensuring that with all grippers loaded at once the arm could still access and interface with machines without collisions.</li>
             <li><strong style={{ color: 'var(--text-primary)' }}>Grippers:</strong> four pneumatic parallel grippers with 8.0 mm of stroke per finger and 1350 N of gripping force, a firm hold on the tubes while staying well below what would crush or deform them.</li>
@@ -285,24 +285,24 @@ export default function Daikin() {
           <h3>Iterations &amp; Decisions</h3>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
             <div style={{ background: 'var(--card-bg)', border: '1px solid var(--card-border)', borderRadius: 'var(--radius-sm)', padding: '16px 20px' }}>
-              <div style={{ fontFamily: "'Space Grotesk', sans-serif", fontWeight: 700, fontSize: '0.88rem', color: 'var(--accent-light)', marginBottom: 6, letterSpacing: '0.06em', textTransform: 'uppercase' }}>Hopper Indexing, Tubes Failing to Seat in Their Groove</div>
-              <p style={{ margin: 0, fontSize: '0.92rem', color: 'var(--text-secondary)', lineHeight: 1.65 }}>
+              <div style={{ fontFamily: 'inherit', fontWeight: 700, fontSize: 'var(--step-body)', color: 'var(--accent-light)', marginBottom: 6, letterSpacing: 0, textTransform: 'none' }}>Hopper Indexing, Tubes Failing to Seat in Their Groove</div>
+              <p style={{ margin: 0, fontSize: 'var(--step-body)', color: 'var(--text-secondary)', lineHeight: 1.65 }}>
                 <strong style={{ color: 'var(--text-primary)' }}>Original:</strong> A fully passive ramped indexer, where tubes roll down the slope and settle into their grooves under gravity alone.<br />
                 <strong style={{ color: 'var(--text-primary)' }}>Problem:</strong> Testing a 3D printed mockup of the geometry showed that in some scenarios a tube that hadn't built up enough speed couldn't get over the tube ahead of it and into its own groove, leaving it unindexed. This was not anticipated in the initial design.<br />
                 <strong style={{ color: 'var(--text-primary)' }}>Fix:</strong> Two solutions were analyzed. An active pneumatic alignment system assisting from the top would have worked but added significant complexity, and testing showed it took very little force to push a tube over and into its groove. The stepper-driven CAM finger was the simpler and more robust option, so that is what went in.
               </p>
             </div>
             <div style={{ background: 'var(--card-bg)', border: '1px solid var(--card-border)', borderRadius: 'var(--radius-sm)', padding: '16px 20px' }}>
-              <div style={{ fontFamily: "'Space Grotesk', sans-serif", fontWeight: 700, fontSize: '0.88rem', color: 'var(--accent-light)', marginBottom: 6, letterSpacing: '0.06em', textTransform: 'uppercase' }}>Rotary Indexer, Skeletal Frame vs. 3D Printed Body</div>
-              <p style={{ margin: 0, fontSize: '0.92rem', color: 'var(--text-secondary)', lineHeight: 1.65 }}>
+              <div style={{ fontFamily: 'inherit', fontWeight: 700, fontSize: 'var(--step-body)', color: 'var(--accent-light)', marginBottom: 6, letterSpacing: 0, textTransform: 'none' }}>Rotary Indexer, Skeletal Frame vs. 3D Printed Body</div>
+              <p style={{ margin: 0, fontSize: 'var(--step-body)', color: 'var(--text-secondary)', lineHeight: 1.65 }}>
                 <strong style={{ color: 'var(--text-primary)' }}>Chose:</strong> A skeletal design built from standoffs and aluminum plates.<br />
                 <strong style={{ color: 'var(--text-primary)' }}>Rejected:</strong> A 3D printed body with draining built into the part.<br />
                 Multiple designs were considered, and with manufacturability as the priority the skeletal build won out. Standoffs and plates give the assembly its structure while staying straightforward to produce.
               </p>
             </div>
             <div style={{ background: 'var(--card-bg)', border: '1px solid var(--card-border)', borderRadius: 'var(--radius-sm)', padding: '16px 20px' }}>
-              <div style={{ fontFamily: "'Space Grotesk', sans-serif", fontWeight: 700, fontSize: '0.88rem', color: 'var(--accent-light)', marginBottom: 6, letterSpacing: '0.06em', textTransform: 'uppercase' }}>Buffer Entry, Offset Funnel vs. Direct Drop</div>
-              <p style={{ margin: 0, fontSize: '0.92rem', color: 'var(--text-secondary)', lineHeight: 1.65 }}>
+              <div style={{ fontFamily: 'inherit', fontWeight: 700, fontSize: 'var(--step-body)', color: 'var(--accent-light)', marginBottom: 6, letterSpacing: 0, textTransform: 'none' }}>Buffer Entry, Offset Funnel vs. Direct Drop</div>
+              <p style={{ margin: 0, fontSize: 'var(--step-body)', color: 'var(--text-secondary)', lineHeight: 1.65 }}>
                 <strong style={{ color: 'var(--text-primary)' }}>Chose:</strong> A passive offset funnel at the buffer inlet.<br />
                 <strong style={{ color: 'var(--text-primary)' }}>Rejected:</strong> Dropping tubes directly into the rotary indexer.<br />
                 This one was designed around up front rather than discovered in testing. A jam at the buffer inlet stalls everything downstream of it, and that was not a risk worth taking to save a passive part.
@@ -317,6 +317,8 @@ export default function Daikin() {
           <h3>Cell Simulation</h3>
           <video
             src={img('/images/Daikin/TubeBenderCell_2026_07_27_15_31_36_PM.mp4')}
+            poster={img('/images/posters/tubebendercell_2026_07_27_15_31_36_pm.webp')}
+            preload="none"
             controls
             style={{ width: '100%', borderRadius: 'var(--radius-sm)', border: '1px solid var(--card-border)', marginTop: 16, display: 'block' }}
           />

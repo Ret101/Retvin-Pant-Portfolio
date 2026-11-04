@@ -1,8 +1,3 @@
 export default function ComingSoonBadge() {
-  return (
-    <span className="coming-soon-badge">
-      <span className="coming-soon-dot" />
-      Coming Soon
-    </span>
-  )
+  return <span className="status-plate status-soon">Coming soon</span>
 }

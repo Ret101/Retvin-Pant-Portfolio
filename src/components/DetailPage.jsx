@@ -1,61 +1,63 @@
+import { useRef } from 'react'
 import { Link } from 'react-router-dom'
-import { PillGroup } from './PillBadge'
+import { FiArrowLeft } from 'react-icons/fi'
 import InProgressBadge from './InProgressBadge'
 import ProjectNav from './ProjectNav'
+import ImageZoom from './ImageZoom'
+
+// heroStyle was written for a CSS background; carry its intent over to an <img>
+function heroImgStyle(s = {}) {
+  const out = {}
+  if (s.backgroundPosition) out.objectPosition = s.backgroundPosition
+  if (s.backgroundColor) { out.background = s.backgroundColor; out.objectFit = s.backgroundSize === 'cover' ? 'cover' : 'contain' }
+  return out
+}
+
 export default function DetailPage({ backTo, backLabel, tag, title, heroImage, heroStyle, software, roles, inProgress, children }) {
+  const mainRef = useRef(null)
   return (
     <div className="project-detail">
-
-      {heroImage ? (
-        <div className="cinematic-header">
-          <div className="cinematic-header-bg" style={{ backgroundImage: `url('${heroImage}')`, ...heroStyle }} />
-          <div className="cinematic-header-overlay" />
-          <div className="container cinematic-header-content">
-            <Link to={backTo} className="project-detail-back">← {backLabel}</Link>
-            <div className="cinematic-header-meta">
-              {tag && <span className="cinematic-header-tag">{tag}</span>}
-              {inProgress && <InProgressBadge />}
-            </div>
-            <h1 className="cinematic-header-title">{title}</h1>
-          </div>
-        </div>
-      ) : (
-        <div className="container" style={{ paddingTop: 'calc(var(--nav-height) + 40px)', paddingBottom: 0 }}>
-          <Link to={backTo} className="project-detail-back">← {backLabel}</Link>
-          <div className="project-detail-header">
-            {tag && <div className="project-detail-tag">{tag}</div>}
-            <h1 className="project-detail-title">{title}</h1>
+      {heroImage && <div className="detail-backdrop" aria-hidden="true" style={{ backgroundImage: `url('${heroImage}')` }} />}
+      <header className={`detail-head container${heroImage ? '' : ' no-media'}`}>
+        <div className="detail-head-copy">
+          <h1 className={`detail-title${title.length > 18 ? ' is-long' : ''}${title.length > 40 ? ' is-longer' : ''}`}><span className="plate plate-line">{title}</span></h1>
+          {tag && <p className="detail-tag">{tag}</p>}
+          <div className="detail-head-actions">
             {inProgress && <InProgressBadge />}
+            <Link to={backTo} className="project-detail-back"><FiArrowLeft aria-hidden="true" /> {backLabel}</Link>
           </div>
         </div>
-      )}
+        {heroImage && (
+          <figure className="detail-head-media">
+            <img src={heroImage} alt={title} style={heroImgStyle(heroStyle)} fetchpriority="high" />
+          </figure>
+        )}
+      </header>
 
       <div className="container project-detail-body">
         <div className="detail-layout">
-          <div>
+          <div className="detail-main" ref={mainRef}>
             {children}
           </div>
+          <ImageZoom containerRef={mainRef} deps={[title]} />
           <aside className="detail-sidebar">
             {software && software.length > 0 && (
-              <div className="sidebar-card">
-                <h4>Software &amp; Skills</h4>
-                <PillGroup items={software} />
+              <div className="sidebar-block">
+                <h2>Software and skills</h2>
+                <p>{software.join(', ')}</p>
               </div>
             )}
             {roles && roles.length > 0 && (
-              <div className="sidebar-card">
-                <h4>Roles</h4>
-                <PillGroup items={roles} />
+              <div className="sidebar-block">
+                <h2>Roles</h2>
+                <p>{roles.join(', ')}</p>
               </div>
             )}
-            <Link to={backTo} className="btn btn-outline" style={{ textAlign: 'center', justifyContent: 'center' }}>
-              ← Back to {backLabel}
-            </Link>
+            <div id="toc-slot" />
           </aside>
         </div>
         <ProjectNav />
       </div>
-
     </div>
   )
 }

@@ -1,5 +1,4 @@
 import DetailPage from '../../components/DetailPage'
-import CADEmbed from '../../components/CADEmbed'
 import ScrollReveal from '../../components/ScrollReveal'
 import StatRow from '../../components/StatRow'
 import Gallery from '../../components/Gallery'
@@ -169,24 +168,24 @@ export default function CandySorter() {
           <h3>Failures and Iteration</h3>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
             <div style={{ background: 'var(--card-bg)', border: '1px solid var(--card-border)', borderRadius: 'var(--radius-sm)', padding: '16px 20px' }}>
-              <div style={{ fontFamily: "'Space Grotesk', sans-serif", fontWeight: 700, fontSize: '0.88rem', color: 'var(--accent-light)', marginBottom: 6, letterSpacing: '0.06em', textTransform: 'uppercase' }}>Salmon Ladder Actuation, Rope and Pulley vs. Linear Actuator</div>
-              <p style={{ margin: 0, fontSize: '0.92rem', color: 'var(--text-secondary)', lineHeight: 1.65 }}>
+              <div style={{ fontFamily: 'inherit', fontWeight: 700, fontSize: 'var(--step-body)', color: 'var(--accent-light)', marginBottom: 6, letterSpacing: 0, textTransform: 'none' }}>Salmon Ladder Actuation, Rope and Pulley vs. Linear Actuator</div>
+              <p style={{ margin: 0, fontSize: 'var(--step-body)', color: 'var(--text-secondary)', lineHeight: 1.65 }}>
                 <strong style={{ color: 'var(--text-primary)' }}>Original:</strong> Motor-actuated rope and pulley system to drive the salmon ladder.<br />
                 <strong style={{ color: 'var(--text-primary)' }}>Problem:</strong> Under actual candy load, the system was inconsistent. The combined weight of the ladder structure and candy on the slides exceeded what the motor could move efficiently, resulting in stalls and missed cycles during testing.<br />
                 <strong style={{ color: 'var(--text-primary)' }}>Fix:</strong> Replaced with a linear actuator, which provided the force and consistency needed to reliably drive the ladder under full candy load without stalling.
               </p>
             </div>
             <div style={{ background: 'var(--card-bg)', border: '1px solid var(--card-border)', borderRadius: 'var(--radius-sm)', padding: '16px 20px' }}>
-              <div style={{ fontFamily: "'Space Grotesk', sans-serif", fontWeight: 700, fontSize: '0.88rem', color: 'var(--accent-light)', marginBottom: 6, letterSpacing: '0.06em', textTransform: 'uppercase' }}>Candy Detection, Haar Cascade vs. Color Identification</div>
-              <p style={{ margin: 0, fontSize: '0.92rem', color: 'var(--text-secondary)', lineHeight: 1.65 }}>
+              <div style={{ fontFamily: 'inherit', fontWeight: 700, fontSize: 'var(--step-body)', color: 'var(--accent-light)', marginBottom: 6, letterSpacing: 0, textTransform: 'none' }}>Candy Detection, Haar Cascade vs. Color Identification</div>
+              <p style={{ margin: 0, fontSize: 'var(--step-body)', color: 'var(--text-secondary)', lineHeight: 1.65 }}>
                 <strong style={{ color: 'var(--text-primary)' }}>Original:</strong> The initial goal was to sort multiple types of candy, which required custom Haar cascade models trained to tell one candy type from another.<br />
                 <strong style={{ color: 'var(--text-primary)' }}>Problem:</strong> Stocking the machine with multiple candy types added complexity to running the demo, so the scope narrowed to Starbursts as the primary candy.<br />
                 <strong style={{ color: 'var(--text-primary)' }}>Fix:</strong> With a single candy type, distinguishing flavors comes down to color alone, so the trained classifiers were dropped for a simpler color-based sorting system, less to tune and less to break during a live trade show demo.
               </p>
             </div>
             <div style={{ background: 'var(--card-bg)', border: '1px solid var(--card-border)', borderRadius: 'var(--radius-sm)', padding: '16px 20px' }}>
-              <div style={{ fontFamily: "'Space Grotesk', sans-serif", fontWeight: 700, fontSize: '0.88rem', color: 'var(--accent-light)', marginBottom: 6, letterSpacing: '0.06em', textTransform: 'uppercase' }}>Kicker Mechanism, Solenoid Duty Cycle Exceeded</div>
-              <p style={{ margin: 0, fontSize: '0.92rem', color: 'var(--text-secondary)', lineHeight: 1.65 }}>
+              <div style={{ fontFamily: 'inherit', fontWeight: 700, fontSize: 'var(--step-body)', color: 'var(--accent-light)', marginBottom: 6, letterSpacing: 0, textTransform: 'none' }}>Kicker Mechanism, Solenoid Duty Cycle Exceeded</div>
+              <p style={{ margin: 0, fontSize: 'var(--step-body)', color: 'var(--text-secondary)', lineHeight: 1.65 }}>
                 <strong style={{ color: 'var(--text-primary)' }}>Original:</strong> Solenoids held in the closed position as the default state, routing candy to the customer collection area while energized.<br />
                 <strong style={{ color: 'var(--text-primary)' }}>Problem:</strong> Holding solenoids energized for the duration of each cycle exceeded their rated duty cycle, creating an overheating risk that would have damaged the solenoids over extended demo sessions.<br />
                 <strong style={{ color: 'var(--text-primary)' }}>Fix:</strong> Redesigned the kicker so solenoids default to open and extend briefly to kick selected candy out to the customer. The short actuation pulse stays well within the solenoid duty cycle, eliminating the overheating risk.
@@ -207,7 +206,7 @@ export default function CandySorter() {
             style={{ border: 'none', borderRadius: 'var(--radius-sm)', display: 'block' }}
             title="Candy Sorter, Integrated Assembly"
           />
-          <p style={{ fontSize: '0.72rem', color: 'var(--text-muted)', marginTop: 6, textAlign: 'center', fontFamily: "'Space Grotesk', sans-serif", letterSpacing: '0.04em' }}>Made in Onshape · Displayed in Fusion 360</p>
+          <p style={{ fontSize: 'var(--step-small)', color: 'var(--text-muted)', marginTop: 6, textAlign: 'center', fontFamily: 'inherit', letterSpacing: 0 }}>Made in Onshape · Displayed in Fusion 360</p>
         </div>
       </ScrollReveal>
 

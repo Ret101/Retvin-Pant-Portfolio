@@ -118,8 +118,8 @@ export default function Beetleweight() {
           <h3>Failures and Competition Fixes</h3>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
             <div style={{ background: 'var(--card-bg)', border: '1px solid var(--card-border)', borderRadius: 'var(--radius-sm)', padding: '16px 20px' }}>
-              <div style={{ fontFamily: "'Space Grotesk', sans-serif", fontWeight: 700, fontSize: '0.88rem', color: 'var(--accent-light)', marginBottom: 6, letterSpacing: '0.06em', textTransform: 'uppercase' }}>Weight Over Limit, On-the-Fly Fix at Competition</div>
-              <p style={{ margin: 0, fontSize: '0.92rem', color: 'var(--text-secondary)', lineHeight: 1.65 }}>
+              <div style={{ fontFamily: 'inherit', fontWeight: 700, fontSize: 'var(--step-body)', color: 'var(--accent-light)', marginBottom: 6, letterSpacing: 0, textTransform: 'none' }}>Weight Over Limit, On-the-Fly Fix at Competition</div>
+              <p style={{ margin: 0, fontSize: 'var(--step-body)', color: 'var(--text-secondary)', lineHeight: 1.65 }}>
                 The assembled robot came in over the 3-pound class limit at weigh-in. With no time to
                 reprint parts, the fix was to drill holes through the TPU chassis frame in regions
                 where infill density was highest, removing material without compromising the primary

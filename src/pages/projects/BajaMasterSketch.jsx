@@ -70,7 +70,7 @@ export default function BajaMasterSketch() {
           <ScrollReveal>
             <div className="project-section">
               <h3>My Contribution</h3>
-              <ul style={{ color: 'var(--text-secondary)', paddingLeft: 20, lineHeight: 2, fontSize: '0.95rem' }}>
+              <ul style={{ color: 'var(--text-secondary)', paddingLeft: 20, lineHeight: 2, fontSize: 'var(--step-body)' }}>
                 <li>Defined all suspension hardpoint locations front and rear from first principles</li>
                 <li>Iterated geometry across three versions based on packaging constraints and Lotus Shark simulation feedback</li>
                 <li>Verified kinematics in Lotus Shark and tuned hardpoints to achieve target handling behavior</li>
@@ -242,6 +242,7 @@ export default function BajaMasterSketch() {
               </p>
               <video
                 src={img('/images/lotus-shark-animation.mp4')}
+                poster={img('/images/posters/lotus-shark-animation.webp')}
                 aria-label="Suspension geometry animation"
                 className="project-image-single"
                 autoPlay
@@ -262,8 +263,8 @@ export default function BajaMasterSketch() {
             <div className="project-section">
               <div className="lessons-grid">
                 <div className="lesson-card lesson-card-key">
-                  <span className="lesson-card-tag">Outcome</span>
                   <h4 className="lesson-card-title">The Foundation for the Car's Vehicle Dynamics</h4>
+                  <span className="lesson-card-tag">Outcome</span>
                   <p>
                     The master sketch became the team's foundational tool for understanding vehicle dynamics
                     and how the key concepts relate to each other, from instant centers and roll centers to
@@ -271,15 +272,15 @@ export default function BajaMasterSketch() {
                   </p>
                 </div>
                 <div className="lesson-card">
-                  <span className="lesson-card-tag">Hardpoints</span>
                   <h4 className="lesson-card-title">Initial Hardpoint Estimate</h4>
+                  <span className="lesson-card-tag">Hardpoints</span>
                   <p>
                     It gave the initial estimate for where the suspension hardpoints should sit on the chassis.
                   </p>
                 </div>
                 <div className="lesson-card">
-                  <span className="lesson-card-tag">Verification</span>
                   <h4 className="lesson-card-title">Refined in Lotus Shark</h4>
+                  <span className="lesson-card-tag">Verification</span>
                   <p>
                     Those starting hardpoints were then verified and fine-tuned in Lotus Shark before geometry
                     was released to the rest of the team.

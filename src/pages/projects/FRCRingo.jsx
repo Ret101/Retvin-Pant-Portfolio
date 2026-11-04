@@ -53,10 +53,10 @@ export default function FRCRingo() {
           <h3>Subsystems</h3>
           {subsystems.map(sub => (
             <div key={sub.name} style={{ marginBottom: 28 }}>
-              <h4 style={{ fontFamily: 'Space Grotesk', fontSize: '0.95rem', fontWeight: 600, marginBottom: 8, color: 'var(--accent-light)' }}>
+              <h4 style={{ fontSize: 'var(--step-body)', fontWeight: 600, marginBottom: 8, color: 'var(--accent-light)' }}>
                 {sub.name}
               </h4>
-              <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem', lineHeight: 1.75 }}>{sub.desc}</p>
+              <p style={{ color: 'var(--text-secondary)', fontSize: 'var(--step-body)', lineHeight: 1.75 }}>{sub.desc}</p>
               {sub.image && (
                 <img src={sub.image} alt={sub.name} style={{ marginTop: 12, borderRadius: 10, border: '1px solid var(--card-border)', width: '100%', maxHeight: 300, objectFit: 'contain', background: 'var(--bg)' }} loading="lazy" />
               )}
@@ -76,7 +76,7 @@ export default function FRCRingo() {
             style={{ border: 'none', borderRadius: 'var(--radius-sm)', display: 'block', marginTop: 16 }}
             title="Ringo, Integrated CAD"
           />
-          <p style={{ fontSize: '0.72rem', color: 'var(--text-muted)', marginTop: 6, textAlign: 'center', fontFamily: "'Space Grotesk', sans-serif", letterSpacing: '0.04em' }}>Made in Onshape · Displayed in Fusion 360</p>
+          <p style={{ fontSize: 'var(--step-small)', color: 'var(--text-muted)', marginTop: 6, textAlign: 'center', fontFamily: 'inherit', letterSpacing: 0 }}>Made in Onshape · Displayed in Fusion 360</p>
         </div>
       </ScrollReveal>
 
