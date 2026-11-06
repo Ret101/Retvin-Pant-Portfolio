@@ -81,12 +81,11 @@ const subprojects25 = [
     to: '/baja/rear-hubs',
   },
   {
-    image: img('/images/Front Hub.png'),
+    image: img('/images/front-hub/upright-hub-assembly.webp'),
     title: 'Front Hub',
-    description: 'FEA-driven unsprung mass design packaging wheel bearing, brake rotor, and steering knuckle interface within master sketch hardpoints.',
-    to: null,
-    inProgress: false,
-    comingSoon: true,
+    description: 'Packages the wheel bearing, brake rotor and ball joint mounts within the master sketch hardpoints. Redesigned to a solid hub after a missed fillet left 0.02 in of material.',
+    to: '/baja/front-hubs',
+    inProgress: true,
   },
   {
     image: img('/images/CV Axle Modification.jpeg'),

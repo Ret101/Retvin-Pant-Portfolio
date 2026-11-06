@@ -4,6 +4,7 @@ import StatRow from '../../components/StatRow'
 import Gallery from '../../components/Gallery'
 import StickyTOC from '../../components/StickyTOC'
 import img from '../../img'
+import CodeBlock from '../../components/CodeBlock'
 
 const toc = [
   { id: 'engineering-challenge', label: 'Engineering Challenge' },
@@ -148,20 +149,7 @@ export default function ElectricSkateboard() {
             wireless protocol. This enables low-latency, reliable control of speed and braking without
             requiring Wi-Fi infrastructure.
           </p>
-          <pre style={{
-            background: 'var(--bg-2)',
-            border: '1px solid var(--card-border)',
-            borderRadius: 'var(--radius-sm)',
-            padding: '20px 24px',
-            overflowX: 'auto',
-            fontSize: 'var(--step-small)',
-            lineHeight: 1.6,
-            marginTop: 16,
-            fontFamily: "'Courier New', Courier, monospace",
-            color: '#c5c8c6',
-            whiteSpace: 'pre-wrap',
-            wordBreak: 'break-word',
-          }}><code>{`#include <esp_now.h>
+          <CodeBlock title="Transmitter code (ESP32 remote)" language="C++">{`#include <esp_now.h>
 #include <WiFi.h>
 
 uint8_t broadcastAddress1[] = {0x08, 0xA6, 0xF7, 0xBC, 0x6B, 0x68};
@@ -219,22 +207,8 @@ void loop() {
     esp_err_t result = esp_now_send(0, (uint8_t *) &test, sizeof(test_struct));
     delay(10);
     loopnumber = loopnumber + 1;
-}`}</code></pre>
-          <p style={{ marginTop: 24 }}>Receiver code running on the onboard ESP32:</p>
-          <pre style={{
-            background: 'var(--bg-2)',
-            border: '1px solid var(--card-border)',
-            borderRadius: 'var(--radius-sm)',
-            padding: '20px 24px',
-            overflowX: 'auto',
-            fontSize: 'var(--step-small)',
-            lineHeight: 1.6,
-            marginTop: 8,
-            fontFamily: "'Courier New', Courier, monospace",
-            color: '#c5c8c6',
-            whiteSpace: 'pre-wrap',
-            wordBreak: 'break-word',
-          }}><code>{`#include <esp_now.h>
+}`}</CodeBlock>
+          <CodeBlock title="Receiver code (onboard ESP32)" language="C++">{`#include <esp_now.h>
 #include <WiFi.h>
 
 typedef struct test_struct {
@@ -282,7 +256,7 @@ void loop() {
         digitalWrite(brake, 1 - myData.arr[0]);
         analogWrite(boardOutput, myData.arr[1]);
     }
-}`}</code></pre>
+}`}</CodeBlock>
         </div>
       </ScrollReveal>
 

@@ -276,6 +276,15 @@ export default function BajaRearHubs() {
             className="project-image-single"
             loading="lazy"
           />
+          <p style={{ marginTop: 24 }}>
+            I checked the modified hub in Ansys under the combined jump and steering load case. The
+            minimum safety factor is 3.23, next to a bolt hole on the upper lobe, and the maximum
+            deformation is 0.026 mm.
+          </p>
+          <div className="project-image-grid">
+            <img src={img('/images/rear-ots-hub-fea-safety.webp')} alt="Ansys safety factor plot of the modified OEM rear hub, jump plus steering load case, minimum 3.23" loading="lazy" />
+            <img src={img('/images/rear-ots-hub-fea-deformation.webp')} alt="Ansys total deformation plot of the modified OEM rear hub, jump plus steering load case, maximum 0.026 mm" loading="lazy" />
+          </div>
         </div>
       </ScrollReveal>
 

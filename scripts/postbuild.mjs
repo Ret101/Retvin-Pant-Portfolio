@@ -21,7 +21,7 @@ const meta = {
   '/personal': { title: 'Personal Projects', description: 'An electric skateboard and a beetleweight combat robot, designed and built on my own.', image: '/images/battlebot.jpg' },
   '/skills': { title: 'Skills', description: 'CAD, analysis, manufacturing, programming and design-process skills, each linked to a project where it was used.', image: '/images/og-image.jpg' },
   '/baja/gallery': { title: 'Longhorn Baja season gallery', description: 'Shop nights, testing days and the people who built car 185, Longhorn Baja Racing’s first car.', image: '/images/home/DSC05988.webp' },
-  '/baja/front-hubs': { title: 'Front hubs', description: 'Longhorn Baja Racing front hub design. Write-up coming soon.', image: '/images/Front Hub.png' },
+  '/baja/front-hubs': { title: 'Front Hubs', description: 'Longhorn Baja front hub: bearing and hub press-fit into the upright, Ansys FEA, and a redesign to a solid hub after a missed fillet left 0.02 in of material.', image: '/images/front-hub/upright-hub-assembly.webp' },
   '/team/frc-robots/additional': { title: 'Additional FRC designs', description: 'Other mechanisms designed for FRC Team 5414.', image: '/images/additional robot design.png' },
 }
 const projects = readFileSync('src/data/projects.js', 'utf8')

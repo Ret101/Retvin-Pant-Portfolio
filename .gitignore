@@ -11,3 +11,6 @@ dist/
 .impeccable/*.txt
 .impeccable/*.log
 .impeccable/brief-body.md
+
+# Original ASME report: its cover has contact emails and a signature. The site uses the cleaned copy.
+public/documents/ASME FIRE Report.pdf

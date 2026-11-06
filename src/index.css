@@ -1918,3 +1918,37 @@ img.zoomable:active { transform: scale(0.99); }
   .start-here-title { margin-top: 40px; }
   #work { padding-top: 48px; }
 }
+
+/* Collapsible code listings (Electric Skateboard) */
+.code-block { margin-top: 16px; background: var(--board-2); border-radius: var(--r-card); overflow: hidden; }
+.code-block + .code-block { margin-top: 8px; }
+.code-block summary {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 56px;
+  padding: 12px 20px;
+  cursor: pointer;
+  list-style: none;
+  transition: background-color 200ms ease;
+}
+.code-block summary::-webkit-details-marker { display: none; }
+.code-block-chevron { flex-shrink: 0; color: var(--orange); transition: transform 200ms var(--ease-out); }
+.code-block[open] .code-block-chevron { transform: rotate(90deg); }
+.code-block-title { font-weight: 600; }
+.code-block-meta { margin-left: auto; font-size: var(--step-small); color: var(--ink-soft); white-space: nowrap; }
+.code-block pre {
+  margin: 0;
+  padding: 4px 20px 20px;
+  overflow-x: auto;
+  font-family: ui-monospace, 'Cascadia Code', Consolas, monospace;
+  font-size: var(--step-small);
+  line-height: 1.6;
+  color: #d4d7da;
+}
+@media (hover: hover) and (pointer: fine) {
+  .code-block summary:hover { background: var(--board-3); }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .code-block[open] pre { animation: rise 260ms var(--ease-out) both; }
+}

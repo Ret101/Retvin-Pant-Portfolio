@@ -5,6 +5,7 @@ import DocSlider from '../../components/DocSlider'
 import StatRow from '../../components/StatRow'
 import StickyTOC from '../../components/StickyTOC'
 import img from '../../img'
+import { FiDownload } from 'react-icons/fi'
 
 const toc = [
   { id: 'engineering-challenge', label: 'Engineering Challenge' },
@@ -17,6 +18,7 @@ const toc = [
   { id: 'validation',            label: 'Validation'            },
   { id: 'cad',                   label: 'CAD Models'            },
   { id: 'project-breakdown',     label: 'Project Breakdown'     },
+  { id: 'asme-report',           label: 'ASME FIRE Report'      },
 ]
 
 const gallery = [
@@ -261,6 +263,34 @@ export default function SwarmExtruder() {
               { src: img('/images/pdf-extruder-breakdown/page-04.jpg'), alt: 'Extruder project breakdown, page 4' },
             ]}
           />
+        </div>
+      </ScrollReveal>
+
+      <ScrollReveal>
+        <div id="asme-report" className="project-section">
+          <div className="doc-card">
+            <a href={img('/documents/ASME-FIRE-Report-Swarm-Extruder.pdf')} target="_blank" rel="noopener noreferrer" className="doc-card-preview">
+              <img src={img('/images/asme-fire-report-preview.webp')} alt="ASME FIRE report results page: the extruder system assembled on the UR5e arm" loading="lazy" />
+            </a>
+            <div className="doc-card-body">
+              <h3 className="doc-card-title">ASME FIRE Report</h3>
+              <span className="doc-card-tag">Research report, PDF, 20 pages</span>
+              <p className="doc-card-desc">
+                Our full write-up, "Additive Manufacturing with Robotics to Enable Swarm Applications":
+                customer and engineering requirements, the tool holder, toolhead, cooling and filament
+                routing designs, wiring, the successful line print, and the analysis of the toolhead
+                failure after a collision.
+              </p>
+              <div className="doc-card-actions">
+                <a href={img('/documents/ASME-FIRE-Report-Swarm-Extruder.pdf')} target="_blank" rel="noopener noreferrer" className="btn btn-primary">
+                  View report
+                </a>
+                <a href={img('/documents/ASME-FIRE-Report-Swarm-Extruder.pdf')} download="ASME-FIRE-Report-Swarm-Extruder.pdf" className="btn btn-outline">
+                  <FiDownload size={14} aria-hidden="true" /> Download
+                </a>
+              </div>
+            </div>
+          </div>
         </div>
       </ScrollReveal>
 
