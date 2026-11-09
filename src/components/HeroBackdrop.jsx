@@ -5,7 +5,7 @@ import img from '../img'
 export const slides = [
   { src: '/images/home/hero-185.webp', position: 'center 58%', label: 'Longhorn Baja Racing, car 185', to: '/baja' },
   { src: '/images/home/bg-wheel.webp', label: 'NASA spring steel wheel prototype', to: '/industry/spring-steel-wheel' },
-  { src: '/images/home/bg-rear-hub.webp', label: 'Baja rear hub, machined', to: '/baja/rear-hubs' },
+  { src: '/images/home/bg-rear-hub.webp', label: 'Laminated rear hub, machined', to: '/baja/rear-hubs' },
   { src: '/images/home/bg-candy-sorter.webp', label: 'Automated candy sorter, SPARX', to: '/industry/candy-sorter' },
   { src: '/images/home/bg-trailing-arms.webp', position: 'center 65%', label: 'Baja rear trailing arms', to: '/baja/control-arms' },
   { src: '/images/home/bg-brownout.webp', label: 'Brownout, FRC 2024', to: '/team/frc-robots/brownout' },

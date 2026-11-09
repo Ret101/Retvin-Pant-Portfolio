@@ -75,9 +75,9 @@ const subprojects25 = [
     to: '/baja/control-arms',
   },
   {
-    image: img('/images/rear hub machined image.jpg'),
-    title: 'Rear Hubs',
-    description: 'Drive torque transmission with laminated spline manufacturing, eliminating broach and wire EDM constraints while meeting the axle interface and unsprung mass targets.',
+    image: img('/images/Hub stackup image.jpeg'),
+    title: 'Rear Hub',
+    description: 'Modified OEM hubs that ran the full competition with no deflection under braking, built as the fallback when a custom laminated-spline hub ran past the schedule.',
     to: '/baja/rear-hubs',
   },
   {

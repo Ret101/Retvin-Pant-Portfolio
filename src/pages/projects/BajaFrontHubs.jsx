@@ -226,7 +226,7 @@ export default function BajaFrontHubs() {
           <ul className="contrib-grid">
             <li><Link to="/baja/master-sketch">Vehicle Master Sketch</Link>: the hardpoints that fix where the ball joints, and so the upright and hub, sit</li>
             <li><Link to="/baja/control-arms">Control Arms</Link>: the upper and lower arms that carry the upright's loads into the chassis</li>
-            <li><Link to="/baja/rear-hubs">Rear Hubs</Link>: the rear corner, which also has to transmit drive torque from the axle</li>
+            <li><Link to="/baja/rear-hubs">Rear Hub</Link>: the rear corner, which also has to transmit drive torque from the axle</li>
           </ul>
         </div>
       </ScrollReveal>

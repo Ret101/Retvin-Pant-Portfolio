@@ -6,16 +6,19 @@ import StickyTOC from '../../components/StickyTOC'
 import img from '../../img'
 
 const toc = [
-  { id: 'engineering-challenge', label: 'Engineering Challenge'      },
-  { id: 'my-contribution',       label: 'My Contribution'            },
-  { id: 'cad',                   label: 'Rear Hub CAD'               },
-  { id: 'sketches',              label: 'Rear Hub Sketches'          },
-  { id: 'design-constraints',    label: 'Design Constraints'         },
-  { id: 'hub-design',            label: 'Hub Design'                 },
-  { id: 'manufacturing',         label: 'Manufacturing'              },
-  { id: 'fea',                   label: 'FEA Results'                },
-  { id: 'interim-solution',      label: 'Interim OEM Hub'            },
-  { id: 'lessons-learned',       label: 'Result & Lessons'           },
+  { id: 'engineering-challenge', label: 'Engineering Challenge' },
+  { id: 'two-versions',          label: 'Two Versions'          },
+  { id: 'my-contribution',       label: 'My Contribution'       },
+  { id: 'interim-solution',      label: 'Modified OEM Hub'      },
+  { id: 'lessons-learned',       label: 'Result & Lessons'      },
+  { id: 'laminated-hub',         label: 'Laminated Hub'         },
+  { id: 'sketches',              label: 'Sketches'              },
+  { id: 'cad',                   label: 'CAD'                   },
+  { id: 'design-constraints',    label: 'Design Constraints'    },
+  { id: 'hub-design',            label: 'Hub Design'            },
+  { id: 'manufacturing',         label: 'Manufacturing'         },
+  { id: 'fea',                   label: 'Laminated Hub FEA'     },
+  { id: 'whats-next',            label: "What's Next"           },
 ]
 
 export default function BajaRearHubs() {
@@ -26,9 +29,10 @@ export default function BajaRearHubs() {
       backTo="/baja"
       backLabel="Longhorn Baja"
       tag="SAE Baja · Hub Design & Manufacturing"
-      title="Rear Hubs: Laminated Manufacturing"
-      heroImage={img('/images/rear hub machined image.jpg')}
-      software={['SolidWorks CAD', 'SolidWorks FEA', 'DFM', 'CNC Mill']}
+      title="Rear Hub"
+      heroImage={img('/images/Hub stackup image.jpeg')}
+      heroStyle={{ backgroundPosition: 'center 55%' }}
+      software={['SolidWorks CAD', 'Ansys Mechanical', 'DFM', 'CNC Mill']}
       roles={['Mechanical Designer', 'Vehicle Dynamics Lead']}
     >
       <ScrollReveal>
@@ -45,8 +49,32 @@ export default function BajaRearHubs() {
           <p>
             The reason for going custom at all: the off-the-shelf OEM Grizzly 660 hubs that match our
             axle spline have no brake rotor mounting built in. The rear brakes needed somewhere to bolt
-            a rotor, so the hub had to be either designed from scratch or modified to carry one.
+            a rotor, so the hub had to be either designed from scratch or modified to carry one. I did both.
           </p>
+        </div>
+      </ScrollReveal>
+
+      <ScrollReveal>
+        <div id="two-versions" className="project-section">
+          <h3>Two Versions of the Hub</h3>
+          <div className="decision-grid">
+            <div className="decision-card">
+              <div className="decision-card-title">The hub on the car: modified OEM</div>
+              <p className="decision-card-body">
+                A Grizzly 660 hub with welded steel standoffs and a bolted adapter plate to carry the
+                brake rotor. Built as the fallback, it ran the entire competition with no deflection
+                under braking.
+              </p>
+            </div>
+            <div className="decision-card">
+              <div className="decision-card-title">The original design: laminated hub</div>
+              <p className="decision-card-body">
+                The custom hub I designed first, with a spline built from a stack of laser-cut plates.
+                The body was machined, but the spline plates were never made before the build
+                schedule ran out. It proved the multi-body concept and is being adapted for future cars.
+              </p>
+            </div>
+          </div>
         </div>
       </ScrollReveal>
 
@@ -54,34 +82,133 @@ export default function BajaRearHubs() {
         <div id="my-contribution" className="project-section">
           <h3>My Contribution</h3>
           <ul className="contrib-grid">
-            <li>Designed the custom rear hub around a laminated spline stack, avoiding broaching and wire EDM</li>
+            <li>When the laminated hub's timeline ran past the build schedule, developed the modified OEM hub that the car ran at competition</li>
+            <li>Checked the modified hub in Ansys under the combined jump and steering load case</li>
+            <li>Designed the original custom hub around a laminated spline stack, avoiding broaching and wire EDM</li>
             <li>Specified the 6061-T6 hub body, laser-cut spline plates, and ceramic hard anodize, and compensated the spline teeth for laser kerf</li>
             <li>Ran structural FEA in Ansys Mechanical across six combined load cases plus a separate spline plate analysis</li>
-            <li>When the laminated hub's timeline ran past the build schedule, developed the interim modified OEM hub that the car ran at competition</li>
           </ul>
         </div>
       </ScrollReveal>
 
       <ScrollReveal>
-        <div id="cad" className="project-section">
-          <h3>Rear Hub CAD</h3>
+        <div className="section-marker">
+          <div className="section-marker-inner">The Hub That Raced</div>
+        </div>
+      </ScrollReveal>
+
+      <ScrollReveal>
+        <div id="interim-solution" className="project-section">
+          <h3>Modified OEM Hub</h3>
+          <p>
+            The car ran modified OEM Grizzly 660 hubs. They started as the fallback: the stock hub
+            matches our axle spline but has nowhere to mount a brake rotor, so I added that interface
+            when the laminated hub, described below, could not be finished in time.
+          </p>
+          <ul style={{ color: 'var(--text-secondary)', paddingLeft: 20, lineHeight: 2, fontSize: 'var(--step-body)', marginTop: 20 }}>
+            <li><strong style={{ color: 'var(--text-primary)' }}>Standoffs:</strong> standoff holes were drilled into the OEM hub flange and machined steel standoffs were welded to the hub. The hub's factory coating was ground off first to give a clean weld surface.</li>
+            <li><strong style={{ color: 'var(--text-primary)' }}>Adapter plate:</strong> M6 countersunk bolts pass through the standoffs to attach an adapter plate, and the brake rotor mounts to that plate, adding the rotor interface the stock hub was missing.</li>
+            <li><strong style={{ color: 'var(--text-primary)' }}>Custom rotors:</strong> the rotors were made custom so their mounting holes landed where enough material remained on the hub after drilling, keeping adequate edge distance around every new hole.</li>
+          </ul>
+          <p style={{ color: 'var(--text-secondary)', fontSize: 'var(--step-body)', lineHeight: 1.75, marginTop: 16 }}>
+            The final stackup: modified OEM hub, machined steel standoffs, and brake rotor assembled on the rear upright.
+          </p>
           <img
-            src={img('/images/Rear Hub.png')}
-            alt="Rear hub design"
+            src={img('/images/Hub stackup image.jpeg')}
+            alt="Final rear hub stackup: upright, brake rotor, machined steel standoffs, and modified OEM Grizzly 660 hub"
             className="project-image-single"
             loading="lazy"
           />
+          <p style={{ marginTop: 24 }}>
+            I checked the modified hub in Ansys under the combined jump and steering load case. The
+            minimum safety factor is 3.23, next to a bolt hole on the upper lobe, and the maximum
+            deformation is 0.026 mm.
+          </p>
+          <div className="project-image-grid">
+            <img src={img('/images/rear-ots-hub-fea-safety.webp')} alt="Ansys safety factor plot of the modified OEM rear hub, jump plus steering load case, minimum 3.23" loading="lazy" />
+            <img src={img('/images/rear-ots-hub-fea-deformation.webp')} alt="Ansys total deformation plot of the modified OEM rear hub, jump plus steering load case, maximum 0.026 mm" loading="lazy" />
+          </div>
+        </div>
+      </ScrollReveal>
+
+      <ScrollReveal>
+        <div id="lessons-learned" className="project-section">
+          <h3>Competition Result &amp; Lessons Learned</h3>
+          <div className="lessons-grid">
+            <div className="lesson-card lesson-card-key">
+              <h4 className="lesson-card-title">Survived the Full Competition, No Deflection Under Braking</h4>
+              <span className="lesson-card-tag">Competition Result</span>
+              <p>
+                The modified OEM hubs, with welded steel standoffs and the bolted adapter plate, ran the
+                entire competition with no deflection under braking loads.
+              </p>
+            </div>
+            <div className="lesson-card">
+              <h4 className="lesson-card-title">Shorter Standoffs</h4>
+              <span className="lesson-card-tag">Next Year</span>
+              <p>
+                Braking torque reacts through the rotor at the end of the standoffs. Shortening them reduces
+                the moment arm, and with it the bending moment the standoff welds have to carry.
+              </p>
+            </div>
+            <div className="lesson-card">
+              <h4 className="lesson-card-title">Surface Prep Before Welding</h4>
+              <span className="lesson-card-tag">Manufacturing</span>
+              <p>
+                The hub's factory coating had to be ground off before welding the standoffs to get a clean,
+                sound weld surface.
+              </p>
+            </div>
+            <div className="lesson-card">
+              <h4 className="lesson-card-title">Plan an Interim Path for Long-Lead Parts</h4>
+              <span className="lesson-card-tag">Schedule</span>
+              <p>
+                The laminated hub's manufacturing timeline ran past the build schedule. Having a modified
+                OEM fallback kept the car on track for competition.
+              </p>
+            </div>
+          </div>
+        </div>
+      </ScrollReveal>
+
+      <ScrollReveal>
+        <div id="laminated-hub" className="section-marker">
+          <div className="section-marker-inner">The Original Design: Laminated Hub</div>
+        </div>
+      </ScrollReveal>
+
+      <ScrollReveal>
+        <div className="project-section">
+          <p>
+            This was the plan before the fallback existed. The laminated hub was designed to be the
+            rear hub for the car, built around a spline the team could make without broaching or
+            wire EDM. The hub body was machined, but the timeline ran past the time the team had
+            before the car needed to run and the spline plates were never made, so the modified OEM
+            hub above is what went to competition.
+          </p>
         </div>
       </ScrollReveal>
 
       <ScrollReveal>
         <div id="sketches" className="project-section">
           <DocSlider
-            title="Rear Hub Sketches"
+            title="Laminated Hub Sketches"
             images={[
-              { src: img('/images/pdf-rear-hub-sketches/page-01.jpg'), alt: 'Rear hub sketches, page 1' },
-              { src: img('/images/pdf-rear-hub-sketches/page-02.jpg'), alt: 'Rear hub sketches, page 2' },
+              { src: img('/images/pdf-rear-hub-sketches/page-01.jpg'), alt: 'Laminated hub sketches, page 1' },
+              { src: img('/images/pdf-rear-hub-sketches/page-02.jpg'), alt: 'Laminated hub sketches, page 2' },
             ]}
+          />
+        </div>
+      </ScrollReveal>
+
+      <ScrollReveal>
+        <div id="cad" className="project-section">
+          <h3>Laminated Hub CAD</h3>
+          <img
+            src={img('/images/Rear Hub.png')}
+            alt="Laminated rear hub CAD"
+            className="project-image-single"
+            loading="lazy"
           />
         </div>
       </ScrollReveal>
@@ -195,18 +322,18 @@ export default function BajaRearHubs() {
           </div>
 
           <div className="project-image-grid">
-            <img src={img('/images/rear hub manufacturing.jpg')} alt="Rear hub manufacturing process" loading="lazy" />
-            <img src={img('/images/rear hub machined image.jpg')} alt="Rear hub machined part" loading="lazy" />
+            <img src={img('/images/rear hub manufacturing.jpg')} alt="Machining the laminated hub body" loading="lazy" />
+            <img src={img('/images/rear hub machined image.jpg')} alt="Machined laminated hub body" loading="lazy" />
           </div>
         </div>
       </ScrollReveal>
 
       <ScrollReveal>
         <div id="fea" className="project-section">
-          <h3>FEA Results</h3>
+          <h3>Laminated Hub FEA</h3>
           <p style={{ color: 'var(--text-secondary)', fontSize: 'var(--step-body)', lineHeight: 1.75, marginBottom: 24 }}>
             I ran structural analysis in Ansys Mechanical across six load combinations covering the
-            worst-case forces the rear hub sees in competition. Boundary conditions included a fixed
+            worst-case forces the rear hub would see in competition. Boundary conditions included a fixed
             bearing bore, bolt connections at the brake rotor mounting face (4-bolt pattern), and
             bolt connections at the wheel mounting flange reacting drive and lateral loads. A
             separate FEA was run on the spline plate stack to check stress and deformation under
@@ -252,79 +379,19 @@ export default function BajaRearHubs() {
       </ScrollReveal>
 
       <ScrollReveal>
-        <div id="interim-solution" className="project-section">
-          <h3>Interim Solution: Modified OEM Hub</h3>
-          <div style={{ background: 'var(--accent-dim)', border: '1px solid var(--accent)', borderRadius: 'var(--radius-sm)', padding: '18px 22px' }}>
-            <div style={{ fontFamily: 'inherit', fontWeight: 700, fontSize: 'var(--step-small)', color: 'var(--accent-light)', marginBottom: 8, letterSpacing: 0, textTransform: 'none' }}>Note</div>
-            <p style={{ margin: 0, fontSize: 'var(--step-body)', color: 'var(--text-secondary)', lineHeight: 1.7 }}>
-              The full manufacturing timeline for the laminated hub ran past the time the team had
-              before the car needed to run. To keep the build moving, I developed a modified OEM
-              Grizzly 660 hub to run in the meantime.
-            </p>
-          </div>
-          <ul style={{ color: 'var(--text-secondary)', paddingLeft: 20, lineHeight: 2, fontSize: 'var(--step-body)', marginTop: 20 }}>
-            <li><strong style={{ color: 'var(--text-primary)' }}>Standoffs:</strong> standoff holes were drilled into the OEM hub flange and machined steel standoffs were welded to the hub. The hub's factory coating was ground off first to give a clean weld surface.</li>
-            <li><strong style={{ color: 'var(--text-primary)' }}>Adapter plate:</strong> M6 countersunk bolts pass through the standoffs to attach an adapter plate, and the brake rotor mounts to that plate, adding the rotor interface the stock hub was missing.</li>
-            <li><strong style={{ color: 'var(--text-primary)' }}>Custom rotors:</strong> the rotors were made custom so their mounting holes landed where enough material remained on the hub after drilling, keeping adequate edge distance around every new hole.</li>
-          </ul>
-          <p style={{ color: 'var(--text-secondary)', fontSize: 'var(--step-body)', lineHeight: 1.75, marginTop: 16 }}>
-            The final stackup: modified OEM hub, machined steel standoffs, and brake rotor assembled on the rear upright.
+        <div id="whats-next" className="project-section">
+          <h3>What's Next for the Multi-Body Hub</h3>
+          <p>
+            The laminated hub never ran, but it wasn't wasted. It proved the concept of a multi-body
+            hub, with a machined body carrying a separate spline element, and that idea made way for
+            future iterations.
           </p>
-          <img
-            src={img('/images/Hub stackup image.jpeg')}
-            alt="Final rear hub stackup: upright, brake rotor, machined steel standoffs, and modified OEM Grizzly 660 hub"
-            className="project-image-single"
-            loading="lazy"
-          />
-          <p style={{ marginTop: 24 }}>
-            I checked the modified hub in Ansys under the combined jump and steering load case. The
-            minimum safety factor is 3.23, next to a bolt hole on the upper lobe, and the maximum
-            deformation is 0.026 mm.
+          <p>
+            The design is being adapted for future years around a wire EDM spline insert, which
+            potential sponsorships could make possible. Wire EDM was out of reach for this car, and
+            an insert keeps the same split: a body the team can machine, and one precise spline part
+            made by someone who has the right process.
           </p>
-          <div className="project-image-grid">
-            <img src={img('/images/rear-ots-hub-fea-safety.webp')} alt="Ansys safety factor plot of the modified OEM rear hub, jump plus steering load case, minimum 3.23" loading="lazy" />
-            <img src={img('/images/rear-ots-hub-fea-deformation.webp')} alt="Ansys total deformation plot of the modified OEM rear hub, jump plus steering load case, maximum 0.026 mm" loading="lazy" />
-          </div>
-        </div>
-      </ScrollReveal>
-
-      <ScrollReveal>
-        <div id="lessons-learned" className="project-section">
-          <h3>Competition Result &amp; Lessons Learned</h3>
-          <div className="lessons-grid">
-            <div className="lesson-card lesson-card-key">
-              <h4 className="lesson-card-title">Survived the Full Competition, No Deflection Under Braking</h4>
-              <span className="lesson-card-tag">Competition Result</span>
-              <p>
-                The modified OEM hubs, with welded steel standoffs and the bolted adapter plate, ran the
-                entire competition with no deflection under braking loads.
-              </p>
-            </div>
-            <div className="lesson-card">
-              <h4 className="lesson-card-title">Shorter Standoffs</h4>
-              <span className="lesson-card-tag">Next Year</span>
-              <p>
-                Braking torque reacts through the rotor at the end of the standoffs. Shortening them reduces
-                the moment arm, and with it the bending moment the standoff welds have to carry.
-              </p>
-            </div>
-            <div className="lesson-card">
-              <h4 className="lesson-card-title">Surface Prep Before Welding</h4>
-              <span className="lesson-card-tag">Manufacturing</span>
-              <p>
-                The hub's factory coating had to be ground off before welding the standoffs to get a clean,
-                sound weld surface.
-              </p>
-            </div>
-            <div className="lesson-card">
-              <h4 className="lesson-card-title">Plan an Interim Path for Long-Lead Parts</h4>
-              <span className="lesson-card-tag">Schedule</span>
-              <p>
-                The laminated hub's manufacturing timeline ran past the build schedule. Having a modified
-                OEM fallback kept the car on track for competition.
-              </p>
-            </div>
-          </div>
         </div>
       </ScrollReveal>
 
@@ -332,10 +399,12 @@ export default function BajaRearHubs() {
         <Gallery
           title="Rear Hub Gallery"
           images={[
-            { src: img('/images/Rear Hub.png'), alt: 'Rear hub CAD' },
-            { src: img('/images/rear hub machined image.jpg'), alt: 'Rear hub machined part' },
-            { src: img('/images/rear hub manufacturing.jpg'), alt: 'Rear hub manufacturing' },
-            { src: img('/images/Hub stackup image.jpeg'), alt: 'Final rear hub and rotor stackup' },
+            { src: img('/images/Hub stackup image.jpeg'), alt: 'Modified OEM rear hub and rotor stackup, as raced' },
+            { src: img('/images/rear-ots-hub-fea-safety.webp'), alt: 'Ansys safety factor of the modified OEM hub' },
+            { src: img('/images/rear-ots-hub-fea-deformation.webp'), alt: 'Ansys deformation of the modified OEM hub' },
+            { src: img('/images/Rear Hub.png'), alt: 'Laminated hub CAD' },
+            { src: img('/images/rear hub machined image.jpg'), alt: 'Machined laminated hub body' },
+            { src: img('/images/rear hub manufacturing.jpg'), alt: 'Machining the laminated hub body' },
           ]}
         />
       </ScrollReveal>

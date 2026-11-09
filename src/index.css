@@ -1952,3 +1952,22 @@ img.zoomable:active { transform: scale(0.99); }
 @media (prefers-reduced-motion: no-preference) {
   .code-block[open] pre { animation: rise 260ms var(--ease-out) both; }
 }
+
+
+
+/* Control arms: build photos, one panel per set of arms */
+.build-group { background: var(--board-2); border-radius: var(--r-tile); padding: clamp(18px, 2.4vw, 28px); margin-top: 14px; }
+.project-section .build-group h4 { font-size: var(--step-lead); font-weight: 800; letter-spacing: -0.03em; margin: 0 0 4px; }
+.project-section .build-group p { color: var(--ink-soft); font-size: var(--step-small); margin: 0; }
+.build-grid { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 12px; margin-top: 16px; }
+.build-grid figure { margin: 0; grid-column: span 2; }
+.build-grid figure.is-wide { grid-column: span 3; }
+.build-grid img { width: 100%; height: auto; aspect-ratio: 3 / 4; object-fit: cover; border-radius: var(--r-media); background: var(--board-3); }
+.build-grid figure.is-wide img { aspect-ratio: 4 / 3; }
+.build-grid figcaption { margin-top: 8px; font-size: var(--step-small); line-height: 1.4; color: var(--ink-soft); }
+@media (max-width: 640px) {
+  .build-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .build-grid figure, .build-grid figure.is-wide { grid-column: span 1; }
+  .build-grid figure:last-child:nth-child(odd) { grid-column: span 2; }
+  .build-grid figure.is-wide img { aspect-ratio: 3 / 4; }
+}

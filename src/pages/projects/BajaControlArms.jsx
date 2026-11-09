@@ -14,6 +14,7 @@ const toc = [
   { id: 'cad',                   label: 'Control Arm CAD'             },
   { id: 'load-cases',            label: 'Load Cases'                  },
   { id: 'forces-analysis',       label: 'Forces Analysis'             },
+  { id: 'manufacturing',         label: 'Manufacturing'               },
   { id: 'final-build',           label: 'Final Build'                 },
   { id: 'lessons-learned',       label: 'Lessons Learned'             },
   { id: 'steering',              label: 'Steering Check'              },
@@ -37,6 +38,30 @@ const specGroups = [
       ['Front Spring Rate', '125 lb/in'],
       ['Rear Spring Rate', '210 lb/in'],
       ['Helper Springs', '7 lb/in'],
+    ],
+  },
+]
+
+const buildDir = '/images/2025-2026 Control Arm Manufacturing Pics/'
+const buildGroups = [
+  {
+    title: 'Rear Trailing Arms',
+    note: 'From tube trusses on the welding table to the finished, coated arms.',
+    photos: [
+      { file: 'trailing-truss-1-640.webp',    caption: 'Trusses laid out on the welding table' },
+      { file: 'trailing-truss-2-640.webp',    caption: 'Tube truss taking shape' },
+      { file: 'trailing-connection-640.webp', caption: 'Welded arm end with its spherical bearing' },
+      { file: 'trailing-final-1-640.webp',    caption: 'Finished arms with their LBR plates', wide: true },
+      { file: 'trailing-final-2-640.webp',    caption: 'The arms after coating', wide: true },
+    ],
+  },
+  {
+    title: 'Front Control Arms',
+    note: 'The welded upper and lower arms, then both fitted to the chassis.',
+    photos: [
+      { file: 'lower-control-arm-640.webp',  caption: 'Lower arm, welded' },
+      { file: 'upper-control-arms-640.webp', caption: 'The pair of upper arms' },
+      { file: 'arms-installed-640.webp',     caption: 'Upper and lower arms on the chassis' },
     ],
   },
 ]
@@ -249,6 +274,30 @@ export default function BajaControlArms() {
               { src: img('/images/pdf-control-arm-forces/page-02.jpg'), alt: 'Control arm forces analysis, page 2' },
             ]}
           />
+        </div>
+      </ScrollReveal>
+
+      <ScrollReveal>
+        <div id="manufacturing" className="project-section">
+          <h3>Manufacturing</h3>
+          <p>
+            The arms were fabricated in-house for the 2025&ndash;2026 car. These photos follow them
+            from tube trusses on the welding table to finished arms on the chassis.
+          </p>
+          {buildGroups.map(g => (
+            <div key={g.title} className="build-group">
+              <h4>{g.title}</h4>
+              <p>{g.note}</p>
+              <div className="build-grid">
+                {g.photos.map(p => (
+                  <figure key={p.file} className={p.wide ? 'is-wide' : undefined}>
+                    <img src={img(buildDir + p.file)} alt={`${g.title}: ${p.caption}`} width="640" height="853" loading="lazy" />
+                    <figcaption>{p.caption}</figcaption>
+                  </figure>
+                ))}
+              </div>
+            </div>
+          ))}
         </div>
       </ScrollReveal>
 
